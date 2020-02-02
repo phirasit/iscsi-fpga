@@ -1,0 +1,2 @@
+   text	   data	    bss	    dec	    hex	filename
+ 117472	   3432	5364000	5484904	 53b168	test_loopback_server.elf

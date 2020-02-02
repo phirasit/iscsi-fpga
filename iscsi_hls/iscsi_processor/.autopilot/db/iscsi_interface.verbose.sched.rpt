@@ -1,0 +1,152 @@
+
+
+================================================================
+== Vivado HLS Report for 'iscsi_interface'
+================================================================
+* Date:           Fri Jan 31 15:13:50 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        iscsi_hls
+* Solution:       iscsi_processor
+* Product family: zynq
+* Target device:  xc7z020-clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     0.000|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1  |    ?|    ?|         2|          -|          -|  inf |    no    |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 0
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 3
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 2 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 0.00>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %tcp_in_V_data_V), !map !31"   --->   Operation 4 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i4* %tcp_in_V_keep_V), !map !37"   --->   Operation 5 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i4* %tcp_in_V_strb_V), !map !41"   --->   Operation 6 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %tcp_in_V_user_V), !map !45"   --->   Operation 7 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %tcp_in_V_last_V), !map !49"   --->   Operation 8 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %tcp_in_V_id_V), !map !53"   --->   Operation 9 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %tcp_in_V_dest_V), !map !57"   --->   Operation 10 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %tcp_out_V_data_V), !map !61"   --->   Operation 11 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i4* %tcp_out_V_keep_V), !map !65"   --->   Operation 12 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i4* %tcp_out_V_strb_V), !map !69"   --->   Operation 13 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %tcp_out_V_user_V), !map !73"   --->   Operation 14 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %tcp_out_V_last_V), !map !77"   --->   Operation 15 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %tcp_out_V_id_V), !map !81"   --->   Operation 16 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %tcp_out_V_dest_V), !map !85"   --->   Operation 17 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([16 x i8]* @iscsi_interface_str) nounwind"   --->   Operation 18 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %tcp_in_V_data_V, i4* %tcp_in_V_keep_V, i4* %tcp_in_V_strb_V, i1* %tcp_in_V_user_V, i1* %tcp_in_V_last_V, i1* %tcp_in_V_id_V, i1* %tcp_in_V_dest_V, [5 x i8]* @p_str, i32 1, i32 1, [5 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind" [iscsi_hls/iscsi_processor/src/iscsi_top_level.cpp:19]   --->   Operation 19 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %tcp_out_V_data_V, i4* %tcp_out_V_keep_V, i4* %tcp_out_V_strb_V, i1* %tcp_out_V_user_V, i1* %tcp_out_V_last_V, i1* %tcp_out_V_id_V, i1* %tcp_out_V_dest_V, [5 x i8]* @p_str, i32 1, i32 1, [5 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind" [iscsi_hls/iscsi_processor/src/iscsi_top_level.cpp:20]   --->   Operation 20 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 2, i32 1, i32 0, [1 x i8]* @p_str2) nounwind" [iscsi_hls/iscsi_processor/src/iscsi_top_level.cpp:21]   --->   Operation 21 'specpipeline' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "br label %1" [iscsi_hls/iscsi_processor/src/iscsi_top_level.cpp:24]   --->   Operation 22 'br' <Predicate = true> <Delay = 0.00>
+
+State 2 <SV = 1> <Delay = 0.00>
+ST_2 : Operation 23 [1/1] (0.00ns)   --->   "%empty = call { i32, i4, i4, i1, i1, i1, i1 } @_ssdm_op_Read.axis.volatile.i32P.i4P.i4P.i1P.i1P.i1P.i1P(i32* %tcp_in_V_data_V, i4* %tcp_in_V_keep_V, i4* %tcp_in_V_strb_V, i1* %tcp_in_V_user_V, i1* %tcp_in_V_last_V, i1* %tcp_in_V_id_V, i1* %tcp_in_V_dest_V)" [iscsi_hls/iscsi_processor/src/iscsi_top_level.cpp:26]   --->   Operation 23 'read' 'empty' <Predicate = true> <Delay = 0.00> <Core = "AXI4Stream">   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_2 : Operation 24 [1/1] (0.00ns)   --->   "%tmp_data_V = extractvalue { i32, i4, i4, i1, i1, i1, i1 } %empty, 0" [iscsi_hls/iscsi_processor/src/iscsi_top_level.cpp:26]   --->   Operation 24 'extractvalue' 'tmp_data_V' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 25 [1/1] (0.00ns)   --->   "%tmp_keep_V = extractvalue { i32, i4, i4, i1, i1, i1, i1 } %empty, 1" [iscsi_hls/iscsi_processor/src/iscsi_top_level.cpp:26]   --->   Operation 25 'extractvalue' 'tmp_keep_V' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 26 [1/1] (0.00ns)   --->   "%tmp_strb_V = extractvalue { i32, i4, i4, i1, i1, i1, i1 } %empty, 2" [iscsi_hls/iscsi_processor/src/iscsi_top_level.cpp:26]   --->   Operation 26 'extractvalue' 'tmp_strb_V' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 27 [1/1] (0.00ns)   --->   "%tmp_user_V = extractvalue { i32, i4, i4, i1, i1, i1, i1 } %empty, 3" [iscsi_hls/iscsi_processor/src/iscsi_top_level.cpp:26]   --->   Operation 27 'extractvalue' 'tmp_user_V' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 28 [1/1] (0.00ns)   --->   "%tmp_last_V = extractvalue { i32, i4, i4, i1, i1, i1, i1 } %empty, 4" [iscsi_hls/iscsi_processor/src/iscsi_top_level.cpp:26]   --->   Operation 28 'extractvalue' 'tmp_last_V' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 29 [1/1] (0.00ns)   --->   "%tmp_id_V = extractvalue { i32, i4, i4, i1, i1, i1, i1 } %empty, 5" [iscsi_hls/iscsi_processor/src/iscsi_top_level.cpp:26]   --->   Operation 29 'extractvalue' 'tmp_id_V' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 30 [1/1] (0.00ns)   --->   "%tmp_dest_V = extractvalue { i32, i4, i4, i1, i1, i1, i1 } %empty, 6" [iscsi_hls/iscsi_processor/src/iscsi_top_level.cpp:26]   --->   Operation 30 'extractvalue' 'tmp_dest_V' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 31 [2/2] (0.00ns)   --->   "call void @_ssdm_op_Write.axis.volatile.i32P.i4P.i4P.i1P.i1P.i1P.i1P(i32* %tcp_out_V_data_V, i4* %tcp_out_V_keep_V, i4* %tcp_out_V_strb_V, i1* %tcp_out_V_user_V, i1* %tcp_out_V_last_V, i1* %tcp_out_V_id_V, i1* %tcp_out_V_dest_V, i32 %tmp_data_V, i4 %tmp_keep_V, i4 %tmp_strb_V, i1 %tmp_user_V, i1 %tmp_last_V, i1 %tmp_id_V, i1 %tmp_dest_V)" [iscsi_hls/iscsi_processor/src/iscsi_top_level.cpp:26]   --->   Operation 31 'write' <Predicate = true> <Delay = 0.00> <Core = "AXI4Stream">   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+
+State 3 <SV = 2> <Delay = 0.00>
+ST_3 : Operation 32 [1/2] (0.00ns)   --->   "call void @_ssdm_op_Write.axis.volatile.i32P.i4P.i4P.i1P.i1P.i1P.i1P(i32* %tcp_out_V_data_V, i4* %tcp_out_V_keep_V, i4* %tcp_out_V_strb_V, i1* %tcp_out_V_user_V, i1* %tcp_out_V_last_V, i1* %tcp_out_V_id_V, i1* %tcp_out_V_dest_V, i32 %tmp_data_V, i4 %tmp_keep_V, i4 %tmp_strb_V, i1 %tmp_user_V, i1 %tmp_last_V, i1 %tmp_id_V, i1 %tmp_dest_V)" [iscsi_hls/iscsi_processor/src/iscsi_top_level.cpp:26]   --->   Operation 32 'write' <Predicate = true> <Delay = 0.00> <Core = "AXI4Stream">   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_3 : Operation 33 [1/1] (0.00ns)   --->   "br label %1" [iscsi_hls/iscsi_processor/src/iscsi_top_level.cpp:27]   --->   Operation 33 'br' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0ns
+The critical path consists of the following:
+
+ <State 2>: 0ns
+The critical path consists of the following:
+
+ <State 3>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

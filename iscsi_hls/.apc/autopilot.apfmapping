@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="iscsi_top_level.cpp" path="/home/phirasit/project/san-adapter/iscsi_hls/iscsi_processor/src/iscsi_top_level.cpp"/>
+    <originFiles name="data_type.hpp" path="/home/phirasit/project/san-adapter/iscsi_hls/iscsi_processor/src/data_type.hpp"/>
+  </source>
+  <testbench/>
+</autopilotfilemapping:AutoPilotFileMapping>

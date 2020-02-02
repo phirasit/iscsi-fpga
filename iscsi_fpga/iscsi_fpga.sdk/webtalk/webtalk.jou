@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
+# 
+# Start of session at: Thu Jan 30 18:24:18 2020
+# Process ID: 28638
+# Current directory: /home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.sdk/webtalk
+# Command line: wbtcv -mode batch -source sdk_webtalk.tcl
+# Log file: /home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.sdk/webtalk/webtalk.log
+# Journal file: /home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.sdk/webtalk/webtalk.jou
+#-----------------------------------------------------------
+source sdk_webtalk.tcl

@@ -1,0 +1,182 @@
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
+| Date         : Fri Jan 31 15:21:08 2020
+| Host         : phirasit-macbook running 64-bit Ubuntu 18.04.3 LTS
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_iscsi_interface_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of design_1_iscsi_interface_0_0 (xilinx.com:hls:iscsi_interface:1.0) from (Rev. 2001311208) to (Rev. 2001311517)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Interface Information
+------------------------
+
+Detected external interface differences while upgrading 'design_1_iscsi_interface_0_0'.
+
+
+-Upgrade has removed interface 'tcp_in_V_V'
+
+-Upgrade has removed interface 'tcp_out_V_V'
+
+-Upgrade has added interface 'tcp_in' (xilinx.com:interface:axis:1.0)
+
+-Upgrade has added interface 'tcp_out' (xilinx.com:interface:axis:1.0)
+
+
+3. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'design_1_iscsi_interface_0_0'. These changes may impact your design.
+
+
+-Upgrade has removed port 'tcp_in_V_V_TDATA'
+
+-Upgrade has removed port 'tcp_in_V_V_TREADY'
+
+-Upgrade has removed port 'tcp_in_V_V_TVALID'
+
+-Upgrade has removed port 'tcp_out_V_V_TDATA'
+
+-Upgrade has removed port 'tcp_out_V_V_TREADY'
+
+-Upgrade has removed port 'tcp_out_V_V_TVALID'
+
+-Upgrade has added port 'tcp_in_TDATA'
+
+-Upgrade has added port 'tcp_in_TDEST'
+
+-Upgrade has added port 'tcp_in_TID'
+
+-Upgrade has added port 'tcp_in_TKEEP'
+
+-Upgrade has added port 'tcp_in_TLAST'
+
+-Upgrade has added port 'tcp_in_TREADY'
+
+-Upgrade has added port 'tcp_in_TSTRB'
+
+-Upgrade has added port 'tcp_in_TUSER'
+
+-Upgrade has added port 'tcp_in_TVALID'
+
+-Upgrade has added port 'tcp_out_TDATA'
+
+-Upgrade has added port 'tcp_out_TDEST'
+
+-Upgrade has added port 'tcp_out_TID'
+
+-Upgrade has added port 'tcp_out_TKEEP'
+
+-Upgrade has added port 'tcp_out_TLAST'
+
+-Upgrade has added port 'tcp_out_TREADY'
+
+-Upgrade has added port 'tcp_out_TSTRB'
+
+-Upgrade has added port 'tcp_out_TUSER'
+
+-Upgrade has added port 'tcp_out_TVALID'
+
+
+
+
+
+
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
+| Date         : Fri Jan 31 12:11:11 2020
+| Host         : phirasit-macbook running 64-bit Ubuntu 18.04.3 LTS
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_iscsi_interface_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of design_1_iscsi_interface_0_0 (xilinx.com:hls:iscsi_interface:1.0) from (Rev. 2001310840) to (Rev. 2001311208)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Interface Information
+------------------------
+
+Detected external interface differences while upgrading 'design_1_iscsi_interface_0_0'.
+
+
+-Upgraded interface 'tcp_in_V_V' (xilinx.com:interface:axis:1.0) differs from original interface 'xilinx.com:interface:acc_fifo_read:1.0'
+
+-Upgraded interface 'tcp_out_V_V' (xilinx.com:interface:axis:1.0) differs from original interface 'xilinx.com:interface:acc_fifo_write:1.0'
+
+-Upgrade has removed interface 'ap_rst'
+
+-Upgrade has added interface 'ap_rst_n' (xilinx.com:signal:reset:1.0)
+
+
+3. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'design_1_iscsi_interface_0_0'. These changes may impact your design.
+
+
+-Upgrade has removed port 'ap_rst'
+
+-Upgrade has removed port 'tcp_in_V_V_dout'
+
+-Upgrade has removed port 'tcp_in_V_V_empty_n'
+
+-Upgrade has removed port 'tcp_in_V_V_read'
+
+-Upgrade has removed port 'tcp_out_V_V_din'
+
+-Upgrade has removed port 'tcp_out_V_V_full_n'
+
+-Upgrade has removed port 'tcp_out_V_V_write'
+
+-Upgrade has added port 'ap_rst_n'
+
+-Upgrade has added port 'tcp_in_V_V_TDATA'
+
+-Upgrade has added port 'tcp_in_V_V_TREADY'
+
+-Upgrade has added port 'tcp_in_V_V_TVALID'
+
+-Upgrade has added port 'tcp_out_V_V_TDATA'
+
+-Upgrade has added port 'tcp_out_V_V_TREADY'
+
+-Upgrade has added port 'tcp_out_V_V_TVALID'
+
+
+
+
+
+
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
+| Date         : Fri Jan 31 08:50:16 2020
+| Host         : phirasit-macbook running 64-bit Ubuntu 18.04.3 LTS
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_iscsi_interface_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_iscsi_interface_0_0 (xilinx.com:hls:iscsi_interface:1.0) from (Rev. 2001302042) to (Rev. 2001310840)
+
