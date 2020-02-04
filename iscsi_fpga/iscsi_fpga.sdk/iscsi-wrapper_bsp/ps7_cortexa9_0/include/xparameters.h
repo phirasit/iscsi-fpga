@@ -228,7 +228,7 @@
 #define XPAR_AXI_GPIO_0_HIGHADDR 0x4120FFFF
 #define XPAR_AXI_GPIO_0_DEVICE_ID 0
 #define XPAR_AXI_GPIO_0_INTERRUPT_PRESENT 0
-#define XPAR_AXI_GPIO_0_IS_DUAL 0
+#define XPAR_AXI_GPIO_0_IS_DUAL 1
 
 
 /******************************************************************/
@@ -238,7 +238,7 @@
 #define XPAR_GPIO_0_HIGHADDR 0x4120FFFF
 #define XPAR_GPIO_0_DEVICE_ID XPAR_AXI_GPIO_0_DEVICE_ID
 #define XPAR_GPIO_0_INTERRUPT_PRESENT 0
-#define XPAR_GPIO_0_IS_DUAL 0
+#define XPAR_GPIO_0_IS_DUAL 1
 
 
 /******************************************************************/

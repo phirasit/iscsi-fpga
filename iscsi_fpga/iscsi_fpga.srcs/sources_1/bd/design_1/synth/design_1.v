@@ -1,7 +1,7 @@
 //Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-//Date        : Sun Feb  2 16:35:11 2020
+//Date        : Tue Feb  4 20:17:24 2020
 //Host        : phirasit-macbook running 64-bit Ubuntu 18.04.3 LTS
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -9,7 +9,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=12,numReposBlks=7,numNonXlnxBlks=0,numHierBlks=5,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=12,da_board_cnt=6,da_clkrst_cnt=2,da_ps7_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
+(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=13,numReposBlks=8,numNonXlnxBlks=0,numHierBlks=5,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=1,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=13,da_board_cnt=6,da_clkrst_cnt=2,da_ps7_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
 module design_1
    (DDR_addr,
     DDR_ba,
@@ -62,6 +62,11 @@ module design_1
   wire axi_fifo_mm_s_0_AXI_STR_TXD_TVALID;
   wire axi_fifo_mm_s_1_interrupt;
   wire [7:0]axi_gpio_0_GPIO_TRI_O;
+  wire [0:0]axi_gpio_0_gpio2_io_o;
+  wire [31:0]iscsi_interface_0_tcp_out_TDATA;
+  wire [0:0]iscsi_interface_0_tcp_out_TLAST;
+  wire iscsi_interface_0_tcp_out_TREADY;
+  wire iscsi_interface_0_tcp_out_TVALID;
   wire [14:0]processing_system7_0_DDR_ADDR;
   wire [2:0]processing_system7_0_DDR_BA;
   wire processing_system7_0_DDR_CAS_N;
@@ -203,10 +208,10 @@ module design_1
         .s_axi_wstrb(ps7_0_axi_periph_M01_AXI_WSTRB),
         .s_axi_wvalid(ps7_0_axi_periph_M01_AXI_WVALID));
   design_1_axi_fifo_mm_s_1_0 axi_fifo_mm_s_1
-       (.axi_str_rxd_tdata(axi_fifo_mm_s_0_AXI_STR_TXD_TDATA),
-        .axi_str_rxd_tlast(axi_fifo_mm_s_0_AXI_STR_TXD_TLAST),
-        .axi_str_rxd_tready(axi_fifo_mm_s_0_AXI_STR_TXD_TREADY),
-        .axi_str_rxd_tvalid(axi_fifo_mm_s_0_AXI_STR_TXD_TVALID),
+       (.axi_str_rxd_tdata(iscsi_interface_0_tcp_out_TDATA),
+        .axi_str_rxd_tlast(iscsi_interface_0_tcp_out_TLAST),
+        .axi_str_rxd_tready(iscsi_interface_0_tcp_out_TREADY),
+        .axi_str_rxd_tvalid(iscsi_interface_0_tcp_out_TVALID),
         .interrupt(axi_fifo_mm_s_1_interrupt),
         .s_axi_aclk(processing_system7_0_FCLK_CLK0),
         .s_axi_araddr(ps7_0_axi_periph_M02_AXI_ARADDR),
@@ -228,7 +233,8 @@ module design_1
         .s_axi_wstrb(ps7_0_axi_periph_M02_AXI_WSTRB),
         .s_axi_wvalid(ps7_0_axi_periph_M02_AXI_WVALID));
   design_1_axi_gpio_0_1 axi_gpio_0
-       (.gpio_io_o(axi_gpio_0_GPIO_TRI_O),
+       (.gpio2_io_o(axi_gpio_0_gpio2_io_o),
+        .gpio_io_o(axi_gpio_0_GPIO_TRI_O),
         .s_axi_aclk(processing_system7_0_FCLK_CLK0),
         .s_axi_araddr(ps7_0_axi_periph_M00_AXI_ARADDR[8:0]),
         .s_axi_aresetn(rst_ps7_0_50M_peripheral_aresetn),
@@ -248,6 +254,23 @@ module design_1
         .s_axi_wready(ps7_0_axi_periph_M00_AXI_WREADY),
         .s_axi_wstrb(ps7_0_axi_periph_M00_AXI_WSTRB),
         .s_axi_wvalid(ps7_0_axi_periph_M00_AXI_WVALID));
+  design_1_iscsi_interface_0_0 iscsi_interface_0
+       (.ap_clk(processing_system7_0_FCLK_CLK0),
+        .ap_rst_n(rst_ps7_0_50M_peripheral_aresetn),
+        .ap_start(axi_gpio_0_gpio2_io_o),
+        .tcp_in_TDATA(axi_fifo_mm_s_0_AXI_STR_TXD_TDATA),
+        .tcp_in_TDEST(1'b0),
+        .tcp_in_TID(1'b0),
+        .tcp_in_TKEEP({1'b1,1'b1,1'b1,1'b1}),
+        .tcp_in_TLAST(axi_fifo_mm_s_0_AXI_STR_TXD_TLAST),
+        .tcp_in_TREADY(axi_fifo_mm_s_0_AXI_STR_TXD_TREADY),
+        .tcp_in_TSTRB({1'b1,1'b1,1'b1,1'b1}),
+        .tcp_in_TUSER(1'b0),
+        .tcp_in_TVALID(axi_fifo_mm_s_0_AXI_STR_TXD_TVALID),
+        .tcp_out_TDATA(iscsi_interface_0_tcp_out_TDATA),
+        .tcp_out_TLAST(iscsi_interface_0_tcp_out_TLAST),
+        .tcp_out_TREADY(iscsi_interface_0_tcp_out_TREADY),
+        .tcp_out_TVALID(iscsi_interface_0_tcp_out_TVALID));
   design_1_processing_system7_0_0 processing_system7_0
        (.DDR_Addr(DDR_addr[14:0]),
         .DDR_BankAddr(DDR_ba[2:0]),
@@ -1735,7 +1758,7 @@ module s00_couplers_imp_UYSKKA
   assign s00_couplers_to_auto_pc_WLAST = S_AXI_wlast;
   assign s00_couplers_to_auto_pc_WSTRB = S_AXI_wstrb[3:0];
   assign s00_couplers_to_auto_pc_WVALID = S_AXI_wvalid;
-  design_1_auto_pc_1 auto_pc
+  design_1_auto_pc_0 auto_pc
        (.aclk(S_ACLK_1),
         .aresetn(S_ARESETN_1),
         .m_axi_araddr(auto_pc_to_s00_couplers_ARADDR),

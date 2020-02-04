@@ -57,6 +57,27 @@ static struct tcp_pcb* current_tpcb = NULL;
 XLlFifo rx_fifo;
 XLlFifo tx_fifo;
 
+static void FifoRecvHandler(XLlFifo* fifo)
+{
+	// when fifo receives data from iscsi module
+	// send those through tcp open connect
+	if (current_tpcb == NULL) {
+		return;
+	}
+
+	u32 data;
+	uint32_t i, len;
+	while(XLlFifo_iRxOccupancy(fifo)) {
+		xil_printf("Ready to send something\n\r");
+		len = XLlFifo_iRxGetLen(fifo) / 4;
+		for (i = 0; i < len; ++i) {
+			data = XLlFifo_RxGetWord(fifo);
+			tcp_write(current_tpcb, (void*) &data, sizeof(data), 1);
+		}
+		xil_printf("Transmitting a packet of size %d bytes\n\r", len);
+	}
+}
+
 static void send_incoming_tcp(struct tcp_pcb *tpcb, struct pbuf *p)
 {
 	static uint8_t byte[4];
@@ -70,17 +91,18 @@ static void send_incoming_tcp(struct tcp_pcb *tpcb, struct pbuf *p)
 	current_tpcb = tpcb;
 	for (int i = 0;i < p->len;)
 	{
-		// wait for buffer
-		while (XLlFifo_iTxVacancy(fifo) < 4) {
-			sleep(1);
-		}
-
 		// copy data
 		while (i < p->len && offset < 4) {
 			byte[offset++] = payload[i++];
 		}
 
 		if (offset == 4) {
+			// wait for buffer
+			while (XLlFifo_iTxVacancy(fifo) < 4) {
+				FifoRecvHandler(&tx_fifo);
+				sleep(1);
+			}
+
 			// submit a 4-byte data
 			XLlFifo_TxPutWord(fifo, *((u32*) byte));
 			XLlFifo_iTxSetLen(fifo, 4);
@@ -132,26 +154,6 @@ err_t accept_callback(void *arg, struct tcp_pcb *newpcb, err_t err)
 	return ERR_OK;
 }
 
-static void FifoRecvHandler(XLlFifo* fifo)
-{
-	// when fifo receives data from iscsi module
-	// send those through tcp open connect
-	if (current_tpcb == NULL) {
-		return;
-	}
-
-	u32 data;
-	uint32_t i, len;
-	while(XLlFifo_iRxOccupancy(fifo)) {
-		xil_printf("Ready to send something\n\r");
-		len = XLlFifo_iRxGetLen(fifo) / 4;
-		for (i = 0; i < len; ++i) {
-			data = XLlFifo_RxGetWord(fifo);
-			tcp_write(current_tpcb, (void*) &data, sizeof(data), 1);
-		}
-		xil_printf("Transmitting a packet of size %d bytes\n\r", len);
-	}
-}
 
 int transfer_data() {
 	FifoRecvHandler(&tx_fifo);
@@ -206,7 +208,8 @@ static int start_iscsi_module()
 		return status;
 	}
 
-	XGpio_DiscreteWrite(&gpio, 1, 0xD1);
+	XGpio_DiscreteWrite(&gpio, 1, 0xFF);
+	XGpio_DiscreteWrite(&gpio, 2, 0x01);
 
 	return XST_SUCCESS;
 }
