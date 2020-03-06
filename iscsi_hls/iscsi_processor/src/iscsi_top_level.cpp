@@ -1,34 +1,83 @@
-#include <hls_stream.h>
-#include <ap_axi_sdata.h>
+#include "iscsi.hpp"
 
-#include "data_type.hpp"
+static void process_pdu(data_stream& tcp_in, data_stream& tcp_out);
 
 /** iscsi_interface
  *  top level of the iscsi processor
  *  @param[in]		tcp_in
  *  @param[out]		tcp_out
  */
-typedef ap_axis<32,1,1,1> data_element;
-typedef hls::stream<data_element> data_stream;
-
 void iscsi_interface(
 	// tcp information
-	data_stream &tcp_in,
-	data_stream &tcp_out
+	data_stream& tcp_in,
+	data_stream& tcp_out
 ) {
 #pragma HLS INTERFACE axis port=tcp_in
 #pragma HLS INTERFACE axis port=tcp_out
-#pragma HLS pipeline II=1 enable_flush
 
-	// do a loop back function
-	while (true)
-	{
-		tcp_out.write(tcp_in.read());
+	// loop back function
+//	 while (true) tcp_out.write(tcp_in.read());
+
+	// bullshit code to indicate output direction
+	volatile bool x = false;
+	if (x) {
+		data_stream_element elem;
+		tcp_out.write(elem);
 	}
 
-	// connect tcp to PDU_buffer
+	while (true) process_pdu(tcp_in, tcp_out);
+}
 
-	// connect PDU_buffer to PDU_processor
+void process_pdu(data_stream& tcp_in, data_stream& tcp_out)
+{
+	static iscsi_connection& connection = iscsi_connection::get_instance();
+	static iscsi_session& session = iscsi_session::get_instance();
 
-	// connect PDU_processor to sata
+	// read PDU header
+	iscsi_pdu_header header;
+	header.read_from_tcp(tcp_in);
+
+	// check if login
+	if (!connection.is_initialized() || !session.is_full_feature_phase()) {
+		// if not login
+		if (header.opcode() == PDU_OPCODE_LOGIN) {
+			iscsi_login(header, tcp_in, tcp_out);
+		} else {
+			// TODO add require login
+			// iscsi_require_login(header, tcp_in, tcp_out);
+		}
+		return;
+	}
+
+	// already login
+	switch (header.opcode()) {
+	/*
+	case PDU_OPCODE_LOGOUT:
+		iscsi_logout(header, tcp_in, tcp_out);
+		return;
+	*/
+	case PDU_OPCODE_TEXT:
+		iscsi_text(header, tcp_in, tcp_out);
+		return;
+	}
+
+	// if in discovery mode
+	if (session.is_discovery()) {
+		// iscsi_reject(tcp_out, REJECT_PROTOCOL_ERROR);
+		return;
+	}
+
+	switch (header.opcode()) {
+	case PDU_OPCODE_NOP_OUT:
+		iscsi_nop_out(header, tcp_in, tcp_out);
+		return;
+	/*
+	case PDU_OPCODE_SCSI_CMD:
+		iscsi_scsi_cmd(header, tcp_in, tcp_out);
+		return;
+	case PDU_OPCODE_DATA_OUT:
+		iscsi_data_out(header, tcp_in, tcp_out);
+		return;
+	 */
+	}
 }
