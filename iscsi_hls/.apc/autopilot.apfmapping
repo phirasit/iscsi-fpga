@@ -1,8 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
   <source>
-    <originFiles name="iscsi_top_level.cpp" path="/home/phirasit/project/san-adapter/iscsi_hls/iscsi_processor/src/iscsi_top_level.cpp"/>
     <originFiles name="data_type.hpp" path="/home/phirasit/project/san-adapter/iscsi_hls/iscsi_processor/src/data_type.hpp"/>
+    <originFiles name="data_type_pdu.hpp" path="/home/phirasit/project/san-adapter/iscsi_hls/iscsi_processor/src/data_type_pdu.hpp"/>
+    <originFiles name="data_type_primitives.hpp" path="/home/phirasit/project/san-adapter/iscsi_hls/iscsi_processor/src/data_type_primitives.hpp"/>
+    <originFiles name="iscsi.hpp" path="/home/phirasit/project/san-adapter/iscsi_hls/iscsi_processor/src/iscsi.hpp"/>
+    <originFiles name="iscsi_connection.cpp" path="/home/phirasit/project/san-adapter/iscsi_hls/iscsi_processor/src/iscsi_connection.cpp"/>
+    <originFiles name="iscsi_connection.hpp" path="/home/phirasit/project/san-adapter/iscsi_hls/iscsi_processor/src/iscsi_connection.hpp"/>
+    <originFiles name="iscsi_connection_parameter.cpp" path="/home/phirasit/project/san-adapter/iscsi_hls/iscsi_processor/src/iscsi_connection_parameter.cpp"/>
+    <originFiles name="iscsi_connection_parameter.hpp" path="/home/phirasit/project/san-adapter/iscsi_hls/iscsi_processor/src/iscsi_connection_parameter.hpp"/>
+    <originFiles name="iscsi_login.cpp" path="/home/phirasit/project/san-adapter/iscsi_hls/iscsi_processor/src/iscsi_pdu/iscsi_login.cpp"/>
+    <originFiles name="iscsi_login.hpp" path="/home/phirasit/project/san-adapter/iscsi_hls/iscsi_processor/src/iscsi_pdu/iscsi_login.hpp"/>
+    <originFiles name="iscsi_logout.hpp" path="/home/phirasit/project/san-adapter/iscsi_hls/iscsi_processor/src/iscsi_pdu/iscsi_logout.hpp"/>
+    <originFiles name="iscsi_nop_out.cpp" path="/home/phirasit/project/san-adapter/iscsi_hls/iscsi_processor/src/iscsi_pdu/iscsi_nop_out.cpp"/>
+    <originFiles name="iscsi_nop_out.hpp" path="/home/phirasit/project/san-adapter/iscsi_hls/iscsi_processor/src/iscsi_pdu/iscsi_nop_out.hpp"/>
+    <originFiles name="iscsi_request.hpp" path="/home/phirasit/project/san-adapter/iscsi_hls/iscsi_processor/src/iscsi_pdu/iscsi_request.hpp"/>
+    <originFiles name="iscsi_requests.hpp" path="/home/phirasit/project/san-adapter/iscsi_hls/iscsi_processor/src/iscsi_requests.hpp"/>
+    <originFiles name="iscsi_scsi_cmd.hpp" path="/home/phirasit/project/san-adapter/iscsi_hls/iscsi_processor/src/iscsi_pdu/iscsi_scsi_cmd.hpp"/>
+    <originFiles name="iscsi_session.cpp" path="/home/phirasit/project/san-adapter/iscsi_hls/iscsi_processor/src/iscsi_session.cpp"/>
+    <originFiles name="iscsi_session.hpp" path="/home/phirasit/project/san-adapter/iscsi_hls/iscsi_processor/src/iscsi_session.hpp"/>
+    <originFiles name="iscsi_text.cpp" path="/home/phirasit/project/san-adapter/iscsi_hls/iscsi_processor/src/iscsi_pdu/iscsi_text.cpp"/>
+    <originFiles name="iscsi_text.hpp" path="/home/phirasit/project/san-adapter/iscsi_hls/iscsi_processor/src/iscsi_pdu/iscsi_text.hpp"/>
+    <originFiles name="iscsi_top_level.cpp" path="/home/phirasit/project/san-adapter/iscsi_hls/iscsi_processor/src/iscsi_top_level.cpp"/>
+    <originFiles name="iscsi_top_level.hpp" path="/home/phirasit/project/san-adapter/iscsi_hls/iscsi_processor/src/iscsi_top_level.hpp"/>
   </source>
-  <testbench/>
+  <testbench>
+    <originFiles name="discovery_in.txt" path="/home/phirasit/project/san-adapter/iscsi_hls/iscsi_processor/test/discovery_in.txt"/>
+    <originFiles name="iscsi_processor_tb.cpp" path="/home/phirasit/project/san-adapter/iscsi_hls/iscsi_processor/test/iscsi_processor_tb.cpp"/>
+  </testbench>
 </autopilotfilemapping:AutoPilotFileMapping>

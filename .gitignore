@@ -1,0 +1,9 @@
+*/*.cache
+*/*.sdk
+*/*/.job
+*/*/.autopilot/
+iscsi_hls/iscsi_processor/impl
+iscsi_fpga/iscsi_fpga.runs
+iscsi_fpga/iscsi_fpga.sdk
+iscsi_fpga/iscsi_fpga.cache
+

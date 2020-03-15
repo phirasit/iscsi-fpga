@@ -157,24 +157,24 @@ proc create_root_design { parentCell } {
   # Create interface ports
   set ap_ctrl [ create_bd_intf_port -mode Slave -vlnv xilinx.com:interface:acc_handshake_rtl:1.0 ap_ctrl ]
 
-  set tcp_in [ create_bd_intf_port -mode Slave -vlnv xilinx.com:interface:axis_rtl:1.0 tcp_in ]
+  set tcp_in_V_V [ create_bd_intf_port -mode Slave -vlnv xilinx.com:interface:axis_rtl:1.0 tcp_in_V_V ]
   set_property -dict [ list \
    CONFIG.FREQ_HZ {100000000.0} \
-   CONFIG.HAS_TKEEP {1} \
-   CONFIG.HAS_TLAST {1} \
+   CONFIG.HAS_TKEEP {0} \
+   CONFIG.HAS_TLAST {0} \
    CONFIG.HAS_TREADY {1} \
-   CONFIG.HAS_TSTRB {1} \
+   CONFIG.HAS_TSTRB {0} \
    CONFIG.LAYERED_METADATA {undef} \
    CONFIG.TDATA_NUM_BYTES {4} \
-   CONFIG.TDEST_WIDTH {1} \
-   CONFIG.TID_WIDTH {1} \
-   CONFIG.TUSER_WIDTH {1} \
-   ] $tcp_in
+   CONFIG.TDEST_WIDTH {0} \
+   CONFIG.TID_WIDTH {0} \
+   CONFIG.TUSER_WIDTH {0} \
+   ] $tcp_in_V_V
 
-  set tcp_out [ create_bd_intf_port -mode Master -vlnv xilinx.com:interface:axis_rtl:1.0 tcp_out ]
+  set tcp_out_V_V [ create_bd_intf_port -mode Master -vlnv xilinx.com:interface:axis_rtl:1.0 tcp_out_V_V ]
   set_property -dict [ list \
    CONFIG.FREQ_HZ {100000000.0} \
-   ] $tcp_out
+   ] $tcp_out_V_V
 
 
   # Create ports
@@ -189,8 +189,8 @@ proc create_root_design { parentCell } {
 
   # Create interface connections
   connect_bd_intf_net -intf_net ap_ctrl_0_1 [get_bd_intf_ports ap_ctrl] [get_bd_intf_pins hls_inst/ap_ctrl]
-  connect_bd_intf_net -intf_net hls_inst_tcp_out [get_bd_intf_ports tcp_out] [get_bd_intf_pins hls_inst/tcp_out]
-  connect_bd_intf_net -intf_net tcp_in_0_1 [get_bd_intf_ports tcp_in] [get_bd_intf_pins hls_inst/tcp_in]
+  connect_bd_intf_net -intf_net hls_inst_tcp_out_V_V [get_bd_intf_ports tcp_out_V_V] [get_bd_intf_pins hls_inst/tcp_out_V_V]
+  connect_bd_intf_net -intf_net tcp_in_V_V_0_1 [get_bd_intf_ports tcp_in_V_V] [get_bd_intf_pins hls_inst/tcp_in_V_V]
 
   # Create port connections
   connect_bd_net -net ap_clk_0_1 [get_bd_ports ap_clk] [get_bd_pins hls_inst/ap_clk]

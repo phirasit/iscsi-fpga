@@ -161,6 +161,38 @@
                         					
                     </folderInfo>
                     					
+                    <fileInfo id="cdt.managedbuild.config.gnu.exe.debug.107409518.2028552828" name="iscsi_processor_tb.cpp" rcbsApplicability="disable" resourcePath="testbench/iscsi_processor_tb.cpp" toolsToInvoke="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.609646323.1450669634">
+                        						
+                        <tool id="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.609646323.1450669634" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.609646323">
+                            							
+                            <option id="gnu.cpp.compiler.option.preprocessor.def.13112302" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def"/>
+                            							
+                            <option id="gnu.cpp.compiler.option.include.paths.1885978525" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
+                                								
+                                <listOptionValue builtIn="false" value="/home/phirasit/project/san-adapter"/>
+                                								
+                                <listOptionValue builtIn="false" value="/opt/vivado/Vivado/2019.1/include"/>
+                                								
+                                <listOptionValue builtIn="false" value="/opt/vivado/Vivado/2019.1/include/ap_sysc"/>
+                                								
+                                <listOptionValue builtIn="false" value="/opt/vivado/Vivado/2019.1/lnx64/tools/systemc/include"/>
+                                								
+                                <listOptionValue builtIn="false" value="/opt/vivado/Vivado/2019.1/include/etc"/>
+                                								
+                                <listOptionValue builtIn="false" value="/opt/vivado/Vivado/2019.1/lnx64/tools/auto_cc/include"/>
+                                							
+                            </option>
+                            							
+                            <option id="gnu.cpp.compiler.option.other.other.1249244469" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" value="-Wno-unknown-pragmas -c -fmessage-length=0" valueType="string"/>
+                            							
+                            <inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.476486958" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+                            						
+                        </tool>
+                        					
+                    </fileInfo>
+                    					
+                    <fileInfo id="cdt.managedbuild.config.gnu.exe.debug.107409518.186655859" name="discovery_in.txt" rcbsApplicability="disable" resourcePath="testbench/discovery_in.txt" toolsToInvoke=""/>
+                    					
                     <sourceEntries>
                         						
                         <entry excluding="iscsi_processor|*.c*|*.C*" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
@@ -313,6 +345,38 @@
                         					
                     </folderInfo>
                     					
+                    <fileInfo id="cdt.managedbuild.config.gnu.exe.release.1645368321.312293631" name="iscsi_processor_tb.cpp" rcbsApplicability="disable" resourcePath="testbench/iscsi_processor_tb.cpp" toolsToInvoke="cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.1831599146.1967754432">
+                        						
+                        <tool id="cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.1831599146.1967754432" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.1831599146">
+                            							
+                            <option id="gnu.cpp.compiler.option.preprocessor.def.1851343215" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def"/>
+                            							
+                            <option id="gnu.cpp.compiler.option.include.paths.2145057838" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
+                                								
+                                <listOptionValue builtIn="false" value="/home/phirasit/project/san-adapter"/>
+                                								
+                                <listOptionValue builtIn="false" value="/opt/vivado/Vivado/2019.1/include"/>
+                                								
+                                <listOptionValue builtIn="false" value="/opt/vivado/Vivado/2019.1/include/ap_sysc"/>
+                                								
+                                <listOptionValue builtIn="false" value="/opt/vivado/Vivado/2019.1/lnx64/tools/systemc/include"/>
+                                								
+                                <listOptionValue builtIn="false" value="/opt/vivado/Vivado/2019.1/include/etc"/>
+                                								
+                                <listOptionValue builtIn="false" value="/opt/vivado/Vivado/2019.1/lnx64/tools/auto_cc/include"/>
+                                							
+                            </option>
+                            							
+                            <option id="gnu.cpp.compiler.option.other.other.1649914636" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" value="-Wno-unknown-pragmas -c -fmessage-length=0" valueType="string"/>
+                            							
+                            <inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1984526149" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+                            						
+                        </tool>
+                        					
+                    </fileInfo>
+                    					
+                    <fileInfo id="cdt.managedbuild.config.gnu.exe.release.1645368321.925532104" name="discovery_in.txt" rcbsApplicability="disable" resourcePath="testbench/discovery_in.txt" toolsToInvoke=""/>
+                    					
                     <sourceEntries>
                         						
                         <entry excluding="iscsi_processor|*.c*|*.C*" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
@@ -366,5 +430,7 @@
     </storageModule>
     	
     <storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
+    	
+    <storageModule moduleId="refreshScope"/>
     
 </cproject>

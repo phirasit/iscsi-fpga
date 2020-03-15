@@ -1,0 +1,51 @@
+verilog xil_defaultlib --include "../../../../san_adapter_fpga.srcs/sources_1/bd/Zynq7/ipshared/ec67/hdl" --include "../../../../san_adapter_fpga.srcs/sources_1/bd/Zynq7/ipshared/8c62/hdl" --include "../../../../san_adapter_fpga.srcs/sources_1/bd/Zynq7/ip/Zynq7_processing_system7_0_1" --include "../../../../san_adapter_fpga.srcs/sources_1/bd/Zynq7/ipshared/1ddd/hdl/verilog" --include "../../../../san_adapter_fpga.srcs/sources_1/bd/Zynq7/ipshared/b2d0/hdl/verilog" --include "../../../../san_adapter_fpga.srcs/sources_1/bd/Zynq7/ipshared/8713/hdl" \
+"../../../bd/Zynq7/ip/Zynq7_processing_system7_0_1/sim/Zynq7_processing_system7_0_1.v" \
+"../../../bd/Zynq7/ip/Zynq7_axi_smc_0/bd_0/ip/ip_0/sim/bd_31d9_one_0.v" \
+
+sv xil_defaultlib --include "../../../../san_adapter_fpga.srcs/sources_1/bd/Zynq7/ipshared/ec67/hdl" --include "../../../../san_adapter_fpga.srcs/sources_1/bd/Zynq7/ipshared/8c62/hdl" --include "../../../../san_adapter_fpga.srcs/sources_1/bd/Zynq7/ip/Zynq7_processing_system7_0_1" --include "../../../../san_adapter_fpga.srcs/sources_1/bd/Zynq7/ipshared/1ddd/hdl/verilog" --include "../../../../san_adapter_fpga.srcs/sources_1/bd/Zynq7/ipshared/b2d0/hdl/verilog" --include "../../../../san_adapter_fpga.srcs/sources_1/bd/Zynq7/ipshared/8713/hdl" \
+"../../../bd/Zynq7/ip/Zynq7_axi_smc_0/bd_0/ip/ip_2/sim/bd_31d9_arsw_0.sv" \
+"../../../bd/Zynq7/ip/Zynq7_axi_smc_0/bd_0/ip/ip_3/sim/bd_31d9_rsw_0.sv" \
+"../../../bd/Zynq7/ip/Zynq7_axi_smc_0/bd_0/ip/ip_4/sim/bd_31d9_awsw_0.sv" \
+"../../../bd/Zynq7/ip/Zynq7_axi_smc_0/bd_0/ip/ip_5/sim/bd_31d9_wsw_0.sv" \
+"../../../bd/Zynq7/ip/Zynq7_axi_smc_0/bd_0/ip/ip_6/sim/bd_31d9_bsw_0.sv" \
+"../../../bd/Zynq7/ip/Zynq7_axi_smc_0/bd_0/ip/ip_7/sim/bd_31d9_s00mmu_0.sv" \
+"../../../bd/Zynq7/ip/Zynq7_axi_smc_0/bd_0/ip/ip_8/sim/bd_31d9_s00tr_0.sv" \
+"../../../bd/Zynq7/ip/Zynq7_axi_smc_0/bd_0/ip/ip_9/sim/bd_31d9_s00sic_0.sv" \
+"../../../bd/Zynq7/ip/Zynq7_axi_smc_0/bd_0/ip/ip_10/sim/bd_31d9_s00a2s_0.sv" \
+"../../../bd/Zynq7/ip/Zynq7_axi_smc_0/bd_0/ip/ip_11/sim/bd_31d9_sarn_0.sv" \
+"../../../bd/Zynq7/ip/Zynq7_axi_smc_0/bd_0/ip/ip_12/sim/bd_31d9_srn_0.sv" \
+"../../../bd/Zynq7/ip/Zynq7_axi_smc_0/bd_0/ip/ip_13/sim/bd_31d9_sawn_0.sv" \
+"../../../bd/Zynq7/ip/Zynq7_axi_smc_0/bd_0/ip/ip_14/sim/bd_31d9_swn_0.sv" \
+"../../../bd/Zynq7/ip/Zynq7_axi_smc_0/bd_0/ip/ip_15/sim/bd_31d9_sbn_0.sv" \
+"../../../bd/Zynq7/ip/Zynq7_axi_smc_0/bd_0/ip/ip_16/sim/bd_31d9_s01mmu_0.sv" \
+"../../../bd/Zynq7/ip/Zynq7_axi_smc_0/bd_0/ip/ip_17/sim/bd_31d9_s01tr_0.sv" \
+"../../../bd/Zynq7/ip/Zynq7_axi_smc_0/bd_0/ip/ip_18/sim/bd_31d9_s01sic_0.sv" \
+"../../../bd/Zynq7/ip/Zynq7_axi_smc_0/bd_0/ip/ip_19/sim/bd_31d9_s01a2s_0.sv" \
+"../../../bd/Zynq7/ip/Zynq7_axi_smc_0/bd_0/ip/ip_20/sim/bd_31d9_sarn_1.sv" \
+"../../../bd/Zynq7/ip/Zynq7_axi_smc_0/bd_0/ip/ip_21/sim/bd_31d9_srn_1.sv" \
+"../../../bd/Zynq7/ip/Zynq7_axi_smc_0/bd_0/ip/ip_22/sim/bd_31d9_s02mmu_0.sv" \
+"../../../bd/Zynq7/ip/Zynq7_axi_smc_0/bd_0/ip/ip_23/sim/bd_31d9_s02tr_0.sv" \
+"../../../bd/Zynq7/ip/Zynq7_axi_smc_0/bd_0/ip/ip_24/sim/bd_31d9_s02sic_0.sv" \
+"../../../bd/Zynq7/ip/Zynq7_axi_smc_0/bd_0/ip/ip_25/sim/bd_31d9_s02a2s_0.sv" \
+"../../../bd/Zynq7/ip/Zynq7_axi_smc_0/bd_0/ip/ip_26/sim/bd_31d9_sawn_1.sv" \
+"../../../bd/Zynq7/ip/Zynq7_axi_smc_0/bd_0/ip/ip_27/sim/bd_31d9_swn_1.sv" \
+"../../../bd/Zynq7/ip/Zynq7_axi_smc_0/bd_0/ip/ip_28/sim/bd_31d9_sbn_1.sv" \
+"../../../bd/Zynq7/ip/Zynq7_axi_smc_0/bd_0/ip/ip_29/sim/bd_31d9_m00s2a_0.sv" \
+"../../../bd/Zynq7/ip/Zynq7_axi_smc_0/bd_0/ip/ip_30/sim/bd_31d9_m00arn_0.sv" \
+"../../../bd/Zynq7/ip/Zynq7_axi_smc_0/bd_0/ip/ip_31/sim/bd_31d9_m00rn_0.sv" \
+"../../../bd/Zynq7/ip/Zynq7_axi_smc_0/bd_0/ip/ip_32/sim/bd_31d9_m00awn_0.sv" \
+"../../../bd/Zynq7/ip/Zynq7_axi_smc_0/bd_0/ip/ip_33/sim/bd_31d9_m00wn_0.sv" \
+"../../../bd/Zynq7/ip/Zynq7_axi_smc_0/bd_0/ip/ip_34/sim/bd_31d9_m00bn_0.sv" \
+"../../../bd/Zynq7/ip/Zynq7_axi_smc_0/bd_0/ip/ip_35/sim/bd_31d9_m00e_0.sv" \
+
+verilog xil_defaultlib --include "../../../../san_adapter_fpga.srcs/sources_1/bd/Zynq7/ipshared/ec67/hdl" --include "../../../../san_adapter_fpga.srcs/sources_1/bd/Zynq7/ipshared/8c62/hdl" --include "../../../../san_adapter_fpga.srcs/sources_1/bd/Zynq7/ip/Zynq7_processing_system7_0_1" --include "../../../../san_adapter_fpga.srcs/sources_1/bd/Zynq7/ipshared/1ddd/hdl/verilog" --include "../../../../san_adapter_fpga.srcs/sources_1/bd/Zynq7/ipshared/b2d0/hdl/verilog" --include "../../../../san_adapter_fpga.srcs/sources_1/bd/Zynq7/ipshared/8713/hdl" \
+"../../../bd/Zynq7/ip/Zynq7_axi_smc_0/bd_0/sim/bd_31d9.v" \
+"../../../bd/Zynq7/ip/Zynq7_axi_smc_0/sim/Zynq7_axi_smc_0.v" \
+"../../../bd/Zynq7/ip/Zynq7_axis_data_fifo_0_0/sim/Zynq7_axis_data_fifo_0_0.v" \
+"../../../bd/Zynq7/ip/Zynq7_xlconcat_0_0/sim/Zynq7_xlconcat_0_0.v" \
+"../../../bd/Zynq7/ip/Zynq7_auto_pc_0/sim/Zynq7_auto_pc_0.v" \
+"../../../bd/Zynq7/sim/Zynq7.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+nosort

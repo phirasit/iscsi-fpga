@@ -2,8 +2,8 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Tue Feb  4 20:18:11 2020
-# Process ID: 21248
+# Start of session at: Sun Mar 15 20:28:23 2020
+# Process ID: 23709
 # Current directory: /home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.runs/synth_1
 # Command line: vivado -log design_1_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_wrapper.tcl
 # Log file: /home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.runs/synth_1/design_1_wrapper.vds
@@ -19,44 +19,44 @@ Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Device 21-403] Loading part xc7z020clg484-1
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 21273 
+INFO: Helper process launched with PID 23732 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1823.781 ; gain = 152.715 ; free physical = 1086 ; free virtual = 5645
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1824.660 ; gain = 152.715 ; free physical = 1373 ; free virtual = 3087
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'design_1_wrapper' [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v:12]
 INFO: [Synth 8-6157] synthesizing module 'design_1' [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.srcs/sources_1/bd/design_1/synth/design_1.v:13]
-INFO: [Synth 8-6157] synthesizing module 'design_1_axi_fifo_mm_s_0_0' [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.runs/synth_1/.Xil/Vivado-21248-phirasit-macbook/realtime/design_1_axi_fifo_mm_s_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_fifo_mm_s_0_0' (1#1) [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.runs/synth_1/.Xil/Vivado-21248-phirasit-macbook/realtime/design_1_axi_fifo_mm_s_0_0_stub.v:6]
-WARNING: [Synth 8-7023] instance 'axi_fifo_mm_s_0' of module 'design_1_axi_fifo_mm_s_0_0' has 25 connections declared, but only 23 given [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.srcs/sources_1/bd/design_1/synth/design_1.v:186]
-INFO: [Synth 8-6157] synthesizing module 'design_1_axi_fifo_mm_s_1_0' [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.runs/synth_1/.Xil/Vivado-21248-phirasit-macbook/realtime/design_1_axi_fifo_mm_s_1_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_fifo_mm_s_1_0' (2#1) [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.runs/synth_1/.Xil/Vivado-21248-phirasit-macbook/realtime/design_1_axi_fifo_mm_s_1_0_stub.v:6]
-WARNING: [Synth 8-7023] instance 'axi_fifo_mm_s_1' of module 'design_1_axi_fifo_mm_s_1_0' has 25 connections declared, but only 24 given [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.srcs/sources_1/bd/design_1/synth/design_1.v:210]
-INFO: [Synth 8-6157] synthesizing module 'design_1_axi_gpio_0_1' [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.runs/synth_1/.Xil/Vivado-21248-phirasit-macbook/realtime/design_1_axi_gpio_0_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_gpio_0_1' (3#1) [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.runs/synth_1/.Xil/Vivado-21248-phirasit-macbook/realtime/design_1_axi_gpio_0_1_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_iscsi_interface_0_0' [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.runs/synth_1/.Xil/Vivado-21248-phirasit-macbook/realtime/design_1_iscsi_interface_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_iscsi_interface_0_0' (4#1) [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.runs/synth_1/.Xil/Vivado-21248-phirasit-macbook/realtime/design_1_iscsi_interface_0_0_stub.v:6]
-WARNING: [Synth 8-7023] instance 'iscsi_interface_0' of module 'design_1_iscsi_interface_0_0' has 24 connections declared, but only 16 given [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.srcs/sources_1/bd/design_1/synth/design_1.v:257]
-INFO: [Synth 8-6157] synthesizing module 'design_1_processing_system7_0_0' [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.runs/synth_1/.Xil/Vivado-21248-phirasit-macbook/realtime/design_1_processing_system7_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_processing_system7_0_0' (5#1) [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.runs/synth_1/.Xil/Vivado-21248-phirasit-macbook/realtime/design_1_processing_system7_0_0_stub.v:6]
-WARNING: [Synth 8-7023] instance 'processing_system7_0' of module 'design_1_processing_system7_0_0' has 69 connections declared, but only 64 given [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.srcs/sources_1/bd/design_1/synth/design_1.v:274]
-INFO: [Synth 8-6157] synthesizing module 'design_1_ps7_0_axi_periph_2' [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.srcs/sources_1/bd/design_1/synth/design_1.v:449]
-INFO: [Synth 8-6157] synthesizing module 'm00_couplers_imp_15SPJYW' [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.srcs/sources_1/bd/design_1/synth/design_1.v:1122]
-INFO: [Synth 8-6155] done synthesizing module 'm00_couplers_imp_15SPJYW' (6#1) [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.srcs/sources_1/bd/design_1/synth/design_1.v:1122]
-INFO: [Synth 8-6157] synthesizing module 'm01_couplers_imp_XU9C55' [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.srcs/sources_1/bd/design_1/synth/design_1.v:1254]
-INFO: [Synth 8-6155] done synthesizing module 'm01_couplers_imp_XU9C55' (7#1) [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.srcs/sources_1/bd/design_1/synth/design_1.v:1254]
-INFO: [Synth 8-6157] synthesizing module 'm02_couplers_imp_14WQB4R' [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.srcs/sources_1/bd/design_1/synth/design_1.v:1386]
-INFO: [Synth 8-6155] done synthesizing module 'm02_couplers_imp_14WQB4R' (8#1) [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.srcs/sources_1/bd/design_1/synth/design_1.v:1386]
-INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_UYSKKA' [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.srcs/sources_1/bd/design_1/synth/design_1.v:1518]
-INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_0' [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.runs/synth_1/.Xil/Vivado-21248-phirasit-macbook/realtime/design_1_auto_pc_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_0' (9#1) [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.runs/synth_1/.Xil/Vivado-21248-phirasit-macbook/realtime/design_1_auto_pc_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_UYSKKA' (10#1) [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.srcs/sources_1/bd/design_1/synth/design_1.v:1518]
-INFO: [Synth 8-6157] synthesizing module 'design_1_xbar_2' [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.runs/synth_1/.Xil/Vivado-21248-phirasit-macbook/realtime/design_1_xbar_2_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_xbar_2' (11#1) [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.runs/synth_1/.Xil/Vivado-21248-phirasit-macbook/realtime/design_1_xbar_2_stub.v:6]
-WARNING: [Synth 8-7023] instance 'xbar' of module 'design_1_xbar_2' has 40 connections declared, but only 38 given [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.srcs/sources_1/bd/design_1/synth/design_1.v:1081]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_ps7_0_axi_periph_2' (12#1) [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.srcs/sources_1/bd/design_1/synth/design_1.v:449]
-INFO: [Synth 8-6157] synthesizing module 'design_1_rst_ps7_0_50M_0' [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.runs/synth_1/.Xil/Vivado-21248-phirasit-macbook/realtime/design_1_rst_ps7_0_50M_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_rst_ps7_0_50M_0' (13#1) [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.runs/synth_1/.Xil/Vivado-21248-phirasit-macbook/realtime/design_1_rst_ps7_0_50M_0_stub.v:6]
-WARNING: [Synth 8-7023] instance 'rst_ps7_0_50M' of module 'design_1_rst_ps7_0_50M_0' has 10 connections declared, but only 7 given [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.srcs/sources_1/bd/design_1/synth/design_1.v:439]
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_fifo_mm_s_0_0' [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.runs/synth_1/.Xil/Vivado-23709-phirasit-macbook/realtime/design_1_axi_fifo_mm_s_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_fifo_mm_s_0_0' (1#1) [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.runs/synth_1/.Xil/Vivado-23709-phirasit-macbook/realtime/design_1_axi_fifo_mm_s_0_0_stub.v:6]
+WARNING: [Synth 8-7023] instance 'axi_fifo_mm_s_0' of module 'design_1_axi_fifo_mm_s_0_0' has 25 connections declared, but only 22 given [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.srcs/sources_1/bd/design_1/synth/design_1.v:184]
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_fifo_mm_s_1_0' [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.runs/synth_1/.Xil/Vivado-23709-phirasit-macbook/realtime/design_1_axi_fifo_mm_s_1_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_fifo_mm_s_1_0' (2#1) [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.runs/synth_1/.Xil/Vivado-23709-phirasit-macbook/realtime/design_1_axi_fifo_mm_s_1_0_stub.v:6]
+WARNING: [Synth 8-7023] instance 'axi_fifo_mm_s_1' of module 'design_1_axi_fifo_mm_s_1_0' has 25 connections declared, but only 24 given [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.srcs/sources_1/bd/design_1/synth/design_1.v:207]
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_gpio_0_1' [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.runs/synth_1/.Xil/Vivado-23709-phirasit-macbook/realtime/design_1_axi_gpio_0_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_gpio_0_1' (3#1) [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.runs/synth_1/.Xil/Vivado-23709-phirasit-macbook/realtime/design_1_axi_gpio_0_1_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_iscsi_interface_0_0' [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.runs/synth_1/.Xil/Vivado-23709-phirasit-macbook/realtime/design_1_iscsi_interface_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_iscsi_interface_0_0' (4#1) [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.runs/synth_1/.Xil/Vivado-23709-phirasit-macbook/realtime/design_1_iscsi_interface_0_0_stub.v:6]
+WARNING: [Synth 8-7023] instance 'iscsi_interface_0' of module 'design_1_iscsi_interface_0_0' has 12 connections declared, but only 9 given [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.srcs/sources_1/bd/design_1/synth/design_1.v:254]
+INFO: [Synth 8-6157] synthesizing module 'design_1_processing_system7_0_0' [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.runs/synth_1/.Xil/Vivado-23709-phirasit-macbook/realtime/design_1_processing_system7_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_processing_system7_0_0' (5#1) [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.runs/synth_1/.Xil/Vivado-23709-phirasit-macbook/realtime/design_1_processing_system7_0_0_stub.v:6]
+WARNING: [Synth 8-7023] instance 'processing_system7_0' of module 'design_1_processing_system7_0_0' has 69 connections declared, but only 64 given [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.srcs/sources_1/bd/design_1/synth/design_1.v:264]
+INFO: [Synth 8-6157] synthesizing module 'design_1_ps7_0_axi_periph_2' [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.srcs/sources_1/bd/design_1/synth/design_1.v:439]
+INFO: [Synth 8-6157] synthesizing module 'm00_couplers_imp_15SPJYW' [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.srcs/sources_1/bd/design_1/synth/design_1.v:1112]
+INFO: [Synth 8-6155] done synthesizing module 'm00_couplers_imp_15SPJYW' (6#1) [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.srcs/sources_1/bd/design_1/synth/design_1.v:1112]
+INFO: [Synth 8-6157] synthesizing module 'm01_couplers_imp_XU9C55' [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.srcs/sources_1/bd/design_1/synth/design_1.v:1244]
+INFO: [Synth 8-6155] done synthesizing module 'm01_couplers_imp_XU9C55' (7#1) [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.srcs/sources_1/bd/design_1/synth/design_1.v:1244]
+INFO: [Synth 8-6157] synthesizing module 'm02_couplers_imp_14WQB4R' [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.srcs/sources_1/bd/design_1/synth/design_1.v:1376]
+INFO: [Synth 8-6155] done synthesizing module 'm02_couplers_imp_14WQB4R' (8#1) [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.srcs/sources_1/bd/design_1/synth/design_1.v:1376]
+INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_UYSKKA' [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.srcs/sources_1/bd/design_1/synth/design_1.v:1508]
+INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_0' [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.runs/synth_1/.Xil/Vivado-23709-phirasit-macbook/realtime/design_1_auto_pc_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_0' (9#1) [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.runs/synth_1/.Xil/Vivado-23709-phirasit-macbook/realtime/design_1_auto_pc_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_UYSKKA' (10#1) [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.srcs/sources_1/bd/design_1/synth/design_1.v:1508]
+INFO: [Synth 8-6157] synthesizing module 'design_1_xbar_2' [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.runs/synth_1/.Xil/Vivado-23709-phirasit-macbook/realtime/design_1_xbar_2_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_xbar_2' (11#1) [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.runs/synth_1/.Xil/Vivado-23709-phirasit-macbook/realtime/design_1_xbar_2_stub.v:6]
+WARNING: [Synth 8-7023] instance 'xbar' of module 'design_1_xbar_2' has 40 connections declared, but only 38 given [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.srcs/sources_1/bd/design_1/synth/design_1.v:1071]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_ps7_0_axi_periph_2' (12#1) [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.srcs/sources_1/bd/design_1/synth/design_1.v:439]
+INFO: [Synth 8-6157] synthesizing module 'design_1_rst_ps7_0_50M_0' [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.runs/synth_1/.Xil/Vivado-23709-phirasit-macbook/realtime/design_1_rst_ps7_0_50M_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_rst_ps7_0_50M_0' (13#1) [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.runs/synth_1/.Xil/Vivado-23709-phirasit-macbook/realtime/design_1_rst_ps7_0_50M_0_stub.v:6]
+WARNING: [Synth 8-7023] instance 'rst_ps7_0_50M' of module 'design_1_rst_ps7_0_50M_0' has 10 connections declared, but only 7 given [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.srcs/sources_1/bd/design_1/synth/design_1.v:429]
 INFO: [Synth 8-6155] done synthesizing module 'design_1' (14#1) [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.srcs/sources_1/bd/design_1/synth/design_1.v:13]
 INFO: [Synth 8-6155] done synthesizing module 'design_1_wrapper' (15#1) [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v:12]
 WARNING: [Synth 8-3331] design s00_couplers_imp_UYSKKA has unconnected port M_ACLK
@@ -82,7 +82,7 @@ WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_2 has unconnected port 
 WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_2 has unconnected port S00_ACLK
 WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_2 has unconnected port S00_ARESETN
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 1883.500 ; gain = 212.434 ; free physical = 1110 ; free virtual = 5670
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1884.379 ; gain = 212.434 ; free physical = 1397 ; free virtual = 3112
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -95,10 +95,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1889.438 ; gain = 218.371 ; free physical = 1109 ; free virtual = 5668
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1887.348 ; gain = 215.402 ; free physical = 1396 ; free virtual = 3111
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1889.438 ; gain = 218.371 ; free physical = 1109 ; free virtual = 5668
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1887.348 ; gain = 215.402 ; free physical = 1396 ; free virtual = 3111
 ---------------------------------------------------------------------------------
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
@@ -141,20 +141,20 @@ Parsing XDC File [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.runs/
 Finished Parsing XDC File [/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2009.062 ; gain = 0.000 ; free physical = 1009 ; free virtual = 5569
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2009.973 ; gain = 0.000 ; free physical = 1297 ; free virtual = 3012
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2009.062 ; gain = 0.000 ; free physical = 1009 ; free virtual = 5569
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2009.973 ; gain = 0.000 ; free physical = 1297 ; free virtual = 3012
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 2009.062 ; gain = 337.996 ; free physical = 1064 ; free virtual = 5625
+Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 2009.973 ; gain = 338.027 ; free physical = 1372 ; free virtual = 3088
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 2009.062 ; gain = 337.996 ; free physical = 1064 ; free virtual = 5625
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 2009.973 ; gain = 338.027 ; free physical = 1372 ; free virtual = 3088
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -430,10 +430,10 @@ Applied set_property DONT_TOUCH = true for design_1_i/ps7_0_axi_periph. (constra
 Applied set_property DONT_TOUCH = true for design_1_i/iscsi_interface_0. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for design_1_i/ps7_0_axi_periph/s00_couplers/auto_pc. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 2009.062 ; gain = 337.996 ; free physical = 1062 ; free virtual = 5622
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 2009.973 ; gain = 338.027 ; free physical = 1372 ; free virtual = 3088
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 2009.062 ; gain = 337.996 ; free physical = 1062 ; free virtual = 5624
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 2009.973 ; gain = 338.027 ; free physical = 1372 ; free virtual = 3089
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -477,7 +477,7 @@ WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_2 has unconnected port 
 WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_2 has unconnected port S00_ACLK
 WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_2 has unconnected port S00_ARESETN
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 2009.062 ; gain = 337.996 ; free physical = 1050 ; free virtual = 5613
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 2009.973 ; gain = 338.027 ; free physical = 1359 ; free virtual = 3078
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -491,13 +491,13 @@ Start Applying XDC Timing Constraints
 INFO: [Synth 8-5578] Moved timing constraint from pin 'design_1_i/processing_system7_0/FCLK_CLK0' to pin 'design_1_i/processing_system7_0/bbstub_FCLK_CLK0/O'
 INFO: [Synth 8-5819] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 2009.062 ; gain = 337.996 ; free physical = 927 ; free virtual = 5490
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 2009.973 ; gain = 338.027 ; free physical = 1236 ; free virtual = 2955
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 2009.062 ; gain = 337.996 ; free physical = 927 ; free virtual = 5490
+Finished Timing Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 2009.973 ; gain = 338.027 ; free physical = 1236 ; free virtual = 2955
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -509,7 +509,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 2009.062 ; gain = 337.996 ; free physical = 925 ; free virtual = 5489
+Finished Technology Mapping : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 2009.973 ; gain = 338.027 ; free physical = 1234 ; free virtual = 2954
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -533,7 +533,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 2009.062 ; gain = 337.996 ; free physical = 925 ; free virtual = 5489
+Finished IO Insertion : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 2009.973 ; gain = 338.027 ; free physical = 1234 ; free virtual = 2954
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -546,7 +546,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 2009.062 ; gain = 337.996 ; free physical = 925 ; free virtual = 5489
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 2009.973 ; gain = 338.027 ; free physical = 1234 ; free virtual = 2954
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -558,25 +558,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 2009.062 ; gain = 337.996 ; free physical = 925 ; free virtual = 5489
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 2009.973 ; gain = 338.027 ; free physical = 1234 ; free virtual = 2954
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 2009.062 ; gain = 337.996 ; free physical = 925 ; free virtual = 5489
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 2009.973 ; gain = 338.027 ; free physical = 1234 ; free virtual = 2954
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 2009.062 ; gain = 337.996 ; free physical = 925 ; free virtual = 5489
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 2009.973 ; gain = 338.027 ; free physical = 1234 ; free virtual = 2954
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 2009.062 ; gain = 337.996 ; free physical = 925 ; free virtual = 5489
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 2009.973 ; gain = 338.027 ; free physical = 1234 ; free virtual = 2954
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -615,31 +615,31 @@ Report Instance Areas:
 +------+---------------------+----------------------------+------+
 |      |Instance             |Module                      |Cells |
 +------+---------------------+----------------------------+------+
-|1     |top                  |                            |   978|
-|2     |  design_1_i         |design_1                    |   970|
+|1     |top                  |                            |   966|
+|2     |  design_1_i         |design_1                    |   958|
 |3     |    ps7_0_axi_periph |design_1_ps7_0_axi_periph_2 |   551|
 |4     |      s00_couplers   |s00_couplers_imp_UYSKKA     |   177|
 +------+---------------------+----------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 2009.062 ; gain = 337.996 ; free physical = 925 ; free virtual = 5489
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 2009.973 ; gain = 338.027 ; free physical = 1234 ; free virtual = 2954
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 8 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 2009.062 ; gain = 218.371 ; free physical = 982 ; free virtual = 5546
-Synthesis Optimization Complete : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 2009.062 ; gain = 337.996 ; free physical = 995 ; free virtual = 5558
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 2009.973 ; gain = 215.402 ; free physical = 1292 ; free virtual = 3011
+Synthesis Optimization Complete : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 2009.973 ; gain = 338.027 ; free physical = 1295 ; free virtual = 3014
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2011.805 ; gain = 0.000 ; free physical = 926 ; free virtual = 5489
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2012.715 ; gain = 0.000 ; free physical = 1234 ; free virtual = 2954
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
 45 Infos, 49 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:25 ; elapsed = 00:00:28 . Memory (MB): peak = 2011.805 ; gain = 575.211 ; free physical = 1015 ; free virtual = 5578
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2011.805 ; gain = 0.000 ; free physical = 1015 ; free virtual = 5578
+synth_design: Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 2012.715 ; gain = 576.148 ; free physical = 1324 ; free virtual = 3043
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2012.715 ; gain = 0.000 ; free physical = 1324 ; free virtual = 3043
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint '/home/phirasit/project/san-adapter/iscsi_fpga/iscsi_fpga.runs/synth_1/design_1_wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file design_1_wrapper_utilization_synth.rpt -pb design_1_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Feb  4 20:18:50 2020...
+INFO: [Common 17-206] Exiting Vivado at Sun Mar 15 20:29:02 2020...

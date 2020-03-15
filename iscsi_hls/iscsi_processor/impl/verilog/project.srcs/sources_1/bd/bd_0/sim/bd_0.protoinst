@@ -3,36 +3,24 @@
 	"modules": {
 		"bd_0": {
 			"proto_instances": {
-				"/hls_inst/tcp_in": {
+				"/hls_inst/tcp_in_V_V": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "ap_clk"},
 						"ARESETN": { "actual": "ap_rst_n"},
-						"TDATA": { "actual": "tcp_in_TDATA"},
-						"TDEST": { "actual": "tcp_in_TDEST"},
-						"TID": { "actual": "tcp_in_TID"},
-						"TKEEP": { "actual": "tcp_in_TKEEP"},
-						"TLAST": { "actual": "tcp_in_TLAST"},
-						"TREADY": { "actual": "tcp_in_TREADY"},
-						"TSTRB": { "actual": "tcp_in_TSTRB"},
-						"TUSER": { "actual": "tcp_in_TUSER"},
-						"TVALID": { "actual": "tcp_in_TVALID"}
+						"TDATA": { "actual": "tcp_in_V_V_TDATA"},
+						"TREADY": { "actual": "tcp_in_V_V_TREADY"},
+						"TVALID": { "actual": "tcp_in_V_V_TVALID"}
 					}
 				},
-				"/hls_inst/tcp_out": {
+				"/hls_inst/tcp_out_V_V": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "ap_clk"},
 						"ARESETN": { "actual": "ap_rst_n"},
-						"TDATA": { "actual": "tcp_out_TDATA"},
-						"TDEST": { "actual": "tcp_out_TDEST"},
-						"TID": { "actual": "tcp_out_TID"},
-						"TKEEP": { "actual": "tcp_out_TKEEP"},
-						"TLAST": { "actual": "tcp_out_TLAST"},
-						"TREADY": { "actual": "tcp_out_TREADY"},
-						"TSTRB": { "actual": "tcp_out_TSTRB"},
-						"TUSER": { "actual": "tcp_out_TUSER"},
-						"TVALID": { "actual": "tcp_out_TVALID"}
+						"TDATA": { "actual": "tcp_out_V_V_TDATA"},
+						"TREADY": { "actual": "tcp_out_V_V_TREADY"},
+						"TVALID": { "actual": "tcp_out_V_V_TVALID"}
 					}
 				}
 			}

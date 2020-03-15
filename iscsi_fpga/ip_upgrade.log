@@ -1,6 +1,387 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
+| Date         : Sun Mar 15 20:25:56 2020
+| Host         : phirasit-macbook running 64-bit Ubuntu 18.04.3 LTS
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_iscsi_interface_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_iscsi_interface_0_0 (xilinx.com:hls:iscsi_interface:1.0) from (Rev. 2003151935) to (Rev. 2003152019)
+
+
+
+
+
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
+| Date         : Sun Mar 15 19:42:24 2020
+| Host         : phirasit-macbook running 64-bit Ubuntu 18.04.3 LTS
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_iscsi_interface_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_iscsi_interface_0_0 (xilinx.com:hls:iscsi_interface:1.0) from (Rev. 2003151913) to (Rev. 2003151935)
+
+
+
+
+
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
+| Date         : Sun Mar 15 19:20:27 2020
+| Host         : phirasit-macbook running 64-bit Ubuntu 18.04.3 LTS
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_iscsi_interface_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_iscsi_interface_0_0 (xilinx.com:hls:iscsi_interface:1.0) from (Rev. 2003151851) to (Rev. 2003151913)
+
+
+
+
+
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
+| Date         : Sun Mar 15 18:57:43 2020
+| Host         : phirasit-macbook running 64-bit Ubuntu 18.04.3 LTS
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_iscsi_interface_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_iscsi_interface_0_0 (xilinx.com:hls:iscsi_interface:1.0) from (Rev. 2003151622) to (Rev. 2003151851)
+
+
+
+
+
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
+| Date         : Sun Mar 15 16:27:25 2020
+| Host         : phirasit-macbook running 64-bit Ubuntu 18.04.3 LTS
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_iscsi_interface_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_iscsi_interface_0_0 (xilinx.com:hls:iscsi_interface:1.0) from (Rev. 2003151100) to (Rev. 2003151622)
+
+
+
+
+
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
+| Date         : Sun Mar 15 11:42:28 2020
+| Host         : phirasit-macbook running 64-bit Ubuntu 18.04.3 LTS
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_iscsi_interface_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_iscsi_interface_0_0 (xilinx.com:hls:iscsi_interface:1.0) from (Rev. 2003150938) to (Rev. 2003151100)
+
+
+
+
+
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
+| Date         : Sun Mar 15 09:44:09 2020
+| Host         : phirasit-macbook running 64-bit Ubuntu 18.04.3 LTS
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_iscsi_interface_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_iscsi_interface_0_0 (xilinx.com:hls:iscsi_interface:1.0) from (Rev. 2003150911) to (Rev. 2003150938)
+
+
+
+
+
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
+| Date         : Sun Mar 15 09:16:14 2020
+| Host         : phirasit-macbook running 64-bit Ubuntu 18.04.3 LTS
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_iscsi_interface_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_iscsi_interface_0_0 (xilinx.com:hls:iscsi_interface:1.0) from (Rev. 2003141059) to (Rev. 2003150911)
+
+
+
+
+
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
+| Date         : Sat Mar 14 11:02:53 2020
+| Host         : phirasit-macbook running 64-bit Ubuntu 18.04.3 LTS
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_iscsi_interface_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_iscsi_interface_0_0 (xilinx.com:hls:iscsi_interface:1.0) from (Rev. 2003141032) to (Rev. 2003141059)
+
+
+
+
+
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
+| Date         : Sat Mar 14 10:47:37 2020
+| Host         : phirasit-macbook running 64-bit Ubuntu 18.04.3 LTS
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_iscsi_interface_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_iscsi_interface_0_0 (xilinx.com:hls:iscsi_interface:1.0) from (Rev. 2003131012) to (Rev. 2003141032)
+
+
+
+
+
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
+| Date         : Fri Mar 13 10:18:59 2020
+| Host         : phirasit-macbook running 64-bit Ubuntu 18.04.3 LTS
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_iscsi_interface_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_iscsi_interface_0_0 (xilinx.com:hls:iscsi_interface:1.0) from (Rev. 2003122040) to (Rev. 2003131012)
+
+
+
+
+
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
+| Date         : Thu Mar 12 20:44:25 2020
+| Host         : phirasit-macbook running 64-bit Ubuntu 18.04.3 LTS
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_iscsi_interface_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_iscsi_interface_0_0 (xilinx.com:hls:iscsi_interface:1.0) from (Rev. 2003060800) to (Rev. 2003122040)
+
+
+
+
+
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
+| Date         : Fri Mar  6 08:18:52 2020
+| Host         : phirasit-macbook running 64-bit Ubuntu 18.04.3 LTS
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_iscsi_interface_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of design_1_iscsi_interface_0_0 (xilinx.com:hls:iscsi_interface:1.0) from (Rev. 2003051951) to (Rev. 2003060800)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'design_1_iscsi_interface_0_0'. These changes may impact your design.
+
+
+-Upgraded port 'tcp_out_V_V_TDATA' out differs from original direction in
+
+-Upgraded port 'tcp_out_V_V_TREADY' in differs from original direction out
+
+-Upgraded port 'tcp_out_V_V_TVALID' out differs from original direction in
+
+
+
+
+
+
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
+| Date         : Thu Mar  5 19:59:31 2020
+| Host         : phirasit-macbook running 64-bit Ubuntu 18.04.3 LTS
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_iscsi_interface_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of design_1_iscsi_interface_0_0 (xilinx.com:hls:iscsi_interface:1.0) from (Rev. 2001311517) to (Rev. 2003051951)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Interface Information
+------------------------
+
+Detected external interface differences while upgrading 'design_1_iscsi_interface_0_0'.
+
+
+-Upgrade has removed interface 'tcp_in'
+
+-Upgrade has removed interface 'tcp_out'
+
+-Upgrade has added interface 'tcp_in_V_V' (xilinx.com:interface:axis:1.0)
+
+-Upgrade has added interface 'tcp_out_V_V' (xilinx.com:interface:axis:1.0)
+
+
+3. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'design_1_iscsi_interface_0_0'. These changes may impact your design.
+
+
+-Upgrade has removed port 'tcp_in_TDATA'
+
+-Upgrade has removed port 'tcp_in_TDEST'
+
+-Upgrade has removed port 'tcp_in_TID'
+
+-Upgrade has removed port 'tcp_in_TKEEP'
+
+-Upgrade has removed port 'tcp_in_TLAST'
+
+-Upgrade has removed port 'tcp_in_TREADY'
+
+-Upgrade has removed port 'tcp_in_TSTRB'
+
+-Upgrade has removed port 'tcp_in_TUSER'
+
+-Upgrade has removed port 'tcp_in_TVALID'
+
+-Upgrade has removed port 'tcp_out_TDATA'
+
+-Upgrade has removed port 'tcp_out_TDEST'
+
+-Upgrade has removed port 'tcp_out_TID'
+
+-Upgrade has removed port 'tcp_out_TKEEP'
+
+-Upgrade has removed port 'tcp_out_TLAST'
+
+-Upgrade has removed port 'tcp_out_TREADY'
+
+-Upgrade has removed port 'tcp_out_TSTRB'
+
+-Upgrade has removed port 'tcp_out_TUSER'
+
+-Upgrade has removed port 'tcp_out_TVALID'
+
+-Upgrade has added port 'tcp_in_V_V_TDATA'
+
+-Upgrade has added port 'tcp_in_V_V_TREADY'
+
+-Upgrade has added port 'tcp_in_V_V_TVALID'
+
+-Upgrade has added port 'tcp_out_V_V_TDATA'
+
+-Upgrade has added port 'tcp_out_V_V_TREADY'
+
+-Upgrade has added port 'tcp_out_V_V_TVALID'
+
+
+
+
+
+
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
 | Date         : Fri Jan 31 15:21:08 2020
 | Host         : phirasit-macbook running 64-bit Ubuntu 18.04.3 LTS
 | Command      : upgrade_ip

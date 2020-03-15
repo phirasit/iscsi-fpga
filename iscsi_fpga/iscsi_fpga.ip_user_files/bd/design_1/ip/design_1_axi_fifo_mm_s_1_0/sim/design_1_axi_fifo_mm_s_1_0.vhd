@@ -78,11 +78,6 @@ ENTITY design_1_axi_fifo_mm_s_1_0 IS
     s_axi_rresp : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
     s_axi_rvalid : OUT STD_LOGIC;
     s_axi_rready : IN STD_LOGIC;
-    mm2s_prmry_reset_out_n : OUT STD_LOGIC;
-    axi_str_txd_tvalid : OUT STD_LOGIC;
-    axi_str_txd_tready : IN STD_LOGIC;
-    axi_str_txd_tlast : OUT STD_LOGIC;
-    axi_str_txd_tdata : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
     s2mm_prmry_reset_out_n : OUT STD_LOGIC;
     axi_str_rxd_tvalid : IN STD_LOGIC;
     axi_str_rxd_tready : OUT STD_LOGIC;
@@ -223,13 +218,6 @@ ARCHITECTURE design_1_axi_fifo_mm_s_1_0_arch OF design_1_axi_fifo_mm_s_1_0 IS
   ATTRIBUTE X_INTERFACE_INFO OF axi_str_rxd_tvalid: SIGNAL IS "xilinx.com:interface:axis:1.0 AXI_STR_RXD TVALID";
   ATTRIBUTE X_INTERFACE_PARAMETER OF s2mm_prmry_reset_out_n: SIGNAL IS "XIL_INTERFACENAME rst_axi_str_rxd, POLARITY ACTIVE_LOW, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF s2mm_prmry_reset_out_n: SIGNAL IS "xilinx.com:signal:reset:1.0 rst_axi_str_rxd RST";
-  ATTRIBUTE X_INTERFACE_INFO OF axi_str_txd_tdata: SIGNAL IS "xilinx.com:interface:axis:1.0 AXI_STR_TXD TDATA";
-  ATTRIBUTE X_INTERFACE_INFO OF axi_str_txd_tlast: SIGNAL IS "xilinx.com:interface:axis:1.0 AXI_STR_TXD TLAST";
-  ATTRIBUTE X_INTERFACE_INFO OF axi_str_txd_tready: SIGNAL IS "xilinx.com:interface:axis:1.0 AXI_STR_TXD TREADY";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF axi_str_txd_tvalid: SIGNAL IS "XIL_INTERFACENAME AXI_STR_TXD, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, LAYERED_METADATA undef, INSERT_VIP 0";
-  ATTRIBUTE X_INTERFACE_INFO OF axi_str_txd_tvalid: SIGNAL IS "xilinx.com:interface:axis:1.0 AXI_STR_TXD TVALID";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF mm2s_prmry_reset_out_n: SIGNAL IS "XIL_INTERFACENAME rst_axi_str_txd, POLARITY ACTIVE_LOW, INSERT_VIP 0";
-  ATTRIBUTE X_INTERFACE_INFO OF mm2s_prmry_reset_out_n: SIGNAL IS "xilinx.com:signal:reset:1.0 rst_axi_str_txd RST";
   ATTRIBUTE X_INTERFACE_INFO OF s_axi_rready: SIGNAL IS "xilinx.com:interface:aximm:1.0 S_AXI RREADY";
   ATTRIBUTE X_INTERFACE_INFO OF s_axi_rvalid: SIGNAL IS "xilinx.com:interface:aximm:1.0 S_AXI RVALID";
   ATTRIBUTE X_INTERFACE_INFO OF s_axi_rresp: SIGNAL IS "xilinx.com:interface:aximm:1.0 S_AXI RRESP";
@@ -284,7 +272,7 @@ BEGIN
       C_AXIS_TDEST_WIDTH => 4,
       C_AXIS_TUSER_WIDTH => 4,
       C_USE_RX_CUT_THROUGH => 0,
-      C_USE_TX_DATA => 1,
+      C_USE_TX_DATA => 0,
       C_USE_TX_CTRL => 0,
       C_USE_RX_DATA => 1
     )
@@ -333,11 +321,7 @@ BEGIN
       s_axi4_arprot => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 3)),
       s_axi4_arvalid => '0',
       s_axi4_rready => '0',
-      mm2s_prmry_reset_out_n => mm2s_prmry_reset_out_n,
-      axi_str_txd_tvalid => axi_str_txd_tvalid,
-      axi_str_txd_tready => axi_str_txd_tready,
-      axi_str_txd_tlast => axi_str_txd_tlast,
-      axi_str_txd_tdata => axi_str_txd_tdata,
+      axi_str_txd_tready => '0',
       axi_str_txc_tready => '0',
       s2mm_prmry_reset_out_n => s2mm_prmry_reset_out_n,
       axi_str_rxd_tvalid => axi_str_rxd_tvalid,

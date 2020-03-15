@@ -1,0 +1,195 @@
+
+
+================================================================
+== Vivado HLS Report for 'read_from_tcp_1'
+================================================================
+* Date:           Sun Mar 15 20:18:10 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        iscsi_hls
+* Solution:       iscsi_processor
+* Product family: zynq
+* Target device:  xc7z020-clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     7.552|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        +------------------------------+-------------------+-----+---------+-----+---------+---------+
+        |                              |                   |    Latency    |    Interval   | Pipeline|
+        |           Instance           |       Module      | min |   max   | min |   max   |   Type  |
+        +------------------------------+-------------------+-----+---------+-----+---------+---------+
+        |grp_update_values_fu_74       |update_values      |    ?|        ?|    ?|        ?|   none  |
+        |grp_read_byte_array_1_fu_127  |read_byte_array_1  |    1|  8388609|    1|  8388609|   none  |
+        +------------------------------+-------------------+-----+---------+-----+---------+---------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  | URAM|
++-----------------+---------+-------+--------+-------+-----+
+|DSP              |        -|      -|       -|      -|    -|
+|Expression       |        -|      -|       -|      -|    -|
+|FIFO             |        -|      -|       -|      -|    -|
+|Instance         |        0|      -|    1367|   3659|    0|
+|Memory           |        -|      -|       -|      -|    -|
+|Multiplexer      |        -|      -|       -|    192|    -|
+|Register         |        -|      -|       6|      -|    -|
++-----------------+---------+-------+--------+-------+-----+
+|Total            |        0|      0|    1373|   3851|    0|
++-----------------+---------+-------+--------+-------+-----+
+|Available        |      280|    220|  106400|  53200|    0|
++-----------------+---------+-------+--------+-------+-----+
+|Utilization (%)  |        0|      0|       1|      7|    0|
++-----------------+---------+-------+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    +------------------------------+-------------------+---------+-------+------+------+-----+
+    |           Instance           |       Module      | BRAM_18K| DSP48E|  FF  |  LUT | URAM|
+    +------------------------------+-------------------+---------+-------+------+------+-----+
+    |grp_read_byte_array_1_fu_127  |read_byte_array_1  |        0|      0|    74|   286|    0|
+    |grp_update_values_fu_74       |update_values      |        0|      0|  1293|  3373|    0|
+    +------------------------------+-------------------+---------+-------+------+------+-----+
+    |Total                         |                   |        0|      0|  1367|  3659|    0|
+    +------------------------------+-------------------+---------+-------+------+------+-----+
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    N/A
+
+    * Multiplexer: 
+    +--------------------------------------------------------------+----+-----------+-----+-----------+
+    |                             Name                             | LUT| Input Size| Bits| Total Bits|
+    +--------------------------------------------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                                                     |  27|          5|    1|          5|
+    |iscsi_connection_parameter_data_address0                      |  15|          3|   13|         39|
+    |iscsi_connection_parameter_data_ce0                           |  15|          3|    1|          3|
+    |iscsi_connection_parameter_data_ce1                           |   9|          2|    1|          2|
+    |iscsi_connection_parameter_data_pdu_in_order_o                |   9|          2|   32|         64|
+    |iscsi_connection_parameter_data_sequence_in_order_o           |   9|          2|   32|         64|
+    |iscsi_connection_parameter_data_we0                           |   9|          2|    1|          2|
+    |iscsi_connection_parameter_data_we1                           |   9|          2|    1|          2|
+    |iscsi_connection_parameter_default_time_2_retain_o            |   9|          2|   32|         64|
+    |iscsi_connection_parameter_default_time_2_wait_o              |   9|          2|   32|         64|
+    |iscsi_connection_parameter_first_burst_length_o               |   9|          2|   32|         64|
+    |iscsi_connection_parameter_immediate_data_o                   |   9|          2|   32|         64|
+    |iscsi_connection_parameter_initial_r2t_o                      |   9|          2|   32|         64|
+    |iscsi_connection_parameter_max_burst_length_o                 |   9|          2|   32|         64|
+    |iscsi_connection_parameter_max_connections_o                  |   9|          2|   32|         64|
+    |iscsi_connection_parameter_max_outstanding_r2t_o              |   9|          2|   32|         64|
+    |iscsi_connection_parameter_max_receive_data_segment_length_o  |   9|          2|   32|         64|
+    |tcp_in_V_V_TREADY                                             |   9|          2|    1|          2|
+    +--------------------------------------------------------------+----+-----------+-----+-----------+
+    |Total                                                         | 192|         41|  371|        759|
+    +--------------------------------------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-------------------------------------------+---+----+-----+-----------+
+    |                    Name                   | FF| LUT| Bits| Const Bits|
+    +-------------------------------------------+---+----+-----+-----------+
+    |ap_CS_fsm                                  |  4|   0|    4|          0|
+    |grp_read_byte_array_1_fu_127_ap_start_reg  |  1|   0|    1|          0|
+    |grp_update_values_fu_74_ap_start_reg       |  1|   0|    1|          0|
+    +-------------------------------------------+---+----+-----+-----------+
+    |Total                                      |  6|   0|    6|          0|
+    +-------------------------------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++---------------------------------------------------------------------+-----+-----+------------+------------------------------------------------------------+--------------+
+|                              RTL Ports                              | Dir | Bits|  Protocol  |                        Source Object                       |    C Type    |
++---------------------------------------------------------------------+-----+-----+------------+------------------------------------------------------------+--------------+
+|ap_clk                                                               |  in |    1| ap_ctrl_hs |                       read_from_tcp.1                      | return value |
+|ap_rst                                                               |  in |    1| ap_ctrl_hs |                       read_from_tcp.1                      | return value |
+|ap_start                                                             |  in |    1| ap_ctrl_hs |                       read_from_tcp.1                      | return value |
+|ap_done                                                              | out |    1| ap_ctrl_hs |                       read_from_tcp.1                      | return value |
+|ap_idle                                                              | out |    1| ap_ctrl_hs |                       read_from_tcp.1                      | return value |
+|ap_ready                                                             | out |    1| ap_ctrl_hs |                       read_from_tcp.1                      | return value |
+|ap_return                                                            | out |   24| ap_ctrl_hs |                       read_from_tcp.1                      | return value |
+|iscsi_connection_parameter_max_receive_data_segment_length_i         |  in |   32|   ap_ovld  | iscsi_connection_parameter_max_receive_data_segment_length |    pointer   |
+|iscsi_connection_parameter_max_receive_data_segment_length_o         | out |   32|   ap_ovld  | iscsi_connection_parameter_max_receive_data_segment_length |    pointer   |
+|iscsi_connection_parameter_max_receive_data_segment_length_o_ap_vld  | out |    1|   ap_ovld  | iscsi_connection_parameter_max_receive_data_segment_length |    pointer   |
+|iscsi_connection_parameter_max_connections_i                         |  in |   32|   ap_ovld  |         iscsi_connection_parameter_max_connections         |    pointer   |
+|iscsi_connection_parameter_max_connections_o                         | out |   32|   ap_ovld  |         iscsi_connection_parameter_max_connections         |    pointer   |
+|iscsi_connection_parameter_max_connections_o_ap_vld                  | out |    1|   ap_ovld  |         iscsi_connection_parameter_max_connections         |    pointer   |
+|iscsi_connection_parameter_initial_r2t_i                             |  in |   32|   ap_ovld  |           iscsi_connection_parameter_initial_r2t           |    pointer   |
+|iscsi_connection_parameter_initial_r2t_o                             | out |   32|   ap_ovld  |           iscsi_connection_parameter_initial_r2t           |    pointer   |
+|iscsi_connection_parameter_initial_r2t_o_ap_vld                      | out |    1|   ap_ovld  |           iscsi_connection_parameter_initial_r2t           |    pointer   |
+|iscsi_connection_parameter_immediate_data_i                          |  in |   32|   ap_ovld  |          iscsi_connection_parameter_immediate_data         |    pointer   |
+|iscsi_connection_parameter_immediate_data_o                          | out |   32|   ap_ovld  |          iscsi_connection_parameter_immediate_data         |    pointer   |
+|iscsi_connection_parameter_immediate_data_o_ap_vld                   | out |    1|   ap_ovld  |          iscsi_connection_parameter_immediate_data         |    pointer   |
+|iscsi_connection_parameter_max_burst_length_i                        |  in |   32|   ap_ovld  |         iscsi_connection_parameter_max_burst_length        |    pointer   |
+|iscsi_connection_parameter_max_burst_length_o                        | out |   32|   ap_ovld  |         iscsi_connection_parameter_max_burst_length        |    pointer   |
+|iscsi_connection_parameter_max_burst_length_o_ap_vld                 | out |    1|   ap_ovld  |         iscsi_connection_parameter_max_burst_length        |    pointer   |
+|iscsi_connection_parameter_first_burst_length_i                      |  in |   32|   ap_ovld  |        iscsi_connection_parameter_first_burst_length       |    pointer   |
+|iscsi_connection_parameter_first_burst_length_o                      | out |   32|   ap_ovld  |        iscsi_connection_parameter_first_burst_length       |    pointer   |
+|iscsi_connection_parameter_first_burst_length_o_ap_vld               | out |    1|   ap_ovld  |        iscsi_connection_parameter_first_burst_length       |    pointer   |
+|iscsi_connection_parameter_data_pdu_in_order_i                       |  in |   32|   ap_ovld  |        iscsi_connection_parameter_data_pdu_in_order        |    pointer   |
+|iscsi_connection_parameter_data_pdu_in_order_o                       | out |   32|   ap_ovld  |        iscsi_connection_parameter_data_pdu_in_order        |    pointer   |
+|iscsi_connection_parameter_data_pdu_in_order_o_ap_vld                | out |    1|   ap_ovld  |        iscsi_connection_parameter_data_pdu_in_order        |    pointer   |
+|iscsi_connection_parameter_data_sequence_in_order_i                  |  in |   32|   ap_ovld  |      iscsi_connection_parameter_data_sequence_in_order     |    pointer   |
+|iscsi_connection_parameter_data_sequence_in_order_o                  | out |   32|   ap_ovld  |      iscsi_connection_parameter_data_sequence_in_order     |    pointer   |
+|iscsi_connection_parameter_data_sequence_in_order_o_ap_vld           | out |    1|   ap_ovld  |      iscsi_connection_parameter_data_sequence_in_order     |    pointer   |
+|iscsi_connection_parameter_default_time_2_wait_i                     |  in |   32|   ap_ovld  |       iscsi_connection_parameter_default_time_2_wait       |    pointer   |
+|iscsi_connection_parameter_default_time_2_wait_o                     | out |   32|   ap_ovld  |       iscsi_connection_parameter_default_time_2_wait       |    pointer   |
+|iscsi_connection_parameter_default_time_2_wait_o_ap_vld              | out |    1|   ap_ovld  |       iscsi_connection_parameter_default_time_2_wait       |    pointer   |
+|iscsi_connection_parameter_default_time_2_retain_i                   |  in |   32|   ap_ovld  |      iscsi_connection_parameter_default_time_2_retain      |    pointer   |
+|iscsi_connection_parameter_default_time_2_retain_o                   | out |   32|   ap_ovld  |      iscsi_connection_parameter_default_time_2_retain      |    pointer   |
+|iscsi_connection_parameter_default_time_2_retain_o_ap_vld            | out |    1|   ap_ovld  |      iscsi_connection_parameter_default_time_2_retain      |    pointer   |
+|iscsi_connection_parameter_max_outstanding_r2t_i                     |  in |   32|   ap_ovld  |       iscsi_connection_parameter_max_outstanding_r2t       |    pointer   |
+|iscsi_connection_parameter_max_outstanding_r2t_o                     | out |   32|   ap_ovld  |       iscsi_connection_parameter_max_outstanding_r2t       |    pointer   |
+|iscsi_connection_parameter_max_outstanding_r2t_o_ap_vld              | out |    1|   ap_ovld  |       iscsi_connection_parameter_max_outstanding_r2t       |    pointer   |
+|iscsi_connection_parameter_data_address0                             | out |   13|  ap_memory |               iscsi_connection_parameter_data              |     array    |
+|iscsi_connection_parameter_data_ce0                                  | out |    1|  ap_memory |               iscsi_connection_parameter_data              |     array    |
+|iscsi_connection_parameter_data_we0                                  | out |    1|  ap_memory |               iscsi_connection_parameter_data              |     array    |
+|iscsi_connection_parameter_data_d0                                   | out |    8|  ap_memory |               iscsi_connection_parameter_data              |     array    |
+|iscsi_connection_parameter_data_q0                                   |  in |    8|  ap_memory |               iscsi_connection_parameter_data              |     array    |
+|iscsi_connection_parameter_data_address1                             | out |   13|  ap_memory |               iscsi_connection_parameter_data              |     array    |
+|iscsi_connection_parameter_data_ce1                                  | out |    1|  ap_memory |               iscsi_connection_parameter_data              |     array    |
+|iscsi_connection_parameter_data_we1                                  | out |    1|  ap_memory |               iscsi_connection_parameter_data              |     array    |
+|iscsi_connection_parameter_data_d1                                   | out |    8|  ap_memory |               iscsi_connection_parameter_data              |     array    |
+|tcp_in_V_V_TDATA                                                     |  in |   32|    axis    |                         tcp_in_V_V                         |    pointer   |
+|tcp_in_V_V_TVALID                                                    |  in |    1|    axis    |                         tcp_in_V_V                         |    pointer   |
+|tcp_in_V_V_TREADY                                                    | out |    1|    axis    |                         tcp_in_V_V                         |    pointer   |
+|length_r                                                             |  in |   24|   ap_none  |                          length_r                          |    scalar    |
++---------------------------------------------------------------------+-----+-----+------------+------------------------------------------------------------+--------------+
+

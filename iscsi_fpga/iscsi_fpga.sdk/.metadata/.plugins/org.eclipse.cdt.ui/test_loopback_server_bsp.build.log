@@ -1,4 +1,4 @@
-20:02:25 **** Build of project test_loopback_server_bsp ****
+09:38:13 **** Auto Build of project test_loopback_server_bsp ****
 make -k all 
 Running Make include in ps7_cortexa9_0/libsrc/ddrps_v1_0/src
 make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
@@ -138,5 +138,5 @@ make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_5/src -s libs  "SHELL=/bin/sh" 
 Compiling coresightps_dcc
 Finished building libraries
 
-20:02:46 Build Finished (took 21s.438ms)
+09:38:35 Build Finished (took 21s.996ms)
 

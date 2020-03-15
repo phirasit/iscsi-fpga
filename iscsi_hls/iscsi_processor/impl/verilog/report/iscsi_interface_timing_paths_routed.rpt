@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-| Date         : Fri Jan 31 15:20:36 2020
+| Date         : Sun Mar 15 20:25:10 2020
 | Host         : phirasit-macbook running 64-bit Ubuntu 18.04.3 LTS
 | Command      : report_timing -max_paths 10 -file ./report/iscsi_interface_timing_paths_routed.rpt
 | Design       : bd_0_wrapper
@@ -11,16 +11,16 @@ Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 
 Timing Report
 
-Slack (MET) :             6.175ns  (required time - arrival time)
-  Source:                 bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_state_reg[0]/C
-                            (rising edge-triggered cell FDRE clocked by ap_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            bd_0_i/hls_inst/inst/tcp_out_V_last_V_1_state_reg[0]/D
+Slack (MET) :             0.411ns  (required time - arrival time)
+  Source:                 bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/header_buffer_V_U/iscsi_login_response_buffer_V_ram_U/ram_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB18E1 clocked by ap_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            bd_0_i/hls_inst/inst/tcp_in_V_V_0_state_reg[1]/D
                             (rising edge-triggered cell FDRE clocked by ap_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             ap_clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (ap_clk rise@10.000ns - ap_clk rise@0.000ns)
-  Data Path Delay:        3.486ns  (logic 0.792ns (22.720%)  route 2.694ns (77.280%))
-  Logic Levels:           2  (LUT3=1 LUT5=1)
+  Data Path Delay:        9.230ns  (logic 4.278ns (46.351%)  route 4.952ns (53.649%))
+  Logic Levels:           10  (CARRY4=4 LUT4=3 LUT5=1 LUT6=2)
   Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    0.924ns = ( 10.924 - 10.000 ) 
     Source Clock Delay      (SCD):    0.973ns
@@ -35,41 +35,62 @@ Slack (MET) :             6.175ns  (required time - arrival time)
   -------------------------------------------------------------------    -------------------
                          (clock ap_clk rise edge)     0.000     0.000 r  
                                                       0.000     0.000 r  ap_clk (IN)
-                         net (fo=234, unset)          0.973     0.973    bd_0_i/hls_inst/inst/ap_clk
-    SLICE_X14Y27         FDRE                                         r  bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_state_reg[0]/C
+                         net (fo=5742, unset)         0.973     0.973    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/header_buffer_V_U/iscsi_login_response_buffer_V_ram_U/ap_clk
+    RAMB18_X3Y14         RAMB18E1                                     r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/header_buffer_V_U/iscsi_login_response_buffer_V_ram_U/ram_reg/CLKBWRCLK
   -------------------------------------------------------------------    -------------------
-    SLICE_X14Y27         FDRE (Prop_fdre_C_Q)         0.518     1.491 r  bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_state_reg[0]/Q
-                         net (fo=35, routed)          0.673     2.164    bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_state_reg_n_0_[0]
-    SLICE_X15Y27         LUT3 (Prop_lut3_I1_O)        0.124     2.288 r  bd_0_i/hls_inst/inst/tcp_out_V_dest_V_1_state[0]_i_2/O
-                         net (fo=12, routed)          1.546     3.834    bd_0_i/hls_inst/inst/p_186_in
-    SLICE_X15Y33         LUT5 (Prop_lut5_I4_O)        0.150     3.984 r  bd_0_i/hls_inst/inst/tcp_out_V_last_V_1_state[0]_i_1/O
-                         net (fo=1, routed)           0.475     4.459    bd_0_i/hls_inst/inst/tcp_out_V_last_V_1_state[0]_i_1_n_0
-    SLICE_X15Y33         FDRE                                         r  bd_0_i/hls_inst/inst/tcp_out_V_last_V_1_state_reg[0]/D
+    RAMB18_X3Y14         RAMB18E1 (Prop_ramb18e1_CLKBWRCLK_DOBDO[3])
+                                                      2.454     3.427 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/header_buffer_V_U/iscsi_login_response_buffer_V_ram_U/ram_reg/DOBDO[3]
+                         net (fo=5, routed)           1.405     4.832    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_nop_out_fu_326/DOBDO[3]
+    SLICE_X69Y37         LUT4 (Prop_lut4_I1_O)        0.124     4.956 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_nop_out_fu_326/icmp_ln28_fu_638_p2_carry_i_7/O
+                         net (fo=1, routed)           0.000     4.956    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_nop_out_fu_326/icmp_ln28_fu_638_p2_carry_i_7_n_20
+    SLICE_X69Y37         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     5.506 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_nop_out_fu_326/icmp_ln28_fu_638_p2_carry/CO[3]
+                         net (fo=1, routed)           0.000     5.506    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_nop_out_fu_326/icmp_ln28_fu_638_p2_carry_n_20
+    SLICE_X69Y38         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     5.620 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_nop_out_fu_326/icmp_ln28_fu_638_p2_carry__0/CO[3]
+                         net (fo=1, routed)           0.000     5.620    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_nop_out_fu_326/icmp_ln28_fu_638_p2_carry__0_n_20
+    SLICE_X69Y39         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     5.734 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_nop_out_fu_326/icmp_ln28_fu_638_p2_carry__1/CO[3]
+                         net (fo=1, routed)           0.000     5.734    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_nop_out_fu_326/icmp_ln28_fu_638_p2_carry__1_n_20
+    SLICE_X69Y40         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     5.848 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_nop_out_fu_326/icmp_ln28_fu_638_p2_carry__2/CO[3]
+                         net (fo=4, routed)           0.624     6.473    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_nop_out_fu_326/icmp_ln28_fu_638_p2
+    SLICE_X69Y41         LUT6 (Prop_lut6_I0_O)        0.124     6.597 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_nop_out_fu_326/i_0_reg_443[2]_i_2/O
+                         net (fo=33, routed)          0.745     7.341    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_nop_out_fu_326/grp_iscsi_nop_out_fu_326_tcp_out_V_V_TVALID
+    SLICE_X70Y39         LUT4 (Prop_lut4_I3_O)        0.118     7.459 f  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_nop_out_fu_326/tcp_out_V_V_1_payload_A[31]_i_5/O
+                         net (fo=34, routed)          0.602     8.061    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_text_fu_283/grp_read_from_tcp_1_fu_581/grp_read_byte_array_1_fu_127/tcp_in_V_V_0_state[1]_i_3
+    SLICE_X64Y39         LUT6 (Prop_lut6_I0_O)        0.326     8.387 f  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_text_fu_283/grp_read_from_tcp_1_fu_581/grp_read_byte_array_1_fu_127/tcp_in_V_V_0_state[1]_i_4/O
+                         net (fo=1, routed)           0.423     8.810    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_read_from_tcp_fu_341/grp_read_byte_array_fu_16/tcp_in_V_V_0_state_reg[0]_1
+    SLICE_X63Y38         LUT5 (Prop_lut5_I1_O)        0.124     8.934 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_read_from_tcp_fu_341/grp_read_byte_array_fu_16/tcp_in_V_V_0_state[1]_i_3/O
+                         net (fo=3, routed)           0.565     9.500    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_read_from_tcp_fu_341/grp_read_byte_array_fu_16/tcp_in_V_V_0_state[1]_i_3_n_20
+    SLICE_X62Y36         LUT4 (Prop_lut4_I0_O)        0.116     9.616 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_read_from_tcp_fu_341/grp_read_byte_array_fu_16/tcp_in_V_V_0_state[1]_i_2/O
+                         net (fo=1, routed)           0.587    10.203    bd_0_i/hls_inst/inst/tcp_in_V_V_0_state[1]
+    SLICE_X61Y36         FDRE                                         r  bd_0_i/hls_inst/inst/tcp_in_V_V_0_state_reg[1]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock ap_clk rise edge)    10.000    10.000 r  
                                                       0.000    10.000 r  ap_clk (IN)
-                         net (fo=234, unset)          0.924    10.924    bd_0_i/hls_inst/inst/ap_clk
-    SLICE_X15Y33         FDRE                                         r  bd_0_i/hls_inst/inst/tcp_out_V_last_V_1_state_reg[0]/C
+                         net (fo=5742, unset)         0.924    10.924    bd_0_i/hls_inst/inst/ap_clk
+    SLICE_X61Y36         FDRE                                         r  bd_0_i/hls_inst/inst/tcp_in_V_V_0_state_reg[1]/C
                          clock pessimism              0.000    10.924    
                          clock uncertainty           -0.035    10.889    
-    SLICE_X15Y33         FDRE (Setup_fdre_C_D)       -0.255    10.634    bd_0_i/hls_inst/inst/tcp_out_V_last_V_1_state_reg[0]
+    SLICE_X61Y36         FDRE (Setup_fdre_C_D)       -0.275    10.614    bd_0_i/hls_inst/inst/tcp_in_V_V_0_state_reg[1]
   -------------------------------------------------------------------
-                         required time                         10.634    
-                         arrival time                          -4.459    
+                         required time                         10.614    
+                         arrival time                         -10.203    
   -------------------------------------------------------------------
-                         slack                                  6.175    
+                         slack                                  0.411    
 
-Slack (MET) :             6.892ns  (required time - arrival time)
-  Source:                 bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_state_reg[0]/C
-                            (rising edge-triggered cell FDRE clocked by ap_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            bd_0_i/hls_inst/inst/tcp_out_V_id_V_1_state_reg[0]/D
+Slack (MET) :             0.819ns  (required time - arrival time)
+  Source:                 bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2__1/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/tmp_reg_451_reg[28]/D
                             (rising edge-triggered cell FDRE clocked by ap_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             ap_clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (ap_clk rise@10.000ns - ap_clk rise@0.000ns)
-  Data Path Delay:        2.784ns  (logic 0.792ns (28.452%)  route 1.992ns (71.548%))
-  Logic Levels:           2  (LUT3=1 LUT5=1)
+  Data Path Delay:        9.206ns  (logic 7.689ns (83.525%)  route 1.517ns (16.475%))
+  Logic Levels:           15  (CARRY4=13 DSP48E1=1 LUT2=1)
   Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    0.924ns = ( 10.924 - 10.000 ) 
     Source Clock Delay      (SCD):    0.973ns
@@ -84,41 +105,82 @@ Slack (MET) :             6.892ns  (required time - arrival time)
   -------------------------------------------------------------------    -------------------
                          (clock ap_clk rise edge)     0.000     0.000 r  
                                                       0.000     0.000 r  ap_clk (IN)
-                         net (fo=234, unset)          0.973     0.973    bd_0_i/hls_inst/inst/ap_clk
-    SLICE_X14Y27         FDRE                                         r  bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_state_reg[0]/C
+                         net (fo=5742, unset)         0.973     0.973    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/ap_clk
+    DSP48_X3Y6           DSP48E1                                      r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2__1/CLK
   -------------------------------------------------------------------    -------------------
-    SLICE_X14Y27         FDRE (Prop_fdre_C_Q)         0.518     1.491 r  bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_state_reg[0]/Q
-                         net (fo=35, routed)          0.673     2.164    bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_state_reg_n_0_[0]
-    SLICE_X15Y27         LUT3 (Prop_lut3_I1_O)        0.124     2.288 r  bd_0_i/hls_inst/inst/tcp_out_V_dest_V_1_state[0]_i_2/O
-                         net (fo=12, routed)          0.983     3.271    bd_0_i/hls_inst/inst/p_186_in
-    SLICE_X14Y32         LUT5 (Prop_lut5_I4_O)        0.150     3.421 r  bd_0_i/hls_inst/inst/tcp_out_V_id_V_1_state[0]_i_1/O
-                         net (fo=1, routed)           0.336     3.757    bd_0_i/hls_inst/inst/tcp_out_V_id_V_1_state[0]_i_1_n_0
-    SLICE_X14Y32         FDRE                                         r  bd_0_i/hls_inst/inst/tcp_out_V_id_V_1_state_reg[0]/D
+    DSP48_X3Y6           DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      4.008     4.981 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2__1/PCOUT[47]
+                         net (fo=1, routed)           0.002     4.983    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2__1_n_126
+    DSP48_X3Y7           DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.518     6.501 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2__2/P[0]
+                         net (fo=2, routed)           1.515     8.016    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2__2_n_125
+    SLICE_X94Y7          LUT2 (Prop_lut2_I0_O)        0.124     8.140 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440[19]_i_4/O
+                         net (fo=1, routed)           0.000     8.140    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440[19]_i_4_n_20
+    SLICE_X94Y7          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533     8.673 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[19]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     8.673    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[19]_i_1_n_20
+    SLICE_X94Y8          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     8.790 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[23]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     8.790    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[23]_i_1_n_20
+    SLICE_X94Y9          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     8.907 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[27]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     8.907    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[27]_i_1_n_20
+    SLICE_X94Y10         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.024 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[31]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.024    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[31]_i_1_n_20
+    SLICE_X94Y11         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.141 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[35]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.141    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[35]_i_1_n_20
+    SLICE_X94Y12         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.258 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[36]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.258    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[36]_i_1_n_20
+    SLICE_X94Y13         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.375 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[40]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.375    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[40]_i_1_n_20
+    SLICE_X94Y14         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.492 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[44]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.492    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[44]_i_1_n_20
+    SLICE_X94Y15         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.609 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[48]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.609    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[48]_i_1_n_20
+    SLICE_X94Y16         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.726 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[52]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.726    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[52]_i_1_n_20
+    SLICE_X94Y17         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.843 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[56]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.843    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[56]_i_1_n_20
+    SLICE_X94Y18         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.960 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[60]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.960    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[60]_i_1_n_20
+    SLICE_X94Y19         CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.219    10.179 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/tmp_reg_451_reg[28]_i_1/O[0]
+                         net (fo=1, routed)           0.000    10.179    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2__3[64]
+    SLICE_X94Y19         FDRE                                         r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/tmp_reg_451_reg[28]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock ap_clk rise edge)    10.000    10.000 r  
                                                       0.000    10.000 r  ap_clk (IN)
-                         net (fo=234, unset)          0.924    10.924    bd_0_i/hls_inst/inst/ap_clk
-    SLICE_X14Y32         FDRE                                         r  bd_0_i/hls_inst/inst/tcp_out_V_id_V_1_state_reg[0]/C
+                         net (fo=5742, unset)         0.924    10.924    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/ap_clk
+    SLICE_X94Y19         FDRE                                         r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/tmp_reg_451_reg[28]/C
                          clock pessimism              0.000    10.924    
                          clock uncertainty           -0.035    10.889    
-    SLICE_X14Y32         FDRE (Setup_fdre_C_D)       -0.240    10.649    bd_0_i/hls_inst/inst/tcp_out_V_id_V_1_state_reg[0]
+    SLICE_X94Y19         FDRE (Setup_fdre_C_D)        0.109    10.998    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/tmp_reg_451_reg[28]
   -------------------------------------------------------------------
-                         required time                         10.649    
-                         arrival time                          -3.757    
+                         required time                         10.998    
+                         arrival time                         -10.179    
   -------------------------------------------------------------------
-                         slack                                  6.892    
+                         slack                                  0.819    
 
-Slack (MET) :             6.917ns  (required time - arrival time)
-  Source:                 bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_sel_rd_reg/C
-                            (rising edge-triggered cell FDRE clocked by ap_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            bd_0_i/hls_inst/inst/tcp_out_V_data_V_1_payload_A_reg[4]/D
+Slack (MET) :             0.832ns  (required time - arrival time)
+  Source:                 bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2__1/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[61]/D
                             (rising edge-triggered cell FDRE clocked by ap_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             ap_clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (ap_clk rise@10.000ns - ap_clk rise@0.000ns)
-  Data Path Delay:        2.730ns  (logic 0.608ns (22.268%)  route 2.122ns (77.732%))
-  Logic Levels:           1  (LUT3=1)
+  Data Path Delay:        9.193ns  (logic 7.676ns (83.502%)  route 1.517ns (16.498%))
+  Logic Levels:           14  (CARRY4=12 DSP48E1=1 LUT2=1)
   Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    0.924ns = ( 10.924 - 10.000 ) 
     Source Clock Delay      (SCD):    0.973ns
@@ -133,39 +195,79 @@ Slack (MET) :             6.917ns  (required time - arrival time)
   -------------------------------------------------------------------    -------------------
                          (clock ap_clk rise edge)     0.000     0.000 r  
                                                       0.000     0.000 r  ap_clk (IN)
-                         net (fo=234, unset)          0.973     0.973    bd_0_i/hls_inst/inst/ap_clk
-    SLICE_X15Y26         FDRE                                         r  bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_sel_rd_reg/C
+                         net (fo=5742, unset)         0.973     0.973    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/ap_clk
+    DSP48_X3Y6           DSP48E1                                      r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2__1/CLK
   -------------------------------------------------------------------    -------------------
-    SLICE_X15Y26         FDRE (Prop_fdre_C_Q)         0.456     1.429 r  bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_sel_rd_reg/Q
-                         net (fo=33, routed)          1.557     2.986    bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_sel
-    SLICE_X11Y22         LUT3 (Prop_lut3_I2_O)        0.152     3.138 r  bd_0_i/hls_inst/inst/tcp_out_V_data_V_1_payload_A[4]_i_1/O
-                         net (fo=2, routed)           0.565     3.703    bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_data_out[4]
-    SLICE_X9Y23          FDRE                                         r  bd_0_i/hls_inst/inst/tcp_out_V_data_V_1_payload_A_reg[4]/D
+    DSP48_X3Y6           DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      4.008     4.981 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2__1/PCOUT[47]
+                         net (fo=1, routed)           0.002     4.983    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2__1_n_126
+    DSP48_X3Y7           DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.518     6.501 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2__2/P[0]
+                         net (fo=2, routed)           1.515     8.016    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2__2_n_125
+    SLICE_X94Y7          LUT2 (Prop_lut2_I0_O)        0.124     8.140 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440[19]_i_4/O
+                         net (fo=1, routed)           0.000     8.140    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440[19]_i_4_n_20
+    SLICE_X94Y7          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533     8.673 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[19]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     8.673    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[19]_i_1_n_20
+    SLICE_X94Y8          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     8.790 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[23]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     8.790    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[23]_i_1_n_20
+    SLICE_X94Y9          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     8.907 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[27]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     8.907    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[27]_i_1_n_20
+    SLICE_X94Y10         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.024 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[31]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.024    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[31]_i_1_n_20
+    SLICE_X94Y11         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.141 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[35]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.141    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[35]_i_1_n_20
+    SLICE_X94Y12         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.258 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[36]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.258    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[36]_i_1_n_20
+    SLICE_X94Y13         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.375 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[40]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.375    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[40]_i_1_n_20
+    SLICE_X94Y14         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.492 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[44]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.492    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[44]_i_1_n_20
+    SLICE_X94Y15         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.609 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[48]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.609    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[48]_i_1_n_20
+    SLICE_X94Y16         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.726 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[52]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.726    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[52]_i_1_n_20
+    SLICE_X94Y17         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.843 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[56]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.843    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[56]_i_1_n_20
+    SLICE_X94Y18         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.323    10.166 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[60]_i_1/O[1]
+                         net (fo=1, routed)           0.000    10.166    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2__3[61]
+    SLICE_X94Y18         FDRE                                         r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[61]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock ap_clk rise edge)    10.000    10.000 r  
                                                       0.000    10.000 r  ap_clk (IN)
-                         net (fo=234, unset)          0.924    10.924    bd_0_i/hls_inst/inst/ap_clk
-    SLICE_X9Y23          FDRE                                         r  bd_0_i/hls_inst/inst/tcp_out_V_data_V_1_payload_A_reg[4]/C
+                         net (fo=5742, unset)         0.924    10.924    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/ap_clk
+    SLICE_X94Y18         FDRE                                         r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[61]/C
                          clock pessimism              0.000    10.924    
                          clock uncertainty           -0.035    10.889    
-    SLICE_X9Y23          FDRE (Setup_fdre_C_D)       -0.269    10.620    bd_0_i/hls_inst/inst/tcp_out_V_data_V_1_payload_A_reg[4]
+    SLICE_X94Y18         FDRE (Setup_fdre_C_D)        0.109    10.998    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[61]
   -------------------------------------------------------------------
-                         required time                         10.620    
-                         arrival time                          -3.703    
+                         required time                         10.998    
+                         arrival time                         -10.166    
   -------------------------------------------------------------------
-                         slack                                  6.917    
+                         slack                                  0.832    
 
-Slack (MET) :             6.931ns  (required time - arrival time)
-  Source:                 bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_state_reg[1]/C
-                            (rising edge-triggered cell FDRE clocked by ap_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_payload_B_reg[0]/CE
+Slack (MET) :             0.837ns  (required time - arrival time)
+  Source:                 bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2__1/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/tmp_reg_466_reg[28]/D
                             (rising edge-triggered cell FDRE clocked by ap_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             ap_clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (ap_clk rise@10.000ns - ap_clk rise@0.000ns)
-  Data Path Delay:        2.816ns  (logic 0.715ns (25.391%)  route 2.101ns (74.609%))
-  Logic Levels:           1  (LUT3=1)
+  Data Path Delay:        9.188ns  (logic 7.689ns (83.687%)  route 1.499ns (16.313%))
+  Logic Levels:           15  (CARRY4=13 DSP48E1=1 LUT2=1)
   Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    0.924ns = ( 10.924 - 10.000 ) 
     Source Clock Delay      (SCD):    0.973ns
@@ -180,39 +282,82 @@ Slack (MET) :             6.931ns  (required time - arrival time)
   -------------------------------------------------------------------    -------------------
                          (clock ap_clk rise edge)     0.000     0.000 r  
                                                       0.000     0.000 r  ap_clk (IN)
-                         net (fo=234, unset)          0.973     0.973    bd_0_i/hls_inst/inst/ap_clk
-    SLICE_X15Y27         FDRE                                         r  bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_state_reg[1]/C
+                         net (fo=5742, unset)         0.973     0.973    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/ap_clk
+    DSP48_X1Y4           DSP48E1                                      r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2__1/CLK
   -------------------------------------------------------------------    -------------------
-    SLICE_X15Y27         FDRE (Prop_fdre_C_Q)         0.419     1.392 r  bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_state_reg[1]/Q
-                         net (fo=5, routed)           0.854     2.246    bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_ack_in
-    SLICE_X14Y26         LUT3 (Prop_lut3_I2_O)        0.296     2.542 r  bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_payload_B[31]_i_1/O
-                         net (fo=32, routed)          1.247     3.789    bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_load_B
-    SLICE_X10Y22         FDRE                                         r  bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_payload_B_reg[0]/CE
+    DSP48_X1Y4           DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      4.008     4.981 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2__1/PCOUT[47]
+                         net (fo=1, routed)           0.002     4.983    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2__1_n_126
+    DSP48_X1Y5           DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.518     6.501 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2__2/P[0]
+                         net (fo=2, routed)           1.497     7.998    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2__2_n_125
+    SLICE_X20Y4          LUT2 (Prop_lut2_I0_O)        0.124     8.122 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455[19]_i_4/O
+                         net (fo=1, routed)           0.000     8.122    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455[19]_i_4_n_20
+    SLICE_X20Y4          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533     8.655 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[19]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     8.655    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[19]_i_1_n_20
+    SLICE_X20Y5          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     8.772 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[23]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     8.772    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[23]_i_1_n_20
+    SLICE_X20Y6          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     8.889 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[27]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     8.889    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[27]_i_1_n_20
+    SLICE_X20Y7          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.006 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[31]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.006    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[31]_i_1_n_20
+    SLICE_X20Y8          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.123 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[35]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.123    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[35]_i_1_n_20
+    SLICE_X20Y9          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.240 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[36]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.240    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[36]_i_1_n_20
+    SLICE_X20Y10         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.357 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[40]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.357    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[40]_i_1_n_20
+    SLICE_X20Y11         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.474 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[44]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.474    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[44]_i_1_n_20
+    SLICE_X20Y12         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.591 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[48]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.591    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[48]_i_1_n_20
+    SLICE_X20Y13         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.708 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[52]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.708    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[52]_i_1_n_20
+    SLICE_X20Y14         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.825 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[56]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.825    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[56]_i_1_n_20
+    SLICE_X20Y15         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.942 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[60]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.942    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[60]_i_1_n_20
+    SLICE_X20Y16         CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.219    10.161 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/tmp_reg_466_reg[28]_i_1/O[0]
+                         net (fo=1, routed)           0.000    10.161    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2__3[64]
+    SLICE_X20Y16         FDRE                                         r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/tmp_reg_466_reg[28]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock ap_clk rise edge)    10.000    10.000 r  
                                                       0.000    10.000 r  ap_clk (IN)
-                         net (fo=234, unset)          0.924    10.924    bd_0_i/hls_inst/inst/ap_clk
-    SLICE_X10Y22         FDRE                                         r  bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_payload_B_reg[0]/C
+                         net (fo=5742, unset)         0.924    10.924    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/ap_clk
+    SLICE_X20Y16         FDRE                                         r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/tmp_reg_466_reg[28]/C
                          clock pessimism              0.000    10.924    
                          clock uncertainty           -0.035    10.889    
-    SLICE_X10Y22         FDRE (Setup_fdre_C_CE)      -0.169    10.720    bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_payload_B_reg[0]
+    SLICE_X20Y16         FDRE (Setup_fdre_C_D)        0.109    10.998    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/tmp_reg_466_reg[28]
   -------------------------------------------------------------------
-                         required time                         10.720    
-                         arrival time                          -3.789    
+                         required time                         10.998    
+                         arrival time                         -10.161    
   -------------------------------------------------------------------
-                         slack                                  6.931    
+                         slack                                  0.837    
 
-Slack (MET) :             6.931ns  (required time - arrival time)
-  Source:                 bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_state_reg[1]/C
-                            (rising edge-triggered cell FDRE clocked by ap_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_payload_B_reg[11]/CE
+Slack (MET) :             0.840ns  (required time - arrival time)
+  Source:                 bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2__1/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[63]/D
                             (rising edge-triggered cell FDRE clocked by ap_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             ap_clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (ap_clk rise@10.000ns - ap_clk rise@0.000ns)
-  Data Path Delay:        2.816ns  (logic 0.715ns (25.391%)  route 2.101ns (74.609%))
-  Logic Levels:           1  (LUT3=1)
+  Data Path Delay:        9.185ns  (logic 7.668ns (83.487%)  route 1.517ns (16.513%))
+  Logic Levels:           14  (CARRY4=12 DSP48E1=1 LUT2=1)
   Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    0.924ns = ( 10.924 - 10.000 ) 
     Source Clock Delay      (SCD):    0.973ns
@@ -227,39 +372,79 @@ Slack (MET) :             6.931ns  (required time - arrival time)
   -------------------------------------------------------------------    -------------------
                          (clock ap_clk rise edge)     0.000     0.000 r  
                                                       0.000     0.000 r  ap_clk (IN)
-                         net (fo=234, unset)          0.973     0.973    bd_0_i/hls_inst/inst/ap_clk
-    SLICE_X15Y27         FDRE                                         r  bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_state_reg[1]/C
+                         net (fo=5742, unset)         0.973     0.973    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/ap_clk
+    DSP48_X3Y6           DSP48E1                                      r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2__1/CLK
   -------------------------------------------------------------------    -------------------
-    SLICE_X15Y27         FDRE (Prop_fdre_C_Q)         0.419     1.392 r  bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_state_reg[1]/Q
-                         net (fo=5, routed)           0.854     2.246    bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_ack_in
-    SLICE_X14Y26         LUT3 (Prop_lut3_I2_O)        0.296     2.542 r  bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_payload_B[31]_i_1/O
-                         net (fo=32, routed)          1.247     3.789    bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_load_B
-    SLICE_X10Y22         FDRE                                         r  bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_payload_B_reg[11]/CE
+    DSP48_X3Y6           DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      4.008     4.981 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2__1/PCOUT[47]
+                         net (fo=1, routed)           0.002     4.983    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2__1_n_126
+    DSP48_X3Y7           DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.518     6.501 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2__2/P[0]
+                         net (fo=2, routed)           1.515     8.016    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2__2_n_125
+    SLICE_X94Y7          LUT2 (Prop_lut2_I0_O)        0.124     8.140 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440[19]_i_4/O
+                         net (fo=1, routed)           0.000     8.140    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440[19]_i_4_n_20
+    SLICE_X94Y7          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533     8.673 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[19]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     8.673    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[19]_i_1_n_20
+    SLICE_X94Y8          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     8.790 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[23]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     8.790    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[23]_i_1_n_20
+    SLICE_X94Y9          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     8.907 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[27]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     8.907    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[27]_i_1_n_20
+    SLICE_X94Y10         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.024 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[31]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.024    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[31]_i_1_n_20
+    SLICE_X94Y11         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.141 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[35]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.141    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[35]_i_1_n_20
+    SLICE_X94Y12         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.258 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[36]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.258    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[36]_i_1_n_20
+    SLICE_X94Y13         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.375 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[40]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.375    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[40]_i_1_n_20
+    SLICE_X94Y14         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.492 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[44]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.492    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[44]_i_1_n_20
+    SLICE_X94Y15         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.609 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[48]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.609    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[48]_i_1_n_20
+    SLICE_X94Y16         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.726 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[52]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.726    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[52]_i_1_n_20
+    SLICE_X94Y17         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.843 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[56]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.843    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[56]_i_1_n_20
+    SLICE_X94Y18         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.315    10.158 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[60]_i_1/O[3]
+                         net (fo=1, routed)           0.000    10.158    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2__3[63]
+    SLICE_X94Y18         FDRE                                         r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[63]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock ap_clk rise edge)    10.000    10.000 r  
                                                       0.000    10.000 r  ap_clk (IN)
-                         net (fo=234, unset)          0.924    10.924    bd_0_i/hls_inst/inst/ap_clk
-    SLICE_X10Y22         FDRE                                         r  bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_payload_B_reg[11]/C
+                         net (fo=5742, unset)         0.924    10.924    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/ap_clk
+    SLICE_X94Y18         FDRE                                         r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[63]/C
                          clock pessimism              0.000    10.924    
                          clock uncertainty           -0.035    10.889    
-    SLICE_X10Y22         FDRE (Setup_fdre_C_CE)      -0.169    10.720    bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_payload_B_reg[11]
+    SLICE_X94Y18         FDRE (Setup_fdre_C_D)        0.109    10.998    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[63]
   -------------------------------------------------------------------
-                         required time                         10.720    
-                         arrival time                          -3.789    
+                         required time                         10.998    
+                         arrival time                         -10.158    
   -------------------------------------------------------------------
-                         slack                                  6.931    
+                         slack                                  0.840    
 
-Slack (MET) :             6.931ns  (required time - arrival time)
-  Source:                 bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_state_reg[1]/C
-                            (rising edge-triggered cell FDRE clocked by ap_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_payload_B_reg[17]/CE
+Slack (MET) :             0.850ns  (required time - arrival time)
+  Source:                 bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2__1/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[61]/D
                             (rising edge-triggered cell FDRE clocked by ap_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             ap_clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (ap_clk rise@10.000ns - ap_clk rise@0.000ns)
-  Data Path Delay:        2.816ns  (logic 0.715ns (25.391%)  route 2.101ns (74.609%))
-  Logic Levels:           1  (LUT3=1)
+  Data Path Delay:        9.175ns  (logic 7.676ns (83.664%)  route 1.499ns (16.336%))
+  Logic Levels:           14  (CARRY4=12 DSP48E1=1 LUT2=1)
   Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    0.924ns = ( 10.924 - 10.000 ) 
     Source Clock Delay      (SCD):    0.973ns
@@ -274,39 +459,79 @@ Slack (MET) :             6.931ns  (required time - arrival time)
   -------------------------------------------------------------------    -------------------
                          (clock ap_clk rise edge)     0.000     0.000 r  
                                                       0.000     0.000 r  ap_clk (IN)
-                         net (fo=234, unset)          0.973     0.973    bd_0_i/hls_inst/inst/ap_clk
-    SLICE_X15Y27         FDRE                                         r  bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_state_reg[1]/C
+                         net (fo=5742, unset)         0.973     0.973    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/ap_clk
+    DSP48_X1Y4           DSP48E1                                      r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2__1/CLK
   -------------------------------------------------------------------    -------------------
-    SLICE_X15Y27         FDRE (Prop_fdre_C_Q)         0.419     1.392 r  bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_state_reg[1]/Q
-                         net (fo=5, routed)           0.854     2.246    bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_ack_in
-    SLICE_X14Y26         LUT3 (Prop_lut3_I2_O)        0.296     2.542 r  bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_payload_B[31]_i_1/O
-                         net (fo=32, routed)          1.247     3.789    bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_load_B
-    SLICE_X10Y22         FDRE                                         r  bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_payload_B_reg[17]/CE
+    DSP48_X1Y4           DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      4.008     4.981 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2__1/PCOUT[47]
+                         net (fo=1, routed)           0.002     4.983    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2__1_n_126
+    DSP48_X1Y5           DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.518     6.501 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2__2/P[0]
+                         net (fo=2, routed)           1.497     7.998    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2__2_n_125
+    SLICE_X20Y4          LUT2 (Prop_lut2_I0_O)        0.124     8.122 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455[19]_i_4/O
+                         net (fo=1, routed)           0.000     8.122    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455[19]_i_4_n_20
+    SLICE_X20Y4          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533     8.655 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[19]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     8.655    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[19]_i_1_n_20
+    SLICE_X20Y5          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     8.772 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[23]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     8.772    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[23]_i_1_n_20
+    SLICE_X20Y6          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     8.889 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[27]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     8.889    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[27]_i_1_n_20
+    SLICE_X20Y7          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.006 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[31]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.006    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[31]_i_1_n_20
+    SLICE_X20Y8          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.123 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[35]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.123    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[35]_i_1_n_20
+    SLICE_X20Y9          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.240 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[36]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.240    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[36]_i_1_n_20
+    SLICE_X20Y10         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.357 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[40]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.357    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[40]_i_1_n_20
+    SLICE_X20Y11         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.474 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[44]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.474    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[44]_i_1_n_20
+    SLICE_X20Y12         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.591 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[48]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.591    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[48]_i_1_n_20
+    SLICE_X20Y13         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.708 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[52]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.708    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[52]_i_1_n_20
+    SLICE_X20Y14         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.825 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[56]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.825    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[56]_i_1_n_20
+    SLICE_X20Y15         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.323    10.148 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[60]_i_1/O[1]
+                         net (fo=1, routed)           0.000    10.148    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2__3[61]
+    SLICE_X20Y15         FDRE                                         r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[61]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock ap_clk rise edge)    10.000    10.000 r  
                                                       0.000    10.000 r  ap_clk (IN)
-                         net (fo=234, unset)          0.924    10.924    bd_0_i/hls_inst/inst/ap_clk
-    SLICE_X10Y22         FDRE                                         r  bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_payload_B_reg[17]/C
+                         net (fo=5742, unset)         0.924    10.924    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/ap_clk
+    SLICE_X20Y15         FDRE                                         r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[61]/C
                          clock pessimism              0.000    10.924    
                          clock uncertainty           -0.035    10.889    
-    SLICE_X10Y22         FDRE (Setup_fdre_C_CE)      -0.169    10.720    bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_payload_B_reg[17]
+    SLICE_X20Y15         FDRE (Setup_fdre_C_D)        0.109    10.998    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[61]
   -------------------------------------------------------------------
-                         required time                         10.720    
-                         arrival time                          -3.789    
+                         required time                         10.998    
+                         arrival time                         -10.148    
   -------------------------------------------------------------------
-                         slack                                  6.931    
+                         slack                                  0.850    
 
-Slack (MET) :             6.931ns  (required time - arrival time)
-  Source:                 bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_state_reg[1]/C
-                            (rising edge-triggered cell FDRE clocked by ap_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_payload_B_reg[18]/CE
+Slack (MET) :             0.858ns  (required time - arrival time)
+  Source:                 bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2__1/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[63]/D
                             (rising edge-triggered cell FDRE clocked by ap_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             ap_clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (ap_clk rise@10.000ns - ap_clk rise@0.000ns)
-  Data Path Delay:        2.816ns  (logic 0.715ns (25.391%)  route 2.101ns (74.609%))
-  Logic Levels:           1  (LUT3=1)
+  Data Path Delay:        9.167ns  (logic 7.668ns (83.650%)  route 1.499ns (16.350%))
+  Logic Levels:           14  (CARRY4=12 DSP48E1=1 LUT2=1)
   Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    0.924ns = ( 10.924 - 10.000 ) 
     Source Clock Delay      (SCD):    0.973ns
@@ -321,39 +546,79 @@ Slack (MET) :             6.931ns  (required time - arrival time)
   -------------------------------------------------------------------    -------------------
                          (clock ap_clk rise edge)     0.000     0.000 r  
                                                       0.000     0.000 r  ap_clk (IN)
-                         net (fo=234, unset)          0.973     0.973    bd_0_i/hls_inst/inst/ap_clk
-    SLICE_X15Y27         FDRE                                         r  bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_state_reg[1]/C
+                         net (fo=5742, unset)         0.973     0.973    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/ap_clk
+    DSP48_X1Y4           DSP48E1                                      r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2__1/CLK
   -------------------------------------------------------------------    -------------------
-    SLICE_X15Y27         FDRE (Prop_fdre_C_Q)         0.419     1.392 r  bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_state_reg[1]/Q
-                         net (fo=5, routed)           0.854     2.246    bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_ack_in
-    SLICE_X14Y26         LUT3 (Prop_lut3_I2_O)        0.296     2.542 r  bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_payload_B[31]_i_1/O
-                         net (fo=32, routed)          1.247     3.789    bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_load_B
-    SLICE_X10Y22         FDRE                                         r  bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_payload_B_reg[18]/CE
+    DSP48_X1Y4           DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      4.008     4.981 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2__1/PCOUT[47]
+                         net (fo=1, routed)           0.002     4.983    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2__1_n_126
+    DSP48_X1Y5           DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.518     6.501 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2__2/P[0]
+                         net (fo=2, routed)           1.497     7.998    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2__2_n_125
+    SLICE_X20Y4          LUT2 (Prop_lut2_I0_O)        0.124     8.122 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455[19]_i_4/O
+                         net (fo=1, routed)           0.000     8.122    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455[19]_i_4_n_20
+    SLICE_X20Y4          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533     8.655 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[19]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     8.655    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[19]_i_1_n_20
+    SLICE_X20Y5          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     8.772 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[23]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     8.772    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[23]_i_1_n_20
+    SLICE_X20Y6          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     8.889 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[27]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     8.889    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[27]_i_1_n_20
+    SLICE_X20Y7          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.006 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[31]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.006    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[31]_i_1_n_20
+    SLICE_X20Y8          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.123 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[35]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.123    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[35]_i_1_n_20
+    SLICE_X20Y9          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.240 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[36]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.240    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[36]_i_1_n_20
+    SLICE_X20Y10         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.357 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[40]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.357    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[40]_i_1_n_20
+    SLICE_X20Y11         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.474 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[44]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.474    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[44]_i_1_n_20
+    SLICE_X20Y12         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.591 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[48]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.591    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[48]_i_1_n_20
+    SLICE_X20Y13         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.708 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[52]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.708    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[52]_i_1_n_20
+    SLICE_X20Y14         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.825 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[56]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.825    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[56]_i_1_n_20
+    SLICE_X20Y15         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.315    10.140 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[60]_i_1/O[3]
+                         net (fo=1, routed)           0.000    10.140    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2__3[63]
+    SLICE_X20Y15         FDRE                                         r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[63]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock ap_clk rise edge)    10.000    10.000 r  
                                                       0.000    10.000 r  ap_clk (IN)
-                         net (fo=234, unset)          0.924    10.924    bd_0_i/hls_inst/inst/ap_clk
-    SLICE_X10Y22         FDRE                                         r  bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_payload_B_reg[18]/C
+                         net (fo=5742, unset)         0.924    10.924    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/ap_clk
+    SLICE_X20Y15         FDRE                                         r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[63]/C
                          clock pessimism              0.000    10.924    
                          clock uncertainty           -0.035    10.889    
-    SLICE_X10Y22         FDRE (Setup_fdre_C_CE)      -0.169    10.720    bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_payload_B_reg[18]
+    SLICE_X20Y15         FDRE (Setup_fdre_C_D)        0.109    10.998    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[63]
   -------------------------------------------------------------------
-                         required time                         10.720    
-                         arrival time                          -3.789    
+                         required time                         10.998    
+                         arrival time                         -10.140    
   -------------------------------------------------------------------
-                         slack                                  6.931    
+                         slack                                  0.858    
 
-Slack (MET) :             6.931ns  (required time - arrival time)
-  Source:                 bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_state_reg[1]/C
+Slack (MET) :             0.897ns  (required time - arrival time)
+  Source:                 bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/p_str1025_U/update_value_bool_3_p_str13_rom_U/q0_reg[0]/C
                             (rising edge-triggered cell FDRE clocked by ap_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_payload_B_reg[19]/CE
-                            (rising edge-triggered cell FDRE clocked by ap_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/instance_data_U/iscsi_login_instance_data_ram_U/ram_reg_1/DIADI[2]
+                            (rising edge-triggered cell RAMB36E1 clocked by ap_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             ap_clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (ap_clk rise@10.000ns - ap_clk rise@0.000ns)
-  Data Path Delay:        2.816ns  (logic 0.715ns (25.391%)  route 2.101ns (74.609%))
-  Logic Levels:           1  (LUT3=1)
+  Data Path Delay:        8.778ns  (logic 2.176ns (24.789%)  route 6.602ns (75.211%))
+  Logic Levels:           8  (LUT2=1 LUT3=1 LUT5=2 LUT6=4)
   Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    0.924ns = ( 10.924 - 10.000 ) 
     Source Clock Delay      (SCD):    0.973ns
@@ -368,39 +633,54 @@ Slack (MET) :             6.931ns  (required time - arrival time)
   -------------------------------------------------------------------    -------------------
                          (clock ap_clk rise edge)     0.000     0.000 r  
                                                       0.000     0.000 r  ap_clk (IN)
-                         net (fo=234, unset)          0.973     0.973    bd_0_i/hls_inst/inst/ap_clk
-    SLICE_X15Y27         FDRE                                         r  bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_state_reg[1]/C
+                         net (fo=5742, unset)         0.973     0.973    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/p_str1025_U/update_value_bool_3_p_str13_rom_U/ap_clk
+    SLICE_X42Y17         FDRE                                         r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/p_str1025_U/update_value_bool_3_p_str13_rom_U/q0_reg[0]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X15Y27         FDRE (Prop_fdre_C_Q)         0.419     1.392 r  bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_state_reg[1]/Q
-                         net (fo=5, routed)           0.854     2.246    bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_ack_in
-    SLICE_X14Y26         LUT3 (Prop_lut3_I2_O)        0.296     2.542 r  bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_payload_B[31]_i_1/O
-                         net (fo=32, routed)          1.247     3.789    bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_load_B
-    SLICE_X10Y22         FDRE                                         r  bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_payload_B_reg[19]/CE
+    SLICE_X42Y17         FDRE (Prop_fdre_C_Q)         0.518     1.491 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/p_str1025_U/update_value_bool_3_p_str13_rom_U/q0_reg[0]/Q
+                         net (fo=12, routed)          0.826     2.317    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/p_str1025_U/update_value_bool_3_p_str13_rom_U/p_str1025_q0[0]
+    SLICE_X45Y18         LUT3 (Prop_lut3_I0_O)        0.149     2.466 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/p_str1025_U/update_value_bool_3_p_str13_rom_U/ram_reg_1_i_33/O
+                         net (fo=2, routed)           0.616     3.083    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/p_str1025_U/update_value_bool_3_p_str13_rom_U/select_ln195_1_fu_1604_p3[6]
+    SLICE_X46Y17         LUT6 (Prop_lut6_I5_O)        0.332     3.415 f  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/p_str1025_U/update_value_bool_3_p_str13_rom_U/ap_CS_fsm[20]_i_3/O
+                         net (fo=2, routed)           0.482     3.897    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/p_str1025_U/update_value_bool_3_p_str13_rom_U/icmp_ln196_1_fu_1616_p2
+    SLICE_X46Y17         LUT2 (Prop_lut2_I1_O)        0.117     4.014 f  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/p_str1025_U/update_value_bool_3_p_str13_rom_U/instance_data_length[23]_i_3/O
+                         net (fo=53, routed)          1.133     5.146    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/p_str1025_U/update_value_bool_3_p_str13_rom_U/instance_data_address0141_out
+    SLICE_X41Y18         LUT5 (Prop_lut5_I4_O)        0.361     5.507 f  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/p_str1025_U/update_value_bool_3_p_str13_rom_U/ram_reg_0_i_120__0/O
+                         net (fo=4, routed)           0.474     5.982    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/p_str1025_U/update_value_bool_3_p_str13_rom_U/instance_data_d017_out
+    SLICE_X44Y17         LUT6 (Prop_lut6_I5_O)        0.327     6.309 f  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/p_str1025_U/update_value_bool_3_p_str13_rom_U/ram_reg_1_i_11/O
+                         net (fo=4, routed)           0.630     6.939    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/p_str1025_U/update_value_bool_3_p_str13_rom_U/ram_reg_1_i_11_n_20
+    SLICE_X44Y16         LUT5 (Prop_lut5_I4_O)        0.124     7.063 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/p_str1025_U/update_value_bool_3_p_str13_rom_U/ram_reg_0_i_227/O
+                         net (fo=7, routed)           0.865     7.928    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/p_str1025_U/update_value_bool_3_p_str13_rom_U/ap_CS_fsm_reg[13]
+    SLICE_X45Y14         LUT6 (Prop_lut6_I2_O)        0.124     8.052 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/p_str1025_U/update_value_bool_3_p_str13_rom_U/ram_reg_1_i_14/O
+                         net (fo=1, routed)           0.436     8.488    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/p_str1025_U/update_value_bool_3_p_str13_rom_U/ram_reg_1_i_14_n_20
+    SLICE_X45Y17         LUT6 (Prop_lut6_I1_O)        0.124     8.612 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/p_str1025_U/update_value_bool_3_p_str13_rom_U/ram_reg_1_i_2__0/O
+                         net (fo=1, routed)           1.139     9.751    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/instance_data_U/iscsi_login_instance_data_ram_U/d0[6]
+    RAMB36_X3Y6          RAMB36E1                                     r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/instance_data_U/iscsi_login_instance_data_ram_U/ram_reg_1/DIADI[2]
   -------------------------------------------------------------------    -------------------
 
                          (clock ap_clk rise edge)    10.000    10.000 r  
                                                       0.000    10.000 r  ap_clk (IN)
-                         net (fo=234, unset)          0.924    10.924    bd_0_i/hls_inst/inst/ap_clk
-    SLICE_X10Y22         FDRE                                         r  bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_payload_B_reg[19]/C
+                         net (fo=5742, unset)         0.924    10.924    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/instance_data_U/iscsi_login_instance_data_ram_U/ap_clk
+    RAMB36_X3Y6          RAMB36E1                                     r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/instance_data_U/iscsi_login_instance_data_ram_U/ram_reg_1/CLKARDCLK
                          clock pessimism              0.000    10.924    
                          clock uncertainty           -0.035    10.889    
-    SLICE_X10Y22         FDRE (Setup_fdre_C_CE)      -0.169    10.720    bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_payload_B_reg[19]
+    RAMB36_X3Y6          RAMB36E1 (Setup_ramb36e1_CLKARDCLK_DIADI[2])
+                                                     -0.241    10.648    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/instance_data_U/iscsi_login_instance_data_ram_U/ram_reg_1
   -------------------------------------------------------------------
-                         required time                         10.720    
-                         arrival time                          -3.789    
+                         required time                         10.648    
+                         arrival time                          -9.751    
   -------------------------------------------------------------------
-                         slack                                  6.931    
+                         slack                                  0.897    
 
-Slack (MET) :             6.931ns  (required time - arrival time)
-  Source:                 bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_state_reg[1]/C
-                            (rising edge-triggered cell FDRE clocked by ap_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_payload_B_reg[4]/CE
+Slack (MET) :             0.916ns  (required time - arrival time)
+  Source:                 bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2__1/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[62]/D
                             (rising edge-triggered cell FDRE clocked by ap_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             ap_clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (ap_clk rise@10.000ns - ap_clk rise@0.000ns)
-  Data Path Delay:        2.816ns  (logic 0.715ns (25.391%)  route 2.101ns (74.609%))
-  Logic Levels:           1  (LUT3=1)
+  Data Path Delay:        9.109ns  (logic 7.592ns (83.349%)  route 1.517ns (16.651%))
+  Logic Levels:           14  (CARRY4=12 DSP48E1=1 LUT2=1)
   Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    0.924ns = ( 10.924 - 10.000 ) 
     Source Clock Delay      (SCD):    0.973ns
@@ -415,39 +695,79 @@ Slack (MET) :             6.931ns  (required time - arrival time)
   -------------------------------------------------------------------    -------------------
                          (clock ap_clk rise edge)     0.000     0.000 r  
                                                       0.000     0.000 r  ap_clk (IN)
-                         net (fo=234, unset)          0.973     0.973    bd_0_i/hls_inst/inst/ap_clk
-    SLICE_X15Y27         FDRE                                         r  bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_state_reg[1]/C
+                         net (fo=5742, unset)         0.973     0.973    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/ap_clk
+    DSP48_X3Y6           DSP48E1                                      r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2__1/CLK
   -------------------------------------------------------------------    -------------------
-    SLICE_X15Y27         FDRE (Prop_fdre_C_Q)         0.419     1.392 r  bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_state_reg[1]/Q
-                         net (fo=5, routed)           0.854     2.246    bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_ack_in
-    SLICE_X14Y26         LUT3 (Prop_lut3_I2_O)        0.296     2.542 r  bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_payload_B[31]_i_1/O
-                         net (fo=32, routed)          1.247     3.789    bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_load_B
-    SLICE_X10Y22         FDRE                                         r  bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_payload_B_reg[4]/CE
+    DSP48_X3Y6           DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      4.008     4.981 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2__1/PCOUT[47]
+                         net (fo=1, routed)           0.002     4.983    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2__1_n_126
+    DSP48_X3Y7           DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.518     6.501 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2__2/P[0]
+                         net (fo=2, routed)           1.515     8.016    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2__2_n_125
+    SLICE_X94Y7          LUT2 (Prop_lut2_I0_O)        0.124     8.140 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440[19]_i_4/O
+                         net (fo=1, routed)           0.000     8.140    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440[19]_i_4_n_20
+    SLICE_X94Y7          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533     8.673 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[19]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     8.673    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[19]_i_1_n_20
+    SLICE_X94Y8          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     8.790 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[23]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     8.790    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[23]_i_1_n_20
+    SLICE_X94Y9          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     8.907 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[27]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     8.907    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[27]_i_1_n_20
+    SLICE_X94Y10         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.024 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[31]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.024    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[31]_i_1_n_20
+    SLICE_X94Y11         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.141 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[35]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.141    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[35]_i_1_n_20
+    SLICE_X94Y12         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.258 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[36]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.258    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[36]_i_1_n_20
+    SLICE_X94Y13         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.375 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[40]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.375    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[40]_i_1_n_20
+    SLICE_X94Y14         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.492 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[44]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.492    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[44]_i_1_n_20
+    SLICE_X94Y15         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.609 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[48]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.609    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[48]_i_1_n_20
+    SLICE_X94Y16         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.726 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[52]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.726    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[52]_i_1_n_20
+    SLICE_X94Y17         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.843 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[56]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.843    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[56]_i_1_n_20
+    SLICE_X94Y18         CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239    10.082 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[60]_i_1/O[2]
+                         net (fo=1, routed)           0.000    10.082    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2__3[62]
+    SLICE_X94Y18         FDRE                                         r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[62]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock ap_clk rise edge)    10.000    10.000 r  
                                                       0.000    10.000 r  ap_clk (IN)
-                         net (fo=234, unset)          0.924    10.924    bd_0_i/hls_inst/inst/ap_clk
-    SLICE_X10Y22         FDRE                                         r  bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_payload_B_reg[4]/C
+                         net (fo=5742, unset)         0.924    10.924    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/ap_clk
+    SLICE_X94Y18         FDRE                                         r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[62]/C
                          clock pessimism              0.000    10.924    
                          clock uncertainty           -0.035    10.889    
-    SLICE_X10Y22         FDRE (Setup_fdre_C_CE)      -0.169    10.720    bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_payload_B_reg[4]
+    SLICE_X94Y18         FDRE (Setup_fdre_C_D)        0.109    10.998    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_reg_440_reg[62]
   -------------------------------------------------------------------
-                         required time                         10.720    
-                         arrival time                          -3.789    
+                         required time                         10.998    
+                         arrival time                         -10.082    
   -------------------------------------------------------------------
-                         slack                                  6.931    
+                         slack                                  0.916    
 
-Slack (MET) :             6.931ns  (required time - arrival time)
-  Source:                 bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_state_reg[1]/C
-                            (rising edge-triggered cell FDRE clocked by ap_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_payload_B_reg[5]/CE
+Slack (MET) :             0.934ns  (required time - arrival time)
+  Source:                 bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2__1/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[62]/D
                             (rising edge-triggered cell FDRE clocked by ap_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             ap_clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (ap_clk rise@10.000ns - ap_clk rise@0.000ns)
-  Data Path Delay:        2.816ns  (logic 0.715ns (25.391%)  route 2.101ns (74.609%))
-  Logic Levels:           1  (LUT3=1)
+  Data Path Delay:        9.091ns  (logic 7.592ns (83.513%)  route 1.499ns (16.487%))
+  Logic Levels:           14  (CARRY4=12 DSP48E1=1 LUT2=1)
   Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    0.924ns = ( 10.924 - 10.000 ) 
     Source Clock Delay      (SCD):    0.973ns
@@ -462,28 +782,68 @@ Slack (MET) :             6.931ns  (required time - arrival time)
   -------------------------------------------------------------------    -------------------
                          (clock ap_clk rise edge)     0.000     0.000 r  
                                                       0.000     0.000 r  ap_clk (IN)
-                         net (fo=234, unset)          0.973     0.973    bd_0_i/hls_inst/inst/ap_clk
-    SLICE_X15Y27         FDRE                                         r  bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_state_reg[1]/C
+                         net (fo=5742, unset)         0.973     0.973    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/ap_clk
+    DSP48_X1Y4           DSP48E1                                      r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2__1/CLK
   -------------------------------------------------------------------    -------------------
-    SLICE_X15Y27         FDRE (Prop_fdre_C_Q)         0.419     1.392 r  bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_state_reg[1]/Q
-                         net (fo=5, routed)           0.854     2.246    bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_ack_in
-    SLICE_X14Y26         LUT3 (Prop_lut3_I2_O)        0.296     2.542 r  bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_payload_B[31]_i_1/O
-                         net (fo=32, routed)          1.247     3.789    bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_load_B
-    SLICE_X10Y22         FDRE                                         r  bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_payload_B_reg[5]/CE
+    DSP48_X1Y4           DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      4.008     4.981 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2__1/PCOUT[47]
+                         net (fo=1, routed)           0.002     4.983    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2__1_n_126
+    DSP48_X1Y5           DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.518     6.501 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2__2/P[0]
+                         net (fo=2, routed)           1.497     7.998    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2__2_n_125
+    SLICE_X20Y4          LUT2 (Prop_lut2_I0_O)        0.124     8.122 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455[19]_i_4/O
+                         net (fo=1, routed)           0.000     8.122    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455[19]_i_4_n_20
+    SLICE_X20Y4          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533     8.655 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[19]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     8.655    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[19]_i_1_n_20
+    SLICE_X20Y5          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     8.772 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[23]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     8.772    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[23]_i_1_n_20
+    SLICE_X20Y6          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     8.889 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[27]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     8.889    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[27]_i_1_n_20
+    SLICE_X20Y7          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.006 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[31]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.006    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[31]_i_1_n_20
+    SLICE_X20Y8          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.123 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[35]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.123    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[35]_i_1_n_20
+    SLICE_X20Y9          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.240 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[36]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.240    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[36]_i_1_n_20
+    SLICE_X20Y10         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.357 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[40]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.357    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[40]_i_1_n_20
+    SLICE_X20Y11         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.474 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[44]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.474    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[44]_i_1_n_20
+    SLICE_X20Y12         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.591 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[48]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.591    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[48]_i_1_n_20
+    SLICE_X20Y13         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.708 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[52]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.708    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[52]_i_1_n_20
+    SLICE_X20Y14         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.825 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[56]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     9.825    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[56]_i_1_n_20
+    SLICE_X20Y15         CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239    10.064 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[60]_i_1/O[2]
+                         net (fo=1, routed)           0.000    10.064    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2__3[62]
+    SLICE_X20Y15         FDRE                                         r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[62]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock ap_clk rise edge)    10.000    10.000 r  
                                                       0.000    10.000 r  ap_clk (IN)
-                         net (fo=234, unset)          0.924    10.924    bd_0_i/hls_inst/inst/ap_clk
-    SLICE_X10Y22         FDRE                                         r  bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_payload_B_reg[5]/C
+                         net (fo=5742, unset)         0.924    10.924    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/ap_clk
+    SLICE_X20Y15         FDRE                                         r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[62]/C
                          clock pessimism              0.000    10.924    
                          clock uncertainty           -0.035    10.889    
-    SLICE_X10Y22         FDRE (Setup_fdre_C_CE)      -0.169    10.720    bd_0_i/hls_inst/inst/tcp_in_V_data_V_0_payload_B_reg[5]
+    SLICE_X20Y15         FDRE (Setup_fdre_C_D)        0.109    10.998    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_reg_455_reg[62]
   -------------------------------------------------------------------
-                         required time                         10.720    
-                         arrival time                          -3.789    
+                         required time                         10.998    
+                         arrival time                         -10.064    
   -------------------------------------------------------------------
-                         slack                                  6.931    
+                         slack                                  0.934    
 
 
 

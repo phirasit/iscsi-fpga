@@ -1,0 +1,189 @@
+
+
+================================================================
+== Vivado HLS Report for 'write_key_value_int_3'
+================================================================
+* Date:           Sun Mar 15 20:18:10 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        iscsi_hls
+* Solution:       iscsi_processor
+* Product family: zynq
+* Target device:  xc7z020-clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     8.495|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1  |    ?|    ?|         2|          -|          -|     ?|    no    |
+        |- Loop 2  |    ?|    ?|        36|          -|          -|     ?|    no    |
+        |- Loop 3  |    ?|    ?|         2|          -|          -|     ?|    no    |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  | URAM|
++-----------------+---------+-------+--------+-------+-----+
+|DSP              |        -|      -|       -|      -|    -|
+|Expression       |        -|      4|       0|    472|    -|
+|FIFO             |        -|      -|       -|      -|    -|
+|Instance         |        -|      -|     394|    238|    -|
+|Memory           |        -|      -|       -|      -|    -|
+|Multiplexer      |        -|      -|       -|    365|    -|
+|Register         |        -|      -|     424|      -|    -|
++-----------------+---------+-------+--------+-------+-----+
+|Total            |        0|      4|     818|   1075|    0|
++-----------------+---------+-------+--------+-------+-----+
+|Available        |      280|    220|  106400|  53200|    0|
++-----------------+---------+-------+--------+-------+-----+
+|Utilization (%)  |        0|      1|   ~0   |      2|    0|
++-----------------+---------+-------+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    +---------------------------------------------+-----------------------------------------+---------+-------+-----+-----+-----+
+    |                   Instance                  |                  Module                 | BRAM_18K| DSP48E|  FF | LUT | URAM|
+    +---------------------------------------------+-----------------------------------------+---------+-------+-----+-----+-----+
+    |iscsi_interface_srem_32s_5ns_6_36_seq_1_U84  |iscsi_interface_srem_32s_5ns_6_36_seq_1  |        0|      0|  394|  238|    0|
+    +---------------------------------------------+-----------------------------------------+---------+-------+-----+-----+-----+
+    |Total                                        |                                         |        0|      0|  394|  238|    0|
+    +---------------------------------------------+-----------------------------------------+---------+-------+-----+-----+-----+
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +--------------------------+----------+-------+---+----+------------+------------+
+    |       Variable Name      | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +--------------------------+----------+-------+---+----+------------+------------+
+    |mul_ln185_fu_274_p2       |     *    |      4|  0|  22|          33|          32|
+    |add_ln184_fu_344_p2       |     +    |      0|  0|  15|           6|           6|
+    |add_ln190_fu_383_p2       |     +    |      0|  0|  39|          32|           1|
+    |grp_fu_210_p2             |     +    |      0|  0|  39|          32|           1|
+    |i_fu_227_p2               |     +    |      0|  0|  39|          32|           1|
+    |length_3_fu_372_p2        |     +    |      0|  0|  39|          32|           2|
+    |length_fu_355_p2          |     +    |      0|  0|  39|           1|          32|
+    |sub_ln185_1_fu_327_p2     |     -    |      0|  0|  39|           1|          32|
+    |sub_ln185_fu_298_p2       |     -    |      0|  0|  72|           1|          65|
+    |icmp_ln168_fu_233_p2      |   icmp   |      0|  0|  11|           8|           1|
+    |icmp_ln180_fu_249_p2      |   icmp   |      0|  0|  18|          32|           1|
+    |icmp_ln183_fu_258_p2      |   icmp   |      0|  0|  18|          32|           1|
+    |icmp_ln187_fu_366_p2      |   icmp   |      0|  0|  18|          32|           1|
+    |select_ln185_1_fu_333_p3  |  select  |      0|  0|  32|           1|          32|
+    |select_ln185_fu_320_p3    |  select  |      0|  0|  32|           1|          32|
+    +--------------------------+----------+-------+---+----+------------+------------+
+    |Total                     |          |      4|  0| 472|         276|         240|
+    +--------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +--------------------------------------+-----+-----------+-----+-----------+
+    |                 Name                 | LUT | Input Size| Bits| Total Bits|
+    +--------------------------------------+-----+-----------+-----+-----------+
+    |ap_NS_fsm                             |  185|         42|    1|         42|
+    |ap_phi_mux_length_1_ph_phi_fu_158_p4  |   15|          3|    1|          3|
+    |ap_phi_mux_p_0_ph_phi_fu_147_p4       |   15|          3|   32|         96|
+    |buffer_r_address0                     |   21|          4|    5|         20|
+    |buffer_r_d0                           |   15|          3|    8|         24|
+    |i_0_i_reg_133                         |    9|          2|   32|         64|
+    |instance_data_address0                |   27|          5|   13|         65|
+    |instance_data_d0                      |   27|          5|    8|         40|
+    |instance_data_length_4_reg_187        |    9|          2|   32|         64|
+    |instance_data_length_o                |   15|          3|   32|         96|
+    |length_1_reg_177                      |    9|          2|   32|         64|
+    |length_2_reg_196                      |    9|          2|   32|         64|
+    |p_0_reg_166                           |    9|          2|   32|         64|
+    +--------------------------------------+-----+-----------+-----+-----------+
+    |Total                                 |  365|         78|  260|        706|
+    +--------------------------------------+-----+-----------+-----+-----------+
+
+    * Register: 
+    +--------------------------------+----+----+-----+-----------+
+    |              Name              | FF | LUT| Bits| Const Bits|
+    +--------------------------------+----+----+-----+-----------+
+    |add_ln171_reg_424               |  32|   0|   32|          0|
+    |ap_CS_fsm                       |  41|   0|   41|          0|
+    |i_0_i_reg_133                   |  32|   0|   32|          0|
+    |i_reg_416                       |  32|   0|   32|          0|
+    |instance_data_length_4_reg_187  |  32|   0|   32|          0|
+    |length_1_reg_177                |  32|   0|   32|          0|
+    |length_2_reg_196                |  32|   0|   32|          0|
+    |length_3_reg_469                |  32|   0|   32|          0|
+    |mul_ln185_reg_440               |  65|   0|   65|          0|
+    |p_0_reg_166                     |  32|   0|   32|          0|
+    |select_ln185_1_reg_456          |  32|   0|   32|          0|
+    |tmp_2_reg_445                   |   1|   0|    1|          0|
+    |tmp_reg_451                     |  29|   0|   29|          0|
+    +--------------------------------+----+----+-----+-----------+
+    |Total                           | 424|   0|  424|          0|
+    +--------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-------------------------------+-----+-----+------------+-----------------------+--------------+
+|           RTL Ports           | Dir | Bits|  Protocol  |     Source Object     |    C Type    |
++-------------------------------+-----+-----+------------+-----------------------+--------------+
+|ap_clk                         |  in |    1| ap_ctrl_hs | write_key_value_int.3 | return value |
+|ap_rst                         |  in |    1| ap_ctrl_hs | write_key_value_int.3 | return value |
+|ap_start                       |  in |    1| ap_ctrl_hs | write_key_value_int.3 | return value |
+|ap_done                        | out |    1| ap_ctrl_hs | write_key_value_int.3 | return value |
+|ap_idle                        | out |    1| ap_ctrl_hs | write_key_value_int.3 | return value |
+|ap_ready                       | out |    1| ap_ctrl_hs | write_key_value_int.3 | return value |
+|key_address0                   | out |    4|  ap_memory |          key          |     array    |
+|key_ce0                        | out |    1|  ap_memory |          key          |     array    |
+|key_q0                         |  in |    8|  ap_memory |          key          |     array    |
+|value_r                        |  in |   32|   ap_none  |        value_r        |    scalar    |
+|instance_data_length_i         |  in |   32|   ap_ovld  |  instance_data_length |    pointer   |
+|instance_data_length_o         | out |   32|   ap_ovld  |  instance_data_length |    pointer   |
+|instance_data_length_o_ap_vld  | out |    1|   ap_ovld  |  instance_data_length |    pointer   |
+|instance_data_address0         | out |   13|  ap_memory |     instance_data     |     array    |
+|instance_data_ce0              | out |    1|  ap_memory |     instance_data     |     array    |
+|instance_data_we0              | out |    1|  ap_memory |     instance_data     |     array    |
+|instance_data_d0               | out |    8|  ap_memory |     instance_data     |     array    |
+|buffer_r_address0              | out |    5|  ap_memory |        buffer_r       |     array    |
+|buffer_r_ce0                   | out |    1|  ap_memory |        buffer_r       |     array    |
+|buffer_r_we0                   | out |    1|  ap_memory |        buffer_r       |     array    |
+|buffer_r_d0                    | out |    8|  ap_memory |        buffer_r       |     array    |
+|buffer_r_q0                    |  in |    8|  ap_memory |        buffer_r       |     array    |
++-------------------------------+-----+-----+------------+-----------------------+--------------+
+

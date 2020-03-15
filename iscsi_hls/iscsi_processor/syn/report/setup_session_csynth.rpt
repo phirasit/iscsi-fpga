@@ -1,0 +1,183 @@
+
+
+================================================================
+== Vivado HLS Report for 'setup_session'
+================================================================
+* Date:           Sun Mar 15 20:18:10 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        iscsi_hls
+* Solution:       iscsi_processor
+* Product family: zynq
+* Target device:  xc7z020-clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     7.976|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1  |    ?|    ?|         2|          -|          -|     ?|    no    |
+        |- Loop 2  |    ?|    ?|         2|          -|          -|     ?|    no    |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  | URAM|
++-----------------+---------+-------+--------+-------+-----+
+|DSP              |        -|      -|       -|      -|    -|
+|Expression       |        -|      -|       0|    325|    -|
+|FIFO             |        -|      -|       -|      -|    -|
+|Instance         |        -|      -|       -|      -|    -|
+|Memory           |        0|      -|      14|      5|    -|
+|Multiplexer      |        -|      -|       -|    131|    -|
+|Register         |        -|      -|     204|      -|    -|
++-----------------+---------+-------+--------+-------+-----+
+|Total            |        0|      0|     218|    461|    0|
++-----------------+---------+-------+--------+-------+-----+
+|Available        |      280|    220|  106400|  53200|    0|
++-----------------+---------+-------+--------+-------+-----+
+|Utilization (%)  |        0|      0|   ~0   |   ~0  |    0|
++-----------------+---------+-------+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    +-------------+-------------------------+---------+---+----+-----+------+-----+------+-------------+
+    |    Memory   |          Module         | BRAM_18K| FF| LUT| URAM| Words| Bits| Banks| W*Bits*Banks|
+    +-------------+-------------------------+---------+---+----+-----+------+-----+------+-------------+
+    |p_str1227_U  |setup_session_p_str1227  |        0|  7|   2|    0|    11|    7|     1|           77|
+    |p_str1328_U  |setup_session_p_str1328  |        0|  7|   3|    0|    22|    7|     1|          154|
+    +-------------+-------------------------+---------+---+----+-----+------+-----+------+-------------+
+    |Total        |                         |        0| 14|   5|    0|    33|   14|     2|          231|
+    +-------------+-------------------------+---------+---+----+-----+------+-----+------+-------------+
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +------------------------+----------+-------+---+----+------------+------------+
+    |      Variable Name     | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +------------------------+----------+-------+---+----+------------+------------+
+    |add_ln113_1_fu_308_p2   |     +    |      0|  0|  39|          32|           1|
+    |add_ln113_fu_253_p2     |     +    |      0|  0|  39|          32|           1|
+    |i_7_fu_282_p2           |     +    |      0|  0|  38|          31|           1|
+    |i_fu_227_p2             |     +    |      0|  0|  38|          31|           1|
+    |icmp_ln112_1_fu_277_p2  |   icmp   |      0|  0|  18|          32|          32|
+    |icmp_ln112_fu_222_p2    |   icmp   |      0|  0|  18|          32|          32|
+    |icmp_ln113_1_fu_302_p2  |   icmp   |      0|  0|  11|           8|           8|
+    |icmp_ln113_fu_247_p2    |   icmp   |      0|  0|  11|           8|           8|
+    |icmp_ln114_1_fu_322_p2  |   icmp   |      0|  0|  18|          32|           4|
+    |icmp_ln114_fu_267_p2    |   icmp   |      0|  0|  18|          32|           5|
+    |icmp_ln5_fu_202_p2      |   icmp   |      0|  0|  13|          16|           1|
+    |idx_1_fu_314_p3         |  select  |      0|  0|  32|           1|          32|
+    |idx_fu_259_p3           |  select  |      0|  0|  32|           1|          32|
+    +------------------------+----------+-------+---+----+------------+------------+
+    |Total                   |          |      0|  0| 325|         288|         158|
+    +------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------------------------------+----+-----------+-----+-----------+
+    |                 Name                | LUT| Input Size| Bits| Total Bits|
+    +-------------------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                            |  38|          7|    1|          7|
+    |ap_phi_mux_p_0_phi_fu_183_p6         |   9|          2|    3|          6|
+    |ap_phi_mux_storemerge_phi_fu_170_p4  |   9|          2|    1|          2|
+    |ap_return                            |   9|          2|    3|          6|
+    |i_0_i_i2_reg_143                     |   9|          2|   31|         62|
+    |i_0_i_i_reg_120                      |   9|          2|   31|         62|
+    |idx_0_i_i3_reg_154                   |   9|          2|   32|         64|
+    |idx_0_i_i_reg_131                    |   9|          2|   32|         64|
+    |instance_data_address0               |  15|          3|   13|         39|
+    |p_0_reg_178                          |  15|          3|    3|          9|
+    +-------------------------------------+----+-----------+-----+-----------+
+    |Total                                | 131|         27|  150|        321|
+    +-------------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +----------------------+----+----+-----+-----------+
+    |         Name         | FF | LUT| Bits| Const Bits|
+    +----------------------+----+----+-----+-----------+
+    |ap_CS_fsm             |   6|   0|    6|          0|
+    |ap_return_preg        |   3|   0|   10|          7|
+    |i_0_i_i2_reg_143      |  31|   0|   31|          0|
+    |i_0_i_i_reg_120       |  31|   0|   31|          0|
+    |i_7_reg_385           |  31|   0|   31|          0|
+    |i_reg_358             |  31|   0|   31|          0|
+    |icmp_ln112_1_reg_381  |   1|   0|    1|          0|
+    |icmp_ln112_reg_354    |   1|   0|    1|          0|
+    |icmp_ln5_reg_344      |   1|   0|    1|          0|
+    |idx_0_i_i3_reg_154    |  32|   0|   32|          0|
+    |idx_0_i_i_reg_131     |  32|   0|   32|          0|
+    |p_0_reg_178           |   3|   0|   10|          7|
+    |storemerge_reg_166    |   1|   0|    1|          0|
+    +----------------------+----+----+-----+-----------+
+    |Total                 | 204|   0|  218|         14|
+    +----------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++---------------------------+-----+-----+------------+----------------------+--------------+
+|         RTL Ports         | Dir | Bits|  Protocol  |     Source Object    |    C Type    |
++---------------------------+-----+-----+------------+----------------------+--------------+
+|ap_clk                     |  in |    1| ap_ctrl_hs |     setup_session    | return value |
+|ap_rst                     |  in |    1| ap_ctrl_hs |     setup_session    | return value |
+|ap_start                   |  in |    1| ap_ctrl_hs |     setup_session    | return value |
+|ap_done                    | out |    1| ap_ctrl_hs |     setup_session    | return value |
+|ap_idle                    | out |    1| ap_ctrl_hs |     setup_session    | return value |
+|ap_ready                   | out |    1| ap_ctrl_hs |     setup_session    | return value |
+|ap_return                  | out |   10| ap_ctrl_hs |     setup_session    | return value |
+|header_buffer_V_address0   | out |    6|  ap_memory |    header_buffer_V   |     array    |
+|header_buffer_V_ce0        | out |    1|  ap_memory |    header_buffer_V   |     array    |
+|header_buffer_V_q0         |  in |    8|  ap_memory |    header_buffer_V   |     array    |
+|header_buffer_V_address1   | out |    6|  ap_memory |    header_buffer_V   |     array    |
+|header_buffer_V_ce1        | out |    1|  ap_memory |    header_buffer_V   |     array    |
+|header_buffer_V_q1         |  in |    8|  ap_memory |    header_buffer_V   |     array    |
+|instance_tsih              | out |    1|   ap_vld   |     instance_tsih    |    pointer   |
+|instance_tsih_ap_vld       | out |    1|   ap_vld   |     instance_tsih    |    pointer   |
+|instance_data_length       |  in |   32|   ap_none  | instance_data_length |    pointer   |
+|instance_data_address0     | out |   13|  ap_memory |     instance_data    |     array    |
+|instance_data_ce0          | out |    1|  ap_memory |     instance_data    |     array    |
+|instance_data_q0           |  in |    8|  ap_memory |     instance_data    |     array    |
+|instance_discovery         | out |    1|   ap_vld   |  instance_discovery  |    pointer   |
+|instance_discovery_ap_vld  | out |    1|   ap_vld   |  instance_discovery  |    pointer   |
++---------------------------+-----+-----+------------+----------------------+--------------+
+

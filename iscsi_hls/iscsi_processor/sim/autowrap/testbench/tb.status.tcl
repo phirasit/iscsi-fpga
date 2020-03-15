@@ -1,0 +1,1 @@
+set ::AESL_AUTOSIM::gTopFileName /home/phirasit/project/san-adapter/iscsi_hls/iscsi_processor/./sim/autowrap/testbench/iscsi_top_level.cpp_pre.cpp.tb.cpp

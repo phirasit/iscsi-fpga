@@ -1334,6 +1334,12 @@
           }
         },
         "interface_nets": {
+          "xbar_to_m00_couplers": {
+            "interface_ports": [
+              "xbar/M00_AXI",
+              "m00_couplers/S_AXI"
+            ]
+          },
           "ps7_0_axi_periph_to_s00_couplers": {
             "interface_ports": [
               "S00_AXI",
@@ -1344,12 +1350,6 @@
             "interface_ports": [
               "M00_AXI",
               "m00_couplers/M_AXI"
-            ]
-          },
-          "s00_couplers_to_xbar": {
-            "interface_ports": [
-              "s00_couplers/M_AXI",
-              "xbar/S00_AXI"
             ]
           },
           "m02_couplers_to_ps7_0_axi_periph": {
@@ -1364,22 +1364,22 @@
               "m02_couplers/S_AXI"
             ]
           },
+          "xbar_to_m01_couplers": {
+            "interface_ports": [
+              "xbar/M01_AXI",
+              "m01_couplers/S_AXI"
+            ]
+          },
           "m01_couplers_to_ps7_0_axi_periph": {
             "interface_ports": [
               "M01_AXI",
               "m01_couplers/M_AXI"
             ]
           },
-          "xbar_to_m00_couplers": {
+          "s00_couplers_to_xbar": {
             "interface_ports": [
-              "xbar/M00_AXI",
-              "m00_couplers/S_AXI"
-            ]
-          },
-          "xbar_to_m01_couplers": {
-            "interface_ports": [
-              "xbar/M01_AXI",
-              "m01_couplers/S_AXI"
+              "s00_couplers/M_AXI",
+              "xbar/S00_AXI"
             ]
           }
         },
@@ -1426,28 +1426,10 @@
           "axi_fifo_mm_s_1/S_AXI"
         ]
       },
-      "axi_gpio_0_GPIO": {
+      "ps7_0_axi_periph_M01_AXI": {
         "interface_ports": [
-          "leds_8bits",
-          "axi_gpio_0/GPIO"
-        ]
-      },
-      "processing_system7_0_DDR": {
-        "interface_ports": [
-          "DDR",
-          "processing_system7_0/DDR"
-        ]
-      },
-      "ps7_0_axi_periph_M00_AXI": {
-        "interface_ports": [
-          "ps7_0_axi_periph/M00_AXI",
-          "axi_gpio_0/S_AXI"
-        ]
-      },
-      "processing_system7_0_M_AXI_GP0": {
-        "interface_ports": [
-          "processing_system7_0/M_AXI_GP0",
-          "ps7_0_axi_periph/S00_AXI"
+          "ps7_0_axi_periph/M01_AXI",
+          "axi_fifo_mm_s_0/S_AXI"
         ]
       },
       "processing_system7_0_FIXED_IO": {
@@ -1456,22 +1438,28 @@
           "processing_system7_0/FIXED_IO"
         ]
       },
-      "ps7_0_axi_periph_M01_AXI": {
+      "processing_system7_0_DDR": {
         "interface_ports": [
-          "ps7_0_axi_periph/M01_AXI",
-          "axi_fifo_mm_s_0/S_AXI"
+          "DDR",
+          "processing_system7_0/DDR"
         ]
       },
-      "axi_fifo_mm_s_0_AXI_STR_TXD": {
+      "processing_system7_0_M_AXI_GP0": {
         "interface_ports": [
-          "axi_fifo_mm_s_0/AXI_STR_TXD",
-          "iscsi_interface_0/tcp_in"
+          "processing_system7_0/M_AXI_GP0",
+          "ps7_0_axi_periph/S00_AXI"
         ]
       },
-      "iscsi_interface_0_tcp_out": {
+      "axi_gpio_0_GPIO": {
         "interface_ports": [
-          "axi_fifo_mm_s_1/AXI_STR_RXD",
-          "iscsi_interface_0/tcp_out"
+          "leds_8bits",
+          "axi_gpio_0/GPIO"
+        ]
+      },
+      "ps7_0_axi_periph_M00_AXI": {
+        "interface_ports": [
+          "ps7_0_axi_periph/M00_AXI",
+          "axi_gpio_0/S_AXI"
         ]
       }
     },
@@ -1527,6 +1515,43 @@
         "ports": [
           "axi_gpio_0/gpio2_io_o",
           "iscsi_interface_0/ap_start"
+        ]
+      },
+      "axi_fifo_mm_s_0_axi_str_txd_tdata": {
+        "ports": [
+          "axi_fifo_mm_s_0/axi_str_txd_tdata",
+          "iscsi_interface_0/tcp_in_V_V_TDATA"
+        ]
+      },
+      "iscsi_interface_0_tcp_in_V_V_TREADY": {
+        "ports": [
+          "iscsi_interface_0/tcp_in_V_V_TREADY",
+          "axi_fifo_mm_s_0/axi_str_txd_tready"
+        ]
+      },
+      "axi_fifo_mm_s_0_axi_str_txd_tvalid": {
+        "ports": [
+          "axi_fifo_mm_s_0/axi_str_txd_tvalid",
+          "iscsi_interface_0/tcp_in_V_V_TVALID"
+        ]
+      },
+      "axi_fifo_mm_s_1_axi_str_rxd_tready": {
+        "ports": [
+          "axi_fifo_mm_s_1/axi_str_rxd_tready",
+          "iscsi_interface_0/tcp_out_V_V_TREADY"
+        ]
+      },
+      "iscsi_interface_0_tcp_out_V_V_TDATA": {
+        "ports": [
+          "iscsi_interface_0/tcp_out_V_V_TDATA",
+          "axi_fifo_mm_s_1/axi_str_rxd_tdata"
+        ]
+      },
+      "iscsi_interface_0_tcp_out_V_V_TVALID": {
+        "ports": [
+          "iscsi_interface_0/tcp_out_V_V_TVALID",
+          "axi_fifo_mm_s_1/axi_str_rxd_tvalid",
+          "axi_fifo_mm_s_1/axi_str_rxd_tlast"
         ]
       }
     },

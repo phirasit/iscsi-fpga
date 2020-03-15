@@ -2,8 +2,8 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Fri Jan 31 15:18:32 2020
-# Process ID: 24974
+# Start of session at: Sun Mar 15 20:21:43 2020
+# Process ID: 14271
 # Current directory: /home/phirasit/project/san-adapter/iscsi_hls/iscsi_processor/impl/verilog/project.runs/synth_1
 # Command line: vivado -log bd_0_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source bd_0_wrapper.tcl
 # Log file: /home/phirasit/project/san-adapter/iscsi_hls/iscsi_processor/impl/verilog/project.runs/synth_1/bd_0_wrapper.vds

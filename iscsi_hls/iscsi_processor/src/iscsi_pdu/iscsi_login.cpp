@@ -1,8 +1,9 @@
 #include "iscsi_login.hpp"
 
-static enum LOGIN_STATUS setup_session(iscsi_session& session, const iscsi_pdu_header& header) {
+static enum LOGIN_STATUS setup_session(iscsi_session& session, const iscsi_login_pdu& header) {
 	iscsi_connection_parameter& parameter = iscsi_connection_parameter::get_instance();
-	if (header.login_tsih() == 0) {
+	if (header.tsih() == 0) {
+		session.tsih = 0x01;
 		if (parameter.has_session_type_discovery()) {
 			// discovery session
 			session.discovery = 1;
@@ -22,10 +23,12 @@ static enum LOGIN_STATUS setup_session(iscsi_session& session, const iscsi_pdu_h
 	return SUCCESS;
 }
 
-void iscsi_login(const iscsi_pdu_header& header, data_stream& tcp_in, data_stream& tcp_out) {
+void iscsi_login(const iscsi_pdu_header& pdu_header, data_stream& tcp_in, data_stream& tcp_out) {
 	iscsi_connection_parameter& parameter = iscsi_connection_parameter::get_instance();
 	enum LOGIN_STATUS status = SUCCESS;
 	int response_length = 0;
+
+	iscsi_login_pdu header (pdu_header);
 
 	// read parameter
 	parameter.read_from_tcp(tcp_in, header.data_segment_length());
@@ -44,29 +47,34 @@ void iscsi_login(const iscsi_pdu_header& header, data_stream& tcp_in, data_strea
 		}
 	}
 
+	// setup connection
+	connection.initialized = true;
+	connection.advance_cmd_sn();
+
 	// response login
 	// TODO change this for more authentication options
-	static const char authentication_response[] = "AuthMethod=None";
+	static const unsigned char authentication_response[] = "AuthMethod=None";
 	static const int authentication_strlen = 15;
 
-	switch (header.login_csg()) {
+	switch (header.csg()) {
 	case SECURITY_NEGOTIATION:
-		if (header.login_nsg() == FULL_FEATURE) {
+		if (header.nsg() == FULL_FEATURE) {
 			session.full_feature_phase = 1;
 			status = SUCCESS;
-		} else if (header.login_nsg() != SECURITY_NEGOTIATION) {
+		} else if (header.nsg() != SECURITY_NEGOTIATION) {
 			status = INITIATOR_ERROR;
 		}
 		response_length = authentication_strlen;
 		break;
 	case LOGIN_OPERATIONAL:
 		if (header.login_transit()) {
-			if (header.login_nsg() == FULL_FEATURE) {
+			if (header.nsg() == FULL_FEATURE) {
 				session.full_feature_phase = 1;
 			} else {
 				status = INITIATOR_ERROR;
 			}
 		}
+		parameter.generate_array();
 		response_length = parameter.length();
 		break;
 	case FULL_FEATURE:
@@ -76,17 +84,22 @@ void iscsi_login(const iscsi_pdu_header& header, data_stream& tcp_in, data_strea
 
 	// generate response header
 	iscsi_login_pdu response;
-	connection.set_pdu_response_header(&response);
+
 	response.set_opcode(PDU_OPCODE_LOGIN_RES);
 	response.set_final(1);
+	response.set_csg(header.csg());
+	response.set_nsg(header.nsg());
 	response.set_login_response_status(status);
+	response.set_isid(header);
 	response.set_tsih(session.get_tsih());
+	response.set_initiator_task_tag(header.initiator_task_tag());
+	connection.set_pdu_response_header(&response);
 	response.set_data_segment_length(response_length);
 
 	response.write_to_tcp(tcp_out);
 
 	// generate data
-	switch (header.login_csg()) {
+	switch (header.csg()) {
 	case SECURITY_NEGOTIATION:
 		tcp_out.write_byte_array(authentication_response, authentication_strlen);
 		break;

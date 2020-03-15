@@ -1,0 +1,179 @@
+
+
+================================================================
+== Vivado HLS Report for 'iscsi_nop_out'
+================================================================
+* Date:           Sun Mar 15 20:18:14 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        iscsi_hls
+* Solution:       iscsi_processor
+* Product family: zynq
+* Target device:  xc7z020-clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     4.874|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1  |   48|   48|         1|          -|          -|    48|    no    |
+        |- Loop 2  |    ?|    ?|         3|          -|          -|     ?|    no    |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  | URAM|
++-----------------+---------+-------+--------+-------+-----+
+|DSP              |        -|      -|       -|      -|    -|
+|Expression       |        -|      -|       0|    126|    -|
+|FIFO             |        -|      -|       -|      -|    -|
+|Instance         |        -|      -|       -|      -|    -|
+|Memory           |        1|      -|       0|      0|    0|
+|Multiplexer      |        -|      -|       -|    428|    -|
+|Register         |        -|      -|     128|      -|    -|
++-----------------+---------+-------+--------+-------+-----+
+|Total            |        1|      0|     128|    554|    0|
++-----------------+---------+-------+--------+-------+-----+
+|Available        |      280|    220|  106400|  53200|    0|
++-----------------+---------+-------+--------+-------+-----+
+|Utilization (%)  |    ~0   |      0|   ~0   |      1|    0|
++-----------------+---------+-------+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    +---------------------+-------------------------------+---------+---+----+-----+------+-----+------+-------------+
+    |        Memory       |             Module            | BRAM_18K| FF| LUT| URAM| Words| Bits| Banks| W*Bits*Banks|
+    +---------------------+-------------------------------+---------+---+----+-----+------+-----+------+-------------+
+    |response_buffer_V_U  |iscsi_login_response_buffer_V  |        1|  0|   0|    0|    48|    8|     1|          384|
+    +---------------------+-------------------------------+---------+---+----+-----+------+-----+------+-------------+
+    |Total                |                               |        1|  0|   0|    0|    48|    8|     1|          384|
+    +---------------------+-------------------------------+---------+---+----+-----+------+-----+------+-------------+
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +---------------------+----------+-------+---+----+------------+------------+
+    |    Variable Name    | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +---------------------+----------+-------+---+----+------------+------------+
+    |i_9_fu_644_p2        |     +    |      0|  0|  39|          32|           3|
+    |i_fu_460_p2          |     +    |      0|  0|  15|           6|           1|
+    |p_Val2_6_fu_475_p2   |     +    |      0|  0|  39|           1|          32|
+    |ap_block_state18     |    and   |      0|  0|   2|           1|           1|
+    |ap_block_state18_io  |    and   |      0|  0|   2|           1|           1|
+    |icmp_ln28_fu_638_p2  |   icmp   |      0|  0|  18|          32|          32|
+    |icmp_ln35_fu_454_p2  |   icmp   |      0|  0|  11|           6|           6|
+    +---------------------+----------+-------+---+----+------------+------------+
+    |Total                |          |      0|  0| 126|          79|          76|
+    +---------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +----------------------------+----+-----------+-----+-----------+
+    |            Name            | LUT| Input Size| Bits| Total Bits|
+    +----------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                   |  93|         19|    1|         19|
+    |header_buffer_V_address0    |  33|          6|    6|         36|
+    |header_buffer_V_address1    |  33|          6|    6|         36|
+    |i_0_i_i_i_reg_432           |   9|          2|    6|         12|
+    |i_0_reg_443                 |   9|          2|   32|         64|
+    |instance_stat_sn_o          |   9|          2|   32|         64|
+    |response_buffer_V_address0  |  62|         15|    6|         90|
+    |response_buffer_V_address1  |  62|         15|    6|         90|
+    |response_buffer_V_d0        |  50|         11|    8|         88|
+    |response_buffer_V_d1        |  50|         11|    8|         88|
+    |tcp_in_V_V_TDATA_blk_n      |   9|          2|    1|          2|
+    |tcp_out_V_V_TDATA_blk_n     |   9|          2|    1|          2|
+    +----------------------------+----+-----------+-----+-----------+
+    |Total                       | 428|         93|  113|        591|
+    +----------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +---------------------------------+----+----+-----+-----------+
+    |               Name              | FF | LUT| Bits| Const Bits|
+    +---------------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                        |  18|   0|   18|          0|
+    |header_buffer_V_load_15_reg_748  |   8|   0|    8|          0|
+    |i_0_i_i_i_reg_432                |   6|   0|    6|          0|
+    |i_0_reg_443                      |  32|   0|   32|          0|
+    |p_Result_7_i16_i_reg_700         |   8|   0|    8|          0|
+    |p_Result_7_i8_i_reg_690          |   8|   0|    8|          0|
+    |p_Result_7_i_i2_reg_680          |   8|   0|    8|          0|
+    |p_Val2_5_reg_675                 |   8|   0|    8|          0|
+    |p_Val2_s_reg_670                 |   8|   0|    8|          0|
+    |trunc_ln647_2_reg_695            |   8|   0|    8|          0|
+    |trunc_ln647_3_reg_705            |   8|   0|    8|          0|
+    |trunc_ln647_reg_685              |   8|   0|    8|          0|
+    +---------------------------------+----+----+-----+-----------+
+    |Total                            | 128|   0|  128|          0|
+    +---------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++---------------------------+-----+-----+------------+---------------------+--------------+
+|         RTL Ports         | Dir | Bits|  Protocol  |    Source Object    |    C Type    |
++---------------------------+-----+-----+------------+---------------------+--------------+
+|ap_clk                     |  in |    1| ap_ctrl_hs |    iscsi_nop_out    | return value |
+|ap_rst                     |  in |    1| ap_ctrl_hs |    iscsi_nop_out    | return value |
+|ap_start                   |  in |    1| ap_ctrl_hs |    iscsi_nop_out    | return value |
+|ap_done                    | out |    1| ap_ctrl_hs |    iscsi_nop_out    | return value |
+|ap_idle                    | out |    1| ap_ctrl_hs |    iscsi_nop_out    | return value |
+|ap_ready                   | out |    1| ap_ctrl_hs |    iscsi_nop_out    | return value |
+|header_buffer_V_address0   | out |    6|  ap_memory |   header_buffer_V   |     array    |
+|header_buffer_V_ce0        | out |    1|  ap_memory |   header_buffer_V   |     array    |
+|header_buffer_V_q0         |  in |    8|  ap_memory |   header_buffer_V   |     array    |
+|header_buffer_V_address1   | out |    6|  ap_memory |   header_buffer_V   |     array    |
+|header_buffer_V_ce1        | out |    1|  ap_memory |   header_buffer_V   |     array    |
+|header_buffer_V_q1         |  in |    8|  ap_memory |   header_buffer_V   |     array    |
+|tcp_in_V_V_TDATA           |  in |   32|    axis    |      tcp_in_V_V     |    pointer   |
+|tcp_in_V_V_TVALID          |  in |    1|    axis    |      tcp_in_V_V     |    pointer   |
+|tcp_in_V_V_TREADY          | out |    1|    axis    |      tcp_in_V_V     |    pointer   |
+|tcp_out_V_V_TDATA          | out |   32|    axis    |     tcp_out_V_V     |    pointer   |
+|tcp_out_V_V_TVALID         | out |    1|    axis    |     tcp_out_V_V     |    pointer   |
+|tcp_out_V_V_TREADY         |  in |    1|    axis    |     tcp_out_V_V     |    pointer   |
+|instance_stat_sn_i         |  in |   32|   ap_ovld  |   instance_stat_sn  |    pointer   |
+|instance_stat_sn_o         | out |   32|   ap_ovld  |   instance_stat_sn  |    pointer   |
+|instance_stat_sn_o_ap_vld  | out |    1|   ap_ovld  |   instance_stat_sn  |    pointer   |
+|instance_exp_cmd_sn        |  in |   32|   ap_none  | instance_exp_cmd_sn |    pointer   |
+|instance_max_cmd_sn        |  in |   32|   ap_none  | instance_max_cmd_sn |    pointer   |
++---------------------------+-----+-----+------------+---------------------+--------------+
+

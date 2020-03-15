@@ -1,6 +1,4 @@
-#include "iscsi.hpp"
-
-static void process_pdu(data_stream& tcp_in, data_stream& tcp_out);
+#include "iscsi_top_level.hpp"
 
 /** iscsi_interface
  *  top level of the iscsi processor
@@ -15,9 +13,16 @@ void iscsi_interface(
 #pragma HLS INTERFACE axis port=tcp_in
 #pragma HLS INTERFACE axis port=tcp_out
 
+// #define LOOPBACK
+#ifdef LOOPBACK
 	// loop back function
-//	 while (true) tcp_out.write(tcp_in.read());
-
+	 while (true) {
+		 data_stream_element elem;
+		 tcp_in.read(elem);
+		 elem(15, 0) = 0;
+		 tcp_out.write(elem);
+	 }
+#else
 	// bullshit code to indicate output direction
 	volatile bool x = false;
 	if (x) {
@@ -25,7 +30,10 @@ void iscsi_interface(
 		tcp_out.write(elem);
 	}
 
-	while (true) process_pdu(tcp_in, tcp_out);
+	while (true) {
+		process_pdu(tcp_in, tcp_out);
+	}
+#endif
 }
 
 void process_pdu(data_stream& tcp_in, data_stream& tcp_out)
@@ -36,6 +44,8 @@ void process_pdu(data_stream& tcp_in, data_stream& tcp_out)
 	// read PDU header
 	iscsi_pdu_header header;
 	header.read_from_tcp(tcp_in);
+//	std::cout << "PDU opcode = " << header.opcode() << std::endl;
+//	std::cout << "data segment size = " << header.data_segment_length() << std::endl;
 
 	// check if login
 	if (!connection.is_initialized() || !session.is_full_feature_phase()) {

@@ -1,0 +1,4 @@
+   Build using "/opt/vivado/Vivado/2019.1/tps/lnx64/gcc-6.2.0/bin/g++"
+   Compiling apatb_iscsi_interface.cpp
+   Compiling iscsi_nop_out.cpp_pre.cpp.tb.cpp
+cosim.tv.mk:77: recipe for target 'obj/iscsi_nop_out.cpp_pre.cpp.tb.o' failed

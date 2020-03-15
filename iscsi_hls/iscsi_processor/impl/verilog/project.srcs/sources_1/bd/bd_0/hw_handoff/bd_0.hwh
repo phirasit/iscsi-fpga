@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Jan 31 15:17:46 2020" VIVADOVERSION="2019.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Mar 15 20:19:37 2020" VIVADOVERSION="2019.1">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="bd_0" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
@@ -34,94 +34,34 @@
         <CONNECTION INSTANCE="hls_inst" PORT="ap_ready"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" NAME="tcp_in_tvalid" SIGIS="undef" SIGNAME="hls_inst_tcp_in_TVALID">
+    <PORT DIR="I" NAME="tcp_in_V_V_tvalid" SIGIS="undef" SIGNAME="hls_inst_tcp_in_V_V_TVALID">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="hls_inst" PORT="tcp_in_TVALID"/>
+        <CONNECTION INSTANCE="hls_inst" PORT="tcp_in_V_V_TVALID"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" NAME="tcp_in_tready" SIGIS="undef" SIGNAME="hls_inst_tcp_in_TREADY">
+    <PORT DIR="O" NAME="tcp_in_V_V_tready" SIGIS="undef" SIGNAME="hls_inst_tcp_in_V_V_TREADY">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="hls_inst" PORT="tcp_in_TREADY"/>
+        <CONNECTION INSTANCE="hls_inst" PORT="tcp_in_V_V_TREADY"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" LEFT="31" NAME="tcp_in_tdata" RIGHT="0" SIGIS="undef" SIGNAME="hls_inst_tcp_in_TDATA">
+    <PORT DIR="I" LEFT="31" NAME="tcp_in_V_V_tdata" RIGHT="0" SIGIS="undef" SIGNAME="hls_inst_tcp_in_V_V_TDATA">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="hls_inst" PORT="tcp_in_TDATA"/>
+        <CONNECTION INSTANCE="hls_inst" PORT="tcp_in_V_V_TDATA"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" LEFT="0" NAME="tcp_in_tdest" RIGHT="0" SIGIS="undef" SIGNAME="hls_inst_tcp_in_TDEST">
+    <PORT DIR="O" NAME="tcp_out_V_V_tvalid" SIGIS="undef" SIGNAME="hls_inst_tcp_out_V_V_TVALID">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="hls_inst" PORT="tcp_in_TDEST"/>
+        <CONNECTION INSTANCE="hls_inst" PORT="tcp_out_V_V_TVALID"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" LEFT="3" NAME="tcp_in_tkeep" RIGHT="0" SIGIS="undef" SIGNAME="hls_inst_tcp_in_TKEEP">
+    <PORT DIR="I" NAME="tcp_out_V_V_tready" SIGIS="undef" SIGNAME="hls_inst_tcp_out_V_V_TREADY">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="hls_inst" PORT="tcp_in_TKEEP"/>
+        <CONNECTION INSTANCE="hls_inst" PORT="tcp_out_V_V_TREADY"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" LEFT="3" NAME="tcp_in_tstrb" RIGHT="0" SIGIS="undef" SIGNAME="hls_inst_tcp_in_TSTRB">
+    <PORT DIR="O" LEFT="31" NAME="tcp_out_V_V_tdata" RIGHT="0" SIGIS="undef" SIGNAME="hls_inst_tcp_out_V_V_TDATA">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="hls_inst" PORT="tcp_in_TSTRB"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" LEFT="0" NAME="tcp_in_tuser" RIGHT="0" SIGIS="undef" SIGNAME="hls_inst_tcp_in_TUSER">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="hls_inst" PORT="tcp_in_TUSER"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" LEFT="0" NAME="tcp_in_tlast" RIGHT="0" SIGIS="undef" SIGNAME="hls_inst_tcp_in_TLAST">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="hls_inst" PORT="tcp_in_TLAST"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" LEFT="0" NAME="tcp_in_tid" RIGHT="0" SIGIS="undef" SIGNAME="hls_inst_tcp_in_TID">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="hls_inst" PORT="tcp_in_TID"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="tcp_out_tvalid" SIGIS="undef" SIGNAME="hls_inst_tcp_out_TVALID">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="hls_inst" PORT="tcp_out_TVALID"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="tcp_out_tready" SIGIS="undef" SIGNAME="hls_inst_tcp_out_TREADY">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="hls_inst" PORT="tcp_out_TREADY"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" LEFT="31" NAME="tcp_out_tdata" RIGHT="0" SIGIS="undef" SIGNAME="hls_inst_tcp_out_TDATA">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="hls_inst" PORT="tcp_out_TDATA"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" LEFT="0" NAME="tcp_out_tdest" RIGHT="0" SIGIS="undef" SIGNAME="hls_inst_tcp_out_TDEST">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="hls_inst" PORT="tcp_out_TDEST"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" LEFT="3" NAME="tcp_out_tkeep" RIGHT="0" SIGIS="undef" SIGNAME="hls_inst_tcp_out_TKEEP">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="hls_inst" PORT="tcp_out_TKEEP"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" LEFT="3" NAME="tcp_out_tstrb" RIGHT="0" SIGIS="undef" SIGNAME="hls_inst_tcp_out_TSTRB">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="hls_inst" PORT="tcp_out_TSTRB"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" LEFT="0" NAME="tcp_out_tuser" RIGHT="0" SIGIS="undef" SIGNAME="hls_inst_tcp_out_TUSER">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="hls_inst" PORT="tcp_out_TUSER"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" LEFT="0" NAME="tcp_out_tlast" RIGHT="0" SIGIS="undef" SIGNAME="hls_inst_tcp_out_TLAST">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="hls_inst" PORT="tcp_out_TLAST"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" LEFT="0" NAME="tcp_out_tid" RIGHT="0" SIGIS="undef" SIGNAME="hls_inst_tcp_out_TID">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="hls_inst" PORT="tcp_out_TID"/>
+        <CONNECTION INSTANCE="hls_inst" PORT="tcp_out_V_V_TDATA"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -135,62 +75,50 @@
         <PORTMAP LOGICAL="ready" PHYSICAL="ap_ctrl_ready"/>
       </PORTMAPS>
     </BUSINTERFACE>
-    <BUSINTERFACE BUSNAME="External_Interface_tcp_in" NAME="tcp_in" TYPE="TARGET">
+    <BUSINTERFACE BUSNAME="External_Interface_tcp_in_V_V" NAME="tcp_in_V_V" TYPE="TARGET">
       <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="4"/>
-      <PARAMETER NAME="TDEST_WIDTH" VALUE="1"/>
-      <PARAMETER NAME="TID_WIDTH" VALUE="1"/>
-      <PARAMETER NAME="TUSER_WIDTH" VALUE="1"/>
+      <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+      <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
+      <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
       <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
-      <PARAMETER NAME="HAS_TSTRB" VALUE="1"/>
-      <PARAMETER NAME="HAS_TKEEP" VALUE="1"/>
-      <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
+      <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
+      <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
+      <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
       <PARAMETER NAME="FREQ_HZ" VALUE="100000000.0"/>
       <PARAMETER NAME="PHASE" VALUE="0.000"/>
       <PARAMETER NAME="CLK_DOMAIN" VALUE="bd_0_ap_clk_0"/>
       <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
       <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
       <PORTMAPS>
-        <PORTMAP LOGICAL="TVALID" PHYSICAL="tcp_in_tvalid"/>
-        <PORTMAP LOGICAL="TREADY" PHYSICAL="tcp_in_tready"/>
-        <PORTMAP LOGICAL="TDATA" PHYSICAL="tcp_in_tdata"/>
-        <PORTMAP LOGICAL="TDEST" PHYSICAL="tcp_in_tdest"/>
-        <PORTMAP LOGICAL="TKEEP" PHYSICAL="tcp_in_tkeep"/>
-        <PORTMAP LOGICAL="TSTRB" PHYSICAL="tcp_in_tstrb"/>
-        <PORTMAP LOGICAL="TUSER" PHYSICAL="tcp_in_tuser"/>
-        <PORTMAP LOGICAL="TLAST" PHYSICAL="tcp_in_tlast"/>
-        <PORTMAP LOGICAL="TID" PHYSICAL="tcp_in_tid"/>
+        <PORTMAP LOGICAL="TVALID" PHYSICAL="tcp_in_V_V_tvalid"/>
+        <PORTMAP LOGICAL="TREADY" PHYSICAL="tcp_in_V_V_tready"/>
+        <PORTMAP LOGICAL="TDATA" PHYSICAL="tcp_in_V_V_tdata"/>
       </PORTMAPS>
     </BUSINTERFACE>
-    <BUSINTERFACE BUSNAME="hls_inst_tcp_out" NAME="tcp_out" TYPE="INITIATOR">
+    <BUSINTERFACE BUSNAME="hls_inst_tcp_out_V_V" NAME="tcp_out_V_V" TYPE="INITIATOR">
       <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="4"/>
-      <PARAMETER NAME="TDEST_WIDTH" VALUE="1"/>
-      <PARAMETER NAME="TID_WIDTH" VALUE="1"/>
-      <PARAMETER NAME="TUSER_WIDTH" VALUE="1"/>
+      <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+      <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
+      <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
       <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
-      <PARAMETER NAME="HAS_TSTRB" VALUE="1"/>
-      <PARAMETER NAME="HAS_TKEEP" VALUE="1"/>
-      <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
+      <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
+      <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
+      <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
       <PARAMETER NAME="FREQ_HZ" VALUE="100000000.0"/>
       <PARAMETER NAME="PHASE" VALUE="0.000"/>
       <PARAMETER NAME="CLK_DOMAIN" VALUE="bd_0_ap_clk_0"/>
       <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
       <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
       <PORTMAPS>
-        <PORTMAP LOGICAL="TVALID" PHYSICAL="tcp_out_tvalid"/>
-        <PORTMAP LOGICAL="TREADY" PHYSICAL="tcp_out_tready"/>
-        <PORTMAP LOGICAL="TDATA" PHYSICAL="tcp_out_tdata"/>
-        <PORTMAP LOGICAL="TDEST" PHYSICAL="tcp_out_tdest"/>
-        <PORTMAP LOGICAL="TKEEP" PHYSICAL="tcp_out_tkeep"/>
-        <PORTMAP LOGICAL="TSTRB" PHYSICAL="tcp_out_tstrb"/>
-        <PORTMAP LOGICAL="TUSER" PHYSICAL="tcp_out_tuser"/>
-        <PORTMAP LOGICAL="TLAST" PHYSICAL="tcp_out_tlast"/>
-        <PORTMAP LOGICAL="TID" PHYSICAL="tcp_out_tid"/>
+        <PORTMAP LOGICAL="TVALID" PHYSICAL="tcp_out_V_V_tvalid"/>
+        <PORTMAP LOGICAL="TREADY" PHYSICAL="tcp_out_V_V_tready"/>
+        <PORTMAP LOGICAL="TDATA" PHYSICAL="tcp_out_V_V_tdata"/>
       </PORTMAPS>
     </BUSINTERFACE>
   </EXTERNALINTERFACES>
 
   <MODULES>
-    <MODULE COREREVISION="2001311517" FULLNAME="/hls_inst" HWVERSION="1.0" INSTANCE="hls_inst" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="iscsi_interface" VLNV="xilinx.com:hls:iscsi_interface:1.0">
+    <MODULE COREREVISION="2003152019" FULLNAME="/hls_inst" HWVERSION="1.0" INSTANCE="hls_inst" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="iscsi_interface" VLNV="xilinx.com:hls:iscsi_interface:1.0">
       <DOCUMENTS/>
       <PARAMETERS>
         <PARAMETER NAME="Component_Name" VALUE="bd_0_hls_inst_0"/>
@@ -232,94 +160,34 @@
             <CONNECTION INSTANCE="bd_0_imp" PORT="ap_ctrl_ready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="tcp_in_TVALID" SIGIS="undef" SIGNAME="hls_inst_tcp_in_TVALID">
+        <PORT DIR="I" NAME="tcp_in_V_V_TVALID" SIGIS="undef" SIGNAME="hls_inst_tcp_in_V_V_TVALID">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="bd_0_imp" PORT="tcp_in_tvalid"/>
+            <CONNECTION INSTANCE="bd_0_imp" PORT="tcp_in_V_V_tvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="tcp_in_TREADY" SIGIS="undef" SIGNAME="hls_inst_tcp_in_TREADY">
+        <PORT DIR="O" NAME="tcp_in_V_V_TREADY" SIGIS="undef" SIGNAME="hls_inst_tcp_in_V_V_TREADY">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="bd_0_imp" PORT="tcp_in_tready"/>
+            <CONNECTION INSTANCE="bd_0_imp" PORT="tcp_in_V_V_tready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="tcp_in_TDATA" RIGHT="0" SIGIS="undef" SIGNAME="hls_inst_tcp_in_TDATA">
+        <PORT DIR="I" LEFT="31" NAME="tcp_in_V_V_TDATA" RIGHT="0" SIGIS="undef" SIGNAME="hls_inst_tcp_in_V_V_TDATA">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="bd_0_imp" PORT="tcp_in_tdata"/>
+            <CONNECTION INSTANCE="bd_0_imp" PORT="tcp_in_V_V_tdata"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="0" NAME="tcp_in_TDEST" RIGHT="0" SIGIS="undef" SIGNAME="hls_inst_tcp_in_TDEST">
+        <PORT DIR="O" NAME="tcp_out_V_V_TVALID" SIGIS="undef" SIGNAME="hls_inst_tcp_out_V_V_TVALID">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="bd_0_imp" PORT="tcp_in_tdest"/>
+            <CONNECTION INSTANCE="bd_0_imp" PORT="tcp_out_V_V_tvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="3" NAME="tcp_in_TKEEP" RIGHT="0" SIGIS="undef" SIGNAME="hls_inst_tcp_in_TKEEP">
+        <PORT DIR="I" NAME="tcp_out_V_V_TREADY" SIGIS="undef" SIGNAME="hls_inst_tcp_out_V_V_TREADY">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="bd_0_imp" PORT="tcp_in_tkeep"/>
+            <CONNECTION INSTANCE="bd_0_imp" PORT="tcp_out_V_V_tready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="3" NAME="tcp_in_TSTRB" RIGHT="0" SIGIS="undef" SIGNAME="hls_inst_tcp_in_TSTRB">
+        <PORT DIR="O" LEFT="31" NAME="tcp_out_V_V_TDATA" RIGHT="0" SIGIS="undef" SIGNAME="hls_inst_tcp_out_V_V_TDATA">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="bd_0_imp" PORT="tcp_in_tstrb"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="0" NAME="tcp_in_TUSER" RIGHT="0" SIGIS="undef" SIGNAME="hls_inst_tcp_in_TUSER">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="bd_0_imp" PORT="tcp_in_tuser"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="0" NAME="tcp_in_TLAST" RIGHT="0" SIGIS="undef" SIGNAME="hls_inst_tcp_in_TLAST">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="bd_0_imp" PORT="tcp_in_tlast"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="0" NAME="tcp_in_TID" RIGHT="0" SIGIS="undef" SIGNAME="hls_inst_tcp_in_TID">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="bd_0_imp" PORT="tcp_in_tid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="tcp_out_TVALID" SIGIS="undef" SIGNAME="hls_inst_tcp_out_TVALID">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="bd_0_imp" PORT="tcp_out_tvalid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="tcp_out_TREADY" SIGIS="undef" SIGNAME="hls_inst_tcp_out_TREADY">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="bd_0_imp" PORT="tcp_out_tready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="31" NAME="tcp_out_TDATA" RIGHT="0" SIGIS="undef" SIGNAME="hls_inst_tcp_out_TDATA">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="bd_0_imp" PORT="tcp_out_tdata"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="0" NAME="tcp_out_TDEST" RIGHT="0" SIGIS="undef" SIGNAME="hls_inst_tcp_out_TDEST">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="bd_0_imp" PORT="tcp_out_tdest"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="3" NAME="tcp_out_TKEEP" RIGHT="0" SIGIS="undef" SIGNAME="hls_inst_tcp_out_TKEEP">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="bd_0_imp" PORT="tcp_out_tkeep"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="3" NAME="tcp_out_TSTRB" RIGHT="0" SIGIS="undef" SIGNAME="hls_inst_tcp_out_TSTRB">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="bd_0_imp" PORT="tcp_out_tstrb"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="0" NAME="tcp_out_TUSER" RIGHT="0" SIGIS="undef" SIGNAME="hls_inst_tcp_out_TUSER">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="bd_0_imp" PORT="tcp_out_tuser"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="0" NAME="tcp_out_TLAST" RIGHT="0" SIGIS="undef" SIGNAME="hls_inst_tcp_out_TLAST">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="bd_0_imp" PORT="tcp_out_tlast"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="0" NAME="tcp_out_TID" RIGHT="0" SIGIS="undef" SIGNAME="hls_inst_tcp_out_TID">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="bd_0_imp" PORT="tcp_out_tid"/>
+            <CONNECTION INSTANCE="bd_0_imp" PORT="tcp_out_V_V_tdata"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -332,56 +200,44 @@
             <PORTMAP LOGICAL="ready" PHYSICAL="ap_ready"/>
           </PORTMAPS>
         </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="External_Interface_tcp_in" NAME="tcp_in" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
+        <BUSINTERFACE BUSNAME="External_Interface_tcp_in_V_V" NAME="tcp_in_V_V" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
           <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="4"/>
-          <PARAMETER NAME="TDEST_WIDTH" VALUE="1"/>
-          <PARAMETER NAME="TID_WIDTH" VALUE="1"/>
-          <PARAMETER NAME="TUSER_WIDTH" VALUE="1"/>
+          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
+          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
           <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
-          <PARAMETER NAME="HAS_TSTRB" VALUE="1"/>
-          <PARAMETER NAME="HAS_TKEEP" VALUE="1"/>
-          <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
+          <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
+          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
+          <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
           <PARAMETER NAME="FREQ_HZ" VALUE="100000000.0"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
           <PARAMETER NAME="CLK_DOMAIN" VALUE="bd_0_ap_clk_0"/>
           <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
           <PORTMAPS>
-            <PORTMAP LOGICAL="TVALID" PHYSICAL="tcp_in_TVALID"/>
-            <PORTMAP LOGICAL="TREADY" PHYSICAL="tcp_in_TREADY"/>
-            <PORTMAP LOGICAL="TDATA" PHYSICAL="tcp_in_TDATA"/>
-            <PORTMAP LOGICAL="TDEST" PHYSICAL="tcp_in_TDEST"/>
-            <PORTMAP LOGICAL="TKEEP" PHYSICAL="tcp_in_TKEEP"/>
-            <PORTMAP LOGICAL="TSTRB" PHYSICAL="tcp_in_TSTRB"/>
-            <PORTMAP LOGICAL="TUSER" PHYSICAL="tcp_in_TUSER"/>
-            <PORTMAP LOGICAL="TLAST" PHYSICAL="tcp_in_TLAST"/>
-            <PORTMAP LOGICAL="TID" PHYSICAL="tcp_in_TID"/>
+            <PORTMAP LOGICAL="TVALID" PHYSICAL="tcp_in_V_V_TVALID"/>
+            <PORTMAP LOGICAL="TREADY" PHYSICAL="tcp_in_V_V_TREADY"/>
+            <PORTMAP LOGICAL="TDATA" PHYSICAL="tcp_in_V_V_TDATA"/>
           </PORTMAPS>
         </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="hls_inst_tcp_out" NAME="tcp_out" TYPE="INITIATOR" VLNV="xilinx.com:interface:axis:1.0">
+        <BUSINTERFACE BUSNAME="hls_inst_tcp_out_V_V" NAME="tcp_out_V_V" TYPE="INITIATOR" VLNV="xilinx.com:interface:axis:1.0">
           <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="4"/>
-          <PARAMETER NAME="TDEST_WIDTH" VALUE="1"/>
-          <PARAMETER NAME="TID_WIDTH" VALUE="1"/>
-          <PARAMETER NAME="TUSER_WIDTH" VALUE="1"/>
+          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="LAYERED_METADATA"/>
+          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
           <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
-          <PARAMETER NAME="HAS_TSTRB" VALUE="1"/>
-          <PARAMETER NAME="HAS_TKEEP" VALUE="1"/>
-          <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
+          <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
+          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
+          <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
           <PARAMETER NAME="FREQ_HZ" VALUE="100000000.0"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
           <PARAMETER NAME="CLK_DOMAIN" VALUE="bd_0_ap_clk_0"/>
           <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
           <PORTMAPS>
-            <PORTMAP LOGICAL="TVALID" PHYSICAL="tcp_out_TVALID"/>
-            <PORTMAP LOGICAL="TREADY" PHYSICAL="tcp_out_TREADY"/>
-            <PORTMAP LOGICAL="TDATA" PHYSICAL="tcp_out_TDATA"/>
-            <PORTMAP LOGICAL="TDEST" PHYSICAL="tcp_out_TDEST"/>
-            <PORTMAP LOGICAL="TKEEP" PHYSICAL="tcp_out_TKEEP"/>
-            <PORTMAP LOGICAL="TSTRB" PHYSICAL="tcp_out_TSTRB"/>
-            <PORTMAP LOGICAL="TUSER" PHYSICAL="tcp_out_TUSER"/>
-            <PORTMAP LOGICAL="TLAST" PHYSICAL="tcp_out_TLAST"/>
-            <PORTMAP LOGICAL="TID" PHYSICAL="tcp_out_TID"/>
+            <PORTMAP LOGICAL="TVALID" PHYSICAL="tcp_out_V_V_TVALID"/>
+            <PORTMAP LOGICAL="TREADY" PHYSICAL="tcp_out_V_V_TREADY"/>
+            <PORTMAP LOGICAL="TDATA" PHYSICAL="tcp_out_V_V_TDATA"/>
           </PORTMAPS>
         </BUSINTERFACE>
       </BUSINTERFACES>

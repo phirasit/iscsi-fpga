@@ -48,7 +48,7 @@
 
 
 // IP VLNV: xilinx.com:hls:iscsi_interface:1.0
-// IP Revision: 2001311517
+// IP Revision: 2003152019
 
 `timescale 1ns/1ps
 
@@ -61,27 +61,15 @@ module bd_0_hls_inst_0 (
   ap_done,
   ap_idle,
   ap_ready,
-  tcp_in_TVALID,
-  tcp_in_TREADY,
-  tcp_in_TDATA,
-  tcp_in_TDEST,
-  tcp_in_TKEEP,
-  tcp_in_TSTRB,
-  tcp_in_TUSER,
-  tcp_in_TLAST,
-  tcp_in_TID,
-  tcp_out_TVALID,
-  tcp_out_TREADY,
-  tcp_out_TDATA,
-  tcp_out_TDEST,
-  tcp_out_TKEEP,
-  tcp_out_TSTRB,
-  tcp_out_TUSER,
-  tcp_out_TLAST,
-  tcp_out_TID
+  tcp_in_V_V_TVALID,
+  tcp_in_V_V_TREADY,
+  tcp_in_V_V_TDATA,
+  tcp_out_V_V_TVALID,
+  tcp_out_V_V_TREADY,
+  tcp_out_V_V_TDATA
 );
 
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME ap_clk, ASSOCIATED_BUSIF tcp_in:tcp_out, ASSOCIATED_RESET ap_rst_n, FREQ_HZ 100000000.0, PHASE 0.000, CLK_DOMAIN bd_0_ap_clk_0, INSERT_VIP 0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME ap_clk, ASSOCIATED_BUSIF tcp_in_V_V:tcp_out_V_V, ASSOCIATED_RESET ap_rst_n, FREQ_HZ 100000000.0, PHASE 0.000, CLK_DOMAIN bd_0_ap_clk_0, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 ap_clk CLK" *)
 input wire ap_clk;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME ap_rst_n, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
@@ -95,44 +83,20 @@ output wire ap_done;
 output wire ap_idle;
 (* X_INTERFACE_INFO = "xilinx.com:interface:acc_handshake:1.0 ap_ctrl ready" *)
 output wire ap_ready;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 tcp_in TVALID" *)
-input wire tcp_in_TVALID;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 tcp_in TREADY" *)
-output wire tcp_in_TREADY;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 tcp_in TDATA" *)
-input wire [31 : 0] tcp_in_TDATA;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 tcp_in TDEST" *)
-input wire [0 : 0] tcp_in_TDEST;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 tcp_in TKEEP" *)
-input wire [3 : 0] tcp_in_TKEEP;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 tcp_in TSTRB" *)
-input wire [3 : 0] tcp_in_TSTRB;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 tcp_in TUSER" *)
-input wire [0 : 0] tcp_in_TUSER;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 tcp_in TLAST" *)
-input wire [0 : 0] tcp_in_TLAST;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME tcp_in, TDATA_NUM_BYTES 4, TDEST_WIDTH 1, TID_WIDTH 1, TUSER_WIDTH 1, LAYERED_METADATA undef, HAS_TREADY 1, HAS_TSTRB 1, HAS_TKEEP 1, HAS_TLAST 1, FREQ_HZ 100000000.0, PHASE 0.000, CLK_DOMAIN bd_0_ap_clk_0, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 tcp_in TID" *)
-input wire [0 : 0] tcp_in_TID;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 tcp_out TVALID" *)
-output wire tcp_out_TVALID;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 tcp_out TREADY" *)
-input wire tcp_out_TREADY;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 tcp_out TDATA" *)
-output wire [31 : 0] tcp_out_TDATA;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 tcp_out TDEST" *)
-output wire [0 : 0] tcp_out_TDEST;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 tcp_out TKEEP" *)
-output wire [3 : 0] tcp_out_TKEEP;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 tcp_out TSTRB" *)
-output wire [3 : 0] tcp_out_TSTRB;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 tcp_out TUSER" *)
-output wire [0 : 0] tcp_out_TUSER;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 tcp_out TLAST" *)
-output wire [0 : 0] tcp_out_TLAST;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME tcp_out, TDATA_NUM_BYTES 4, TDEST_WIDTH 1, TID_WIDTH 1, TUSER_WIDTH 1, HAS_TREADY 1, HAS_TSTRB 1, HAS_TKEEP 1, HAS_TLAST 1, FREQ_HZ 100000000.0, PHASE 0.000, CLK_DOMAIN bd_0_ap_clk_0, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 tcp_out TID" *)
-output wire [0 : 0] tcp_out_TID;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 tcp_in_V_V TVALID" *)
+input wire tcp_in_V_V_TVALID;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 tcp_in_V_V TREADY" *)
+output wire tcp_in_V_V_TREADY;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME tcp_in_V_V, TDATA_NUM_BYTES 4, TUSER_WIDTH 0, LAYERED_METADATA undef, TDEST_WIDTH 0, TID_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000.0, PHASE 0.000, CLK_DOMAIN bd_0_ap_clk_0, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 tcp_in_V_V TDATA" *)
+input wire [31 : 0] tcp_in_V_V_TDATA;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 tcp_out_V_V TVALID" *)
+output wire tcp_out_V_V_TVALID;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 tcp_out_V_V TREADY" *)
+input wire tcp_out_V_V_TREADY;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME tcp_out_V_V, TDATA_NUM_BYTES 4, TUSER_WIDTH 0, TDEST_WIDTH 0, TID_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000.0, PHASE 0.000, CLK_DOMAIN bd_0_ap_clk_0, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 tcp_out_V_V TDATA" *)
+output wire [31 : 0] tcp_out_V_V_TDATA;
 
   iscsi_interface inst (
     .ap_clk(ap_clk),
@@ -141,23 +105,11 @@ output wire [0 : 0] tcp_out_TID;
     .ap_done(ap_done),
     .ap_idle(ap_idle),
     .ap_ready(ap_ready),
-    .tcp_in_TVALID(tcp_in_TVALID),
-    .tcp_in_TREADY(tcp_in_TREADY),
-    .tcp_in_TDATA(tcp_in_TDATA),
-    .tcp_in_TDEST(tcp_in_TDEST),
-    .tcp_in_TKEEP(tcp_in_TKEEP),
-    .tcp_in_TSTRB(tcp_in_TSTRB),
-    .tcp_in_TUSER(tcp_in_TUSER),
-    .tcp_in_TLAST(tcp_in_TLAST),
-    .tcp_in_TID(tcp_in_TID),
-    .tcp_out_TVALID(tcp_out_TVALID),
-    .tcp_out_TREADY(tcp_out_TREADY),
-    .tcp_out_TDATA(tcp_out_TDATA),
-    .tcp_out_TDEST(tcp_out_TDEST),
-    .tcp_out_TKEEP(tcp_out_TKEEP),
-    .tcp_out_TSTRB(tcp_out_TSTRB),
-    .tcp_out_TUSER(tcp_out_TUSER),
-    .tcp_out_TLAST(tcp_out_TLAST),
-    .tcp_out_TID(tcp_out_TID)
+    .tcp_in_V_V_TVALID(tcp_in_V_V_TVALID),
+    .tcp_in_V_V_TREADY(tcp_in_V_V_TREADY),
+    .tcp_in_V_V_TDATA(tcp_in_V_V_TDATA),
+    .tcp_out_V_V_TVALID(tcp_out_V_V_TVALID),
+    .tcp_out_V_V_TREADY(tcp_out_V_V_TREADY),
+    .tcp_out_V_V_TDATA(tcp_out_V_V_TDATA)
   );
 endmodule

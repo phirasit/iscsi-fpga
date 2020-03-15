@@ -40,15 +40,15 @@ set SCTraceFileName mytrace
 set SCTraceFileFormat vcd
 set SCTraceOption all
 set TargetInfo xc7z020:-clg484:-1
-set SourceFiles {sc {} c src/iscsi_top_level.cpp}
-set SourceFlags {sc {} c {{}}}
+set SourceFiles {sc {} c {src/iscsi_top_level.cpp src/iscsi_pdu/iscsi_text.cpp src/iscsi_session.cpp src/iscsi_pdu/iscsi_nop_out.cpp src/iscsi_pdu/iscsi_login.cpp src/iscsi_connection_parameter.cpp src/iscsi_connection.cpp}}
+set SourceFlags {sc {} c {{} {} {} {} {} {} {}}}
 set DirectiveFile /home/phirasit/project/san-adapter/iscsi_hls/iscsi_processor/iscsi_processor.directive
-set TBFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
+set TBFiles {verilog {test/iscsi_processor_tb.cpp test/discovery_in.txt} bc {test/iscsi_processor_tb.cpp test/discovery_in.txt} sc {test/iscsi_processor_tb.cpp test/discovery_in.txt} vhdl {test/iscsi_processor_tb.cpp test/discovery_in.txt} c {} cas {test/iscsi_processor_tb.cpp test/discovery_in.txt}}
 set SpecLanguage C
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set TVOutFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
-set TBTops {bc "" c "" sc "" cas "" vhdl "" verilog ""}
-set TBInstNames {bc "" c "" sc "" cas "" vhdl "" verilog ""}
+set TBTops {verilog {} bc {} sc {} vhdl {} c {} cas {}}
+set TBInstNames {verilog {} bc {} sc {} vhdl {} c {} cas {}}
 set XDCFiles {}
 set ExtraGlobalOptions {"area_timing" 1 "clock_gate" 1 "impl_flow" map "power_gate" 0}
 set TBTVFileNotFound {}

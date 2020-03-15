@@ -1,20 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="iscsi_interface" xd:componentRef="iscsi_interface" xd:initiationInterval="x" xd:clockPeriod="10.000" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
   <xd:controlReg xd:name="control" xd:interfaceRef="ap_ctrl" xd:busTypeRef="acc_handshake" xd:type="acc_handshake"/>
-  <xd:arg xd:name="tcp_in.data" xd:originalName="tcp_in" xd:direction="in" xd:interfaceRef="tcp_in" xd:busTypeRef="axis" xd:dataWidth="32"/>
-  <xd:arg xd:name="tcp_in.keep" xd:originalName="tcp_in" xd:direction="in" xd:interfaceRef="tcp_in" xd:busTypeRef="axis" xd:dataWidth="4"/>
-  <xd:arg xd:name="tcp_in.strb" xd:originalName="tcp_in" xd:direction="in" xd:interfaceRef="tcp_in" xd:busTypeRef="axis" xd:dataWidth="4"/>
-  <xd:arg xd:name="tcp_in.user" xd:originalName="tcp_in" xd:direction="in" xd:interfaceRef="tcp_in" xd:busTypeRef="axis" xd:dataWidth="1"/>
-  <xd:arg xd:name="tcp_in.last" xd:originalName="tcp_in" xd:direction="in" xd:interfaceRef="tcp_in" xd:busTypeRef="axis" xd:dataWidth="1"/>
-  <xd:arg xd:name="tcp_in.id" xd:originalName="tcp_in" xd:direction="in" xd:interfaceRef="tcp_in" xd:busTypeRef="axis" xd:dataWidth="1"/>
-  <xd:arg xd:name="tcp_in.dest" xd:originalName="tcp_in" xd:direction="in" xd:interfaceRef="tcp_in" xd:busTypeRef="axis" xd:dataWidth="1"/>
-  <xd:arg xd:name="tcp_out.data" xd:originalName="tcp_out" xd:direction="out" xd:interfaceRef="tcp_out" xd:busTypeRef="axis" xd:dataWidth="32"/>
-  <xd:arg xd:name="tcp_out.keep" xd:originalName="tcp_out" xd:direction="out" xd:interfaceRef="tcp_out" xd:busTypeRef="axis" xd:dataWidth="4"/>
-  <xd:arg xd:name="tcp_out.strb" xd:originalName="tcp_out" xd:direction="out" xd:interfaceRef="tcp_out" xd:busTypeRef="axis" xd:dataWidth="4"/>
-  <xd:arg xd:name="tcp_out.user" xd:originalName="tcp_out" xd:direction="out" xd:interfaceRef="tcp_out" xd:busTypeRef="axis" xd:dataWidth="1"/>
-  <xd:arg xd:name="tcp_out.last" xd:originalName="tcp_out" xd:direction="out" xd:interfaceRef="tcp_out" xd:busTypeRef="axis" xd:dataWidth="1"/>
-  <xd:arg xd:name="tcp_out.id" xd:originalName="tcp_out" xd:direction="out" xd:interfaceRef="tcp_out" xd:busTypeRef="axis" xd:dataWidth="1"/>
-  <xd:arg xd:name="tcp_out.dest" xd:originalName="tcp_out" xd:direction="out" xd:interfaceRef="tcp_out" xd:busTypeRef="axis" xd:dataWidth="1"/>
+  <xd:arg xd:name="tcp_in.V" xd:originalName="tcp_in" xd:direction="in" xd:interfaceRef="tcp_in_V_V" xd:busTypeRef="axis" xd:dataWidth="32"/>
+  <xd:arg xd:name="tcp_out.V" xd:originalName="tcp_out" xd:direction="out" xd:interfaceRef="tcp_out_V_V" xd:busTypeRef="axis" xd:dataWidth="32"/>
   <xd:latencyEstimates xd:best-case="undef" xd:worst-case="undef" xd:average-case="undef"/>
-  <xd:resourceEstimates xd:LUT="543" xd:FF="235" xd:BRAM="0" xd:DSP="0"/>
+  <xd:resourceEstimates xd:LUT="18018" xd:FF="8777" xd:BRAM="12" xd:DSP="16"/>
 </xd:acceleratorMap>

@@ -1,8 +1,8 @@
-20:22:53 **** Incremental Build of configuration Debug for project iscsi-wrapper ****
+20:34:24 **** Incremental Build of configuration Debug for project iscsi-wrapper ****
 make pre-build main-build 
 a9-linaro-pre-build-step
  
 make: Nothing to be done for 'main-build'.
 
-20:22:53 Build Finished (took 515ms)
+20:34:24 Build Finished (took 516ms)
 

@@ -150,206 +150,22 @@ extern "C" {
 # 8 "<command line>" 2
 # 1 "<built-in>" 2
 # 1 "iscsi_hls/iscsi_processor/src/iscsi_top_level.cpp" 2
-# 1 "/opt/vivado/Vivado/2019.1/common/technology/autopilot/hls_stream.h" 1
-# 66 "/opt/vivado/Vivado/2019.1/common/technology/autopilot/hls_stream.h"
-# 1 "/opt/vivado/Vivado/2019.1/common/technology/autopilot/etc/autopilot_enum.h" 1
-# 58 "/opt/vivado/Vivado/2019.1/common/technology/autopilot/etc/autopilot_enum.h"
-enum SsdmDataTypes {
-    _ssdm_sc_int = 0,
-    _ssdm_c_int = _ssdm_sc_int,
-    _ssdm_sc_uint = 1,
-    _ssdm_c_uint = _ssdm_sc_uint,
-    _ssdm_sc_bigint = 2,
-    _ssdm_sc_biguint = 3,
-};
+# 1 "iscsi_hls/iscsi_processor/src/iscsi_top_level.hpp" 1
 
 
 
-enum SsdmPortTypes {
-    _ssdm_sc_in = 0,
-    _ssdm_sc_out = 1,
-    _ssdm_sc_inout = 2,
-    _ssdm_sc_in_clk,
+# 1 "iscsi_hls/iscsi_processor/src/iscsi.hpp" 1
 
-    _ssdm_fifo_in,
-    _ssdm_sc_fifo_in = _ssdm_fifo_in,
-    _ssdm_tlm_fifo_in = _ssdm_fifo_in,
-    _ssdm_fifo_out,
-    _ssdm_sc_fifo_out = _ssdm_fifo_out,
-    _ssdm_tlm_fifo_out = _ssdm_fifo_out,
-    _ssdm_fifo_inout,
-    _ssdm_sc_fifo_inout = _ssdm_fifo_inout,
-    _ssdm_tlm_fifo_inout = _ssdm_fifo_inout,
-    _ssdm_sc_bus,
-    _ssdm_hls_bus_port = _ssdm_sc_bus,
-    _ssdm_AXI4M_bus_port = _ssdm_sc_bus,
-    _ssdm_port_end,
-};
 
 
+# 1 "iscsi_hls/iscsi_processor/src/data_type.hpp" 1
 
-enum SsdmProcessTypes {
-    _ssdm_method = 0,
-    _ssdm_sc_method = _ssdm_method,
-    _ssdm_thread = 1,
-    _ssdm_sc_thread = _ssdm_thread,
-    _ssdm_cthread = 2,
-    _ssdm_sc_cthread = _ssdm_cthread,
-    _ssdm_process_end,
-};
 
 
+# 1 "iscsi_hls/iscsi_processor/src/data_type_primitives.hpp" 1
 
-enum SsdmSensitiveTypes {
-    _ssdm_sensitive = 0,
-    _ssdm_sensitive_pos,
-    _ssdm_sensitive_neg,
-    _ssdm_sensitive_reset0,
-    _ssdm_sensitive_reset1,
-    _ssdm_sensitive_end,
-};
 
 
-
-enum SsdmChannelTypes {
-    _ssdm_sc_sig,
-    _ssdm_fifo,
-    _ssdm_sc_fifo = _ssdm_fifo,
-    _ssdm_mem_fifo,
-    _ssdm_sc_mem_fifo = _ssdm_mem_fifo,
-};
-
-
-enum SsdmRegionTypes {
-    _ssdm_region_reset,
-    _ssdm_region_protocol,
-    _ssdm_region_pipeline,
-    _ssdm_region_parallel,
-};
-# 67 "/opt/vivado/Vivado/2019.1/common/technology/autopilot/hls_stream.h" 2
-
-
-namespace hls {
-# 78 "/opt/vivado/Vivado/2019.1/common/technology/autopilot/hls_stream.h"
-template<typename __STREAM_T__>
-class stream
-{
-  public:
-
-    inline __attribute__((always_inline)) stream() {
-    }
-
-    inline __attribute__((always_inline)) stream(const char* name) {
-    }
-
-
-  private:
-    inline __attribute__((always_inline)) stream(const stream< __STREAM_T__ >& chn):V(chn.V) {
-    }
-
-    inline __attribute__((always_inline)) stream& operator= (const stream< __STREAM_T__ >& chn) {
-        V = chn.V;
-        return *this;
-    }
-
-  public:
-
-    inline __attribute__((always_inline)) void operator >> (__STREAM_T__& rdata) {
-        read(rdata);
-    }
-
-    inline __attribute__((always_inline)) void operator << (const __STREAM_T__& wdata) {
-        write(wdata);
-    }
-
-
-  public:
-
-    inline __attribute__((always_inline)) bool empty() const {
-
-        bool tmp = _ssdm_StreamCanRead(&V);
-        return !tmp;
-
-
-
-    }
-
-    inline __attribute__((always_inline)) bool full() const {
-
-        bool tmp = _ssdm_StreamCanWrite(&V);
-        return !tmp;
-
-
-
-    }
-
-
-    inline __attribute__((always_inline)) void read(__STREAM_T__& dout) {
-
-        __STREAM_T__ tmp;
-        _ssdm_StreamRead(&V, &tmp);
-        dout = tmp;
-
-
-
-    }
-
-    inline __attribute__((always_inline)) __STREAM_T__ read() {
-       __STREAM_T__ tmp;
-       read(tmp);
-       return tmp;
-    }
-
-
-    inline __attribute__((always_inline)) bool read_nb(__STREAM_T__& dout) {
-
-        __STREAM_T__ tmp;
-        bool empty_n = _ssdm_StreamNbRead(&V, &tmp);
-        dout = tmp;
-        return empty_n;
-
-
-
-    }
-
-
-    inline __attribute__((always_inline)) void write(const __STREAM_T__& din) {
-
-        __STREAM_T__ tmp = din;
-        _ssdm_StreamWrite(&V, &tmp);
-
-
-
-    }
-
-
-    inline __attribute__((always_inline)) bool write_nb(const __STREAM_T__& din) {
-
-        __STREAM_T__ tmp = din;
-        bool full_n = _ssdm_StreamNbWrite(&V, &tmp);
-        return full_n;
-
-
-
-    }
-
-
-
-    inline __attribute__((always_inline)) unsigned size() {
-        unsigned size = _ssdm_StreamSize(&V);
-        return size;
-    }
-
-
-  public:
-    __STREAM_T__ V;
-};
-
-
-}
-# 2 "iscsi_hls/iscsi_processor/src/iscsi_top_level.cpp" 2
-# 1 "/opt/vivado/Vivado/2019.1/common/technology/autopilot/ap_axi_sdata.h" 1
-# 86 "/opt/vivado/Vivado/2019.1/common/technology/autopilot/ap_axi_sdata.h"
 # 1 "/opt/vivado/Vivado/2019.1/common/technology/autopilot/ap_int.h" 1
 # 54 "/opt/vivado/Vivado/2019.1/common/technology/autopilot/ap_int.h"
 # 1 "/opt/vivado/Vivado/2019.1/common/technology/autopilot/ap_common.h" 1
@@ -6557,6 +6373,215 @@ inline bool operator!=(
 }
 # 399 "/opt/vivado/Vivado/2019.1/common/technology/autopilot/ap_fixed.h" 2
 # 368 "/opt/vivado/Vivado/2019.1/common/technology/autopilot/ap_int.h" 2
+# 5 "iscsi_hls/iscsi_processor/src/data_type_primitives.hpp" 2
+
+typedef ap_uint<8> byte;
+typedef ap_uint<32> byte4;
+
+
+
+
+# 1 "/opt/vivado/Vivado/2019.1/common/technology/autopilot/hls_stream.h" 1
+# 66 "/opt/vivado/Vivado/2019.1/common/technology/autopilot/hls_stream.h"
+# 1 "/opt/vivado/Vivado/2019.1/common/technology/autopilot/etc/autopilot_enum.h" 1
+# 58 "/opt/vivado/Vivado/2019.1/common/technology/autopilot/etc/autopilot_enum.h"
+enum SsdmDataTypes {
+    _ssdm_sc_int = 0,
+    _ssdm_c_int = _ssdm_sc_int,
+    _ssdm_sc_uint = 1,
+    _ssdm_c_uint = _ssdm_sc_uint,
+    _ssdm_sc_bigint = 2,
+    _ssdm_sc_biguint = 3,
+};
+
+
+
+enum SsdmPortTypes {
+    _ssdm_sc_in = 0,
+    _ssdm_sc_out = 1,
+    _ssdm_sc_inout = 2,
+    _ssdm_sc_in_clk,
+
+    _ssdm_fifo_in,
+    _ssdm_sc_fifo_in = _ssdm_fifo_in,
+    _ssdm_tlm_fifo_in = _ssdm_fifo_in,
+    _ssdm_fifo_out,
+    _ssdm_sc_fifo_out = _ssdm_fifo_out,
+    _ssdm_tlm_fifo_out = _ssdm_fifo_out,
+    _ssdm_fifo_inout,
+    _ssdm_sc_fifo_inout = _ssdm_fifo_inout,
+    _ssdm_tlm_fifo_inout = _ssdm_fifo_inout,
+    _ssdm_sc_bus,
+    _ssdm_hls_bus_port = _ssdm_sc_bus,
+    _ssdm_AXI4M_bus_port = _ssdm_sc_bus,
+    _ssdm_port_end,
+};
+
+
+
+enum SsdmProcessTypes {
+    _ssdm_method = 0,
+    _ssdm_sc_method = _ssdm_method,
+    _ssdm_thread = 1,
+    _ssdm_sc_thread = _ssdm_thread,
+    _ssdm_cthread = 2,
+    _ssdm_sc_cthread = _ssdm_cthread,
+    _ssdm_process_end,
+};
+
+
+
+enum SsdmSensitiveTypes {
+    _ssdm_sensitive = 0,
+    _ssdm_sensitive_pos,
+    _ssdm_sensitive_neg,
+    _ssdm_sensitive_reset0,
+    _ssdm_sensitive_reset1,
+    _ssdm_sensitive_end,
+};
+
+
+
+enum SsdmChannelTypes {
+    _ssdm_sc_sig,
+    _ssdm_fifo,
+    _ssdm_sc_fifo = _ssdm_fifo,
+    _ssdm_mem_fifo,
+    _ssdm_sc_mem_fifo = _ssdm_mem_fifo,
+};
+
+
+enum SsdmRegionTypes {
+    _ssdm_region_reset,
+    _ssdm_region_protocol,
+    _ssdm_region_pipeline,
+    _ssdm_region_parallel,
+};
+# 67 "/opt/vivado/Vivado/2019.1/common/technology/autopilot/hls_stream.h" 2
+
+
+namespace hls {
+# 78 "/opt/vivado/Vivado/2019.1/common/technology/autopilot/hls_stream.h"
+template<typename __STREAM_T__>
+class stream
+{
+  public:
+
+    inline __attribute__((always_inline)) stream() {
+    }
+
+    inline __attribute__((always_inline)) stream(const char* name) {
+    }
+
+
+  private:
+    inline __attribute__((always_inline)) stream(const stream< __STREAM_T__ >& chn):V(chn.V) {
+    }
+
+    inline __attribute__((always_inline)) stream& operator= (const stream< __STREAM_T__ >& chn) {
+        V = chn.V;
+        return *this;
+    }
+
+  public:
+
+    inline __attribute__((always_inline)) void operator >> (__STREAM_T__& rdata) {
+        read(rdata);
+    }
+
+    inline __attribute__((always_inline)) void operator << (const __STREAM_T__& wdata) {
+        write(wdata);
+    }
+
+
+  public:
+
+    inline __attribute__((always_inline)) bool empty() const {
+
+        bool tmp = _ssdm_StreamCanRead(&V);
+        return !tmp;
+
+
+
+    }
+
+    inline __attribute__((always_inline)) bool full() const {
+
+        bool tmp = _ssdm_StreamCanWrite(&V);
+        return !tmp;
+
+
+
+    }
+
+
+    inline __attribute__((always_inline)) void read(__STREAM_T__& dout) {
+
+        __STREAM_T__ tmp;
+        _ssdm_StreamRead(&V, &tmp);
+        dout = tmp;
+
+
+
+    }
+
+    inline __attribute__((always_inline)) __STREAM_T__ read() {
+       __STREAM_T__ tmp;
+       read(tmp);
+       return tmp;
+    }
+
+
+    inline __attribute__((always_inline)) bool read_nb(__STREAM_T__& dout) {
+
+        __STREAM_T__ tmp;
+        bool empty_n = _ssdm_StreamNbRead(&V, &tmp);
+        dout = tmp;
+        return empty_n;
+
+
+
+    }
+
+
+    inline __attribute__((always_inline)) void write(const __STREAM_T__& din) {
+
+        __STREAM_T__ tmp = din;
+        _ssdm_StreamWrite(&V, &tmp);
+
+
+
+    }
+
+
+    inline __attribute__((always_inline)) bool write_nb(const __STREAM_T__& din) {
+
+        __STREAM_T__ tmp = din;
+        bool full_n = _ssdm_StreamNbWrite(&V, &tmp);
+        return full_n;
+
+
+
+    }
+
+
+
+    inline __attribute__((always_inline)) unsigned size() {
+        unsigned size = _ssdm_StreamSize(&V);
+        return size;
+    }
+
+
+  public:
+    __STREAM_T__ V;
+};
+
+
+}
+# 12 "iscsi_hls/iscsi_processor/src/data_type_primitives.hpp" 2
+# 1 "/opt/vivado/Vivado/2019.1/common/technology/autopilot/ap_axi_sdata.h" 1
+# 86 "/opt/vivado/Vivado/2019.1/common/technology/autopilot/ap_axi_sdata.h"
+# 1 "/opt/vivado/Vivado/2019.1/common/technology/autopilot/ap_int.h" 1
 # 87 "/opt/vivado/Vivado/2019.1/common/technology/autopilot/ap_axi_sdata.h" 2
 
 template<int D,int U,int TI,int TD>
@@ -6622,48 +6647,574 @@ template<int D>
     qdma_axis(ap_uint<D> d = ap_uint<D>(), ap_uint<(D+7)/8> k = ap_uint<(D+7)/8>(), ap_uint<1> l = ap_uint<1>()) : data(d), keep(k), last(l) {}
     qdma_axis(const qdma_axis<D, 0, 0, 0> &d) : data(d.data), keep(d.keep), last(d.last) {}
   };
-# 3 "iscsi_hls/iscsi_processor/src/iscsi_top_level.cpp" 2
-
-# 1 "iscsi_hls/iscsi_processor/src/data_type.hpp" 1
+# 13 "iscsi_hls/iscsi_processor/src/data_type_primitives.hpp" 2
 
 
+typedef ap_uint<32> data_stream_element;
 
-# 1 "/opt/vivado/Vivado/2019.1/common/technology/autopilot/ap_int.h" 1
+class data_stream : public hls::stream<data_stream_element> {
+
+public:
+ void write_byte_array(const unsigned char* data, int length) {
+  data_stream_element data_elem;
+  for (int i = 0; i < length; i += 4) {
+   data_elem( 7, 0) = data[i ];
+   data_elem(15, 8) = (i+1 < length ? data[i+1] : 0);
+   data_elem(23, 16) = (i+2 < length ? data[i+2] : 0);
+   data_elem(31, 24) = (i+3 < length ? data[i+3] : 0);
+   this->write(data_elem);
+  }
+ }
+
+ void read_byte_array(unsigned char* data, int length) {
+
+  data_stream_element data_elem;
+  for (int i = 0; i < length; i += 4) {
+   this->read(data_elem);
+   data[i ] = data_elem( 7, 0);
+   data[i+1] = data_elem(15, 8);
+   data[i+2] = data_elem(23, 16);
+   data[i+3] = data_elem(31, 24);
+  }
+ }
+};
 # 5 "iscsi_hls/iscsi_processor/src/data_type.hpp" 2
-
-using flag = ap_uint<1>;
-using clock_t = ap_uint<1>;
-
-using byte = ap_uint<8>;
-using byte4 = ap_uint<32>;
-# 5 "iscsi_hls/iscsi_processor/src/iscsi_top_level.cpp" 2
+# 1 "iscsi_hls/iscsi_processor/src/data_type_pdu.hpp" 1
 
 
 
 
 
+enum ISCSI_PDU_OPCODE {
+   PDU_OPCODE_NOP_OUT = 0x00,
+   PDU_OPCODE_SCSI_CMD = 0x01,
+   PDU_OPCODE_SCSI_TASK_MANAGE = 0x02,
+   PDU_OPCODE_LOGIN = 0x03,
+   PDU_OPCODE_TEXT = 0x04,
+   PDU_OPCODE_SCSI_DATA_OUT = 0x05,
+   PDU_OPCODE_LOGOUT = 0x06,
+   PDU_OPCODE_SNACK = 0x07,
 
-typedef ap_axis<32,1,1,1> data_element;
-typedef hls::stream<data_element> data_stream;
+   PDU_OPCODE_NOP_IN = 0x20,
+   PDU_OPCODE_SCSI_CMD_RES = 0x21,
+   PDU_OPCODE_SCSI_TASK_MANAGE_RES = 0x22,
+   PDU_OPCODE_LOGIN_RES = 0x23,
+   PDU_OPCODE_TEXT_RES = 0x24,
+   PDU_OPCODE_SCSI_DATA_IN = 0x25,
+   PDU_OPCODE_LOGOUT_RES = 0x26,
 
-void iscsi_interface(
+   PDU_OPCODE_R2T = 0x31,
+   PDU_OPCODE_ASYNC_MSG = 0x32,
 
- data_stream &tcp_in,
- data_stream &tcp_out
-) {
-#pragma HLS INTERFACE axis port=&tcp_in
-#pragma HLS INTERFACE axis port=&tcp_out
-#pragma HLS pipeline II=1 enable_flush
+   PDU_OPCODE_REJECT = 0x3f
+};
+
+struct iscsi_pdu_header {
+ static const int num_bytes = 48;
+ byte buffer[num_bytes];
+
+ iscsi_pdu_header() {
+  for (int i = 0; i < num_bytes; ++i) buffer[i] = 0;
+ }
+ iscsi_pdu_header(const iscsi_pdu_header& header) {
+  for (int i = 0; i < num_bytes; ++i) buffer[i] = header.buffer[i];
+ }
+
+ inline byte& operator [] (int idx) { return buffer[idx]; }
+ inline const byte& operator [] (int idx) const { return buffer[idx]; }
+
+ int opcode() const { return buffer[0](5, 0); }
+ void set_opcode(enum ISCSI_PDU_OPCODE opcode) { buffer[0](5, 0) = opcode; }
+
+ int final() { return buffer[1](7, 7); }
+ void set_final(bool final) { buffer[1](7, 7) = final; }
+
+ bool is_continue() const { return buffer[1](6, 6); }
+
+ int initiator_task_tag() const { return this->get_4byte(16); }
+ void set_initiator_task_tag(int initiator_task_tag) { this->set_4byte(16, initiator_task_tag); }
+
+ int target_transfer_tag() const { return 0; }
+ void set_target_transfer_tag(ap_uint<32> target_transfer_tag) {
+  buffer[20] = target_transfer_tag(31, 24);
+  buffer[21] = target_transfer_tag(23, 16);
+  buffer[22] = target_transfer_tag(15, 8);
+  buffer[23] = target_transfer_tag( 7, 0);
+ }
+
+ int data_segment_length() const {
+  return ((int) buffer[5] << 16) | ((int) buffer[6] << 8) | buffer[7];
+ }
+ void set_data_segment_length(ap_uint<24> length) {
+  buffer[5] = length(23, 16);
+  buffer[6] = length(15, 8);
+  buffer[7] = length( 7, 0);
+ }
+
+ int get_4byte(int idx) const {
+  return ((int) buffer[idx] << 24)
+    | ((int) buffer[idx+1] << 16)
+    | ((int) buffer[idx+2] << 8)
+    | ((int) buffer[idx+3] );
+ }
+
+ void set_4byte(int idx, ap_uint<32> val) {
+  buffer[idx ] = val(31, 24);
+  buffer[idx+1] = val(23, 16);
+  buffer[idx+2] = val(15, 8);
+  buffer[idx+3] = val( 7, 0);
+ }
+
+ void write_to_tcp(data_stream& out_stream) const {
+  out_stream.write_byte_array((const unsigned char*) buffer, num_bytes);
+ }
+
+ void read_from_tcp(data_stream& inp_stream) {
+  inp_stream.read_byte_array((unsigned char*) buffer, num_bytes);
+ }
+# 102 "iscsi_hls/iscsi_processor/src/data_type_pdu.hpp"
+};
+# 6 "iscsi_hls/iscsi_processor/src/data_type.hpp" 2
+# 5 "iscsi_hls/iscsi_processor/src/iscsi.hpp" 2
+
+# 1 "iscsi_hls/iscsi_processor/src/iscsi_connection.hpp" 1
 
 
- while (true)
- {
-  tcp_out.write(tcp_in.read());
+
+# 1 "iscsi_hls/iscsi_processor/src/iscsi_connection_parameter.hpp" 1
+# 33 "iscsi_hls/iscsi_processor/src/iscsi_connection_parameter.hpp"
+struct iscsi_connection_parameter {
+ int max_receive_data_segment_length;
+ int max_connections;
+ int initial_r2t;
+ int immediate_data;
+ int max_burst_length;
+ int first_burst_length;
+ int data_pdu_in_order;
+ int data_sequence_in_order;
+ int default_time_2_wait;
+ int default_time_2_retain;
+ int max_outstanding_r2t;
+
+ unsigned char data[8192];
+ int data_length;
+
+ iscsi_connection_parameter() {
+  max_receive_data_segment_length = 8192;
+  max_connections = 1;
+  initial_r2t = 1;
+  immediate_data = 1;
+  max_burst_length = 8192;
+  first_burst_length = 8192;
+  data_pdu_in_order = 1;
+  data_sequence_in_order = 1;
+  default_time_2_wait = 10;
+  default_time_2_retain = 10;
+  max_outstanding_r2t = 10;
+  data_length = 0;
+ }
+
+ static iscsi_connection_parameter& get_instance() {
+  static iscsi_connection_parameter instance;
+  return instance;
+ }
+
+ void read_from_tcp(data_stream& tcp_in, int length) {
+  tcp_in.read_byte_array(data, length);
+  data_length = length;
+  this->update_values();
+ }
+
+ void generate_array() {
+  data_length = 0;
+
+  this->write_key_value_int ("MaxConnections", max_connections);
+  this->write_key_value_bool("InitialR2T", initial_r2t);
+  this->write_key_value_bool("ImmediateData", immediate_data);
+  this->write_key_value_int ("MaxBurstLength", max_burst_length);
+  this->write_key_value_int ("FirstBurstLength", first_burst_length);
+  this->write_key_value_bool("DataPDUInOrder", data_pdu_in_order);
+  this->write_key_value_bool("DataSequenceInOrder", data_sequence_in_order);
+  this->write_key_value_int ("DefaultTime2Wait", default_time_2_wait);
+  this->write_key_value_int ("DefaultTime2Retain", default_time_2_retain);
+  this->write_key_value_int ("MaxOutstandingR2T", max_outstanding_r2t);
+ }
+
+ void write_to_tcp(data_stream& tcp_out) {
+  tcp_out.write_byte_array(data, data_length);
+ }
+
+ int length() const { return this->data_length; }
+
+ bool has_send_targets() const {
+  return this->matchstring("SendTargets");
+ }
+
+ bool has_session_type_discovery() const {
+  return this->matchstring("SessionType=Discovery");
+ }
+
+ bool has_target_name() const {
+  return this->matchstring("TargetName");
  }
 
 
+private:
+
+ bool matchstring(const char* name) const {
+  for (int i = 0, idx = 0; i < this->data_length; ++i) {
+   idx = (this->data[i] == name[idx] ? idx+1 : 0);
+   if (name[idx] == 0) {
+    return true;
+   }
+  }
+  return false;
+ }
+
+ bool key_equal(int& idx, const char* key) {
+  for (int i = 0; key[i]; ++i) {
+   if (data[idx+i] != key[i]) {
+    return false;
+   }
+  }
+  return true;
+ }
+
+ void update_value_int(int idx, const char* key, int& val, bool keep_max=false) {
+  if (!key_equal(idx, key)) return;
+  ++idx;
+  int nw_val = 0;
+  while (data[idx]) nw_val = 10 * nw_val + (data[idx++] - '0');
+  if (keep_max) {
+   val = ((val) > (nw_val) ? (val) : (nw_val));
+  } else {
+   val = ((val) < (nw_val) ? (val) : (nw_val));
+  }
+ }
+
+ void update_value_bool(int idx, const char* key, int& val) {
+  if (!key_equal(idx, key)) return;
+  ++idx;
+  val |= key_equal(idx, "Yes");
+ }
+
+ void update_values() {
+  for (int i = 0; i < data_length; ++i) {
+   update_value_int (i, "MaxRecvDataSegmentLength", max_receive_data_segment_length);
+   update_value_int (i, "MaxConnections", max_connections);
+   update_value_bool(i, "InitialR2T", initial_r2t);
+   update_value_bool(i, "ImmediateData", immediate_data);
+   update_value_int (i, "MaxBurstLength", max_burst_length);
+   update_value_int (i, "FirstBurstLength", first_burst_length);
+   update_value_bool(i, "DataPDUInOrder", data_pdu_in_order);
+   update_value_bool(i, "DataSequenceInOrder", data_sequence_in_order);
+   update_value_int (i, "DefaultTime2Wait", default_time_2_wait, true);
+   update_value_int (i, "DefaultTime2Retain", default_time_2_retain, true);
+   update_value_int (i, "MaxOutstandingR2T", max_outstanding_r2t);
+
+   while (i < data_length && data[i]) ++i;
+  }
+ }
+
+
+ void write_key(const char* key) {
+  for (int i = 0; key[i]; ++i) {
+   data[data_length++] = key[i];
+  }
+  data[data_length++] = '=';
+ }
+
+ void write_key_value_int(const char* key, int value) {
+  write_key(key);
+
+
+  static char buffer[20];
+  int length = 0;
+  if (value == 0) {
+   buffer[length++] = '0';
+  }
+  while (value) {
+   buffer[length++] = '0' + (value % 10);
+   value /= 10;
+  }
+  while (length > 0) {
+   data[data_length++] = buffer[--length];
+  }
+  data[data_length++] = 0;
+ }
+
+ void write_key_value_bool(const char* key, bool value) {
+  write_key(key);
+  const char* buffer = (value ? "Yes" : "No");
+  for (int i = 0; buffer[i]; ++i) {
+   data[data_length++] = buffer[i];
+  }
+  data[data_length++] = 0;
+ }
+
+
+};
+# 5 "iscsi_hls/iscsi_processor/src/iscsi_connection.hpp" 2
+
+struct iscsi_connection {
+
+ static iscsi_connection& get_instance() {
+  static iscsi_connection instance = iscsi_connection();
+  return instance;
+ }
+
+
+ iscsi_connection() {
+  this->initialized = false;
+  this->stat_sn = 0;
+  this->exp_cmd_sn = 0;
+  this->max_cmd_sn = 0;
+ }
+
+
+ iscsi_connection_parameter parameter;
+
+ bool initialized;
+ int stat_sn;
+ int exp_cmd_sn;
+ int max_cmd_sn;
+
+ bool is_initialized() const { return this->initialized; }
+
+ void advance_stat_sn() {
+  ++this->stat_sn;
+ }
+
+ void advance_cmd_sn() {
+  ++this->exp_cmd_sn;
+  this->max_cmd_sn = this->exp_cmd_sn;
+ }
+
+ void set_pdu_response_header(iscsi_pdu_header* pdu);
+};
+# 7 "iscsi_hls/iscsi_processor/src/iscsi.hpp" 2
+# 1 "iscsi_hls/iscsi_processor/src/iscsi_session.hpp" 1
+
+
+
+struct iscsi_session {
+
+ static iscsi_session& get_instance() {
+  static iscsi_session instance = iscsi_session();
+  return instance;
+ }
+
+ bool initialized;
+
+ int tsih;
+ int exp_cmd_sn;
+ int command_numbering_start;
+ int full_feature_phase;
+ int discovery;
+ int error_recovery_level;
+ int transfer_tag;
+
+ bool is_initialized() const { return initialized; }
+ int is_full_feature_phase() const { return full_feature_phase; }
+ int is_discovery() const { return discovery; }
+
+ int get_tsih() const { return tsih; }
+};
+# 8 "iscsi_hls/iscsi_processor/src/iscsi.hpp" 2
+
+
+# 1 "iscsi_hls/iscsi_processor/src/iscsi_requests.hpp" 1
+
+
+
+# 1 "iscsi_hls/iscsi_processor/src/iscsi_pdu/iscsi_login.hpp" 1
+
+
+
+# 1 "iscsi_hls/iscsi_processor/src/iscsi_pdu/iscsi_request.hpp" 1
+# 5 "iscsi_hls/iscsi_processor/src/iscsi_pdu/iscsi_login.hpp" 2
+
+enum LOGIN_STATUS {
+ SUCCESS = 0x0000,
+ TARGET_MOVED_TEMPORARILY = 0x0101,
+ TARGET_MOVED_PERMANENTLY = 0x0102,
+ INITIATOR_ERROR = 0x0200,
+ AUTHENTICATION_ERROR = 0x0201,
+ AUTHORIZATION_ERROR = 0x0202,
+ NOT_FOUND = 0x0203,
+ TARGET_MOVED = 0x0204,
+ UNSUPPORTED_VERSION = 0x0205,
+ TOO_MANY_CONNECTION = 0x0206,
+ MISSING_PARAMETER = 0x0207,
+ CANT_INCLUDE_SESSION = 0x0208,
+ SESSION_NOT_SUPPORTED = 0x0209,
+ SESSION_NOT_EXIST = 0x020A,
+ INVALID_DURING_LOGIN = 0x020B,
+ TARGET_ERROR = 0x0300,
+ SERVICE_UNAVAILABLE = 0x0301,
+ OUT_OF_RESOURCE = 0x0302
+};
+
+enum LOGIN_STATE {
+ SECURITY_NEGOTIATION = 0,
+ LOGIN_OPERATIONAL = 1,
+ FULL_FEATURE = 3
+};
+
+struct iscsi_login_pdu : public iscsi_pdu_header {
+
+ iscsi_login_pdu (): iscsi_pdu_header() {}
+ iscsi_login_pdu (const iscsi_pdu_header& pdu) : iscsi_pdu_header(pdu) {}
+
+ int csg() const { return buffer[1](3, 2); }
+ void set_csg(ap_uint<2> csg) { buffer[1](3, 2) = csg; }
+ int nsg() const { return buffer[1](1, 0); }
+ void set_nsg(ap_uint<2> nsg) { buffer[1](1, 0) = nsg; }
+
+ int login_transit() const { return buffer[1](7, 7); }
+ void set_login_transit(bool transmit) { buffer[1](7, 7) = transmit; }
+
+ void set_login_response_status(ap_uint<16> status) {
+   buffer[36] = status(15, 8);
+   buffer[37] = status( 7, 0);
+ }
+
+ int tsih() const { return ((int) buffer[14] << 8) | buffer[15]; }
+ void set_tsih(ap_uint<16> tsih) {
+   buffer[14] = tsih(15, 8);
+   buffer[15] = tsih( 7, 0);
+ }
+
+ void set_isid(const iscsi_login_pdu &pdu) {
+  for (int i = 8; i <= 13; ++i) {
+   buffer[i] = pdu.buffer[i];
+  }
+ }
+};
+
+void iscsi_login(const iscsi_pdu_header& header, data_stream& tcp_in, data_stream& tcp_out);
+# 5 "iscsi_hls/iscsi_processor/src/iscsi_requests.hpp" 2
+# 1 "iscsi_hls/iscsi_processor/src/iscsi_pdu/iscsi_logout.hpp" 1
 
 
 
 
+
+void iscsi_logout(const iscsi_pdu_header& header, data_stream& tcp_in, data_stream& tcp_out);
+# 6 "iscsi_hls/iscsi_processor/src/iscsi_requests.hpp" 2
+# 1 "iscsi_hls/iscsi_processor/src/iscsi_pdu/iscsi_nop_out.hpp" 1
+
+
+
+
+
+struct iscsi_nop_in_pdu : public iscsi_pdu_header {
+
+};
+
+void iscsi_nop_out(const iscsi_pdu_header& header, data_stream& tcp_in, data_stream& tcp_out);
+# 7 "iscsi_hls/iscsi_processor/src/iscsi_requests.hpp" 2
+# 1 "iscsi_hls/iscsi_processor/src/iscsi_pdu/iscsi_scsi_cmd.hpp" 1
+
+
+
+
+
+void iscsi_scsi_cmd(const iscsi_pdu_header& header, data_stream& tcp_in, data_stream& tcp_out);
+# 8 "iscsi_hls/iscsi_processor/src/iscsi_requests.hpp" 2
+# 1 "iscsi_hls/iscsi_processor/src/iscsi_pdu/iscsi_text.hpp" 1
+
+
+
+
+
+void iscsi_text(const iscsi_pdu_header& header, data_stream& tcp_in, data_stream& tcp_out);
+# 9 "iscsi_hls/iscsi_processor/src/iscsi_requests.hpp" 2
+# 11 "iscsi_hls/iscsi_processor/src/iscsi.hpp" 2
+# 5 "iscsi_hls/iscsi_processor/src/iscsi_top_level.hpp" 2
+
+void iscsi_interface(
+
+ data_stream& tcp_in,
+ data_stream& tcp_out
+);
+
+void process_pdu(
+ data_stream& tcp_in,
+ data_stream& tcp_out
+);
+# 2 "iscsi_hls/iscsi_processor/src/iscsi_top_level.cpp" 2
+
+
+
+
+
+
+void iscsi_interface(
+
+ data_stream& tcp_in,
+ data_stream& tcp_out
+) {
+#pragma HLS INTERFACE axis port=&tcp_in
+#pragma HLS INTERFACE axis port=&tcp_out
+# 27 "iscsi_hls/iscsi_processor/src/iscsi_top_level.cpp"
+ volatile bool x = false;
+ if (x) {
+  data_stream_element elem;
+  tcp_out.write(elem);
+ }
+
+ while (true) {
+  process_pdu(tcp_in, tcp_out);
+ }
+
+}
+
+void process_pdu(data_stream& tcp_in, data_stream& tcp_out)
+{
+ static iscsi_connection& connection = iscsi_connection::get_instance();
+ static iscsi_session& session = iscsi_session::get_instance();
+
+
+ iscsi_pdu_header header;
+ header.read_from_tcp(tcp_in);
+
+
+
+
+ if (!connection.is_initialized() || !session.is_full_feature_phase()) {
+
+  if (header.opcode() == PDU_OPCODE_LOGIN) {
+   iscsi_login(header, tcp_in, tcp_out);
+  } else {
+
+
+  }
+  return;
+ }
+
+
+ switch (header.opcode()) {
+
+
+
+
+
+ case PDU_OPCODE_TEXT:
+  iscsi_text(header, tcp_in, tcp_out);
+  return;
+ }
+
+
+ if (session.is_discovery()) {
+
+  return;
+ }
+
+ switch (header.opcode()) {
+ case PDU_OPCODE_NOP_OUT:
+  iscsi_nop_out(header, tcp_in, tcp_out);
+  return;
+# 92 "iscsi_hls/iscsi_processor/src/iscsi_top_level.cpp"
+ }
 }

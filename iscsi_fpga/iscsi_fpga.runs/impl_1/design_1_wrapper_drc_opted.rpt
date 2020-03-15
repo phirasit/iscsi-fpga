@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-| Date         : Tue Feb  4 20:19:33 2020
+| Date         : Sun Mar 15 20:29:55 2020
 | Host         : phirasit-macbook running 64-bit Ubuntu 18.04.3 LTS
 | Command      : report_drc -file design_1_wrapper_drc_opted.rpt -pb design_1_wrapper_drc_opted.pb -rpx design_1_wrapper_drc_opted.rpx
 | Design       : design_1_wrapper
@@ -24,15 +24,177 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 2
-+----------+----------+-------------+------------+
-| Rule     | Severity | Description | Violations |
-+----------+----------+-------------+------------+
-| REQP-181 | Advisory | writefirst  | 2          |
-+----------+----------+-------------+------------+
+             Violations found: 34
++----------+----------+------------------------+------------+
+| Rule     | Severity | Description            | Violations |
++----------+----------+------------------------+------------+
+| DPOP-1   | Warning  | PREG Output pipelining | 16         |
+| DPOP-2   | Warning  | MREG Output pipelining | 16         |
+| REQP-181 | Advisory | writefirst             | 2          |
++----------+----------+------------------------+------------+
 
 2. REPORT DETAILS
 -----------------
+DPOP-1#1 Warning
+PREG Output pipelining  
+DSP design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_1_fu_1194/mul_ln185_fu_288_p2 output design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_1_fu_1194/mul_ln185_fu_288_p2/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#2 Warning
+PREG Output pipelining  
+DSP design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_1_fu_1194/mul_ln185_fu_288_p2__0 output design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_1_fu_1194/mul_ln185_fu_288_p2__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#3 Warning
+PREG Output pipelining  
+DSP design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_1_fu_1194/mul_ln185_fu_288_p2__1 output design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_1_fu_1194/mul_ln185_fu_288_p2__1/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#4 Warning
+PREG Output pipelining  
+DSP design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_1_fu_1194/mul_ln185_fu_288_p2__2 output design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_1_fu_1194/mul_ln185_fu_288_p2__2/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#5 Warning
+PREG Output pipelining  
+DSP design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_2_fu_1166/mul_ln185_fu_274_p2 output design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_2_fu_1166/mul_ln185_fu_274_p2/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#6 Warning
+PREG Output pipelining  
+DSP design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_2_fu_1166/mul_ln185_fu_274_p2__0 output design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_2_fu_1166/mul_ln185_fu_274_p2__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#7 Warning
+PREG Output pipelining  
+DSP design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_2_fu_1166/mul_ln185_fu_274_p2__1 output design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_2_fu_1166/mul_ln185_fu_274_p2__1/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#8 Warning
+PREG Output pipelining  
+DSP design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_2_fu_1166/mul_ln185_fu_274_p2__2 output design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_2_fu_1166/mul_ln185_fu_274_p2__2/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#9 Warning
+PREG Output pipelining  
+DSP design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2 output design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#10 Warning
+PREG Output pipelining  
+DSP design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2__0 output design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#11 Warning
+PREG Output pipelining  
+DSP design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2__1 output design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2__1/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#12 Warning
+PREG Output pipelining  
+DSP design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2__2 output design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2__2/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#13 Warning
+PREG Output pipelining  
+DSP design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2 output design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#14 Warning
+PREG Output pipelining  
+DSP design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2__0 output design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#15 Warning
+PREG Output pipelining  
+DSP design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2__1 output design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2__1/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#16 Warning
+PREG Output pipelining  
+DSP design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2__2 output design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2__2/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-2#1 Warning
+MREG Output pipelining  
+DSP design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_1_fu_1194/mul_ln185_fu_288_p2 multiplier stage design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_1_fu_1194/mul_ln185_fu_288_p2/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#2 Warning
+MREG Output pipelining  
+DSP design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_1_fu_1194/mul_ln185_fu_288_p2__0 multiplier stage design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_1_fu_1194/mul_ln185_fu_288_p2__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#3 Warning
+MREG Output pipelining  
+DSP design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_1_fu_1194/mul_ln185_fu_288_p2__1 multiplier stage design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_1_fu_1194/mul_ln185_fu_288_p2__1/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#4 Warning
+MREG Output pipelining  
+DSP design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_1_fu_1194/mul_ln185_fu_288_p2__2 multiplier stage design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_1_fu_1194/mul_ln185_fu_288_p2__2/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#5 Warning
+MREG Output pipelining  
+DSP design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_2_fu_1166/mul_ln185_fu_274_p2 multiplier stage design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_2_fu_1166/mul_ln185_fu_274_p2/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#6 Warning
+MREG Output pipelining  
+DSP design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_2_fu_1166/mul_ln185_fu_274_p2__0 multiplier stage design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_2_fu_1166/mul_ln185_fu_274_p2__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#7 Warning
+MREG Output pipelining  
+DSP design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_2_fu_1166/mul_ln185_fu_274_p2__1 multiplier stage design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_2_fu_1166/mul_ln185_fu_274_p2__1/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#8 Warning
+MREG Output pipelining  
+DSP design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_2_fu_1166/mul_ln185_fu_274_p2__2 multiplier stage design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_2_fu_1166/mul_ln185_fu_274_p2__2/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#9 Warning
+MREG Output pipelining  
+DSP design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2 multiplier stage design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#10 Warning
+MREG Output pipelining  
+DSP design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2__0 multiplier stage design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#11 Warning
+MREG Output pipelining  
+DSP design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2__1 multiplier stage design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2__1/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#12 Warning
+MREG Output pipelining  
+DSP design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2__2 multiplier stage design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_3_fu_1180/mul_ln185_fu_274_p2__2/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#13 Warning
+MREG Output pipelining  
+DSP design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2 multiplier stage design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#14 Warning
+MREG Output pipelining  
+DSP design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2__0 multiplier stage design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#15 Warning
+MREG Output pipelining  
+DSP design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2__1 multiplier stage design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2__1/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#16 Warning
+MREG Output pipelining  
+DSP design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2__2 multiplier stage design_1_i/iscsi_interface_0/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_fu_1207/mul_ln185_fu_288_p2__2/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
 REQP-181#1 Advisory
 writefirst  
 Synchronous clocking is detected for BRAM (design_1_i/axi_fifo_mm_s_0/U0/COMP_IPIC2AXI_S/gtxd.COMP_TXD_FIFO/gfifo_gen.COMP_AXIS_FG_FIFO/COMP_FIFO/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg) in SDP mode with WRITE_FIRST write-mode. This is the preferred mode for best power characteristics, however it may exhibit address collisions if the same address appears on both read and write ports resulting in unknown or corrupted read data. It is suggested to confirm via simulation that an address collision never occurs and if so it is suggested to try and avoid this situation. If address collisions cannot be avoided, the write-mode may be set to READ_FIRST which guarantees that the read data is the prior contents of the memory at the cost of additional power in the design. See the FPGA Memory Resources User Guide for additional information.

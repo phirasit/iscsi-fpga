@@ -1,7 +1,7 @@
 //Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-//Date        : Tue Feb  4 20:17:24 2020
+//Date        : Sun Mar 15 20:26:01 2020
 //Host        : phirasit-macbook running 64-bit Ubuntu 18.04.3 LTS
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -56,17 +56,15 @@ module design_1
   (* X_INTERFACE_INFO = "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_SRSTB" *) inout FIXED_IO_ps_srstb;
   (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 leds_8bits TRI_O" *) output [7:0]leds_8bits_tri_o;
 
-  wire [31:0]axi_fifo_mm_s_0_AXI_STR_TXD_TDATA;
-  wire axi_fifo_mm_s_0_AXI_STR_TXD_TLAST;
-  wire axi_fifo_mm_s_0_AXI_STR_TXD_TREADY;
-  wire axi_fifo_mm_s_0_AXI_STR_TXD_TVALID;
+  wire [31:0]axi_fifo_mm_s_0_axi_str_txd_tdata;
+  wire axi_fifo_mm_s_0_axi_str_txd_tvalid;
+  wire axi_fifo_mm_s_1_axi_str_rxd_tready;
   wire axi_fifo_mm_s_1_interrupt;
   wire [7:0]axi_gpio_0_GPIO_TRI_O;
   wire [0:0]axi_gpio_0_gpio2_io_o;
-  wire [31:0]iscsi_interface_0_tcp_out_TDATA;
-  wire [0:0]iscsi_interface_0_tcp_out_TLAST;
-  wire iscsi_interface_0_tcp_out_TREADY;
-  wire iscsi_interface_0_tcp_out_TVALID;
+  wire iscsi_interface_0_tcp_in_V_V_TREADY;
+  wire [31:0]iscsi_interface_0_tcp_out_V_V_TDATA;
+  wire iscsi_interface_0_tcp_out_V_V_TVALID;
   wire [14:0]processing_system7_0_DDR_ADDR;
   wire [2:0]processing_system7_0_DDR_BA;
   wire processing_system7_0_DDR_CAS_N;
@@ -184,10 +182,9 @@ module design_1
 
   assign leds_8bits_tri_o[7:0] = axi_gpio_0_GPIO_TRI_O;
   design_1_axi_fifo_mm_s_0_0 axi_fifo_mm_s_0
-       (.axi_str_txd_tdata(axi_fifo_mm_s_0_AXI_STR_TXD_TDATA),
-        .axi_str_txd_tlast(axi_fifo_mm_s_0_AXI_STR_TXD_TLAST),
-        .axi_str_txd_tready(axi_fifo_mm_s_0_AXI_STR_TXD_TREADY),
-        .axi_str_txd_tvalid(axi_fifo_mm_s_0_AXI_STR_TXD_TVALID),
+       (.axi_str_txd_tdata(axi_fifo_mm_s_0_axi_str_txd_tdata),
+        .axi_str_txd_tready(iscsi_interface_0_tcp_in_V_V_TREADY),
+        .axi_str_txd_tvalid(axi_fifo_mm_s_0_axi_str_txd_tvalid),
         .s_axi_aclk(processing_system7_0_FCLK_CLK0),
         .s_axi_araddr(ps7_0_axi_periph_M01_AXI_ARADDR),
         .s_axi_aresetn(rst_ps7_0_50M_peripheral_aresetn),
@@ -208,10 +205,10 @@ module design_1
         .s_axi_wstrb(ps7_0_axi_periph_M01_AXI_WSTRB),
         .s_axi_wvalid(ps7_0_axi_periph_M01_AXI_WVALID));
   design_1_axi_fifo_mm_s_1_0 axi_fifo_mm_s_1
-       (.axi_str_rxd_tdata(iscsi_interface_0_tcp_out_TDATA),
-        .axi_str_rxd_tlast(iscsi_interface_0_tcp_out_TLAST),
-        .axi_str_rxd_tready(iscsi_interface_0_tcp_out_TREADY),
-        .axi_str_rxd_tvalid(iscsi_interface_0_tcp_out_TVALID),
+       (.axi_str_rxd_tdata(iscsi_interface_0_tcp_out_V_V_TDATA),
+        .axi_str_rxd_tlast(iscsi_interface_0_tcp_out_V_V_TVALID),
+        .axi_str_rxd_tready(axi_fifo_mm_s_1_axi_str_rxd_tready),
+        .axi_str_rxd_tvalid(iscsi_interface_0_tcp_out_V_V_TVALID),
         .interrupt(axi_fifo_mm_s_1_interrupt),
         .s_axi_aclk(processing_system7_0_FCLK_CLK0),
         .s_axi_araddr(ps7_0_axi_periph_M02_AXI_ARADDR),
@@ -258,19 +255,12 @@ module design_1
        (.ap_clk(processing_system7_0_FCLK_CLK0),
         .ap_rst_n(rst_ps7_0_50M_peripheral_aresetn),
         .ap_start(axi_gpio_0_gpio2_io_o),
-        .tcp_in_TDATA(axi_fifo_mm_s_0_AXI_STR_TXD_TDATA),
-        .tcp_in_TDEST(1'b0),
-        .tcp_in_TID(1'b0),
-        .tcp_in_TKEEP({1'b1,1'b1,1'b1,1'b1}),
-        .tcp_in_TLAST(axi_fifo_mm_s_0_AXI_STR_TXD_TLAST),
-        .tcp_in_TREADY(axi_fifo_mm_s_0_AXI_STR_TXD_TREADY),
-        .tcp_in_TSTRB({1'b1,1'b1,1'b1,1'b1}),
-        .tcp_in_TUSER(1'b0),
-        .tcp_in_TVALID(axi_fifo_mm_s_0_AXI_STR_TXD_TVALID),
-        .tcp_out_TDATA(iscsi_interface_0_tcp_out_TDATA),
-        .tcp_out_TLAST(iscsi_interface_0_tcp_out_TLAST),
-        .tcp_out_TREADY(iscsi_interface_0_tcp_out_TREADY),
-        .tcp_out_TVALID(iscsi_interface_0_tcp_out_TVALID));
+        .tcp_in_V_V_TDATA(axi_fifo_mm_s_0_axi_str_txd_tdata),
+        .tcp_in_V_V_TREADY(iscsi_interface_0_tcp_in_V_V_TREADY),
+        .tcp_in_V_V_TVALID(axi_fifo_mm_s_0_axi_str_txd_tvalid),
+        .tcp_out_V_V_TDATA(iscsi_interface_0_tcp_out_V_V_TDATA),
+        .tcp_out_V_V_TREADY(axi_fifo_mm_s_1_axi_str_rxd_tready),
+        .tcp_out_V_V_TVALID(iscsi_interface_0_tcp_out_V_V_TVALID));
   design_1_processing_system7_0_0 processing_system7_0
        (.DDR_Addr(DDR_addr[14:0]),
         .DDR_BankAddr(DDR_ba[2:0]),

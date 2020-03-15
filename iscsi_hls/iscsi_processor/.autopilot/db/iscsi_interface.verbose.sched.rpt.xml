@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'iscsi_interface'" level="0">
-<item name = "Date">Fri Jan 31 15:13:50 2020
+<item name = "Date">Sun Mar 15 20:18:06 2020
 </item>
 <item name = "Version">2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)</item>
 <item name = "Project">iscsi_hls</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00, 0.000, 1.25</column>
+<column name="ap_clk">10.00, 8.495, 1.25</column>
 </table>
 </item>
 </section>
@@ -35,7 +35,7 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- Loop 1">?, ?, 2, -, -, inf, no</column>
+<column name="- Loop 1">?, ?, ?, -, -, inf, no</column>
 </table>
 </item>
 </section>

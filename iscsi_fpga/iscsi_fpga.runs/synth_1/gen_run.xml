@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1580822247">
+<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1584278786">
   <File Type="VDS-TIMINGSUMMARY" Name="design_1_wrapper_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="design_1_wrapper.dcp"/>
   <File Type="RDS-UTIL-PB" Name="design_1_wrapper_utilization_synth.pb"/>
@@ -60,5 +60,6 @@
   <BlockFileSet Type="BlockSrcs" Name="design_1_axi_fifo_mm_s_1_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_axi_fifo_mm_s_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_rst_ps7_0_50M_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_iscsi_interface_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_processing_system7_0_0"/>
 </GenRun>

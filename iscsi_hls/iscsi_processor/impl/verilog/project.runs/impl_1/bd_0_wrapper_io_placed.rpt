@@ -1,8 +1,8 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
 | Tool Version              : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-| Date                      : Fri Jan 31 15:20:01 2020
-| Host                      : phirasit-macbook running 64-bit Ubuntu 18.04.3 LTS
+| Date                      : Sun Mar 15 20:24:02 2020
+| Host                      : phirasit-macbook running 64-bit unknown
 | Command                   : report_io -file bd_0_wrapper_io_placed.rpt
 | Design                    : bd_0_wrapper
 | Device                    : xc7z020
@@ -25,7 +25,7 @@ Table of Contents
 +---------------+
 | Total User IO |
 +---------------+
-|            98 |
+|            74 |
 +---------------+
 
 
