@@ -59,8 +59,8 @@ struct setup_session : public sc_module {
     sc_signal< sc_lv<4> > p_str1227_address0;
     sc_signal< sc_logic > p_str1227_ce0;
     sc_signal< sc_lv<7> > p_str1227_q0;
-    sc_signal< sc_lv<1> > icmp_ln5_fu_202_p2;
-    sc_signal< sc_lv<1> > icmp_ln5_reg_344;
+    sc_signal< sc_lv<1> > icmp_ln7_fu_202_p2;
+    sc_signal< sc_lv<1> > icmp_ln7_reg_344;
     sc_signal< sc_logic > ap_CS_fsm_state2;
     sc_signal< sc_lv<1> > icmp_ln112_fu_222_p2;
     sc_signal< sc_lv<1> > icmp_ln112_reg_354;
@@ -156,7 +156,7 @@ struct setup_session : public sc_module {
     void thread_icmp_ln113_fu_247_p2();
     void thread_icmp_ln114_1_fu_322_p2();
     void thread_icmp_ln114_fu_267_p2();
-    void thread_icmp_ln5_fu_202_p2();
+    void thread_icmp_ln7_fu_202_p2();
     void thread_idx_1_fu_314_p3();
     void thread_idx_fu_259_p3();
     void thread_instance_data_address0();

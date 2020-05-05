@@ -106,7 +106,7 @@ architecture behav of update_value_bool_2 is
     signal zext_ln123_fu_217_p1 : STD_LOGIC_VECTOR (31 downto 0);
     signal add_ln123_2_fu_221_p2 : STD_LOGIC_VECTOR (31 downto 0);
     signal trunc_ln145_fu_236_p1 : STD_LOGIC_VECTOR (0 downto 0);
-    signal tmp_4_fu_246_p4 : STD_LOGIC_VECTOR (30 downto 0);
+    signal tmp_5_fu_246_p4 : STD_LOGIC_VECTOR (30 downto 0);
     signal or_ln145_fu_240_p2 : STD_LOGIC_VECTOR (0 downto 0);
     signal ap_NS_fsm : STD_LOGIC_VECTOR (6 downto 0);
 
@@ -350,7 +350,7 @@ begin
     end process;
 
     or_ln145_fu_240_p2 <= (trunc_ln145_fu_236_p1 or ap_phi_mux_p_0_i12_phi_fu_148_p4);
-    or_ln_fu_256_p3 <= (tmp_4_fu_246_p4 & or_ln145_fu_240_p2);
+    or_ln_fu_256_p3 <= (tmp_5_fu_246_p4 & or_ln145_fu_240_p2);
     p_str13_address0 <= zext_ln122_2_fu_196_p1(2 - 1 downto 0);
 
     p_str13_ce0_assign_proc : process(ap_CS_fsm_state5)
@@ -377,7 +377,7 @@ begin
 
         sext_ln123_fu_186_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(add_ln123_fu_181_p2),64));
 
-    tmp_4_fu_246_p4 <= val_r_i(31 downto 1);
+    tmp_5_fu_246_p4 <= val_r_i(31 downto 1);
     trunc_ln145_fu_236_p1 <= val_r_i(1 - 1 downto 0);
 
     val_r_o_assign_proc : process(val_r_i, icmp_ln122_reg_281, icmp_ln122_2_reg_308, ap_CS_fsm_state7, icmp_ln123_2_fu_231_p2, or_ln_fu_256_p3)

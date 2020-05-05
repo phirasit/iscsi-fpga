@@ -1,14 +1,14 @@
 #include "iscsi_text.hpp"
 
-void iscsi_text(const iscsi_pdu_header& header, data_stream& tcp_in, data_stream& tcp_out)
-{
+void iscsi_text(const iscsi_pdu_header& header, data_stream& tcp_in,
+		data_stream& tcp_out) {
 	iscsi_connection& connection = iscsi_connection::get_instance();
 	iscsi_session& session = iscsi_session::get_instance();
 
 	iscsi_connection_parameter parameter;
 	parameter.read_from_tcp(tcp_in, header.data_segment_length());
 
-	connection.advance_cmd_sn();
+	connection.advance_exp_cmd_sn();
 	connection.advance_stat_sn();
 	iscsi_pdu_header response;
 
@@ -16,8 +16,8 @@ void iscsi_text(const iscsi_pdu_header& header, data_stream& tcp_in, data_stream
 		// TODO return empty response
 	} else if (parameter.has_send_targets()) {
 		// send list of target here
-		static const unsigned char response_text[]
-			= "TargetName=" ISCSI_TARGET_IQN;
+		static const unsigned char response_text[] =
+				"TargetName=" ISCSI_TARGET_IQN;
 		static const int response_text_strlen = 55;
 
 		response.set_opcode(PDU_OPCODE_TEXT_RES);
@@ -29,6 +29,11 @@ void iscsi_text(const iscsi_pdu_header& header, data_stream& tcp_in, data_stream
 
 		response.write_to_tcp(tcp_out);
 		tcp_out.write_byte_array(response_text, response_text_strlen);
+
+		/// !!!!!! WARNING !!!!!!!
+		/// REMOVE this on production
+		// reset connection after discovery is done
+		connection = iscsi_connection();
 
 	} else if (session.is_discovery()) { // TODO add vendor specific
 		// TODO reject the PDU

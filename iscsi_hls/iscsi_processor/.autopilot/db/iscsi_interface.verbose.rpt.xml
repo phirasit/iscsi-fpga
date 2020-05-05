@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'iscsi_interface'" level="0">
-<item name = "Date">Sun Mar 15 20:18:17 2020
+<item name = "Date">Thu Apr 30 11:08:10 2020
 </item>
 <item name = "Version">2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)</item>
 <item name = "Project">iscsi_hls</item>
@@ -51,7 +51,7 @@
 <column name="DSP">-, -, -, -, -</column>
 <column name="Expression">-, -, 0, 30, -</column>
 <column name="FIFO">-, -, -, -, -</column>
-<column name="Instance">12, 16, 8635, 17859, 0</column>
+<column name="Instance">12, 16, 8667, 17895, 0</column>
 <column name="Memory">-, -, -, -, -</column>
 <column name="Multiplexer">-, -, -, 129, -</column>
 <column name="Register">-, -, 142, -, -</column>
@@ -63,7 +63,7 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
-<column name="grp_process_pdu_fu_144">process_pdu, 12, 16, 8635, 17859, 0</column>
+<column name="grp_process_pdu_fu_144">process_pdu, 12, 16, 8667, 17895, 0</column>
 </table>
 </item>
 <item name = "DSP48E"><table name="" hasTotal="0">

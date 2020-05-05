@@ -82,6 +82,16 @@
 			<location>/home/phirasit/project/san-adapter/iscsi_hls/iscsi_processor/src/iscsi_connection_parameter.hpp</location>
 		</link>
 		<link>
+			<name>source/iscsi_data_in.cpp</name>
+			<type>1</type>
+			<location>/home/phirasit/project/san-adapter/iscsi_hls/iscsi_processor/src/iscsi_pdu/iscsi_data_in.cpp</location>
+		</link>
+		<link>
+			<name>source/iscsi_data_in.hpp</name>
+			<type>1</type>
+			<location>/home/phirasit/project/san-adapter/iscsi_hls/iscsi_processor/src/iscsi_pdu/iscsi_data_in.hpp</location>
+		</link>
+		<link>
 			<name>source/iscsi_login.cpp</name>
 			<type>1</type>
 			<location>/home/phirasit/project/san-adapter/iscsi_hls/iscsi_processor/src/iscsi_pdu/iscsi_login.cpp</location>
@@ -117,6 +127,11 @@
 			<location>/home/phirasit/project/san-adapter/iscsi_hls/iscsi_processor/src/iscsi_requests.hpp</location>
 		</link>
 		<link>
+			<name>source/iscsi_scsi_cmd.cpp</name>
+			<type>1</type>
+			<location>/home/phirasit/project/san-adapter/iscsi_hls/iscsi_processor/src/iscsi_pdu/iscsi_scsi_cmd.cpp</location>
+		</link>
+		<link>
 			<name>source/iscsi_scsi_cmd.hpp</name>
 			<type>1</type>
 			<location>/home/phirasit/project/san-adapter/iscsi_hls/iscsi_processor/src/iscsi_pdu/iscsi_scsi_cmd.hpp</location>
@@ -130,6 +145,11 @@
 			<name>source/iscsi_session.hpp</name>
 			<type>1</type>
 			<location>/home/phirasit/project/san-adapter/iscsi_hls/iscsi_processor/src/iscsi_session.hpp</location>
+		</link>
+		<link>
+			<name>source/iscsi_target.hpp</name>
+			<type>1</type>
+			<location>/home/phirasit/project/san-adapter/iscsi_hls/iscsi_processor/src/iscsi_target.hpp</location>
 		</link>
 		<link>
 			<name>source/iscsi_text.cpp</name>

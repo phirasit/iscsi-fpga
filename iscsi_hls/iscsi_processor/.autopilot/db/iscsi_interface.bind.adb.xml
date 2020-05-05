@@ -82,7 +82,7 @@
 
 <Node id="53" bw="0" op_0_bw="0" op_1_bw="32">
 <![CDATA[
-:0  call void (...)* @_ssdm_op_SpecBitsMap(i32* %tcp_in_V_V), !map !159
+:0  call void (...)* @_ssdm_op_SpecBitsMap(i32* %tcp_in_V_V), !map !178
 
 ]]></Node>
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
@@ -97,7 +97,7 @@
 
 <Node id="54" bw="0" op_0_bw="0" op_1_bw="32">
 <![CDATA[
-:1  call void (...)* @_ssdm_op_SpecBitsMap(i32* %tcp_out_V_V), !map !165
+:1  call void (...)* @_ssdm_op_SpecBitsMap(i32* %tcp_out_V_V), !map !184
 
 ]]></Node>
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>

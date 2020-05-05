@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-| Date         : Sun Mar 15 20:25:11 2020
+| Date         : Thu Apr 30 13:24:59 2020
 | Host         : phirasit-macbook running 64-bit Ubuntu 18.04.3 LTS
 | Command      : report_timing_summary -file ./report/iscsi_interface_timing_routed.rpt
 | Design       : bd_0_wrapper
@@ -127,7 +127,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-      0.411        0.000                      0                12213        0.096        0.000                      0                12213        3.750        0.000                       0                  5727  
+      0.902        0.000                      0                12277        0.105        0.000                      0                12277        3.750        0.000                       0                  5759  
 
 
 All user specified timing constraints are met.
@@ -150,7 +150,7 @@ ap_clk  {0.000 5.000}      10.000          100.000
 
 Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
 -----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-ap_clk              0.411        0.000                      0                12213        0.096        0.000                      0                12213        3.750        0.000                       0                  5727  
+ap_clk              0.902        0.000                      0                12277        0.105        0.000                      0                12277        3.750        0.000                       0                  5759  
 
 
 ------------------------------------------------------------------------------------------------
@@ -181,24 +181,24 @@ Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing 
 From Clock:  ap_clk
   To Clock:  ap_clk
 
-Setup :            0  Failing Endpoints,  Worst Slack        0.411ns,  Total Violation        0.000ns
-Hold  :            0  Failing Endpoints,  Worst Slack        0.096ns,  Total Violation        0.000ns
+Setup :            0  Failing Endpoints,  Worst Slack        0.902ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.105ns,  Total Violation        0.000ns
 PW    :            0  Failing Endpoints,  Worst Slack        3.750ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             0.411ns  (required time - arrival time)
-  Source:                 bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/header_buffer_V_U/iscsi_login_response_buffer_V_ram_U/ram_reg/CLKBWRCLK
-                            (rising edge-triggered cell RAMB18E1 clocked by ap_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            bd_0_i/hls_inst/inst/tcp_in_V_V_0_state_reg[1]/D
+Slack (MET) :             0.902ns  (required time - arrival time)
+  Source:                 bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/icmp_ln80_reg_2228_reg[0]/C
                             (rising edge-triggered cell FDRE clocked by ap_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/instance_data_U/iscsi_login_instance_data_ram_U/ram_reg_1/ADDRARDADDR[9]
+                            (rising edge-triggered cell RAMB36E1 clocked by ap_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             ap_clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (ap_clk rise@10.000ns - ap_clk rise@0.000ns)
-  Data Path Delay:        9.230ns  (logic 4.278ns (46.351%)  route 4.952ns (53.649%))
-  Logic Levels:           10  (CARRY4=4 LUT4=3 LUT5=1 LUT6=2)
+  Data Path Delay:        8.448ns  (logic 1.885ns (22.313%)  route 6.563ns (77.687%))
+  Logic Levels:           8  (LUT2=2 LUT3=2 LUT6=4)
   Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    0.924ns = ( 10.924 - 10.000 ) 
     Source Clock Delay      (SCD):    0.973ns
@@ -213,51 +213,43 @@ Slack (MET) :             0.411ns  (required time - arrival time)
   -------------------------------------------------------------------    -------------------
                          (clock ap_clk rise edge)     0.000     0.000 r  
                                                       0.000     0.000 r  ap_clk (IN)
-                         net (fo=5742, unset)         0.973     0.973    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/header_buffer_V_U/iscsi_login_response_buffer_V_ram_U/ap_clk
-    RAMB18_X3Y14         RAMB18E1                                     r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/header_buffer_V_U/iscsi_login_response_buffer_V_ram_U/ram_reg/CLKBWRCLK
+                         net (fo=5774, unset)         0.973     0.973    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/ap_clk
+    SLICE_X59Y37         FDRE                                         r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/icmp_ln80_reg_2228_reg[0]/C
   -------------------------------------------------------------------    -------------------
-    RAMB18_X3Y14         RAMB18E1 (Prop_ramb18e1_CLKBWRCLK_DOBDO[3])
-                                                      2.454     3.427 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/header_buffer_V_U/iscsi_login_response_buffer_V_ram_U/ram_reg/DOBDO[3]
-                         net (fo=5, routed)           1.405     4.832    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_nop_out_fu_326/DOBDO[3]
-    SLICE_X69Y37         LUT4 (Prop_lut4_I1_O)        0.124     4.956 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_nop_out_fu_326/icmp_ln28_fu_638_p2_carry_i_7/O
-                         net (fo=1, routed)           0.000     4.956    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_nop_out_fu_326/icmp_ln28_fu_638_p2_carry_i_7_n_20
-    SLICE_X69Y37         CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550     5.506 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_nop_out_fu_326/icmp_ln28_fu_638_p2_carry/CO[3]
-                         net (fo=1, routed)           0.000     5.506    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_nop_out_fu_326/icmp_ln28_fu_638_p2_carry_n_20
-    SLICE_X69Y38         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114     5.620 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_nop_out_fu_326/icmp_ln28_fu_638_p2_carry__0/CO[3]
-                         net (fo=1, routed)           0.000     5.620    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_nop_out_fu_326/icmp_ln28_fu_638_p2_carry__0_n_20
-    SLICE_X69Y39         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114     5.734 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_nop_out_fu_326/icmp_ln28_fu_638_p2_carry__1/CO[3]
-                         net (fo=1, routed)           0.000     5.734    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_nop_out_fu_326/icmp_ln28_fu_638_p2_carry__1_n_20
-    SLICE_X69Y40         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114     5.848 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_nop_out_fu_326/icmp_ln28_fu_638_p2_carry__2/CO[3]
-                         net (fo=4, routed)           0.624     6.473    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_nop_out_fu_326/icmp_ln28_fu_638_p2
-    SLICE_X69Y41         LUT6 (Prop_lut6_I0_O)        0.124     6.597 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_nop_out_fu_326/i_0_reg_443[2]_i_2/O
-                         net (fo=33, routed)          0.745     7.341    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_nop_out_fu_326/grp_iscsi_nop_out_fu_326_tcp_out_V_V_TVALID
-    SLICE_X70Y39         LUT4 (Prop_lut4_I3_O)        0.118     7.459 f  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_nop_out_fu_326/tcp_out_V_V_1_payload_A[31]_i_5/O
-                         net (fo=34, routed)          0.602     8.061    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_text_fu_283/grp_read_from_tcp_1_fu_581/grp_read_byte_array_1_fu_127/tcp_in_V_V_0_state[1]_i_3
-    SLICE_X64Y39         LUT6 (Prop_lut6_I0_O)        0.326     8.387 f  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_text_fu_283/grp_read_from_tcp_1_fu_581/grp_read_byte_array_1_fu_127/tcp_in_V_V_0_state[1]_i_4/O
-                         net (fo=1, routed)           0.423     8.810    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_read_from_tcp_fu_341/grp_read_byte_array_fu_16/tcp_in_V_V_0_state_reg[0]_1
-    SLICE_X63Y38         LUT5 (Prop_lut5_I1_O)        0.124     8.934 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_read_from_tcp_fu_341/grp_read_byte_array_fu_16/tcp_in_V_V_0_state[1]_i_3/O
-                         net (fo=3, routed)           0.565     9.500    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_read_from_tcp_fu_341/grp_read_byte_array_fu_16/tcp_in_V_V_0_state[1]_i_3_n_20
-    SLICE_X62Y36         LUT4 (Prop_lut4_I0_O)        0.116     9.616 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_read_from_tcp_fu_341/grp_read_byte_array_fu_16/tcp_in_V_V_0_state[1]_i_2/O
-                         net (fo=1, routed)           0.587    10.203    bd_0_i/hls_inst/inst/tcp_in_V_V_0_state[1]
-    SLICE_X61Y36         FDRE                                         r  bd_0_i/hls_inst/inst/tcp_in_V_V_0_state_reg[1]/D
+    SLICE_X59Y37         FDRE (Prop_fdre_C_Q)         0.456     1.429 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/icmp_ln80_reg_2228_reg[0]/Q
+                         net (fo=10, routed)          1.383     2.812    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/p_str1025_U/update_value_bool_3_p_str13_rom_U/ram_reg_0_i_107_0
+    SLICE_X75Y39         LUT3 (Prop_lut3_I1_O)        0.152     2.964 f  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/p_str1025_U/update_value_bool_3_p_str13_rom_U/ram_reg_1_i_33/O
+                         net (fo=2, routed)           0.443     3.407    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/p_str1025_U/update_value_bool_3_p_str13_rom_U/select_ln195_1_fu_1604_p3[6]
+    SLICE_X72Y39         LUT6 (Prop_lut6_I5_O)        0.332     3.739 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/p_str1025_U/update_value_bool_3_p_str13_rom_U/ap_CS_fsm[20]_i_3/O
+                         net (fo=2, routed)           0.604     4.343    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/p_str1025_U/update_value_bool_3_p_str13_rom_U/icmp_ln196_1_fu_1616_p2
+    SLICE_X69Y39         LUT2 (Prop_lut2_I1_O)        0.117     4.460 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/p_str1025_U/update_value_bool_3_p_str13_rom_U/instance_data_length[23]_i_3/O
+                         net (fo=53, routed)          0.852     5.312    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/p_str1025_U/update_value_bool_3_p_str13_rom_U/instance_data_address0141_out
+    SLICE_X62Y37         LUT3 (Prop_lut3_I0_O)        0.332     5.644 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/p_str1025_U/update_value_bool_3_p_str13_rom_U/instance_data_length[31]_i_8/O
+                         net (fo=3, routed)           0.368     6.011    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/p_str1025_U/update_value_bool_3_p_str13_rom_U/instance_data_length[31]_i_8_n_20
+    SLICE_X63Y37         LUT6 (Prop_lut6_I0_O)        0.124     6.135 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/p_str1025_U/update_value_bool_3_p_str13_rom_U/ram_reg_0_i_44/O
+                         net (fo=14, routed)          0.671     6.806    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/p_str1025_U/update_value_bool_3_p_str13_rom_U/ram_reg_0_i_44_n_20
+    SLICE_X56Y35         LUT2 (Prop_lut2_I0_O)        0.124     6.930 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/p_str1025_U/update_value_bool_3_p_str13_rom_U/ram_reg_0_i_130/O
+                         net (fo=13, routed)          0.878     7.809    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/p_str1025_U/update_value_bool_3_p_str13_rom_U/ram_reg_0_i_130_n_20
+    SLICE_X55Y37         LUT6 (Prop_lut6_I0_O)        0.124     7.933 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/p_str1025_U/update_value_bool_3_p_str13_rom_U/ram_reg_0_i_67/O
+                         net (fo=1, routed)           0.517     8.450    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/p_str1025_U/update_value_bool_3_p_str13_rom_U/ram_reg_0_i_67_n_20
+    SLICE_X54Y37         LUT6 (Prop_lut6_I4_O)        0.124     8.574 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/p_str1025_U/update_value_bool_3_p_str13_rom_U/ram_reg_0_i_8__0/O
+                         net (fo=2, routed)           0.847     9.421    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/instance_data_U/iscsi_login_instance_data_ram_U/addr0[7]
+    RAMB36_X3Y8          RAMB36E1                                     r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/instance_data_U/iscsi_login_instance_data_ram_U/ram_reg_1/ADDRARDADDR[9]
   -------------------------------------------------------------------    -------------------
 
                          (clock ap_clk rise edge)    10.000    10.000 r  
                                                       0.000    10.000 r  ap_clk (IN)
-                         net (fo=5742, unset)         0.924    10.924    bd_0_i/hls_inst/inst/ap_clk
-    SLICE_X61Y36         FDRE                                         r  bd_0_i/hls_inst/inst/tcp_in_V_V_0_state_reg[1]/C
+                         net (fo=5774, unset)         0.924    10.924    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/instance_data_U/iscsi_login_instance_data_ram_U/ap_clk
+    RAMB36_X3Y8          RAMB36E1                                     r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/instance_data_U/iscsi_login_instance_data_ram_U/ram_reg_1/CLKARDCLK
                          clock pessimism              0.000    10.924    
                          clock uncertainty           -0.035    10.889    
-    SLICE_X61Y36         FDRE (Setup_fdre_C_D)       -0.275    10.614    bd_0_i/hls_inst/inst/tcp_in_V_V_0_state_reg[1]
+    RAMB36_X3Y8          RAMB36E1 (Setup_ramb36e1_CLKARDCLK_ADDRARDADDR[9])
+                                                     -0.566    10.323    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/instance_data_U/iscsi_login_instance_data_ram_U/ram_reg_1
   -------------------------------------------------------------------
-                         required time                         10.614    
-                         arrival time                         -10.203    
+                         required time                         10.323    
+                         arrival time                          -9.421    
   -------------------------------------------------------------------
-                         slack                                  0.411    
+                         slack                                  0.902    
 
 
 
@@ -265,16 +257,16 @@ Slack (MET) :             0.411ns  (required time - arrival time)
 
 Min Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             0.096ns  (arrival time - required time)
-  Source:                 bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_2_fu_1166/length_4_reg_469_reg[26]/C
+Slack (MET) :             0.105ns  (arrival time - required time)
+  Source:                 bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/instance_data_pdu_in_reg[18]/C
                             (rising edge-triggered cell FDRE clocked by ap_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_2_fu_1166/length_2_reg_196_reg[26]/D
+  Destination:            bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/instance_data_pdu_in_reg[18]/D
                             (rising edge-triggered cell FDRE clocked by ap_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             ap_clk
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (ap_clk rise@0.000ns - ap_clk rise@0.000ns)
-  Data Path Delay:        0.238ns  (logic 0.186ns (78.117%)  route 0.052ns (21.883%))
-  Logic Levels:           1  (LUT4=1)
+  Data Path Delay:        0.197ns  (logic 0.141ns (71.611%)  route 0.056ns (28.389%))
+  Logic Levels:           0  
   Clock Path Skew:        0.022ns (DCD - SCD - CPR)
     Destination Clock Delay (DCD):    0.432ns
     Source Clock Delay      (SCD):    0.410ns
@@ -284,27 +276,25 @@ Slack (MET) :             0.096ns  (arrival time - required time)
   -------------------------------------------------------------------    -------------------
                          (clock ap_clk rise edge)     0.000     0.000 r  
                                                       0.000     0.000 r  ap_clk (IN)
-                         net (fo=5742, unset)         0.410     0.410    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_2_fu_1166/ap_clk
-    SLICE_X55Y19         FDRE                                         r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_2_fu_1166/length_4_reg_469_reg[26]/C
+                         net (fo=5774, unset)         0.410     0.410    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/ap_clk
+    SLICE_X45Y30         FDRE                                         r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/instance_data_pdu_in_reg[18]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X55Y19         FDRE (Prop_fdre_C_Q)         0.141     0.551 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_2_fu_1166/length_4_reg_469_reg[26]/Q
-                         net (fo=1, routed)           0.052     0.603    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_2_fu_1166/length_4_reg_469[26]
-    SLICE_X54Y19         LUT4 (Prop_lut4_I2_O)        0.045     0.648 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_2_fu_1166/length_2_reg_196[26]_i_1/O
-                         net (fo=1, routed)           0.000     0.648    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_2_fu_1166/length_2_reg_196[26]_i_1_n_20
-    SLICE_X54Y19         FDRE                                         r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_2_fu_1166/length_2_reg_196_reg[26]/D
+    SLICE_X45Y30         FDRE (Prop_fdre_C_Q)         0.141     0.551 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/instance_data_pdu_in_reg[18]/Q
+                         net (fo=2, routed)           0.056     0.607    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/instance_data_pdu_in[18]
+    SLICE_X45Y30         FDRE                                         r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/instance_data_pdu_in_reg[18]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock ap_clk rise edge)     0.000     0.000 r  
                                                       0.000     0.000 r  ap_clk (IN)
-                         net (fo=5742, unset)         0.432     0.432    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_2_fu_1166/ap_clk
-    SLICE_X54Y19         FDRE                                         r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_2_fu_1166/length_2_reg_196_reg[26]/C
+                         net (fo=5774, unset)         0.432     0.432    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/ap_clk
+    SLICE_X45Y30         FDRE                                         r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/instance_data_pdu_in_reg[18]/C
                          clock pessimism              0.000     0.432    
-    SLICE_X54Y19         FDRE (Hold_fdre_C_D)         0.121     0.553    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_2_fu_1166/length_2_reg_196_reg[26]
+    SLICE_X45Y30         FDRE (Hold_fdre_C_D)         0.070     0.502    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/instance_data_pdu_in_reg[18]
   -------------------------------------------------------------------
-                         required time                         -0.553    
-                         arrival time                           0.648    
+                         required time                         -0.502    
+                         arrival time                           0.607    
   -------------------------------------------------------------------
-                         slack                                  0.096    
+                         slack                                  0.105    
 
 
 
@@ -317,10 +307,10 @@ Waveform(ns):       { 0.000 5.000 }
 Period(ns):         10.000
 Sources:            { ap_clk }
 
-Check Type        Corner  Lib Pin             Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location     Pin
-Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.944         10.000      7.056      RAMB36_X3Y3  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/instance_data_U/iscsi_login_instance_data_ram_U/ram_reg_0/CLKARDCLK
-Low Pulse Width   Fast    RAMS32/CLK          n/a            1.250         5.000       3.750      SLICE_X46Y9  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/buffer_r_U/iscsi_login_buffer_r_ram_U/ram_reg_0_15_0_0/SP/CLK
-High Pulse Width  Slow    RAMS32/CLK          n/a            1.250         5.000       3.750      SLICE_X46Y9  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/buffer_r_U/iscsi_login_buffer_r_ram_U/ram_reg_0_15_0_0/SP/CLK
+Check Type        Corner  Lib Pin             Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location      Pin
+Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.944         10.000      7.056      RAMB36_X3Y7   bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/instance_data_U/iscsi_login_instance_data_ram_U/ram_reg_0/CLKARDCLK
+Low Pulse Width   Fast    RAMS32/CLK          n/a            1.250         5.000       3.750      SLICE_X66Y31  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/buffer_r_U/iscsi_login_buffer_r_ram_U/ram_reg_0_15_0_0/SP/CLK
+High Pulse Width  Slow    RAMS32/CLK          n/a            1.250         5.000       3.750      SLICE_X66Y31  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/buffer_r_U/iscsi_login_buffer_r_ram_U/ram_reg_0_15_0_0/SP/CLK
 
 
 

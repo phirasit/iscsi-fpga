@@ -92,35 +92,36 @@ reg instance_stat_sn_o_ap_vld;
 wire    ap_CS_fsm_state1;
 reg    tcp_in_V_V_TDATA_blk_n;
 wire    ap_CS_fsm_state18;
-wire   [0:0] icmp_ln28_fu_638_p2;
+wire   [0:0] icmp_ln30_fu_637_p2;
 reg    tcp_out_V_V_TDATA_blk_n;
-wire   [5:0] i_fu_460_p2;
+reg   [31:0] instance_stat_sn_loa_reg_649;
+wire   [5:0] i_fu_464_p2;
 wire    ap_CS_fsm_state2;
-wire   [0:0] icmp_ln35_fu_454_p2;
+wire   [0:0] icmp_ln35_fu_458_p2;
 wire   [7:0] response_buffer_V_q0;
-reg   [7:0] p_Val2_s_reg_670;
+reg   [7:0] p_Val2_s_reg_674;
 wire    ap_CS_fsm_state3;
 wire   [7:0] response_buffer_V_q1;
-reg   [7:0] p_Val2_5_reg_675;
-reg   [7:0] p_Result_7_i_i2_reg_680;
+reg   [7:0] p_Val2_5_reg_679;
+reg   [7:0] p_Result_7_i_i2_reg_684;
 wire    ap_CS_fsm_state5;
-wire   [7:0] trunc_ln647_fu_519_p1;
-reg   [7:0] trunc_ln647_reg_685;
-reg   [7:0] p_Result_7_i8_i_reg_690;
+wire   [7:0] trunc_ln647_fu_518_p1;
+reg   [7:0] trunc_ln647_reg_689;
+reg   [7:0] p_Result_7_i8_i_reg_694;
 wire    ap_CS_fsm_state7;
-wire   [7:0] trunc_ln647_2_fu_559_p1;
-reg   [7:0] trunc_ln647_2_reg_695;
-reg   [7:0] p_Result_7_i16_i_reg_700;
+wire   [7:0] trunc_ln647_2_fu_558_p1;
+reg   [7:0] trunc_ln647_2_reg_699;
+reg   [7:0] p_Result_7_i16_i_reg_704;
 wire    ap_CS_fsm_state9;
-wire   [7:0] trunc_ln647_3_fu_599_p1;
-reg   [7:0] trunc_ln647_3_reg_705;
+wire   [7:0] trunc_ln647_3_fu_598_p1;
+reg   [7:0] trunc_ln647_3_reg_709;
 wire    ap_CS_fsm_state11;
 wire    ap_CS_fsm_state12;
 wire    ap_CS_fsm_state13;
 wire    ap_CS_fsm_state14;
-reg   [7:0] header_buffer_V_load_15_reg_748;
+reg   [7:0] header_buffer_V_load_15_reg_752;
 wire    ap_CS_fsm_state17;
-wire   [31:0] i_9_fu_644_p2;
+wire   [31:0] i_9_fu_643_p2;
 reg    ap_block_state18;
 reg    ap_block_state18_io;
 reg   [5:0] response_buffer_V_address0;
@@ -134,17 +135,17 @@ reg   [7:0] response_buffer_V_d1;
 reg   [5:0] i_0_i_i_i_reg_432;
 reg   [31:0] i_0_reg_443;
 wire    ap_CS_fsm_state15;
-wire   [63:0] zext_ln35_fu_466_p1;
+wire   [63:0] zext_ln35_fu_470_p1;
 wire    ap_CS_fsm_state4;
 wire    ap_CS_fsm_state6;
 wire    ap_CS_fsm_state8;
 wire    ap_CS_fsm_state10;
 wire   [31:0] p_Val2_6_fu_475_p2;
-wire   [7:0] p_Result_s_fu_603_p5;
-reg   [7:0] p_Result_2_fu_615_p4;
+wire   [7:0] p_Result_s_fu_602_p5;
+reg   [7:0] p_Result_2_fu_614_p4;
 wire    ap_CS_fsm_state16;
-wire   [23:0] tmp_4_fu_625_p4;
-wire   [31:0] ret_V_fu_634_p1;
+wire   [23:0] tmp_4_fu_624_p4;
+wire   [31:0] ret_V_fu_633_p1;
 reg   [17:0] ap_NS_fsm;
 
 // power-on initialization
@@ -182,14 +183,14 @@ end
 always @ (posedge ap_clk) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
         i_0_i_i_i_reg_432 <= 6'd0;
-    end else if (((icmp_ln35_fu_454_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2))) begin
-        i_0_i_i_i_reg_432 <= i_fu_460_p2;
+    end else if (((icmp_ln35_fu_458_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2))) begin
+        i_0_i_i_i_reg_432 <= i_fu_464_p2;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((~((1'b1 == ap_block_state18_io) | ((icmp_ln28_fu_638_p2 == 1'd1) & (tcp_in_V_V_TVALID == 1'b0))) & (icmp_ln28_fu_638_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state18))) begin
-        i_0_reg_443 <= i_9_fu_644_p2;
+    if ((~((1'b1 == ap_block_state18_io) | ((icmp_ln30_fu_637_p2 == 1'd1) & (tcp_in_V_V_TVALID == 1'b0))) & (icmp_ln30_fu_637_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state18))) begin
+        i_0_reg_443 <= i_9_fu_643_p2;
     end else if ((1'b1 == ap_CS_fsm_state15)) begin
         i_0_reg_443 <= 32'd0;
     end
@@ -197,40 +198,46 @@ end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state17)) begin
-        header_buffer_V_load_15_reg_748 <= header_buffer_V_q1;
+        header_buffer_V_load_15_reg_752 <= header_buffer_V_q1;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
+        instance_stat_sn_loa_reg_649 <= instance_stat_sn_i;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state9)) begin
-        p_Result_7_i16_i_reg_700 <= {{instance_max_cmd_sn[15:8]}};
-        trunc_ln647_3_reg_705 <= trunc_ln647_3_fu_599_p1;
+        p_Result_7_i16_i_reg_704 <= {{instance_max_cmd_sn[15:8]}};
+        trunc_ln647_3_reg_709 <= trunc_ln647_3_fu_598_p1;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state7)) begin
-        p_Result_7_i8_i_reg_690 <= {{instance_exp_cmd_sn[15:8]}};
-        trunc_ln647_2_reg_695 <= trunc_ln647_2_fu_559_p1;
+        p_Result_7_i8_i_reg_694 <= {{instance_exp_cmd_sn[15:8]}};
+        trunc_ln647_2_reg_699 <= trunc_ln647_2_fu_558_p1;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state5)) begin
-        p_Result_7_i_i2_reg_680 <= {{p_Val2_6_fu_475_p2[15:8]}};
-        trunc_ln647_reg_685 <= trunc_ln647_fu_519_p1;
+        p_Result_7_i_i2_reg_684 <= {{p_Val2_6_fu_475_p2[15:8]}};
+        trunc_ln647_reg_689 <= trunc_ln647_fu_518_p1;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state3)) begin
-        p_Val2_5_reg_675 <= response_buffer_V_q1;
-        p_Val2_s_reg_670 <= response_buffer_V_q0;
+        p_Val2_5_reg_679 <= response_buffer_V_q1;
+        p_Val2_s_reg_674 <= response_buffer_V_q0;
     end
 end
 
 always @ (*) begin
-    if (((~((1'b1 == ap_block_state18_io) | ((icmp_ln28_fu_638_p2 == 1'd1) & (tcp_in_V_V_TVALID == 1'b0))) & (icmp_ln28_fu_638_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state18)) | ((ap_start == 1'b0) & (1'b1 == ap_CS_fsm_state1)))) begin
+    if (((~((1'b1 == ap_block_state18_io) | ((icmp_ln30_fu_637_p2 == 1'd1) & (tcp_in_V_V_TVALID == 1'b0))) & (icmp_ln30_fu_637_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state18)) | ((ap_start == 1'b0) & (1'b1 == ap_CS_fsm_state1)))) begin
         ap_done = 1'b1;
     end else begin
         ap_done = 1'b0;
@@ -246,7 +253,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((1'b1 == ap_block_state18_io) | ((icmp_ln28_fu_638_p2 == 1'd1) & (tcp_in_V_V_TVALID == 1'b0))) & (icmp_ln28_fu_638_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state18))) begin
+    if ((~((1'b1 == ap_block_state18_io) | ((icmp_ln30_fu_637_p2 == 1'd1) & (tcp_in_V_V_TVALID == 1'b0))) & (icmp_ln30_fu_637_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state18))) begin
         ap_ready = 1'b1;
     end else begin
         ap_ready = 1'b0;
@@ -342,10 +349,10 @@ always @ (*) begin
         response_buffer_V_address0 = 64'd23;
     end else if ((1'b1 == ap_CS_fsm_state3)) begin
         response_buffer_V_address0 = 64'd21;
-    end else if (((icmp_ln35_fu_454_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2))) begin
+    end else if (((icmp_ln35_fu_458_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2))) begin
         response_buffer_V_address0 = 64'd0;
-    end else if (((icmp_ln35_fu_454_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2))) begin
-        response_buffer_V_address0 = zext_ln35_fu_466_p1;
+    end else if (((icmp_ln35_fu_458_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2))) begin
+        response_buffer_V_address0 = zext_ln35_fu_470_p1;
     end else begin
         response_buffer_V_address0 = 'bx;
     end
@@ -386,7 +393,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state10) | (1'b1 == ap_CS_fsm_state8) | (1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state15) | (1'b1 == ap_CS_fsm_state14) | (1'b1 == ap_CS_fsm_state13) | (1'b1 == ap_CS_fsm_state11) | (1'b1 == ap_CS_fsm_state9) | (1'b1 == ap_CS_fsm_state7) | ((icmp_ln35_fu_454_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2)) | ((icmp_ln35_fu_454_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2)))) begin
+    if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state10) | (1'b1 == ap_CS_fsm_state8) | (1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state15) | (1'b1 == ap_CS_fsm_state14) | (1'b1 == ap_CS_fsm_state13) | (1'b1 == ap_CS_fsm_state11) | (1'b1 == ap_CS_fsm_state9) | (1'b1 == ap_CS_fsm_state7) | (1'b1 == ap_CS_fsm_state5) | ((icmp_ln35_fu_458_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2)) | ((icmp_ln35_fu_458_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2)))) begin
         response_buffer_V_ce0 = 1'b1;
     end else begin
         response_buffer_V_ce0 = 1'b0;
@@ -394,7 +401,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2) | (1'b1 == ap_CS_fsm_state10) | (1'b1 == ap_CS_fsm_state8) | (1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state15) | (1'b1 == ap_CS_fsm_state14) | (1'b1 == ap_CS_fsm_state13) | (1'b1 == ap_CS_fsm_state12) | (1'b1 == ap_CS_fsm_state11) | (1'b1 == ap_CS_fsm_state9) | (1'b1 == ap_CS_fsm_state7))) begin
+    if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2) | (1'b1 == ap_CS_fsm_state10) | (1'b1 == ap_CS_fsm_state8) | (1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state15) | (1'b1 == ap_CS_fsm_state14) | (1'b1 == ap_CS_fsm_state13) | (1'b1 == ap_CS_fsm_state12) | (1'b1 == ap_CS_fsm_state11) | (1'b1 == ap_CS_fsm_state9) | (1'b1 == ap_CS_fsm_state7) | (1'b1 == ap_CS_fsm_state5))) begin
         response_buffer_V_ce1 = 1'b1;
     end else begin
         response_buffer_V_ce1 = 1'b0;
@@ -407,20 +414,20 @@ always @ (*) begin
     end else if ((1'b1 == ap_CS_fsm_state13)) begin
         response_buffer_V_d0 = header_buffer_V_q0;
     end else if ((1'b1 == ap_CS_fsm_state11)) begin
-        response_buffer_V_d0 = p_Result_2_fu_615_p4;
+        response_buffer_V_d0 = p_Result_2_fu_614_p4;
     end else if ((1'b1 == ap_CS_fsm_state10)) begin
-        response_buffer_V_d0 = trunc_ln647_3_reg_705;
+        response_buffer_V_d0 = trunc_ln647_3_reg_709;
     end else if ((1'b1 == ap_CS_fsm_state9)) begin
         response_buffer_V_d0 = {{instance_max_cmd_sn[23:16]}};
     end else if ((1'b1 == ap_CS_fsm_state8)) begin
-        response_buffer_V_d0 = trunc_ln647_2_reg_695;
+        response_buffer_V_d0 = trunc_ln647_2_reg_699;
     end else if ((1'b1 == ap_CS_fsm_state7)) begin
         response_buffer_V_d0 = {{instance_exp_cmd_sn[23:16]}};
     end else if ((1'b1 == ap_CS_fsm_state6)) begin
-        response_buffer_V_d0 = trunc_ln647_reg_685;
+        response_buffer_V_d0 = trunc_ln647_reg_689;
     end else if ((1'b1 == ap_CS_fsm_state5)) begin
         response_buffer_V_d0 = {{p_Val2_6_fu_475_p2[23:16]}};
-    end else if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state4) | ((icmp_ln35_fu_454_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2)))) begin
+    end else if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state4) | ((icmp_ln35_fu_458_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2)))) begin
         response_buffer_V_d0 = 8'd0;
     end else begin
         response_buffer_V_d0 = 'bx;
@@ -433,17 +440,17 @@ always @ (*) begin
     end else if (((1'b1 == ap_CS_fsm_state15) | (1'b1 == ap_CS_fsm_state14) | (1'b1 == ap_CS_fsm_state12))) begin
         response_buffer_V_d1 = header_buffer_V_q0;
     end else if ((1'b1 == ap_CS_fsm_state11)) begin
-        response_buffer_V_d1 = p_Result_s_fu_603_p5;
+        response_buffer_V_d1 = p_Result_s_fu_602_p5;
     end else if ((1'b1 == ap_CS_fsm_state10)) begin
-        response_buffer_V_d1 = p_Result_7_i16_i_reg_700;
+        response_buffer_V_d1 = p_Result_7_i16_i_reg_704;
     end else if ((1'b1 == ap_CS_fsm_state9)) begin
         response_buffer_V_d1 = {{instance_max_cmd_sn[31:24]}};
     end else if ((1'b1 == ap_CS_fsm_state8)) begin
-        response_buffer_V_d1 = p_Result_7_i8_i_reg_690;
+        response_buffer_V_d1 = p_Result_7_i8_i_reg_694;
     end else if ((1'b1 == ap_CS_fsm_state7)) begin
         response_buffer_V_d1 = {{instance_exp_cmd_sn[31:24]}};
     end else if ((1'b1 == ap_CS_fsm_state6)) begin
-        response_buffer_V_d1 = p_Result_7_i_i2_reg_680;
+        response_buffer_V_d1 = p_Result_7_i_i2_reg_684;
     end else if ((1'b1 == ap_CS_fsm_state5)) begin
         response_buffer_V_d1 = {{p_Val2_6_fu_475_p2[31:24]}};
     end else if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state4))) begin
@@ -454,7 +461,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state10) | (1'b1 == ap_CS_fsm_state8) | (1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state15) | (1'b1 == ap_CS_fsm_state14) | (1'b1 == ap_CS_fsm_state13) | (1'b1 == ap_CS_fsm_state11) | (1'b1 == ap_CS_fsm_state9) | (1'b1 == ap_CS_fsm_state7) | ((icmp_ln35_fu_454_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2)))) begin
+    if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state10) | (1'b1 == ap_CS_fsm_state8) | (1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state15) | (1'b1 == ap_CS_fsm_state14) | (1'b1 == ap_CS_fsm_state13) | (1'b1 == ap_CS_fsm_state11) | (1'b1 == ap_CS_fsm_state9) | (1'b1 == ap_CS_fsm_state7) | (1'b1 == ap_CS_fsm_state5) | ((icmp_ln35_fu_458_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2)))) begin
         response_buffer_V_we0 = 1'b1;
     end else begin
         response_buffer_V_we0 = 1'b0;
@@ -462,7 +469,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state10) | (1'b1 == ap_CS_fsm_state8) | (1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state15) | (1'b1 == ap_CS_fsm_state14) | (1'b1 == ap_CS_fsm_state13) | (1'b1 == ap_CS_fsm_state12) | (1'b1 == ap_CS_fsm_state11) | (1'b1 == ap_CS_fsm_state9) | (1'b1 == ap_CS_fsm_state7))) begin
+    if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state10) | (1'b1 == ap_CS_fsm_state8) | (1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state15) | (1'b1 == ap_CS_fsm_state14) | (1'b1 == ap_CS_fsm_state13) | (1'b1 == ap_CS_fsm_state12) | (1'b1 == ap_CS_fsm_state11) | (1'b1 == ap_CS_fsm_state9) | (1'b1 == ap_CS_fsm_state7) | (1'b1 == ap_CS_fsm_state5))) begin
         response_buffer_V_we1 = 1'b1;
     end else begin
         response_buffer_V_we1 = 1'b0;
@@ -470,7 +477,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((icmp_ln28_fu_638_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state18))) begin
+    if (((icmp_ln30_fu_637_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state18))) begin
         tcp_in_V_V_TDATA_blk_n = tcp_in_V_V_TVALID;
     end else begin
         tcp_in_V_V_TDATA_blk_n = 1'b1;
@@ -478,7 +485,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((1'b1 == ap_block_state18_io) | ((icmp_ln28_fu_638_p2 == 1'd1) & (tcp_in_V_V_TVALID == 1'b0))) & (icmp_ln28_fu_638_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state18))) begin
+    if ((~((1'b1 == ap_block_state18_io) | ((icmp_ln30_fu_637_p2 == 1'd1) & (tcp_in_V_V_TVALID == 1'b0))) & (icmp_ln30_fu_637_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state18))) begin
         tcp_in_V_V_TREADY = 1'b1;
     end else begin
         tcp_in_V_V_TREADY = 1'b0;
@@ -486,7 +493,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((icmp_ln28_fu_638_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state18))) begin
+    if (((icmp_ln30_fu_637_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state18))) begin
         tcp_out_V_V_TDATA_blk_n = tcp_out_V_V_TREADY;
     end else begin
         tcp_out_V_V_TDATA_blk_n = 1'b1;
@@ -494,7 +501,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((1'b1 == ap_block_state18_io) | ((icmp_ln28_fu_638_p2 == 1'd1) & (tcp_in_V_V_TVALID == 1'b0))) & (icmp_ln28_fu_638_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state18))) begin
+    if ((~((1'b1 == ap_block_state18_io) | ((icmp_ln30_fu_637_p2 == 1'd1) & (tcp_in_V_V_TVALID == 1'b0))) & (icmp_ln30_fu_637_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state18))) begin
         tcp_out_V_V_TVALID = 1'b1;
     end else begin
         tcp_out_V_V_TVALID = 1'b0;
@@ -511,7 +518,7 @@ always @ (*) begin
             end
         end
         ap_ST_fsm_state2 : begin
-            if (((icmp_ln35_fu_454_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2))) begin
+            if (((icmp_ln35_fu_458_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2))) begin
                 ap_NS_fsm = ap_ST_fsm_state2;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state3;
@@ -563,9 +570,9 @@ always @ (*) begin
             ap_NS_fsm = ap_ST_fsm_state18;
         end
         ap_ST_fsm_state18 : begin
-            if ((~((1'b1 == ap_block_state18_io) | ((icmp_ln28_fu_638_p2 == 1'd1) & (tcp_in_V_V_TVALID == 1'b0))) & (icmp_ln28_fu_638_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state18))) begin
+            if ((~((1'b1 == ap_block_state18_io) | ((icmp_ln30_fu_637_p2 == 1'd1) & (tcp_in_V_V_TVALID == 1'b0))) & (icmp_ln30_fu_637_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state18))) begin
                 ap_NS_fsm = ap_ST_fsm_state1;
-            end else if ((~((1'b1 == ap_block_state18_io) | ((icmp_ln28_fu_638_p2 == 1'd1) & (tcp_in_V_V_TVALID == 1'b0))) & (icmp_ln28_fu_638_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state18))) begin
+            end else if ((~((1'b1 == ap_block_state18_io) | ((icmp_ln30_fu_637_p2 == 1'd1) & (tcp_in_V_V_TVALID == 1'b0))) & (icmp_ln30_fu_637_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state18))) begin
                 ap_NS_fsm = ap_ST_fsm_state16;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state18;
@@ -614,42 +621,42 @@ assign ap_CS_fsm_state8 = ap_CS_fsm[32'd7];
 assign ap_CS_fsm_state9 = ap_CS_fsm[32'd8];
 
 always @ (*) begin
-    ap_block_state18 = ((icmp_ln28_fu_638_p2 == 1'd1) & (tcp_in_V_V_TVALID == 1'b0));
+    ap_block_state18 = ((icmp_ln30_fu_637_p2 == 1'd1) & (tcp_in_V_V_TVALID == 1'b0));
 end
 
 always @ (*) begin
-    ap_block_state18_io = ((icmp_ln28_fu_638_p2 == 1'd1) & (tcp_out_V_V_TREADY == 1'b0));
+    ap_block_state18_io = ((icmp_ln30_fu_637_p2 == 1'd1) & (tcp_out_V_V_TREADY == 1'b0));
 end
 
-assign i_9_fu_644_p2 = (i_0_reg_443 + 32'd4);
+assign i_9_fu_643_p2 = (i_0_reg_443 + 32'd4);
 
-assign i_fu_460_p2 = (i_0_i_i_i_reg_432 + 6'd1);
+assign i_fu_464_p2 = (i_0_i_i_i_reg_432 + 6'd1);
 
-assign icmp_ln28_fu_638_p2 = (($signed(i_0_reg_443) < $signed(ret_V_fu_634_p1)) ? 1'b1 : 1'b0);
+assign icmp_ln30_fu_637_p2 = (($signed(i_0_reg_443) < $signed(ret_V_fu_633_p1)) ? 1'b1 : 1'b0);
 
-assign icmp_ln35_fu_454_p2 = ((i_0_i_i_i_reg_432 == 6'd48) ? 1'b1 : 1'b0);
+assign icmp_ln35_fu_458_p2 = ((i_0_i_i_i_reg_432 == 6'd48) ? 1'b1 : 1'b0);
 
 always @ (*) begin
-    p_Result_2_fu_615_p4 = p_Val2_5_reg_675;
-    p_Result_2_fu_615_p4[32'd7] = |(1'd1);
+    p_Result_2_fu_614_p4 = p_Val2_5_reg_679;
+    p_Result_2_fu_614_p4[32'd7] = |(1'd1);
 end
 
-assign p_Result_s_fu_603_p5 = {{p_Val2_s_reg_670[7:6]}, {6'd32}};
+assign p_Result_s_fu_602_p5 = {{p_Val2_s_reg_674[7:6]}, {6'd32}};
 
-assign p_Val2_6_fu_475_p2 = (32'd1 + instance_stat_sn_i);
+assign p_Val2_6_fu_475_p2 = (32'd2 + instance_stat_sn_loa_reg_649);
 
-assign ret_V_fu_634_p1 = tmp_4_fu_625_p4;
+assign ret_V_fu_633_p1 = tmp_4_fu_624_p4;
 
 assign tcp_out_V_V_TDATA = tcp_in_V_V_TDATA;
 
-assign tmp_4_fu_625_p4 = {{{header_buffer_V_load_15_reg_748}, {header_buffer_V_q0}}, {header_buffer_V_q1}};
+assign tmp_4_fu_624_p4 = {{{header_buffer_V_load_15_reg_752}, {header_buffer_V_q0}}, {header_buffer_V_q1}};
 
-assign trunc_ln647_2_fu_559_p1 = instance_exp_cmd_sn[7:0];
+assign trunc_ln647_2_fu_558_p1 = instance_exp_cmd_sn[7:0];
 
-assign trunc_ln647_3_fu_599_p1 = instance_max_cmd_sn[7:0];
+assign trunc_ln647_3_fu_598_p1 = instance_max_cmd_sn[7:0];
 
-assign trunc_ln647_fu_519_p1 = p_Val2_6_fu_475_p2[7:0];
+assign trunc_ln647_fu_518_p1 = p_Val2_6_fu_475_p2[7:0];
 
-assign zext_ln35_fu_466_p1 = i_0_i_i_i_reg_432;
+assign zext_ln35_fu_470_p1 = i_0_i_i_i_reg_432;
 
 endmodule //iscsi_nop_out

@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-| Date         : Sun Mar 15 20:22:41 2020
+| Date         : Thu Apr 30 13:22:44 2020
 | Host         : phirasit-macbook running 64-bit Ubuntu 18.04.3 LTS
 | Command      : report_timing_summary -file ./report/iscsi_interface_timing_synth.rpt
 | Design       : bd_0_wrapper
@@ -127,7 +127,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-      1.459        0.000                      0                12261        0.252        0.000                      0                12261        3.750        0.000                       0                  5735  
+      1.459        0.000                      0                12325        0.252        0.000                      0                12325        3.750        0.000                       0                  5767  
 
 
 All user specified timing constraints are met.
@@ -150,7 +150,7 @@ ap_clk  {0.000 5.000}      10.000          100.000
 
 Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
 -----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-ap_clk              1.459        0.000                      0                12261        0.252        0.000                      0                12261        3.750        0.000                       0                  5735  
+ap_clk              1.459        0.000                      0                12325        0.252        0.000                      0                12325        3.750        0.000                       0                  5767  
 
 
 ------------------------------------------------------------------------------------------------
@@ -213,7 +213,7 @@ Slack (MET) :             1.459ns  (required time - arrival time)
   -------------------------------------------------------------------    -------------------
                          (clock ap_clk rise edge)     0.000     0.000 r  
                                                       0.000     0.000 r  ap_clk (IN)
-                         net (fo=5750, unset)         0.973     0.973    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_1_fu_1194/ap_clk
+                         net (fo=5782, unset)         0.973     0.973    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_1_fu_1194/ap_clk
                          DSP48E1                                      r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_1_fu_1194/mul_ln185_fu_288_p2__1/CLK
   -------------------------------------------------------------------    -------------------
                          DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
@@ -268,7 +268,7 @@ Slack (MET) :             1.459ns  (required time - arrival time)
 
                          (clock ap_clk rise edge)    10.000    10.000 r  
                                                       0.000    10.000 r  ap_clk (IN)
-                         net (fo=5750, unset)         0.924    10.924    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_1_fu_1194/ap_clk
+                         net (fo=5782, unset)         0.924    10.924    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_1_fu_1194/ap_clk
                          FDRE                                         r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_write_key_value_int_1_fu_1194/tmp_reg_466_reg[28]/C
                          clock pessimism              0.000    10.924    
                          clock uncertainty           -0.035    10.889    
@@ -304,19 +304,19 @@ Slack (MET) :             0.252ns  (arrival time - required time)
   -------------------------------------------------------------------    -------------------
                          (clock ap_clk rise edge)     0.000     0.000 r  
                                                       0.000     0.000 r  ap_clk (IN)
-                         net (fo=5750, unset)         0.410     0.410    bd_0_i/hls_inst/inst/ap_clk
+                         net (fo=5782, unset)         0.410     0.410    bd_0_i/hls_inst/inst/ap_clk
                          FDRE                                         r  bd_0_i/hls_inst/inst/tcp_in_V_V_0_payload_A_reg[23]/C
   -------------------------------------------------------------------    -------------------
                          FDRE (Prop_fdre_C_Q)         0.164     0.574 r  bd_0_i/hls_inst/inst/tcp_in_V_V_0_payload_A_reg[23]/Q
-                         net (fo=1, unplaced)         0.131     0.705    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_text_fu_283/grp_read_from_tcp_1_fu_581/grp_read_byte_array_1_fu_127/p_Result_2_reg_251_reg[7]_1[23]
-                         LUT3 (Prop_lut3_I2_O)        0.098     0.803 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_text_fu_283/grp_read_from_tcp_1_fu_581/grp_read_byte_array_1_fu_127/p_Result_1_reg_246[7]_i_1/O
+                         net (fo=1, unplaced)         0.131     0.705    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_text_fu_283/grp_read_from_tcp_1_fu_585/grp_read_byte_array_1_fu_127/p_Result_2_reg_251_reg[7]_1[23]
+                         LUT3 (Prop_lut3_I2_O)        0.098     0.803 r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_text_fu_283/grp_read_from_tcp_1_fu_585/grp_read_byte_array_1_fu_127/p_Result_1_reg_246[7]_i_1/O
                          net (fo=4, unplaced)         0.000     0.803    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_read_from_tcp_1_fu_1111/grp_read_byte_array_1_fu_127/tcp_in_V_V_TDATA[7]
                          FDRE                                         r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_read_from_tcp_1_fu_1111/grp_read_byte_array_1_fu_127/p_Result_1_reg_246_reg[7]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock ap_clk rise edge)     0.000     0.000 r  
                                                       0.000     0.000 r  ap_clk (IN)
-                         net (fo=5750, unset)         0.432     0.432    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_read_from_tcp_1_fu_1111/grp_read_byte_array_1_fu_127/ap_clk
+                         net (fo=5782, unset)         0.432     0.432    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_read_from_tcp_1_fu_1111/grp_read_byte_array_1_fu_127/ap_clk
                          FDRE                                         r  bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_read_from_tcp_1_fu_1111/grp_read_byte_array_1_fu_127/p_Result_1_reg_246_reg[7]/C
                          clock pessimism              0.000     0.432    
                          FDRE (Hold_fdre_C_D)         0.120     0.552    bd_0_i/hls_inst/inst/grp_process_pdu_fu_144/grp_iscsi_login_fu_178/grp_read_from_tcp_1_fu_1111/grp_read_byte_array_1_fu_127/p_Result_1_reg_246_reg[7]

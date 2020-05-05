@@ -6985,7 +6985,7 @@ struct iscsi_connection {
   ++this->stat_sn;
  }
 
- void advance_cmd_sn() {
+ void advance_exp_cmd_sn() {
   ++this->exp_cmd_sn;
   this->max_cmd_sn = this->exp_cmd_sn;
  }
@@ -7032,6 +7032,54 @@ struct iscsi_session {
 
 
 # 1 "iscsi_hls/iscsi_processor/src/iscsi_pdu/iscsi_request.hpp" 1
+
+
+
+
+
+
+# 1 "iscsi_hls/iscsi_processor/src/iscsi_pdu/../iscsi_target.hpp" 1
+
+
+
+
+
+typedef ap_uint<128> scsi_cdb_t;
+
+struct iscsi_target {
+
+ static struct iscsi_target& get_instance() {
+  static iscsi_target target;
+  return target;
+ }
+
+ unsigned char sense_buffer[30];
+ int sense_buffer_length;
+ int scsi_response;
+
+ int get_target_status() const {
+  return scsi_response;
+ }
+ int get_sense_buffer_length() const {
+  return sense_buffer_length;
+ }
+
+ void write_sense_buffer_to_tcp(data_stream& tcp_out) {
+  sense_buffer[0] = (sense_buffer_length >> 8) & 0xFF;
+  sense_buffer[1] = (sense_buffer_length) & 0xFF;
+  tcp_out.write_byte_array(sense_buffer, get_sense_buffer_length() + 2);
+ }
+
+ void execute_scsi_cdb(scsi_cdb_t cdb) {
+
+  scsi_response = 0;
+ }
+
+ iscsi_target() :
+   sense_buffer_length(16), scsi_response(0) {
+ }
+};
+# 8 "iscsi_hls/iscsi_processor/src/iscsi_pdu/iscsi_request.hpp" 2
 # 5 "iscsi_hls/iscsi_processor/src/iscsi_pdu/iscsi_login.hpp" 2
 
 enum LOGIN_STATUS {
@@ -7056,33 +7104,49 @@ enum LOGIN_STATUS {
 };
 
 enum LOGIN_STATE {
- SECURITY_NEGOTIATION = 0,
- LOGIN_OPERATIONAL = 1,
- FULL_FEATURE = 3
+ SECURITY_NEGOTIATION = 0, LOGIN_OPERATIONAL = 1, FULL_FEATURE = 3
 };
 
-struct iscsi_login_pdu : public iscsi_pdu_header {
+struct iscsi_login_pdu: public iscsi_pdu_header {
 
- iscsi_login_pdu (): iscsi_pdu_header() {}
- iscsi_login_pdu (const iscsi_pdu_header& pdu) : iscsi_pdu_header(pdu) {}
-
- int csg() const { return buffer[1](3, 2); }
- void set_csg(ap_uint<2> csg) { buffer[1](3, 2) = csg; }
- int nsg() const { return buffer[1](1, 0); }
- void set_nsg(ap_uint<2> nsg) { buffer[1](1, 0) = nsg; }
-
- int login_transit() const { return buffer[1](7, 7); }
- void set_login_transit(bool transmit) { buffer[1](7, 7) = transmit; }
-
- void set_login_response_status(ap_uint<16> status) {
-   buffer[36] = status(15, 8);
-   buffer[37] = status( 7, 0);
+ iscsi_login_pdu() :
+   iscsi_pdu_header() {
+ }
+ iscsi_login_pdu(const iscsi_pdu_header& pdu) :
+   iscsi_pdu_header(pdu) {
  }
 
- int tsih() const { return ((int) buffer[14] << 8) | buffer[15]; }
+ int csg() const {
+  return buffer[1](3, 2);
+ }
+ void set_csg(ap_uint<2> csg) {
+  buffer[1](3, 2) = csg;
+ }
+ int nsg() const {
+  return buffer[1](1, 0);
+ }
+ void set_nsg(ap_uint<2> nsg) {
+  buffer[1](1, 0) = nsg;
+ }
+
+ int login_transit() const {
+  return buffer[1](7, 7);
+ }
+ void set_login_transit(bool transmit) {
+  buffer[1](7, 7) = transmit;
+ }
+
+ void set_login_response_status(ap_uint<16> status) {
+  buffer[36] = status(15, 8);
+  buffer[37] = status(7, 0);
+ }
+
+ int tsih() const {
+  return ((int) buffer[14] << 8) | buffer[15];
+ }
  void set_tsih(ap_uint<16> tsih) {
-   buffer[14] = tsih(15, 8);
-   buffer[15] = tsih( 7, 0);
+  buffer[14] = tsih(15, 8);
+  buffer[15] = tsih(7, 0);
  }
 
  void set_isid(const iscsi_login_pdu &pdu) {
@@ -7092,7 +7156,8 @@ struct iscsi_login_pdu : public iscsi_pdu_header {
  }
 };
 
-void iscsi_login(const iscsi_pdu_header& header, data_stream& tcp_in, data_stream& tcp_out);
+void iscsi_login(const iscsi_pdu_header& header, data_stream& tcp_in,
+  data_stream& tcp_out);
 # 5 "iscsi_hls/iscsi_processor/src/iscsi_requests.hpp" 2
 # 1 "iscsi_hls/iscsi_processor/src/iscsi_pdu/iscsi_logout.hpp" 1
 
@@ -7120,7 +7185,45 @@ void iscsi_nop_out(const iscsi_pdu_header& header, data_stream& tcp_in, data_str
 
 
 
-void iscsi_scsi_cmd(const iscsi_pdu_header& header, data_stream& tcp_in, data_stream& tcp_out);
+struct iscsi_scsi_cmd_header: public iscsi_pdu_header {
+ int exp_data_tranfer_length() const {
+  return this->get_4byte(20);
+ }
+ bool is_read_cmd() const {
+  return this->buffer[1](6, 6);
+ }
+ bool is_write_cmd() const {
+  return this->buffer[1](5, 5);
+ }
+
+ scsi_cdb_t get_scsi_cdb() const {
+  scsi_cdb_t result;
+  for (int i = 0; i < 16; ++i) {
+   result(8 * i + 7, 8 * i) = buffer[15 - i];
+  }
+  return result;
+ }
+
+ iscsi_scsi_cmd_header(const iscsi_pdu_header& pdu) :
+   iscsi_pdu_header(pdu) {
+ }
+};
+
+struct iscsi_scsi_response_header: public iscsi_pdu_header {
+ void set_scsi_response(int response) {
+  this->buffer[2] = response;
+ }
+ void set_scsi_target_status(int status) {
+  this->buffer[3] = status;
+ }
+ void set_sense_buffer_length(int length) {
+  this->set_data_segment_length(2 + length);
+ }
+
+};
+
+void iscsi_scsi_cmd(const iscsi_pdu_header& pdu_header, data_stream& tcp_in,
+  data_stream& tcp_out);
 # 8 "iscsi_hls/iscsi_processor/src/iscsi_requests.hpp" 2
 # 1 "iscsi_hls/iscsi_processor/src/iscsi_pdu/iscsi_text.hpp" 1
 

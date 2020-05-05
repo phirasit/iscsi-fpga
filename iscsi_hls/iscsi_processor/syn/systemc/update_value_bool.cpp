@@ -152,7 +152,7 @@ update_value_bool::update_value_bool(sc_module_name name) : sc_module(name), mVc
     sensitive << ( trunc_ln145_fu_236_p1 );
 
     SC_METHOD(thread_or_ln_fu_256_p3);
-    sensitive << ( tmp_8_fu_246_p4 );
+    sensitive << ( tmp_9_fu_246_p4 );
     sensitive << ( or_ln145_fu_240_p2 );
 
     SC_METHOD(thread_p_str13_address0);
@@ -175,7 +175,7 @@ update_value_bool::update_value_bool(sc_module_name name) : sc_module(name), mVc
     SC_METHOD(thread_sext_ln123_fu_186_p1);
     sensitive << ( add_ln123_fu_181_p2 );
 
-    SC_METHOD(thread_tmp_8_fu_246_p4);
+    SC_METHOD(thread_tmp_9_fu_246_p4);
     sensitive << ( val_r_i );
 
     SC_METHOD(thread_trunc_ln145_fu_236_p1);
@@ -292,7 +292,7 @@ update_value_bool::update_value_bool(sc_module_name name) : sc_module(name), mVc
     sc_trace(mVcdFile, zext_ln123_fu_217_p1, "zext_ln123_fu_217_p1");
     sc_trace(mVcdFile, add_ln123_4_fu_221_p2, "add_ln123_4_fu_221_p2");
     sc_trace(mVcdFile, trunc_ln145_fu_236_p1, "trunc_ln145_fu_236_p1");
-    sc_trace(mVcdFile, tmp_8_fu_246_p4, "tmp_8_fu_246_p4");
+    sc_trace(mVcdFile, tmp_9_fu_246_p4, "tmp_9_fu_246_p4");
     sc_trace(mVcdFile, or_ln145_fu_240_p2, "or_ln145_fu_240_p2");
     sc_trace(mVcdFile, ap_NS_fsm, "ap_NS_fsm");
 #endif
@@ -479,7 +479,7 @@ void update_value_bool::thread_or_ln145_fu_240_p2() {
 }
 
 void update_value_bool::thread_or_ln_fu_256_p3() {
-    or_ln_fu_256_p3 = esl_concat<31,1>(tmp_8_fu_246_p4.read(), or_ln145_fu_240_p2.read());
+    or_ln_fu_256_p3 = esl_concat<31,1>(tmp_9_fu_246_p4.read(), or_ln145_fu_240_p2.read());
 }
 
 void update_value_bool::thread_p_str13_address0() {
@@ -514,8 +514,8 @@ void update_value_bool::thread_sext_ln123_fu_186_p1() {
     sext_ln123_fu_186_p1 = esl_sext<64,32>(add_ln123_fu_181_p2.read());
 }
 
-void update_value_bool::thread_tmp_8_fu_246_p4() {
-    tmp_8_fu_246_p4 = val_r_i.read().range(31, 1);
+void update_value_bool::thread_tmp_9_fu_246_p4() {
+    tmp_9_fu_246_p4 = val_r_i.read().range(31, 1);
 }
 
 void update_value_bool::thread_trunc_ln145_fu_236_p1() {

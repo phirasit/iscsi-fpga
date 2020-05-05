@@ -5,12 +5,14 @@
 
 void iscsi_nop_out(const iscsi_pdu_header& header, data_stream& tcp_in, data_stream& tcp_out) {
 	struct iscsi_connection& connection = iscsi_connection::get_instance();
+	connection.advance_stat_sn();
 
 	// TODO check validity of the pdu
 	int valid = 1;
 	iscsi_nop_in_pdu response;
 	response.set_opcode(PDU_OPCODE_NOP_IN);
 	response.set_final(1);
+	response.set_data_segment_length(header.data_segment_length());
 
 	if (valid) {
 		response.set_initiator_task_tag(header.initiator_task_tag());

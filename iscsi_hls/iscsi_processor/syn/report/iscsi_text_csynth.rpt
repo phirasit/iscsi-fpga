@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'iscsi_text'
 ================================================================
-* Date:           Sun Mar 15 20:18:15 2020
+* Date:           Thu Apr 30 11:08:08 2020
 
 * Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
 * Project:        iscsi_hls
@@ -38,9 +38,9 @@
         |                             |                  |  Latency  |  Interval | Pipeline|
         |           Instance          |      Module      | min | max | min | max |   Type  |
         +-----------------------------+------------------+-----+-----+-----+-----+---------+
-        |grp_read_from_tcp_1_fu_581   |read_from_tcp_1   |    ?|    ?|    ?|    ?|   none  |
-        |grp_write_byte_array_fu_624  |write_byte_array  |   29|   29|   29|   29|   none  |
-        |grp_write_to_tcp_fu_632      |write_to_tcp      |   38|   38|   38|   38|   none  |
+        |grp_read_from_tcp_1_fu_585   |read_from_tcp_1   |    ?|    ?|    ?|    ?|   none  |
+        |grp_write_byte_array_fu_628  |write_byte_array  |   29|   29|   29|   29|   none  |
+        |grp_write_to_tcp_fu_636      |write_to_tcp      |   38|   38|   38|   38|   none  |
         +-----------------------------+------------------+-----+-----+-----+-----+---------+
 
         * Loop: 
@@ -66,10 +66,10 @@
 |FIFO             |        -|      -|       -|      -|    -|
 |Instance         |        0|      -|    1454|   4131|    0|
 |Memory           |        5|      -|       7|      2|    0|
-|Multiplexer      |        -|      -|       -|    672|    -|
+|Multiplexer      |        -|      -|       -|    699|    -|
 |Register         |        -|      -|     674|      -|    -|
 +-----------------+---------+-------+--------+-------+-----+
-|Total            |        5|      0|    2135|   5073|    0|
+|Total            |        5|      0|    2135|   5100|    0|
 +-----------------+---------+-------+--------+-------+-----+
 |Available        |      280|    220|  106400|  53200|    0|
 +-----------------+---------+-------+--------+-------+-----+
@@ -81,9 +81,9 @@
     +-----------------------------+------------------+---------+-------+------+------+-----+
     |           Instance          |      Module      | BRAM_18K| DSP48E|  FF  |  LUT | URAM|
     +-----------------------------+------------------+---------+-------+------+------+-----+
-    |grp_read_from_tcp_1_fu_581   |read_from_tcp_1   |        0|      0|  1373|  3851|    0|
-    |grp_write_byte_array_fu_624  |write_byte_array  |        0|      0|    46|   144|    0|
-    |grp_write_to_tcp_fu_632      |write_to_tcp      |        0|      0|    35|   136|    0|
+    |grp_read_from_tcp_1_fu_585   |read_from_tcp_1   |        0|      0|  1373|  3851|    0|
+    |grp_write_byte_array_fu_628  |write_byte_array  |        0|      0|    46|   144|    0|
+    |grp_write_to_tcp_fu_636      |write_to_tcp      |        0|      0|    35|   136|    0|
     +-----------------------------+------------------+---------+-------+------+------+-----+
     |Total                        |                  |        0|      0|  1454|  4131|    0|
     +-----------------------------+------------------+---------+-------+------+------+-----+
@@ -109,20 +109,20 @@
     +----------------------------------------------------------+----------+-------+---+----+------------+------------+
     |                       Variable Name                      | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
     +----------------------------------------------------------+----------+-------+---+----+------------+------------+
-    |add_ln113_fu_806_p2                                       |     +    |      0|  0|  39|          32|           1|
-    |i_8_fu_780_p2                                             |     +    |      0|  0|  38|          31|           1|
-    |i_fu_748_p2                                               |     +    |      0|  0|  15|           6|           1|
-    |instance_max_cmd_sn                                       |     +    |      0|  0|  39|          32|           1|
-    |p_Val2_3_fu_730_p2                                        |     +    |      0|  0|  39|          32|           1|
+    |add_ln113_fu_810_p2                                       |     +    |      0|  0|  39|          32|           1|
+    |i_8_fu_784_p2                                             |     +    |      0|  0|  38|          31|           1|
+    |i_fu_752_p2                                               |     +    |      0|  0|  15|           6|           1|
+    |p_Val2_3_fu_734_p2                                        |     +    |      0|  0|  39|          32|           1|
+    |p_Val2_4_fu_712_p2                                        |     +    |      0|  0|  39|          32|           1|
     |ap_block_state25_on_subcall_done                          |    and   |      0|  0|   2|           1|           1|
-    |ap_predicate_op188_call_state25                           |    and   |      0|  0|   2|           1|           1|
-    |grp_write_byte_array_fu_624_stream_ap_uint_32_V_V_TREADY  |    and   |      0|  0|   2|           1|           1|
-    |grp_write_to_tcp_fu_632_out_stream_V_V_TREADY             |    and   |      0|  0|   2|           1|           1|
-    |icmp_ln112_fu_774_p2                                      |   icmp   |      0|  0|  18|          32|          32|
-    |icmp_ln113_fu_800_p2                                      |   icmp   |      0|  0|  11|           8|           8|
-    |icmp_ln114_fu_820_p2                                      |   icmp   |      0|  0|  18|          32|           4|
-    |icmp_ln35_fu_742_p2                                       |   icmp   |      0|  0|  11|           6|           6|
-    |idx_fu_812_p3                                             |  select  |      0|  0|  32|           1|          32|
+    |ap_predicate_op192_call_state25                           |    and   |      0|  0|   2|           1|           1|
+    |grp_write_byte_array_fu_628_stream_ap_uint_32_V_V_TREADY  |    and   |      0|  0|   2|           1|           1|
+    |grp_write_to_tcp_fu_636_out_stream_V_V_TREADY             |    and   |      0|  0|   2|           1|           1|
+    |icmp_ln112_fu_778_p2                                      |   icmp   |      0|  0|  18|          32|          32|
+    |icmp_ln113_fu_804_p2                                      |   icmp   |      0|  0|  11|           8|           8|
+    |icmp_ln114_fu_824_p2                                      |   icmp   |      0|  0|  18|          32|           4|
+    |icmp_ln35_fu_746_p2                                       |   icmp   |      0|  0|  11|           6|           6|
+    |idx_fu_816_p3                                             |  select  |      0|  0|  32|           1|          32|
     +----------------------------------------------------------+----------+-------+---+----+------------+------------+
     |Total                                                     |          |      0|  0| 268|         216|          91|
     +----------------------------------------------------------+----------+-------+---+----+------------+------------+
@@ -134,27 +134,28 @@
     |ap_NS_fsm                      |  121|         26|    1|         26|
     |header_buffer_V_address0       |   27|          5|    6|         30|
     |header_buffer_V_address1       |   27|          5|    6|         30|
-    |i_0_i_i6_reg_558               |    9|          2|   31|         62|
-    |i_0_i_i_reg_547                |    9|          2|    6|         12|
-    |idx_0_i_i_reg_569              |    9|          2|   32|         64|
-    |instance_exp_cmd_sn_o          |    9|          2|   32|         64|
-    |instance_stat_sn_o             |    9|          2|   32|         64|
+    |i_0_i_i6_reg_562               |    9|          2|   31|         62|
+    |i_0_i_i_reg_551                |    9|          2|    6|         12|
+    |idx_0_i_i_reg_573              |    9|          2|   32|         64|
+    |instance_exp_cmd_sn_o          |   15|          3|   32|         96|
+    |instance_max_cmd_sn            |   15|          3|   32|         96|
+    |instance_stat_sn_o             |   15|          3|   32|         96|
     |parameter_data_address0        |   15|          3|   13|         39|
     |parameter_data_ce0             |   15|          3|    1|          3|
     |parameter_data_ce1             |    9|          2|    1|          2|
-    |parameter_data_pdu_i_1_fu_190  |    9|          2|   32|         64|
-    |parameter_data_seque_1_fu_194  |    9|          2|   32|         64|
+    |parameter_data_pdu_i_1_fu_194  |    9|          2|   32|         64|
+    |parameter_data_seque_1_fu_198  |    9|          2|   32|         64|
     |parameter_data_we0             |    9|          2|    1|          2|
     |parameter_data_we1             |    9|          2|    1|          2|
-    |parameter_default_ti_2_fu_198  |    9|          2|   32|         64|
-    |parameter_default_ti_3_fu_202  |    9|          2|   32|         64|
-    |parameter_first_burs_1_fu_186  |    9|          2|   32|         64|
-    |parameter_immediate_1_fu_178   |    9|          2|   32|         64|
-    |parameter_initial_r2_1_fu_174  |    9|          2|   32|         64|
-    |parameter_max_burst_1_fu_182   |    9|          2|   32|         64|
-    |parameter_max_connec_1_fu_170  |    9|          2|   32|         64|
-    |parameter_max_outsta_1_fu_206  |    9|          2|   32|         64|
-    |parameter_max_receiv_1_fu_166  |    9|          2|   32|         64|
+    |parameter_default_ti_2_fu_202  |    9|          2|   32|         64|
+    |parameter_default_ti_3_fu_206  |    9|          2|   32|         64|
+    |parameter_first_burs_1_fu_190  |    9|          2|   32|         64|
+    |parameter_immediate_1_fu_182   |    9|          2|   32|         64|
+    |parameter_initial_r2_1_fu_178  |    9|          2|   32|         64|
+    |parameter_max_burst_1_fu_186   |    9|          2|   32|         64|
+    |parameter_max_connec_1_fu_174  |    9|          2|   32|         64|
+    |parameter_max_outsta_1_fu_210  |    9|          2|   32|         64|
+    |parameter_max_receiv_1_fu_170  |    9|          2|   32|         64|
     |response_buffer_V_address0     |   65|         16|    6|         96|
     |response_buffer_V_address1     |   65|         16|    6|         96|
     |response_buffer_V_ce0          |   15|          3|    1|          3|
@@ -165,7 +166,7 @@
     |tcp_out_V_V_TDATA              |   15|          3|   32|         96|
     |tcp_out_V_V_TVALID             |   15|          3|    1|          3|
     +-------------------------------+-----+-----------+-----+-----------+
-    |Total                          |  672|        147|  579|       1571|
+    |Total                          |  699|        152|  611|       1731|
     +-------------------------------+-----+-----------+-----+-----------+
 
     * Register: 
@@ -173,40 +174,40 @@
     |                   Name                   | FF | LUT| Bits| Const Bits|
     +------------------------------------------+----+----+-----+-----------+
     |ap_CS_fsm                                 |  25|   0|   25|          0|
-    |grp_read_from_tcp_1_fu_581_ap_start_reg   |   1|   0|    1|          0|
-    |grp_write_byte_array_fu_624_ap_start_reg  |   1|   0|    1|          0|
-    |grp_write_to_tcp_fu_632_ap_start_reg      |   1|   0|    1|          0|
-    |header_buffer_V_load_reg_981              |   8|   0|    8|          0|
-    |i_0_i_i6_reg_558                          |  31|   0|   31|          0|
-    |i_0_i_i_reg_547                           |   6|   0|    6|          0|
-    |i_8_reg_1043                              |  31|   0|   31|          0|
-    |icmp_ln112_reg_1039                       |   1|   0|    1|          0|
-    |idx_0_i_i_reg_569                         |  32|   0|   32|          0|
-    |p_Result_6_i6_i_reg_1107                  |   8|   0|    8|          0|
-    |p_Result_6_i_i1_reg_1087                  |   8|   0|    8|          0|
-    |p_Result_7_i8_i_reg_1112                  |   8|   0|    8|          0|
-    |p_Result_7_i_i1_reg_1092                  |   8|   0|    8|          0|
-    |p_Result_i4_i_reg_1102                    |   8|   0|    8|          0|
-    |p_Val2_1_reg_1077                         |   8|   0|    8|          0|
-    |p_Val2_2_reg_1082                         |   8|   0|    8|          0|
-    |p_Val2_3_reg_1014                         |  32|   0|   32|          0|
-    |p_Val2_4_reg_1006                         |  32|   0|   32|          0|
-    |parameter_data_lengt_reg_1001             |  24|   0|   24|          0|
-    |parameter_data_pdu_i_1_fu_190             |  32|   0|   32|          0|
-    |parameter_data_seque_1_fu_194             |  32|   0|   32|          0|
-    |parameter_default_ti_2_fu_198             |  32|   0|   32|          0|
-    |parameter_default_ti_3_fu_202             |  32|   0|   32|          0|
-    |parameter_first_burs_1_fu_186             |  32|   0|   32|          0|
-    |parameter_immediate_1_fu_178              |  32|   0|   32|          0|
-    |parameter_initial_r2_1_fu_174             |  32|   0|   32|          0|
-    |parameter_max_burst_1_fu_182              |  32|   0|   32|          0|
-    |parameter_max_connec_1_fu_170             |  32|   0|   32|          0|
-    |parameter_max_outsta_1_fu_206             |  32|   0|   32|          0|
-    |parameter_max_receiv_1_fu_166             |  32|   0|   32|          0|
-    |tmp_1_reg_996                             |  24|   0|   24|          0|
-    |tmp_reg_1035                              |   1|   0|    1|          0|
-    |trunc_ln647_1_reg_1117                    |   8|   0|    8|          0|
-    |trunc_ln647_reg_1097                      |   8|   0|    8|          0|
+    |grp_read_from_tcp_1_fu_585_ap_start_reg   |   1|   0|    1|          0|
+    |grp_write_byte_array_fu_628_ap_start_reg  |   1|   0|    1|          0|
+    |grp_write_to_tcp_fu_636_ap_start_reg      |   1|   0|    1|          0|
+    |header_buffer_V_load_reg_1009             |   8|   0|    8|          0|
+    |i_0_i_i6_reg_562                          |  31|   0|   31|          0|
+    |i_0_i_i_reg_551                           |   6|   0|    6|          0|
+    |i_8_reg_1071                              |  31|   0|   31|          0|
+    |icmp_ln112_reg_1067                       |   1|   0|    1|          0|
+    |idx_0_i_i_reg_573                         |  32|   0|   32|          0|
+    |p_Result_6_i6_i_reg_1135                  |   8|   0|    8|          0|
+    |p_Result_6_i_i1_reg_1115                  |   8|   0|    8|          0|
+    |p_Result_7_i8_i_reg_1140                  |   8|   0|    8|          0|
+    |p_Result_7_i_i1_reg_1120                  |   8|   0|    8|          0|
+    |p_Result_i4_i_reg_1130                    |   8|   0|    8|          0|
+    |p_Val2_1_reg_1105                         |   8|   0|    8|          0|
+    |p_Val2_2_reg_1110                         |   8|   0|    8|          0|
+    |p_Val2_3_reg_1042                         |  32|   0|   32|          0|
+    |p_Val2_4_reg_1034                         |  32|   0|   32|          0|
+    |parameter_data_lengt_reg_1029             |  24|   0|   24|          0|
+    |parameter_data_pdu_i_1_fu_194             |  32|   0|   32|          0|
+    |parameter_data_seque_1_fu_198             |  32|   0|   32|          0|
+    |parameter_default_ti_2_fu_202             |  32|   0|   32|          0|
+    |parameter_default_ti_3_fu_206             |  32|   0|   32|          0|
+    |parameter_first_burs_1_fu_190             |  32|   0|   32|          0|
+    |parameter_immediate_1_fu_182              |  32|   0|   32|          0|
+    |parameter_initial_r2_1_fu_178             |  32|   0|   32|          0|
+    |parameter_max_burst_1_fu_186              |  32|   0|   32|          0|
+    |parameter_max_connec_1_fu_174             |  32|   0|   32|          0|
+    |parameter_max_outsta_1_fu_210             |  32|   0|   32|          0|
+    |parameter_max_receiv_1_fu_170             |  32|   0|   32|          0|
+    |tmp_1_reg_1024                            |  24|   0|   24|          0|
+    |tmp_reg_1063                              |   1|   0|    1|          0|
+    |trunc_ln647_1_reg_1145                    |   8|   0|    8|          0|
+    |trunc_ln647_reg_1125                      |   8|   0|    8|          0|
     +------------------------------------------+----+----+-----+-----------+
     |Total                                     | 674|   0|  674|          0|
     +------------------------------------------+----+----+-----+-----------+
@@ -217,34 +218,36 @@
 == Interface
 ================================================================
 * Summary: 
-+------------------------------+-----+-----+------------+---------------------+--------------+
-|           RTL Ports          | Dir | Bits|  Protocol  |    Source Object    |    C Type    |
-+------------------------------+-----+-----+------------+---------------------+--------------+
-|ap_clk                        |  in |    1| ap_ctrl_hs |      iscsi_text     | return value |
-|ap_rst                        |  in |    1| ap_ctrl_hs |      iscsi_text     | return value |
-|ap_start                      |  in |    1| ap_ctrl_hs |      iscsi_text     | return value |
-|ap_done                       | out |    1| ap_ctrl_hs |      iscsi_text     | return value |
-|ap_idle                       | out |    1| ap_ctrl_hs |      iscsi_text     | return value |
-|ap_ready                      | out |    1| ap_ctrl_hs |      iscsi_text     | return value |
-|header_buffer_V_address0      | out |    6|  ap_memory |   header_buffer_V   |     array    |
-|header_buffer_V_ce0           | out |    1|  ap_memory |   header_buffer_V   |     array    |
-|header_buffer_V_q0            |  in |    8|  ap_memory |   header_buffer_V   |     array    |
-|header_buffer_V_address1      | out |    6|  ap_memory |   header_buffer_V   |     array    |
-|header_buffer_V_ce1           | out |    1|  ap_memory |   header_buffer_V   |     array    |
-|header_buffer_V_q1            |  in |    8|  ap_memory |   header_buffer_V   |     array    |
-|tcp_in_V_V_TDATA              |  in |   32|    axis    |      tcp_in_V_V     |    pointer   |
-|tcp_in_V_V_TVALID             |  in |    1|    axis    |      tcp_in_V_V     |    pointer   |
-|tcp_in_V_V_TREADY             | out |    1|    axis    |      tcp_in_V_V     |    pointer   |
-|tcp_out_V_V_TDATA             | out |   32|    axis    |     tcp_out_V_V     |    pointer   |
-|tcp_out_V_V_TVALID            | out |    1|    axis    |     tcp_out_V_V     |    pointer   |
-|tcp_out_V_V_TREADY            |  in |    1|    axis    |     tcp_out_V_V     |    pointer   |
-|instance_exp_cmd_sn_i         |  in |   32|   ap_ovld  | instance_exp_cmd_sn |    pointer   |
-|instance_exp_cmd_sn_o         | out |   32|   ap_ovld  | instance_exp_cmd_sn |    pointer   |
-|instance_exp_cmd_sn_o_ap_vld  | out |    1|   ap_ovld  | instance_exp_cmd_sn |    pointer   |
-|instance_max_cmd_sn           | out |   32|   ap_vld   | instance_max_cmd_sn |    pointer   |
-|instance_max_cmd_sn_ap_vld    | out |    1|   ap_vld   | instance_max_cmd_sn |    pointer   |
-|instance_stat_sn_i            |  in |   32|   ap_ovld  |   instance_stat_sn  |    pointer   |
-|instance_stat_sn_o            | out |   32|   ap_ovld  |   instance_stat_sn  |    pointer   |
-|instance_stat_sn_o_ap_vld     | out |    1|   ap_ovld  |   instance_stat_sn  |    pointer   |
-+------------------------------+-----+-----+------------+---------------------+--------------+
++------------------------------+-----+-----+------------+----------------------+--------------+
+|           RTL Ports          | Dir | Bits|  Protocol  |     Source Object    |    C Type    |
++------------------------------+-----+-----+------------+----------------------+--------------+
+|ap_clk                        |  in |    1| ap_ctrl_hs |      iscsi_text      | return value |
+|ap_rst                        |  in |    1| ap_ctrl_hs |      iscsi_text      | return value |
+|ap_start                      |  in |    1| ap_ctrl_hs |      iscsi_text      | return value |
+|ap_done                       | out |    1| ap_ctrl_hs |      iscsi_text      | return value |
+|ap_idle                       | out |    1| ap_ctrl_hs |      iscsi_text      | return value |
+|ap_ready                      | out |    1| ap_ctrl_hs |      iscsi_text      | return value |
+|header_buffer_V_address0      | out |    6|  ap_memory |    header_buffer_V   |     array    |
+|header_buffer_V_ce0           | out |    1|  ap_memory |    header_buffer_V   |     array    |
+|header_buffer_V_q0            |  in |    8|  ap_memory |    header_buffer_V   |     array    |
+|header_buffer_V_address1      | out |    6|  ap_memory |    header_buffer_V   |     array    |
+|header_buffer_V_ce1           | out |    1|  ap_memory |    header_buffer_V   |     array    |
+|header_buffer_V_q1            |  in |    8|  ap_memory |    header_buffer_V   |     array    |
+|tcp_in_V_V_TDATA              |  in |   32|    axis    |      tcp_in_V_V      |    pointer   |
+|tcp_in_V_V_TVALID             |  in |    1|    axis    |      tcp_in_V_V      |    pointer   |
+|tcp_in_V_V_TREADY             | out |    1|    axis    |      tcp_in_V_V      |    pointer   |
+|tcp_out_V_V_TDATA             | out |   32|    axis    |      tcp_out_V_V     |    pointer   |
+|tcp_out_V_V_TVALID            | out |    1|    axis    |      tcp_out_V_V     |    pointer   |
+|tcp_out_V_V_TREADY            |  in |    1|    axis    |      tcp_out_V_V     |    pointer   |
+|instance_exp_cmd_sn_i         |  in |   32|   ap_ovld  |  instance_exp_cmd_sn |    pointer   |
+|instance_exp_cmd_sn_o         | out |   32|   ap_ovld  |  instance_exp_cmd_sn |    pointer   |
+|instance_exp_cmd_sn_o_ap_vld  | out |    1|   ap_ovld  |  instance_exp_cmd_sn |    pointer   |
+|instance_max_cmd_sn           | out |   32|   ap_vld   |  instance_max_cmd_sn |    pointer   |
+|instance_max_cmd_sn_ap_vld    | out |    1|   ap_vld   |  instance_max_cmd_sn |    pointer   |
+|instance_stat_sn_i            |  in |   32|   ap_ovld  |   instance_stat_sn   |    pointer   |
+|instance_stat_sn_o            | out |   32|   ap_ovld  |   instance_stat_sn   |    pointer   |
+|instance_stat_sn_o_ap_vld     | out |    1|   ap_ovld  |   instance_stat_sn   |    pointer   |
+|instance_initialized          | out |    1|   ap_vld   | instance_initialized |    pointer   |
+|instance_initialized_ap_vld   | out |    1|   ap_vld   | instance_initialized |    pointer   |
++------------------------------+-----+-----+------------+----------------------+--------------+
 

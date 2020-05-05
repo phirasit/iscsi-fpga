@@ -241,23 +241,24 @@ set RtlHierarchyInfo {[
 		"WaitState" : [
 			{"State" : "ap_ST_fsm_state7", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_iscsi_login_fu_178"},
 			{"State" : "ap_ST_fsm_state7", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_iscsi_text_fu_283"},
-			{"State" : "ap_ST_fsm_state7", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_iscsi_nop_out_fu_326"},
-			{"State" : "ap_ST_fsm_state3", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_read_from_tcp_fu_341"}],
+			{"State" : "ap_ST_fsm_state7", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_iscsi_nop_out_fu_328"},
+			{"State" : "ap_ST_fsm_state3", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_read_from_tcp_fu_343"}],
 		"Port" : [
 			{"Name" : "tcp_in_V_V", "Type" : "Axis", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "101", "SubInstance" : "grp_read_from_tcp_fu_341", "Port" : "inp_stream_V_V"},
+					{"ID" : "99", "SubInstance" : "grp_iscsi_nop_out_fu_328", "Port" : "tcp_in_V_V"},
 					{"ID" : "3", "SubInstance" : "grp_iscsi_login_fu_178", "Port" : "tcp_in_V_V"},
-					{"ID" : "64", "SubInstance" : "grp_iscsi_text_fu_283", "Port" : "tcp_in_V_V"},
-					{"ID" : "99", "SubInstance" : "grp_iscsi_nop_out_fu_326", "Port" : "tcp_in_V_V"}]},
+					{"ID" : "101", "SubInstance" : "grp_read_from_tcp_fu_343", "Port" : "inp_stream_V_V"},
+					{"ID" : "64", "SubInstance" : "grp_iscsi_text_fu_283", "Port" : "tcp_in_V_V"}]},
 			{"Name" : "tcp_out_V_V", "Type" : "Axis", "Direction" : "O",
 				"SubConnect" : [
+					{"ID" : "99", "SubInstance" : "grp_iscsi_nop_out_fu_328", "Port" : "tcp_out_V_V"},
 					{"ID" : "3", "SubInstance" : "grp_iscsi_login_fu_178", "Port" : "tcp_out_V_V"},
-					{"ID" : "64", "SubInstance" : "grp_iscsi_text_fu_283", "Port" : "tcp_out_V_V"},
-					{"ID" : "99", "SubInstance" : "grp_iscsi_nop_out_fu_326", "Port" : "tcp_out_V_V"}]},
+					{"ID" : "64", "SubInstance" : "grp_iscsi_text_fu_283", "Port" : "tcp_out_V_V"}]},
 			{"Name" : "instance_initialized", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "grp_iscsi_login_fu_178", "Port" : "instance_initialized"}]},
+					{"ID" : "3", "SubInstance" : "grp_iscsi_login_fu_178", "Port" : "instance_initialized"},
+					{"ID" : "64", "SubInstance" : "grp_iscsi_text_fu_283", "Port" : "instance_initialized"}]},
 			{"Name" : "instance_full_featur", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
 					{"ID" : "3", "SubInstance" : "grp_iscsi_login_fu_178", "Port" : "instance_full_featur"}]},
@@ -362,14 +363,14 @@ set RtlHierarchyInfo {[
 					{"ID" : "3", "SubInstance" : "grp_iscsi_login_fu_178", "Port" : "instance_discovery"}]},
 			{"Name" : "instance_exp_cmd_sn", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
+					{"ID" : "99", "SubInstance" : "grp_iscsi_nop_out_fu_328", "Port" : "instance_exp_cmd_sn"},
 					{"ID" : "3", "SubInstance" : "grp_iscsi_login_fu_178", "Port" : "instance_exp_cmd_sn"},
-					{"ID" : "64", "SubInstance" : "grp_iscsi_text_fu_283", "Port" : "instance_exp_cmd_sn"},
-					{"ID" : "99", "SubInstance" : "grp_iscsi_nop_out_fu_326", "Port" : "instance_exp_cmd_sn"}]},
+					{"ID" : "64", "SubInstance" : "grp_iscsi_text_fu_283", "Port" : "instance_exp_cmd_sn"}]},
 			{"Name" : "instance_max_cmd_sn", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
+					{"ID" : "99", "SubInstance" : "grp_iscsi_nop_out_fu_328", "Port" : "instance_max_cmd_sn"},
 					{"ID" : "3", "SubInstance" : "grp_iscsi_login_fu_178", "Port" : "instance_max_cmd_sn"},
-					{"ID" : "64", "SubInstance" : "grp_iscsi_text_fu_283", "Port" : "instance_max_cmd_sn"},
-					{"ID" : "99", "SubInstance" : "grp_iscsi_nop_out_fu_326", "Port" : "instance_max_cmd_sn"}]},
+					{"ID" : "64", "SubInstance" : "grp_iscsi_text_fu_283", "Port" : "instance_max_cmd_sn"}]},
 			{"Name" : "buffer_r", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
 					{"ID" : "3", "SubInstance" : "grp_iscsi_login_fu_178", "Port" : "buffer_r"}]},
@@ -411,9 +412,9 @@ set RtlHierarchyInfo {[
 					{"ID" : "3", "SubInstance" : "grp_iscsi_login_fu_178", "Port" : "p_str924"}]},
 			{"Name" : "instance_stat_sn", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
+					{"ID" : "99", "SubInstance" : "grp_iscsi_nop_out_fu_328", "Port" : "instance_stat_sn"},
 					{"ID" : "3", "SubInstance" : "grp_iscsi_login_fu_178", "Port" : "instance_stat_sn"},
-					{"ID" : "64", "SubInstance" : "grp_iscsi_text_fu_283", "Port" : "instance_stat_sn"},
-					{"ID" : "99", "SubInstance" : "grp_iscsi_nop_out_fu_326", "Port" : "instance_stat_sn"}]},
+					{"ID" : "64", "SubInstance" : "grp_iscsi_text_fu_283", "Port" : "instance_stat_sn"}]},
 			{"Name" : "authentication_respo", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
 					{"ID" : "3", "SubInstance" : "grp_iscsi_login_fu_178", "Port" : "authentication_respo"}]},
@@ -456,9 +457,9 @@ set RtlHierarchyInfo {[
 					{"ID" : "18", "SubInstance" : "grp_read_from_tcp_1_fu_1111", "Port" : "tcp_in_V_V"}]},
 			{"Name" : "tcp_out_V_V", "Type" : "Axis", "Direction" : "O",
 				"SubConnect" : [
-					{"ID" : "58", "SubInstance" : "grp_write_to_tcp_1_fu_1237", "Port" : "tcp_out_V_V"},
 					{"ID" : "60", "SubInstance" : "grp_write_to_tcp_fu_1247", "Port" : "out_stream_V_V"},
-					{"ID" : "62", "SubInstance" : "grp_write_byte_array_2_fu_1254", "Port" : "stream_ap_uint_32_V_V"}]},
+					{"ID" : "62", "SubInstance" : "grp_write_byte_array_2_fu_1254", "Port" : "stream_ap_uint_32_V_V"},
+					{"ID" : "58", "SubInstance" : "grp_write_to_tcp_1_fu_1237", "Port" : "tcp_out_V_V"}]},
 			{"Name" : "p_str25", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
 					{"ID" : "18", "SubInstance" : "grp_read_from_tcp_1_fu_1111", "Port" : "p_str25"}]},
@@ -530,21 +531,21 @@ set RtlHierarchyInfo {[
 					{"ID" : "18", "SubInstance" : "grp_read_from_tcp_1_fu_1111", "Port" : "iscsi_connection_parameter_max_outstanding_r2t"}]},
 			{"Name" : "instance_data", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "58", "SubInstance" : "grp_write_to_tcp_1_fu_1237", "Port" : "instance_data"},
-					{"ID" : "45", "SubInstance" : "grp_write_key_value_int_2_fu_1166", "Port" : "instance_data"},
 					{"ID" : "55", "SubInstance" : "grp_setup_session_fu_1220", "Port" : "instance_data"},
-					{"ID" : "18", "SubInstance" : "grp_read_from_tcp_1_fu_1111", "Port" : "iscsi_connection_parameter_data"},
 					{"ID" : "52", "SubInstance" : "grp_write_key_value_int_fu_1207", "Port" : "instance_data"},
 					{"ID" : "47", "SubInstance" : "grp_write_key_value_int_3_fu_1180", "Port" : "instance_data"},
-					{"ID" : "49", "SubInstance" : "grp_write_key_value_int_1_fu_1194", "Port" : "instance_data"}]},
+					{"ID" : "49", "SubInstance" : "grp_write_key_value_int_1_fu_1194", "Port" : "instance_data"},
+					{"ID" : "58", "SubInstance" : "grp_write_to_tcp_1_fu_1237", "Port" : "instance_data"},
+					{"ID" : "18", "SubInstance" : "grp_read_from_tcp_1_fu_1111", "Port" : "iscsi_connection_parameter_data"},
+					{"ID" : "45", "SubInstance" : "grp_write_key_value_int_2_fu_1166", "Port" : "instance_data"}]},
 			{"Name" : "instance_data_length", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "58", "SubInstance" : "grp_write_to_tcp_1_fu_1237", "Port" : "instance_data_length"},
-					{"ID" : "45", "SubInstance" : "grp_write_key_value_int_2_fu_1166", "Port" : "instance_data_length"},
 					{"ID" : "55", "SubInstance" : "grp_setup_session_fu_1220", "Port" : "instance_data_length"},
 					{"ID" : "52", "SubInstance" : "grp_write_key_value_int_fu_1207", "Port" : "instance_data_length"},
 					{"ID" : "47", "SubInstance" : "grp_write_key_value_int_3_fu_1180", "Port" : "instance_data_length"},
-					{"ID" : "49", "SubInstance" : "grp_write_key_value_int_1_fu_1194", "Port" : "instance_data_length"}]},
+					{"ID" : "49", "SubInstance" : "grp_write_key_value_int_1_fu_1194", "Port" : "instance_data_length"},
+					{"ID" : "58", "SubInstance" : "grp_write_to_tcp_1_fu_1237", "Port" : "instance_data_length"},
+					{"ID" : "45", "SubInstance" : "grp_write_key_value_int_2_fu_1166", "Port" : "instance_data_length"}]},
 			{"Name" : "instance_tsih", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
 					{"ID" : "55", "SubInstance" : "grp_setup_session_fu_1220", "Port" : "instance_tsih"}]},
@@ -563,10 +564,10 @@ set RtlHierarchyInfo {[
 			{"Name" : "instance_full_featur", "Type" : "Vld", "Direction" : "O"},
 			{"Name" : "buffer_r", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "45", "SubInstance" : "grp_write_key_value_int_2_fu_1166", "Port" : "buffer_r"},
 					{"ID" : "52", "SubInstance" : "grp_write_key_value_int_fu_1207", "Port" : "buffer_r"},
 					{"ID" : "47", "SubInstance" : "grp_write_key_value_int_3_fu_1180", "Port" : "buffer_r"},
-					{"ID" : "49", "SubInstance" : "grp_write_key_value_int_1_fu_1194", "Port" : "buffer_r"}]},
+					{"ID" : "49", "SubInstance" : "grp_write_key_value_int_1_fu_1194", "Port" : "buffer_r"},
+					{"ID" : "45", "SubInstance" : "grp_write_key_value_int_2_fu_1166", "Port" : "buffer_r"}]},
 			{"Name" : "p_str15", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
 					{"ID" : "47", "SubInstance" : "grp_write_key_value_int_3_fu_1180", "Port" : "key"}]},
@@ -661,8 +662,8 @@ set RtlHierarchyInfo {[
 					{"ID" : "19", "SubInstance" : "grp_update_values_fu_74", "Port" : "iscsi_connection_parameter_max_outstanding_r2t"}]},
 			{"Name" : "iscsi_connection_parameter_data", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "19", "SubInstance" : "grp_update_values_fu_74", "Port" : "iscsi_connection_parameter_data"},
-					{"ID" : "44", "SubInstance" : "grp_read_byte_array_1_fu_127", "Port" : "data"}]},
+					{"ID" : "44", "SubInstance" : "grp_read_byte_array_1_fu_127", "Port" : "data"},
+					{"ID" : "19", "SubInstance" : "grp_update_values_fu_74", "Port" : "iscsi_connection_parameter_data"}]},
 			{"Name" : "tcp_in_V_V", "Type" : "Axis", "Direction" : "I",
 				"SubConnect" : [
 					{"ID" : "44", "SubInstance" : "grp_read_byte_array_1_fu_127", "Port" : "stream_ap_uint_32_V_V"}]},
@@ -756,15 +757,15 @@ set RtlHierarchyInfo {[
 					{"ID" : "30", "SubInstance" : "grp_update_value_int_fu_239", "Port" : "val_r"}]},
 			{"Name" : "iscsi_connection_parameter_data", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "24", "SubInstance" : "grp_update_value_int_2_fu_180", "Port" : "iscsi_connection_parameter_data"},
-					{"ID" : "25", "SubInstance" : "grp_update_value_int_3_fu_199", "Port" : "iscsi_connection_parameter_data"},
-					{"ID" : "35", "SubInstance" : "grp_update_value_bool_3_fu_265", "Port" : "iscsi_connection_parameter_data"},
 					{"ID" : "38", "SubInstance" : "grp_update_value_bool_2_fu_279", "Port" : "iscsi_connection_parameter_data"},
 					{"ID" : "32", "SubInstance" : "grp_update_value_bool_fu_251", "Port" : "iscsi_connection_parameter_data"},
 					{"ID" : "41", "SubInstance" : "grp_update_value_bool_1_fu_293", "Port" : "iscsi_connection_parameter_data"},
-					{"ID" : "30", "SubInstance" : "grp_update_value_int_fu_239", "Port" : "iscsi_connection_parameter_data"},
+					{"ID" : "25", "SubInstance" : "grp_update_value_int_3_fu_199", "Port" : "iscsi_connection_parameter_data"},
+					{"ID" : "24", "SubInstance" : "grp_update_value_int_2_fu_180", "Port" : "iscsi_connection_parameter_data"},
+					{"ID" : "26", "SubInstance" : "grp_update_value_int_4_fu_215", "Port" : "iscsi_connection_parameter_data"},
 					{"ID" : "28", "SubInstance" : "grp_update_value_int_1_fu_227", "Port" : "iscsi_connection_parameter_data"},
-					{"ID" : "26", "SubInstance" : "grp_update_value_int_4_fu_215", "Port" : "iscsi_connection_parameter_data"}]},
+					{"ID" : "30", "SubInstance" : "grp_update_value_int_fu_239", "Port" : "iscsi_connection_parameter_data"},
+					{"ID" : "35", "SubInstance" : "grp_update_value_bool_3_fu_265", "Port" : "iscsi_connection_parameter_data"}]},
 			{"Name" : "iscsi_connection_parameter_data_length_read", "Type" : "None", "Direction" : "I"},
 			{"Name" : "p_str25", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
@@ -777,10 +778,10 @@ set RtlHierarchyInfo {[
 					{"ID" : "35", "SubInstance" : "grp_update_value_bool_3_fu_265", "Port" : "p_str4"}]},
 			{"Name" : "p_str13", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "35", "SubInstance" : "grp_update_value_bool_3_fu_265", "Port" : "p_str13"},
 					{"ID" : "38", "SubInstance" : "grp_update_value_bool_2_fu_279", "Port" : "p_str13"},
 					{"ID" : "32", "SubInstance" : "grp_update_value_bool_fu_251", "Port" : "p_str13"},
-					{"ID" : "41", "SubInstance" : "grp_update_value_bool_1_fu_293", "Port" : "p_str13"}]},
+					{"ID" : "41", "SubInstance" : "grp_update_value_bool_1_fu_293", "Port" : "p_str13"},
+					{"ID" : "35", "SubInstance" : "grp_update_value_bool_3_fu_265", "Port" : "p_str13"}]},
 			{"Name" : "p_str5", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
 					{"ID" : "38", "SubInstance" : "grp_update_value_bool_2_fu_279", "Port" : "p_str5"}]},
@@ -1226,65 +1227,66 @@ set RtlHierarchyInfo {[
 		"InDataflowNetwork" : "0",
 		"HasNonBlockingOperation" : "0",
 		"WaitState" : [
-			{"State" : "ap_ST_fsm_state4", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_read_from_tcp_1_fu_581"},
-			{"State" : "ap_ST_fsm_state25", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_write_byte_array_fu_624"},
-			{"State" : "ap_ST_fsm_state23", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_write_to_tcp_fu_632"}],
+			{"State" : "ap_ST_fsm_state4", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_read_from_tcp_1_fu_585"},
+			{"State" : "ap_ST_fsm_state25", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_write_byte_array_fu_628"},
+			{"State" : "ap_ST_fsm_state23", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_write_to_tcp_fu_636"}],
 		"Port" : [
 			{"Name" : "header_buffer_V", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "tcp_in_V_V", "Type" : "Axis", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "68", "SubInstance" : "grp_read_from_tcp_1_fu_581", "Port" : "tcp_in_V_V"}]},
+					{"ID" : "68", "SubInstance" : "grp_read_from_tcp_1_fu_585", "Port" : "tcp_in_V_V"}]},
 			{"Name" : "tcp_out_V_V", "Type" : "Axis", "Direction" : "O",
 				"SubConnect" : [
-					{"ID" : "95", "SubInstance" : "grp_write_byte_array_fu_624", "Port" : "stream_ap_uint_32_V_V"},
-					{"ID" : "97", "SubInstance" : "grp_write_to_tcp_fu_632", "Port" : "out_stream_V_V"}]},
+					{"ID" : "95", "SubInstance" : "grp_write_byte_array_fu_628", "Port" : "stream_ap_uint_32_V_V"},
+					{"ID" : "97", "SubInstance" : "grp_write_to_tcp_fu_636", "Port" : "out_stream_V_V"}]},
 			{"Name" : "p_str25", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "68", "SubInstance" : "grp_read_from_tcp_1_fu_581", "Port" : "p_str25"}]},
+					{"ID" : "68", "SubInstance" : "grp_read_from_tcp_1_fu_585", "Port" : "p_str25"}]},
 			{"Name" : "p_str36", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "68", "SubInstance" : "grp_read_from_tcp_1_fu_581", "Port" : "p_str36"}]},
+					{"ID" : "68", "SubInstance" : "grp_read_from_tcp_1_fu_585", "Port" : "p_str36"}]},
 			{"Name" : "p_str4", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "68", "SubInstance" : "grp_read_from_tcp_1_fu_581", "Port" : "p_str4"}]},
+					{"ID" : "68", "SubInstance" : "grp_read_from_tcp_1_fu_585", "Port" : "p_str4"}]},
 			{"Name" : "p_str13", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "68", "SubInstance" : "grp_read_from_tcp_1_fu_581", "Port" : "p_str13"}]},
+					{"ID" : "68", "SubInstance" : "grp_read_from_tcp_1_fu_585", "Port" : "p_str13"}]},
 			{"Name" : "p_str5", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "68", "SubInstance" : "grp_read_from_tcp_1_fu_581", "Port" : "p_str5"}]},
+					{"ID" : "68", "SubInstance" : "grp_read_from_tcp_1_fu_585", "Port" : "p_str5"}]},
 			{"Name" : "p_str6", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "68", "SubInstance" : "grp_read_from_tcp_1_fu_581", "Port" : "p_str6"}]},
+					{"ID" : "68", "SubInstance" : "grp_read_from_tcp_1_fu_585", "Port" : "p_str6"}]},
 			{"Name" : "p_str7", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "68", "SubInstance" : "grp_read_from_tcp_1_fu_581", "Port" : "p_str7"}]},
+					{"ID" : "68", "SubInstance" : "grp_read_from_tcp_1_fu_585", "Port" : "p_str7"}]},
 			{"Name" : "p_str8", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "68", "SubInstance" : "grp_read_from_tcp_1_fu_581", "Port" : "p_str8"}]},
+					{"ID" : "68", "SubInstance" : "grp_read_from_tcp_1_fu_585", "Port" : "p_str8"}]},
 			{"Name" : "p_str9", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "68", "SubInstance" : "grp_read_from_tcp_1_fu_581", "Port" : "p_str9"}]},
+					{"ID" : "68", "SubInstance" : "grp_read_from_tcp_1_fu_585", "Port" : "p_str9"}]},
 			{"Name" : "p_str10", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "68", "SubInstance" : "grp_read_from_tcp_1_fu_581", "Port" : "p_str10"}]},
+					{"ID" : "68", "SubInstance" : "grp_read_from_tcp_1_fu_585", "Port" : "p_str10"}]},
 			{"Name" : "p_str11", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "68", "SubInstance" : "grp_read_from_tcp_1_fu_581", "Port" : "p_str11"}]},
+					{"ID" : "68", "SubInstance" : "grp_read_from_tcp_1_fu_585", "Port" : "p_str11"}]},
 			{"Name" : "p_str12", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "68", "SubInstance" : "grp_read_from_tcp_1_fu_581", "Port" : "p_str12"}]},
+					{"ID" : "68", "SubInstance" : "grp_read_from_tcp_1_fu_585", "Port" : "p_str12"}]},
 			{"Name" : "instance_exp_cmd_sn", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "instance_max_cmd_sn", "Type" : "Vld", "Direction" : "O"},
 			{"Name" : "instance_stat_sn", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "p_str14", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "response_text", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "95", "SubInstance" : "grp_write_byte_array_fu_624", "Port" : "response_text"}]}]},
+					{"ID" : "95", "SubInstance" : "grp_write_byte_array_fu_628", "Port" : "response_text"}]},
+			{"Name" : "instance_initialized", "Type" : "Vld", "Direction" : "O"}]},
 	{"ID" : "65", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.p_str14_U", "Parent" : "64"},
 	{"ID" : "66", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.parameter_data_U", "Parent" : "64"},
 	{"ID" : "67", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.response_buffer_V_U", "Parent" : "64"},
-	{"ID" : "68", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_581", "Parent" : "64", "Child" : ["69", "94"],
+	{"ID" : "68", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_585", "Parent" : "64", "Child" : ["69", "94"],
 		"CDFG" : "read_from_tcp_1",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -1336,8 +1338,8 @@ set RtlHierarchyInfo {[
 					{"ID" : "69", "SubInstance" : "grp_update_values_fu_74", "Port" : "iscsi_connection_parameter_max_outstanding_r2t"}]},
 			{"Name" : "iscsi_connection_parameter_data", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "69", "SubInstance" : "grp_update_values_fu_74", "Port" : "iscsi_connection_parameter_data"},
-					{"ID" : "94", "SubInstance" : "grp_read_byte_array_1_fu_127", "Port" : "data"}]},
+					{"ID" : "94", "SubInstance" : "grp_read_byte_array_1_fu_127", "Port" : "data"},
+					{"ID" : "69", "SubInstance" : "grp_update_values_fu_74", "Port" : "iscsi_connection_parameter_data"}]},
 			{"Name" : "tcp_in_V_V", "Type" : "Axis", "Direction" : "I",
 				"SubConnect" : [
 					{"ID" : "94", "SubInstance" : "grp_read_byte_array_1_fu_127", "Port" : "stream_ap_uint_32_V_V"}]},
@@ -1378,7 +1380,7 @@ set RtlHierarchyInfo {[
 			{"Name" : "p_str12", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
 					{"ID" : "69", "SubInstance" : "grp_update_values_fu_74", "Port" : "p_str12"}]}]},
-	{"ID" : "69", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_581.grp_update_values_fu_74", "Parent" : "68", "Child" : ["70", "71", "72", "73", "74", "75", "76", "78", "80", "82", "85", "88", "91"],
+	{"ID" : "69", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_585.grp_update_values_fu_74", "Parent" : "68", "Child" : ["70", "71", "72", "73", "74", "75", "76", "78", "80", "82", "85", "88", "91"],
 		"CDFG" : "update_values",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -1431,15 +1433,15 @@ set RtlHierarchyInfo {[
 					{"ID" : "80", "SubInstance" : "grp_update_value_int_fu_239", "Port" : "val_r"}]},
 			{"Name" : "iscsi_connection_parameter_data", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "74", "SubInstance" : "grp_update_value_int_2_fu_180", "Port" : "iscsi_connection_parameter_data"},
-					{"ID" : "75", "SubInstance" : "grp_update_value_int_3_fu_199", "Port" : "iscsi_connection_parameter_data"},
-					{"ID" : "85", "SubInstance" : "grp_update_value_bool_3_fu_265", "Port" : "iscsi_connection_parameter_data"},
 					{"ID" : "88", "SubInstance" : "grp_update_value_bool_2_fu_279", "Port" : "iscsi_connection_parameter_data"},
 					{"ID" : "82", "SubInstance" : "grp_update_value_bool_fu_251", "Port" : "iscsi_connection_parameter_data"},
 					{"ID" : "91", "SubInstance" : "grp_update_value_bool_1_fu_293", "Port" : "iscsi_connection_parameter_data"},
-					{"ID" : "80", "SubInstance" : "grp_update_value_int_fu_239", "Port" : "iscsi_connection_parameter_data"},
+					{"ID" : "75", "SubInstance" : "grp_update_value_int_3_fu_199", "Port" : "iscsi_connection_parameter_data"},
+					{"ID" : "74", "SubInstance" : "grp_update_value_int_2_fu_180", "Port" : "iscsi_connection_parameter_data"},
+					{"ID" : "76", "SubInstance" : "grp_update_value_int_4_fu_215", "Port" : "iscsi_connection_parameter_data"},
 					{"ID" : "78", "SubInstance" : "grp_update_value_int_1_fu_227", "Port" : "iscsi_connection_parameter_data"},
-					{"ID" : "76", "SubInstance" : "grp_update_value_int_4_fu_215", "Port" : "iscsi_connection_parameter_data"}]},
+					{"ID" : "80", "SubInstance" : "grp_update_value_int_fu_239", "Port" : "iscsi_connection_parameter_data"},
+					{"ID" : "85", "SubInstance" : "grp_update_value_bool_3_fu_265", "Port" : "iscsi_connection_parameter_data"}]},
 			{"Name" : "iscsi_connection_parameter_data_length_read", "Type" : "None", "Direction" : "I"},
 			{"Name" : "p_str25", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
@@ -1452,10 +1454,10 @@ set RtlHierarchyInfo {[
 					{"ID" : "85", "SubInstance" : "grp_update_value_bool_3_fu_265", "Port" : "p_str4"}]},
 			{"Name" : "p_str13", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "85", "SubInstance" : "grp_update_value_bool_3_fu_265", "Port" : "p_str13"},
 					{"ID" : "88", "SubInstance" : "grp_update_value_bool_2_fu_279", "Port" : "p_str13"},
 					{"ID" : "82", "SubInstance" : "grp_update_value_bool_fu_251", "Port" : "p_str13"},
-					{"ID" : "91", "SubInstance" : "grp_update_value_bool_1_fu_293", "Port" : "p_str13"}]},
+					{"ID" : "91", "SubInstance" : "grp_update_value_bool_1_fu_293", "Port" : "p_str13"},
+					{"ID" : "85", "SubInstance" : "grp_update_value_bool_3_fu_265", "Port" : "p_str13"}]},
 			{"Name" : "p_str5", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
 					{"ID" : "88", "SubInstance" : "grp_update_value_bool_2_fu_279", "Port" : "p_str5"}]},
@@ -1480,11 +1482,11 @@ set RtlHierarchyInfo {[
 			{"Name" : "p_str12", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
 					{"ID" : "80", "SubInstance" : "grp_update_value_int_fu_239", "Port" : "p_str12"}]}]},
-	{"ID" : "70", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_581.grp_update_values_fu_74.p_str36_U", "Parent" : "69"},
-	{"ID" : "71", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_581.grp_update_values_fu_74.p_str6_U", "Parent" : "69"},
-	{"ID" : "72", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_581.grp_update_values_fu_74.p_str7_U", "Parent" : "69"},
-	{"ID" : "73", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_581.grp_update_values_fu_74.p_str10_U", "Parent" : "69"},
-	{"ID" : "74", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_581.grp_update_values_fu_74.grp_update_value_int_2_fu_180", "Parent" : "69",
+	{"ID" : "70", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_585.grp_update_values_fu_74.p_str36_U", "Parent" : "69"},
+	{"ID" : "71", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_585.grp_update_values_fu_74.p_str6_U", "Parent" : "69"},
+	{"ID" : "72", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_585.grp_update_values_fu_74.p_str7_U", "Parent" : "69"},
+	{"ID" : "73", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_585.grp_update_values_fu_74.p_str10_U", "Parent" : "69"},
+	{"ID" : "74", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_585.grp_update_values_fu_74.grp_update_value_int_2_fu_180", "Parent" : "69",
 		"CDFG" : "update_value_int_2",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -1503,7 +1505,7 @@ set RtlHierarchyInfo {[
 			{"Name" : "key", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "val_read", "Type" : "None", "Direction" : "I"},
 			{"Name" : "keep_max", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "75", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_581.grp_update_values_fu_74.grp_update_value_int_3_fu_199", "Parent" : "69",
+	{"ID" : "75", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_585.grp_update_values_fu_74.grp_update_value_int_3_fu_199", "Parent" : "69",
 		"CDFG" : "update_value_int_3",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -1521,7 +1523,7 @@ set RtlHierarchyInfo {[
 			{"Name" : "idx", "Type" : "None", "Direction" : "I"},
 			{"Name" : "key", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "val_read", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "76", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_581.grp_update_values_fu_74.grp_update_value_int_4_fu_215", "Parent" : "69", "Child" : ["77"],
+	{"ID" : "76", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_585.grp_update_values_fu_74.grp_update_value_int_4_fu_215", "Parent" : "69", "Child" : ["77"],
 		"CDFG" : "update_value_int_4",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -1539,8 +1541,8 @@ set RtlHierarchyInfo {[
 			{"Name" : "idx", "Type" : "None", "Direction" : "I"},
 			{"Name" : "val_r", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "p_str25", "Type" : "Memory", "Direction" : "I"}]},
-	{"ID" : "77", "Level" : "6", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_581.grp_update_values_fu_74.grp_update_value_int_4_fu_215.p_str25_U", "Parent" : "76"},
-	{"ID" : "78", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_581.grp_update_values_fu_74.grp_update_value_int_1_fu_227", "Parent" : "69", "Child" : ["79"],
+	{"ID" : "77", "Level" : "6", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_585.grp_update_values_fu_74.grp_update_value_int_4_fu_215.p_str25_U", "Parent" : "76"},
+	{"ID" : "78", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_585.grp_update_values_fu_74.grp_update_value_int_1_fu_227", "Parent" : "69", "Child" : ["79"],
 		"CDFG" : "update_value_int_1",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -1558,8 +1560,8 @@ set RtlHierarchyInfo {[
 			{"Name" : "idx", "Type" : "None", "Direction" : "I"},
 			{"Name" : "val_r", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "p_str11", "Type" : "Memory", "Direction" : "I"}]},
-	{"ID" : "79", "Level" : "6", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_581.grp_update_values_fu_74.grp_update_value_int_1_fu_227.p_str11_U", "Parent" : "78"},
-	{"ID" : "80", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_581.grp_update_values_fu_74.grp_update_value_int_fu_239", "Parent" : "69", "Child" : ["81"],
+	{"ID" : "79", "Level" : "6", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_585.grp_update_values_fu_74.grp_update_value_int_1_fu_227.p_str11_U", "Parent" : "78"},
+	{"ID" : "80", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_585.grp_update_values_fu_74.grp_update_value_int_fu_239", "Parent" : "69", "Child" : ["81"],
 		"CDFG" : "update_value_int",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -1577,8 +1579,8 @@ set RtlHierarchyInfo {[
 			{"Name" : "idx", "Type" : "None", "Direction" : "I"},
 			{"Name" : "val_r", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "p_str12", "Type" : "Memory", "Direction" : "I"}]},
-	{"ID" : "81", "Level" : "6", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_581.grp_update_values_fu_74.grp_update_value_int_fu_239.p_str12_U", "Parent" : "80"},
-	{"ID" : "82", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_581.grp_update_values_fu_74.grp_update_value_bool_fu_251", "Parent" : "69", "Child" : ["83", "84"],
+	{"ID" : "81", "Level" : "6", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_585.grp_update_values_fu_74.grp_update_value_int_fu_239.p_str12_U", "Parent" : "80"},
+	{"ID" : "82", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_585.grp_update_values_fu_74.grp_update_value_bool_fu_251", "Parent" : "69", "Child" : ["83", "84"],
 		"CDFG" : "update_value_bool",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -1597,9 +1599,9 @@ set RtlHierarchyInfo {[
 			{"Name" : "val_r", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "p_str9", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "p_str13", "Type" : "Memory", "Direction" : "I"}]},
-	{"ID" : "83", "Level" : "6", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_581.grp_update_values_fu_74.grp_update_value_bool_fu_251.p_str9_U", "Parent" : "82"},
-	{"ID" : "84", "Level" : "6", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_581.grp_update_values_fu_74.grp_update_value_bool_fu_251.p_str13_U", "Parent" : "82"},
-	{"ID" : "85", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_581.grp_update_values_fu_74.grp_update_value_bool_3_fu_265", "Parent" : "69", "Child" : ["86", "87"],
+	{"ID" : "83", "Level" : "6", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_585.grp_update_values_fu_74.grp_update_value_bool_fu_251.p_str9_U", "Parent" : "82"},
+	{"ID" : "84", "Level" : "6", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_585.grp_update_values_fu_74.grp_update_value_bool_fu_251.p_str13_U", "Parent" : "82"},
+	{"ID" : "85", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_585.grp_update_values_fu_74.grp_update_value_bool_3_fu_265", "Parent" : "69", "Child" : ["86", "87"],
 		"CDFG" : "update_value_bool_3",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -1618,9 +1620,9 @@ set RtlHierarchyInfo {[
 			{"Name" : "val_r", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "p_str4", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "p_str13", "Type" : "Memory", "Direction" : "I"}]},
-	{"ID" : "86", "Level" : "6", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_581.grp_update_values_fu_74.grp_update_value_bool_3_fu_265.p_str4_U", "Parent" : "85"},
-	{"ID" : "87", "Level" : "6", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_581.grp_update_values_fu_74.grp_update_value_bool_3_fu_265.p_str13_U", "Parent" : "85"},
-	{"ID" : "88", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_581.grp_update_values_fu_74.grp_update_value_bool_2_fu_279", "Parent" : "69", "Child" : ["89", "90"],
+	{"ID" : "86", "Level" : "6", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_585.grp_update_values_fu_74.grp_update_value_bool_3_fu_265.p_str4_U", "Parent" : "85"},
+	{"ID" : "87", "Level" : "6", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_585.grp_update_values_fu_74.grp_update_value_bool_3_fu_265.p_str13_U", "Parent" : "85"},
+	{"ID" : "88", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_585.grp_update_values_fu_74.grp_update_value_bool_2_fu_279", "Parent" : "69", "Child" : ["89", "90"],
 		"CDFG" : "update_value_bool_2",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -1639,9 +1641,9 @@ set RtlHierarchyInfo {[
 			{"Name" : "val_r", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "p_str5", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "p_str13", "Type" : "Memory", "Direction" : "I"}]},
-	{"ID" : "89", "Level" : "6", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_581.grp_update_values_fu_74.grp_update_value_bool_2_fu_279.p_str5_U", "Parent" : "88"},
-	{"ID" : "90", "Level" : "6", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_581.grp_update_values_fu_74.grp_update_value_bool_2_fu_279.p_str13_U", "Parent" : "88"},
-	{"ID" : "91", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_581.grp_update_values_fu_74.grp_update_value_bool_1_fu_293", "Parent" : "69", "Child" : ["92", "93"],
+	{"ID" : "89", "Level" : "6", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_585.grp_update_values_fu_74.grp_update_value_bool_2_fu_279.p_str5_U", "Parent" : "88"},
+	{"ID" : "90", "Level" : "6", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_585.grp_update_values_fu_74.grp_update_value_bool_2_fu_279.p_str13_U", "Parent" : "88"},
+	{"ID" : "91", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_585.grp_update_values_fu_74.grp_update_value_bool_1_fu_293", "Parent" : "69", "Child" : ["92", "93"],
 		"CDFG" : "update_value_bool_1",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -1660,9 +1662,9 @@ set RtlHierarchyInfo {[
 			{"Name" : "val_r", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "p_str8", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "p_str13", "Type" : "Memory", "Direction" : "I"}]},
-	{"ID" : "92", "Level" : "6", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_581.grp_update_values_fu_74.grp_update_value_bool_1_fu_293.p_str8_U", "Parent" : "91"},
-	{"ID" : "93", "Level" : "6", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_581.grp_update_values_fu_74.grp_update_value_bool_1_fu_293.p_str13_U", "Parent" : "91"},
-	{"ID" : "94", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_581.grp_read_byte_array_1_fu_127", "Parent" : "68",
+	{"ID" : "92", "Level" : "6", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_585.grp_update_values_fu_74.grp_update_value_bool_1_fu_293.p_str8_U", "Parent" : "91"},
+	{"ID" : "93", "Level" : "6", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_585.grp_update_values_fu_74.grp_update_value_bool_1_fu_293.p_str13_U", "Parent" : "91"},
+	{"ID" : "94", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_read_from_tcp_1_fu_585.grp_read_byte_array_1_fu_127", "Parent" : "68",
 		"CDFG" : "read_byte_array_1",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -1681,7 +1683,7 @@ set RtlHierarchyInfo {[
 					{"Name" : "stream_ap_uint_32_V_V_TDATA_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "data", "Type" : "Memory", "Direction" : "O"},
 			{"Name" : "length_r", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "95", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_write_byte_array_fu_624", "Parent" : "64", "Child" : ["96"],
+	{"ID" : "95", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_write_byte_array_fu_628", "Parent" : "64", "Child" : ["96"],
 		"CDFG" : "write_byte_array",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -1699,8 +1701,8 @@ set RtlHierarchyInfo {[
 				"BlockSignal" : [
 					{"Name" : "stream_ap_uint_32_V_V_TDATA_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "response_text", "Type" : "Memory", "Direction" : "I"}]},
-	{"ID" : "96", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_write_byte_array_fu_624.response_text_U", "Parent" : "95"},
-	{"ID" : "97", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_write_to_tcp_fu_632", "Parent" : "64", "Child" : ["98"],
+	{"ID" : "96", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_write_byte_array_fu_628.response_text_U", "Parent" : "95"},
+	{"ID" : "97", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_write_to_tcp_fu_636", "Parent" : "64", "Child" : ["98"],
 		"CDFG" : "write_to_tcp",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -1722,7 +1724,7 @@ set RtlHierarchyInfo {[
 			{"Name" : "out_stream_V_V", "Type" : "Axis", "Direction" : "O",
 				"SubConnect" : [
 					{"ID" : "98", "SubInstance" : "grp_write_byte_array_1_fu_16", "Port" : "stream_ap_uint_32_V_V"}]}]},
-	{"ID" : "98", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_write_to_tcp_fu_632.grp_write_byte_array_1_fu_16", "Parent" : "97",
+	{"ID" : "98", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_text_fu_283.grp_write_to_tcp_fu_636.grp_write_byte_array_1_fu_16", "Parent" : "97",
 		"CDFG" : "write_byte_array_1",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -1740,7 +1742,7 @@ set RtlHierarchyInfo {[
 				"BlockSignal" : [
 					{"Name" : "stream_ap_uint_32_V_V_TDATA_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "data", "Type" : "Memory", "Direction" : "I"}]},
-	{"ID" : "99", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_nop_out_fu_326", "Parent" : "1", "Child" : ["100"],
+	{"ID" : "99", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_nop_out_fu_328", "Parent" : "1", "Child" : ["100"],
 		"CDFG" : "iscsi_nop_out",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -1764,8 +1766,8 @@ set RtlHierarchyInfo {[
 			{"Name" : "instance_stat_sn", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "instance_exp_cmd_sn", "Type" : "None", "Direction" : "I"},
 			{"Name" : "instance_max_cmd_sn", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "100", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_nop_out_fu_326.response_buffer_V_U", "Parent" : "99"},
-	{"ID" : "101", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_read_from_tcp_fu_341", "Parent" : "1", "Child" : ["102"],
+	{"ID" : "100", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_iscsi_nop_out_fu_328.response_buffer_V_U", "Parent" : "99"},
+	{"ID" : "101", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_read_from_tcp_fu_343", "Parent" : "1", "Child" : ["102"],
 		"CDFG" : "read_from_tcp",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -1787,7 +1789,7 @@ set RtlHierarchyInfo {[
 			{"Name" : "inp_stream_V_V", "Type" : "Axis", "Direction" : "I",
 				"SubConnect" : [
 					{"ID" : "102", "SubInstance" : "grp_read_byte_array_fu_16", "Port" : "stream_ap_uint_32_V_V"}]}]},
-	{"ID" : "102", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_read_from_tcp_fu_341.grp_read_byte_array_fu_16", "Parent" : "101",
+	{"ID" : "102", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_process_pdu_fu_144.grp_read_from_tcp_fu_343.grp_read_byte_array_fu_16", "Parent" : "101",
 		"CDFG" : "read_byte_array",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -2142,7 +2144,8 @@ set ArgLastReadFirstWriteLatency {
 		instance_max_cmd_sn {Type O LastRead -1 FirstWrite 3}
 		instance_stat_sn {Type IO LastRead 3 FirstWrite 3}
 		p_str14 {Type I LastRead -1 FirstWrite -1}
-		response_text {Type I LastRead -1 FirstWrite -1}}
+		response_text {Type I LastRead -1 FirstWrite -1}
+		instance_initialized {Type O LastRead -1 FirstWrite 7}}
 	read_from_tcp_1 {
 		iscsi_connection_parameter_max_receive_data_segment_length {Type IO LastRead 4 FirstWrite 4}
 		iscsi_connection_parameter_max_connections {Type IO LastRead 3 FirstWrite 4}
@@ -2263,7 +2266,7 @@ set ArgLastReadFirstWriteLatency {
 		header_buffer_V {Type I LastRead 17 FirstWrite -1}
 		tcp_in_V_V {Type I LastRead 17 FirstWrite -1}
 		tcp_out_V_V {Type O LastRead -1 FirstWrite 17}
-		instance_stat_sn {Type IO LastRead 4 FirstWrite 4}
+		instance_stat_sn {Type IO LastRead 0 FirstWrite 4}
 		instance_exp_cmd_sn {Type I LastRead 6 FirstWrite -1}
 		instance_max_cmd_sn {Type I LastRead 8 FirstWrite -1}}
 	read_from_tcp {

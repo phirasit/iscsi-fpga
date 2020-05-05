@@ -85,7 +85,7 @@ struct update_value_bool_2 : public sc_module {
     sc_signal< sc_lv<32> > zext_ln123_fu_217_p1;
     sc_signal< sc_lv<32> > add_ln123_2_fu_221_p2;
     sc_signal< sc_lv<1> > trunc_ln145_fu_236_p1;
-    sc_signal< sc_lv<31> > tmp_4_fu_246_p4;
+    sc_signal< sc_lv<31> > tmp_5_fu_246_p4;
     sc_signal< sc_lv<1> > or_ln145_fu_240_p2;
     sc_signal< sc_lv<7> > ap_NS_fsm;
     static const sc_logic ap_const_logic_1;
@@ -145,7 +145,7 @@ struct update_value_bool_2 : public sc_module {
     void thread_p_str5_ce0();
     void thread_sext_ln123_4_fu_226_p1();
     void thread_sext_ln123_fu_186_p1();
-    void thread_tmp_4_fu_246_p4();
+    void thread_tmp_5_fu_246_p4();
     void thread_trunc_ln145_fu_236_p1();
     void thread_val_r_o();
     void thread_val_r_o_ap_vld();

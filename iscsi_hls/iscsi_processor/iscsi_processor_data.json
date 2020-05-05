@@ -78,8 +78,10 @@
       "src\/iscsi_top_level.cpp",
       "src\/iscsi_pdu\/iscsi_text.cpp",
       "src\/iscsi_session.cpp",
+      "src\/iscsi_pdu\/iscsi_scsi_cmd.cpp",
       "src\/iscsi_pdu\/iscsi_nop_out.cpp",
       "src\/iscsi_pdu\/iscsi_login.cpp",
+      "src\/iscsi_pdu\/iscsi_data_in.cpp",
       "src\/iscsi_connection_parameter.cpp",
       "src\/iscsi_connection.cpp"
     ],
@@ -455,7 +457,7 @@
               "Instances": [
                 {
                   "ModuleName": "read_from_tcp_1",
-                  "InstanceName": "grp_read_from_tcp_1_fu_581",
+                  "InstanceName": "grp_read_from_tcp_1_fu_585",
                   "Instances": [
                     {
                       "ModuleName": "update_values",
@@ -507,11 +509,11 @@
                 },
                 {
                   "ModuleName": "write_byte_array",
-                  "InstanceName": "grp_write_byte_array_fu_624"
+                  "InstanceName": "grp_write_byte_array_fu_628"
                 },
                 {
                   "ModuleName": "write_to_tcp",
-                  "InstanceName": "grp_write_to_tcp_fu_632",
+                  "InstanceName": "grp_write_to_tcp_fu_636",
                   "Instances": [{
                       "ModuleName": "write_byte_array_1",
                       "InstanceName": "grp_write_byte_array_1_fu_16"
@@ -521,11 +523,11 @@
             },
             {
               "ModuleName": "iscsi_nop_out",
-              "InstanceName": "grp_iscsi_nop_out_fu_326"
+              "InstanceName": "grp_iscsi_nop_out_fu_328"
             },
             {
               "ModuleName": "read_from_tcp",
-              "InstanceName": "grp_read_from_tcp_fu_341",
+              "InstanceName": "grp_read_from_tcp_fu_343",
               "Instances": [{
                   "ModuleName": "read_byte_array",
                   "InstanceName": "grp_read_byte_array_fu_16"
@@ -1743,7 +1745,7 @@
         ],
         "Area": {
           "BRAM_18K": "1",
-          "FF": "128",
+          "FF": "160",
           "LUT": "554",
           "URAM": "0",
           "DSP48E": "0"
@@ -1811,7 +1813,7 @@
         "Area": {
           "BRAM_18K": "5",
           "FF": "2135",
-          "LUT": "5073",
+          "LUT": "5100",
           "URAM": "0",
           "DSP48E": "0"
         }
@@ -1840,8 +1842,8 @@
         "Area": {
           "BRAM_18K": "12",
           "DSP48E": "16",
-          "FF": "8635",
-          "LUT": "17859",
+          "FF": "8667",
+          "LUT": "17895",
           "URAM": "0"
         }
       },
@@ -1869,8 +1871,8 @@
         "Area": {
           "BRAM_18K": "12",
           "DSP48E": "16",
-          "FF": "8777",
-          "LUT": "18018",
+          "FF": "8809",
+          "LUT": "18054",
           "URAM": "0"
         }
       }
@@ -1886,7 +1888,7 @@
   },
   "GenData": {
     "DataVersion": "0.2",
-    "Time": "2020-03-15 20:18:20 +07",
+    "Time": "2020-04-30 11:08:13 +07",
     "ToolName": "vivado_hls",
     "ToolVersion": "2019.1"
   }

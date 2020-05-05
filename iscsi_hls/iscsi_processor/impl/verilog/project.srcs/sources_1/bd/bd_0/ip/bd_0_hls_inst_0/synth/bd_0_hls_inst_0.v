@@ -48,11 +48,11 @@
 
 
 // IP VLNV: xilinx.com:hls:iscsi_interface:1.0
-// IP Revision: 2003152019
+// IP Revision: 2004301319
 
 (* X_CORE_INFO = "iscsi_interface,Vivado 2019.1" *)
 (* CHECK_LICENSE_TYPE = "bd_0_hls_inst_0,iscsi_interface,{}" *)
-(* CORE_GENERATION_INFO = "bd_0_hls_inst_0,iscsi_interface,{x_ipProduct=Vivado 2019.1,x_ipVendor=xilinx.com,x_ipLibrary=hls,x_ipName=iscsi_interface,x_ipVersion=1.0,x_ipCoreRevision=2003152019,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED}" *)
+(* CORE_GENERATION_INFO = "bd_0_hls_inst_0,iscsi_interface,{x_ipProduct=Vivado 2019.1,x_ipVendor=xilinx.com,x_ipLibrary=hls,x_ipName=iscsi_interface,x_ipVersion=1.0,x_ipCoreRevision=2004301319,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED}" *)
 (* IP_DEFINITION_SOURCE = "HLS" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module bd_0_hls_inst_0 (

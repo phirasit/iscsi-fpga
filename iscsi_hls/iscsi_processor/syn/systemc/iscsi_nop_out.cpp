@@ -74,8 +74,8 @@ const sc_lv<64> iscsi_nop_out::ap_const_lv64_23 = "100011";
 const sc_lv<64> iscsi_nop_out::ap_const_lv64_10 = "10000";
 const sc_lv<64> iscsi_nop_out::ap_const_lv64_11 = "10001";
 const sc_lv<64> iscsi_nop_out::ap_const_lv64_12 = "10010";
-const sc_lv<64> iscsi_nop_out::ap_const_lv64_13 = "10011";
 const sc_lv<64> iscsi_nop_out::ap_const_lv64_5 = "101";
+const sc_lv<64> iscsi_nop_out::ap_const_lv64_13 = "10011";
 const sc_lv<64> iscsi_nop_out::ap_const_lv64_6 = "110";
 const sc_lv<64> iscsi_nop_out::ap_const_lv64_7 = "111";
 const sc_lv<8> iscsi_nop_out::ap_const_lv8_0 = "00000000";
@@ -162,18 +162,18 @@ iscsi_nop_out::iscsi_nop_out(sc_module_name name) : sc_module(name), mVcdFile(0)
 
     SC_METHOD(thread_ap_block_state18);
     sensitive << ( tcp_in_V_V_TVALID );
-    sensitive << ( icmp_ln28_fu_638_p2 );
+    sensitive << ( icmp_ln30_fu_637_p2 );
 
     SC_METHOD(thread_ap_block_state18_io);
     sensitive << ( tcp_out_V_V_TREADY );
-    sensitive << ( icmp_ln28_fu_638_p2 );
+    sensitive << ( icmp_ln30_fu_637_p2 );
 
     SC_METHOD(thread_ap_done);
     sensitive << ( ap_start );
     sensitive << ( ap_CS_fsm_state1 );
     sensitive << ( tcp_in_V_V_TVALID );
     sensitive << ( ap_CS_fsm_state18 );
-    sensitive << ( icmp_ln28_fu_638_p2 );
+    sensitive << ( icmp_ln30_fu_637_p2 );
     sensitive << ( ap_block_state18_io );
 
     SC_METHOD(thread_ap_idle);
@@ -183,7 +183,7 @@ iscsi_nop_out::iscsi_nop_out(sc_module_name name) : sc_module(name), mVcdFile(0)
     SC_METHOD(thread_ap_ready);
     sensitive << ( tcp_in_V_V_TVALID );
     sensitive << ( ap_CS_fsm_state18 );
-    sensitive << ( icmp_ln28_fu_638_p2 );
+    sensitive << ( icmp_ln30_fu_637_p2 );
     sensitive << ( ap_block_state18_io );
 
     SC_METHOD(thread_header_buffer_V_address0);
@@ -214,21 +214,21 @@ iscsi_nop_out::iscsi_nop_out(sc_module_name name) : sc_module(name), mVcdFile(0)
     sensitive << ( ap_CS_fsm_state17 );
     sensitive << ( ap_CS_fsm_state16 );
 
-    SC_METHOD(thread_i_9_fu_644_p2);
+    SC_METHOD(thread_i_9_fu_643_p2);
     sensitive << ( i_0_reg_443 );
 
-    SC_METHOD(thread_i_fu_460_p2);
+    SC_METHOD(thread_i_fu_464_p2);
     sensitive << ( i_0_i_i_i_reg_432 );
 
-    SC_METHOD(thread_icmp_ln28_fu_638_p2);
+    SC_METHOD(thread_icmp_ln30_fu_637_p2);
     sensitive << ( tcp_in_V_V_TVALID );
     sensitive << ( ap_CS_fsm_state18 );
-    sensitive << ( icmp_ln28_fu_638_p2 );
+    sensitive << ( icmp_ln30_fu_637_p2 );
     sensitive << ( ap_block_state18_io );
     sensitive << ( i_0_reg_443 );
-    sensitive << ( ret_V_fu_634_p1 );
+    sensitive << ( ret_V_fu_633_p1 );
 
-    SC_METHOD(thread_icmp_ln35_fu_454_p2);
+    SC_METHOD(thread_icmp_ln35_fu_458_p2);
     sensitive << ( ap_CS_fsm_state2 );
     sensitive << ( i_0_i_i_i_reg_432 );
 
@@ -240,18 +240,18 @@ iscsi_nop_out::iscsi_nop_out(sc_module_name name) : sc_module(name), mVcdFile(0)
     SC_METHOD(thread_instance_stat_sn_o_ap_vld);
     sensitive << ( ap_CS_fsm_state5 );
 
-    SC_METHOD(thread_p_Result_2_fu_615_p4);
-    sensitive << ( p_Val2_5_reg_675 );
+    SC_METHOD(thread_p_Result_2_fu_614_p4);
+    sensitive << ( p_Val2_5_reg_679 );
 
-    SC_METHOD(thread_p_Result_s_fu_603_p5);
-    sensitive << ( p_Val2_s_reg_670 );
+    SC_METHOD(thread_p_Result_s_fu_602_p5);
+    sensitive << ( p_Val2_s_reg_674 );
 
     SC_METHOD(thread_p_Val2_6_fu_475_p2);
-    sensitive << ( instance_stat_sn_i );
+    sensitive << ( instance_stat_sn_loa_reg_649 );
 
     SC_METHOD(thread_response_buffer_V_address0);
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( icmp_ln35_fu_454_p2 );
+    sensitive << ( icmp_ln35_fu_458_p2 );
     sensitive << ( ap_CS_fsm_state3 );
     sensitive << ( ap_CS_fsm_state5 );
     sensitive << ( ap_CS_fsm_state7 );
@@ -260,7 +260,7 @@ iscsi_nop_out::iscsi_nop_out(sc_module_name name) : sc_module(name), mVcdFile(0)
     sensitive << ( ap_CS_fsm_state13 );
     sensitive << ( ap_CS_fsm_state14 );
     sensitive << ( ap_CS_fsm_state15 );
-    sensitive << ( zext_ln35_fu_466_p1 );
+    sensitive << ( zext_ln35_fu_470_p1 );
     sensitive << ( ap_CS_fsm_state4 );
     sensitive << ( ap_CS_fsm_state6 );
     sensitive << ( ap_CS_fsm_state8 );
@@ -284,7 +284,7 @@ iscsi_nop_out::iscsi_nop_out(sc_module_name name) : sc_module(name), mVcdFile(0)
 
     SC_METHOD(thread_response_buffer_V_ce0);
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( icmp_ln35_fu_454_p2 );
+    sensitive << ( icmp_ln35_fu_458_p2 );
     sensitive << ( ap_CS_fsm_state3 );
     sensitive << ( ap_CS_fsm_state5 );
     sensitive << ( ap_CS_fsm_state7 );
@@ -320,14 +320,14 @@ iscsi_nop_out::iscsi_nop_out(sc_module_name name) : sc_module(name), mVcdFile(0)
     sensitive << ( instance_exp_cmd_sn );
     sensitive << ( instance_max_cmd_sn );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( icmp_ln35_fu_454_p2 );
+    sensitive << ( icmp_ln35_fu_458_p2 );
     sensitive << ( ap_CS_fsm_state3 );
     sensitive << ( ap_CS_fsm_state5 );
-    sensitive << ( trunc_ln647_reg_685 );
+    sensitive << ( trunc_ln647_reg_689 );
     sensitive << ( ap_CS_fsm_state7 );
-    sensitive << ( trunc_ln647_2_reg_695 );
+    sensitive << ( trunc_ln647_2_reg_699 );
     sensitive << ( ap_CS_fsm_state9 );
-    sensitive << ( trunc_ln647_3_reg_705 );
+    sensitive << ( trunc_ln647_3_reg_709 );
     sensitive << ( ap_CS_fsm_state11 );
     sensitive << ( ap_CS_fsm_state13 );
     sensitive << ( ap_CS_fsm_state14 );
@@ -337,7 +337,7 @@ iscsi_nop_out::iscsi_nop_out(sc_module_name name) : sc_module(name), mVcdFile(0)
     sensitive << ( ap_CS_fsm_state8 );
     sensitive << ( ap_CS_fsm_state10 );
     sensitive << ( p_Val2_6_fu_475_p2 );
-    sensitive << ( p_Result_2_fu_615_p4 );
+    sensitive << ( p_Result_2_fu_614_p4 );
 
     SC_METHOD(thread_response_buffer_V_d1);
     sensitive << ( header_buffer_V_q0 );
@@ -345,11 +345,11 @@ iscsi_nop_out::iscsi_nop_out(sc_module_name name) : sc_module(name), mVcdFile(0)
     sensitive << ( instance_exp_cmd_sn );
     sensitive << ( instance_max_cmd_sn );
     sensitive << ( ap_CS_fsm_state3 );
-    sensitive << ( p_Result_7_i_i2_reg_680 );
+    sensitive << ( p_Result_7_i_i2_reg_684 );
     sensitive << ( ap_CS_fsm_state5 );
-    sensitive << ( p_Result_7_i8_i_reg_690 );
+    sensitive << ( p_Result_7_i8_i_reg_694 );
     sensitive << ( ap_CS_fsm_state7 );
-    sensitive << ( p_Result_7_i16_i_reg_700 );
+    sensitive << ( p_Result_7_i16_i_reg_704 );
     sensitive << ( ap_CS_fsm_state9 );
     sensitive << ( ap_CS_fsm_state11 );
     sensitive << ( ap_CS_fsm_state12 );
@@ -361,11 +361,11 @@ iscsi_nop_out::iscsi_nop_out(sc_module_name name) : sc_module(name), mVcdFile(0)
     sensitive << ( ap_CS_fsm_state8 );
     sensitive << ( ap_CS_fsm_state10 );
     sensitive << ( p_Val2_6_fu_475_p2 );
-    sensitive << ( p_Result_s_fu_603_p5 );
+    sensitive << ( p_Result_s_fu_602_p5 );
 
     SC_METHOD(thread_response_buffer_V_we0);
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( icmp_ln35_fu_454_p2 );
+    sensitive << ( icmp_ln35_fu_458_p2 );
     sensitive << ( ap_CS_fsm_state3 );
     sensitive << ( ap_CS_fsm_state5 );
     sensitive << ( ap_CS_fsm_state7 );
@@ -394,52 +394,52 @@ iscsi_nop_out::iscsi_nop_out(sc_module_name name) : sc_module(name), mVcdFile(0)
     sensitive << ( ap_CS_fsm_state8 );
     sensitive << ( ap_CS_fsm_state10 );
 
-    SC_METHOD(thread_ret_V_fu_634_p1);
-    sensitive << ( tmp_4_fu_625_p4 );
+    SC_METHOD(thread_ret_V_fu_633_p1);
+    sensitive << ( tmp_4_fu_624_p4 );
 
     SC_METHOD(thread_tcp_in_V_V_TDATA_blk_n);
     sensitive << ( tcp_in_V_V_TVALID );
     sensitive << ( ap_CS_fsm_state18 );
-    sensitive << ( icmp_ln28_fu_638_p2 );
+    sensitive << ( icmp_ln30_fu_637_p2 );
 
     SC_METHOD(thread_tcp_in_V_V_TREADY);
     sensitive << ( tcp_in_V_V_TVALID );
     sensitive << ( ap_CS_fsm_state18 );
-    sensitive << ( icmp_ln28_fu_638_p2 );
+    sensitive << ( icmp_ln30_fu_637_p2 );
     sensitive << ( ap_block_state18_io );
 
     SC_METHOD(thread_tcp_out_V_V_TDATA);
     sensitive << ( tcp_in_V_V_TDATA );
     sensitive << ( tcp_in_V_V_TVALID );
     sensitive << ( ap_CS_fsm_state18 );
-    sensitive << ( icmp_ln28_fu_638_p2 );
+    sensitive << ( icmp_ln30_fu_637_p2 );
 
     SC_METHOD(thread_tcp_out_V_V_TDATA_blk_n);
     sensitive << ( tcp_out_V_V_TREADY );
     sensitive << ( ap_CS_fsm_state18 );
-    sensitive << ( icmp_ln28_fu_638_p2 );
+    sensitive << ( icmp_ln30_fu_637_p2 );
 
     SC_METHOD(thread_tcp_out_V_V_TVALID);
     sensitive << ( tcp_in_V_V_TVALID );
     sensitive << ( ap_CS_fsm_state18 );
-    sensitive << ( icmp_ln28_fu_638_p2 );
+    sensitive << ( icmp_ln30_fu_637_p2 );
     sensitive << ( ap_block_state18_io );
 
-    SC_METHOD(thread_tmp_4_fu_625_p4);
+    SC_METHOD(thread_tmp_4_fu_624_p4);
     sensitive << ( header_buffer_V_q0 );
     sensitive << ( header_buffer_V_q1 );
-    sensitive << ( header_buffer_V_load_15_reg_748 );
+    sensitive << ( header_buffer_V_load_15_reg_752 );
 
-    SC_METHOD(thread_trunc_ln647_2_fu_559_p1);
+    SC_METHOD(thread_trunc_ln647_2_fu_558_p1);
     sensitive << ( instance_exp_cmd_sn );
 
-    SC_METHOD(thread_trunc_ln647_3_fu_599_p1);
+    SC_METHOD(thread_trunc_ln647_3_fu_598_p1);
     sensitive << ( instance_max_cmd_sn );
 
-    SC_METHOD(thread_trunc_ln647_fu_519_p1);
+    SC_METHOD(thread_trunc_ln647_fu_518_p1);
     sensitive << ( p_Val2_6_fu_475_p2 );
 
-    SC_METHOD(thread_zext_ln35_fu_466_p1);
+    SC_METHOD(thread_zext_ln35_fu_470_p1);
     sensitive << ( i_0_i_i_i_reg_432 );
 
     SC_METHOD(thread_ap_NS_fsm);
@@ -448,9 +448,9 @@ iscsi_nop_out::iscsi_nop_out(sc_module_name name) : sc_module(name), mVcdFile(0)
     sensitive << ( ap_CS_fsm_state1 );
     sensitive << ( tcp_in_V_V_TVALID );
     sensitive << ( ap_CS_fsm_state18 );
-    sensitive << ( icmp_ln28_fu_638_p2 );
+    sensitive << ( icmp_ln30_fu_637_p2 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( icmp_ln35_fu_454_p2 );
+    sensitive << ( icmp_ln35_fu_458_p2 );
     sensitive << ( ap_block_state18_io );
 
     ap_CS_fsm = "000000000000000001";
@@ -491,35 +491,36 @@ iscsi_nop_out::iscsi_nop_out(sc_module_name name) : sc_module(name), mVcdFile(0)
     sc_trace(mVcdFile, ap_CS_fsm_state1, "ap_CS_fsm_state1");
     sc_trace(mVcdFile, tcp_in_V_V_TDATA_blk_n, "tcp_in_V_V_TDATA_blk_n");
     sc_trace(mVcdFile, ap_CS_fsm_state18, "ap_CS_fsm_state18");
-    sc_trace(mVcdFile, icmp_ln28_fu_638_p2, "icmp_ln28_fu_638_p2");
+    sc_trace(mVcdFile, icmp_ln30_fu_637_p2, "icmp_ln30_fu_637_p2");
     sc_trace(mVcdFile, tcp_out_V_V_TDATA_blk_n, "tcp_out_V_V_TDATA_blk_n");
-    sc_trace(mVcdFile, i_fu_460_p2, "i_fu_460_p2");
+    sc_trace(mVcdFile, instance_stat_sn_loa_reg_649, "instance_stat_sn_loa_reg_649");
+    sc_trace(mVcdFile, i_fu_464_p2, "i_fu_464_p2");
     sc_trace(mVcdFile, ap_CS_fsm_state2, "ap_CS_fsm_state2");
-    sc_trace(mVcdFile, icmp_ln35_fu_454_p2, "icmp_ln35_fu_454_p2");
+    sc_trace(mVcdFile, icmp_ln35_fu_458_p2, "icmp_ln35_fu_458_p2");
     sc_trace(mVcdFile, response_buffer_V_q0, "response_buffer_V_q0");
-    sc_trace(mVcdFile, p_Val2_s_reg_670, "p_Val2_s_reg_670");
+    sc_trace(mVcdFile, p_Val2_s_reg_674, "p_Val2_s_reg_674");
     sc_trace(mVcdFile, ap_CS_fsm_state3, "ap_CS_fsm_state3");
     sc_trace(mVcdFile, response_buffer_V_q1, "response_buffer_V_q1");
-    sc_trace(mVcdFile, p_Val2_5_reg_675, "p_Val2_5_reg_675");
-    sc_trace(mVcdFile, p_Result_7_i_i2_reg_680, "p_Result_7_i_i2_reg_680");
+    sc_trace(mVcdFile, p_Val2_5_reg_679, "p_Val2_5_reg_679");
+    sc_trace(mVcdFile, p_Result_7_i_i2_reg_684, "p_Result_7_i_i2_reg_684");
     sc_trace(mVcdFile, ap_CS_fsm_state5, "ap_CS_fsm_state5");
-    sc_trace(mVcdFile, trunc_ln647_fu_519_p1, "trunc_ln647_fu_519_p1");
-    sc_trace(mVcdFile, trunc_ln647_reg_685, "trunc_ln647_reg_685");
-    sc_trace(mVcdFile, p_Result_7_i8_i_reg_690, "p_Result_7_i8_i_reg_690");
+    sc_trace(mVcdFile, trunc_ln647_fu_518_p1, "trunc_ln647_fu_518_p1");
+    sc_trace(mVcdFile, trunc_ln647_reg_689, "trunc_ln647_reg_689");
+    sc_trace(mVcdFile, p_Result_7_i8_i_reg_694, "p_Result_7_i8_i_reg_694");
     sc_trace(mVcdFile, ap_CS_fsm_state7, "ap_CS_fsm_state7");
-    sc_trace(mVcdFile, trunc_ln647_2_fu_559_p1, "trunc_ln647_2_fu_559_p1");
-    sc_trace(mVcdFile, trunc_ln647_2_reg_695, "trunc_ln647_2_reg_695");
-    sc_trace(mVcdFile, p_Result_7_i16_i_reg_700, "p_Result_7_i16_i_reg_700");
+    sc_trace(mVcdFile, trunc_ln647_2_fu_558_p1, "trunc_ln647_2_fu_558_p1");
+    sc_trace(mVcdFile, trunc_ln647_2_reg_699, "trunc_ln647_2_reg_699");
+    sc_trace(mVcdFile, p_Result_7_i16_i_reg_704, "p_Result_7_i16_i_reg_704");
     sc_trace(mVcdFile, ap_CS_fsm_state9, "ap_CS_fsm_state9");
-    sc_trace(mVcdFile, trunc_ln647_3_fu_599_p1, "trunc_ln647_3_fu_599_p1");
-    sc_trace(mVcdFile, trunc_ln647_3_reg_705, "trunc_ln647_3_reg_705");
+    sc_trace(mVcdFile, trunc_ln647_3_fu_598_p1, "trunc_ln647_3_fu_598_p1");
+    sc_trace(mVcdFile, trunc_ln647_3_reg_709, "trunc_ln647_3_reg_709");
     sc_trace(mVcdFile, ap_CS_fsm_state11, "ap_CS_fsm_state11");
     sc_trace(mVcdFile, ap_CS_fsm_state12, "ap_CS_fsm_state12");
     sc_trace(mVcdFile, ap_CS_fsm_state13, "ap_CS_fsm_state13");
     sc_trace(mVcdFile, ap_CS_fsm_state14, "ap_CS_fsm_state14");
-    sc_trace(mVcdFile, header_buffer_V_load_15_reg_748, "header_buffer_V_load_15_reg_748");
+    sc_trace(mVcdFile, header_buffer_V_load_15_reg_752, "header_buffer_V_load_15_reg_752");
     sc_trace(mVcdFile, ap_CS_fsm_state17, "ap_CS_fsm_state17");
-    sc_trace(mVcdFile, i_9_fu_644_p2, "i_9_fu_644_p2");
+    sc_trace(mVcdFile, i_9_fu_643_p2, "i_9_fu_643_p2");
     sc_trace(mVcdFile, ap_block_state18, "ap_block_state18");
     sc_trace(mVcdFile, ap_block_state18_io, "ap_block_state18_io");
     sc_trace(mVcdFile, response_buffer_V_address0, "response_buffer_V_address0");
@@ -533,17 +534,17 @@ iscsi_nop_out::iscsi_nop_out(sc_module_name name) : sc_module(name), mVcdFile(0)
     sc_trace(mVcdFile, i_0_i_i_i_reg_432, "i_0_i_i_i_reg_432");
     sc_trace(mVcdFile, i_0_reg_443, "i_0_reg_443");
     sc_trace(mVcdFile, ap_CS_fsm_state15, "ap_CS_fsm_state15");
-    sc_trace(mVcdFile, zext_ln35_fu_466_p1, "zext_ln35_fu_466_p1");
+    sc_trace(mVcdFile, zext_ln35_fu_470_p1, "zext_ln35_fu_470_p1");
     sc_trace(mVcdFile, ap_CS_fsm_state4, "ap_CS_fsm_state4");
     sc_trace(mVcdFile, ap_CS_fsm_state6, "ap_CS_fsm_state6");
     sc_trace(mVcdFile, ap_CS_fsm_state8, "ap_CS_fsm_state8");
     sc_trace(mVcdFile, ap_CS_fsm_state10, "ap_CS_fsm_state10");
     sc_trace(mVcdFile, p_Val2_6_fu_475_p2, "p_Val2_6_fu_475_p2");
-    sc_trace(mVcdFile, p_Result_s_fu_603_p5, "p_Result_s_fu_603_p5");
-    sc_trace(mVcdFile, p_Result_2_fu_615_p4, "p_Result_2_fu_615_p4");
+    sc_trace(mVcdFile, p_Result_s_fu_602_p5, "p_Result_s_fu_602_p5");
+    sc_trace(mVcdFile, p_Result_2_fu_614_p4, "p_Result_2_fu_614_p4");
     sc_trace(mVcdFile, ap_CS_fsm_state16, "ap_CS_fsm_state16");
-    sc_trace(mVcdFile, tmp_4_fu_625_p4, "tmp_4_fu_625_p4");
-    sc_trace(mVcdFile, ret_V_fu_634_p1, "ret_V_fu_634_p1");
+    sc_trace(mVcdFile, tmp_4_fu_624_p4, "tmp_4_fu_624_p4");
+    sc_trace(mVcdFile, ret_V_fu_633_p1, "ret_V_fu_633_p1");
     sc_trace(mVcdFile, ap_NS_fsm, "ap_NS_fsm");
 #endif
 
@@ -567,35 +568,38 @@ void iscsi_nop_out::thread_ap_clk_no_reset_() {
          esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1))) {
         i_0_i_i_i_reg_432 = ap_const_lv6_0;
     } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-                esl_seteq<1,1,1>(icmp_ln35_fu_454_p2.read(), ap_const_lv1_0))) {
-        i_0_i_i_i_reg_432 = i_fu_460_p2.read();
+                esl_seteq<1,1,1>(icmp_ln35_fu_458_p2.read(), ap_const_lv1_0))) {
+        i_0_i_i_i_reg_432 = i_fu_464_p2.read();
     }
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state18.read()) && 
-         esl_seteq<1,1,1>(icmp_ln28_fu_638_p2.read(), ap_const_lv1_1) && 
-         !((esl_seteq<1,1,1>(icmp_ln28_fu_638_p2.read(), ap_const_lv1_1) && 
+         esl_seteq<1,1,1>(icmp_ln30_fu_637_p2.read(), ap_const_lv1_1) && 
+         !((esl_seteq<1,1,1>(icmp_ln30_fu_637_p2.read(), ap_const_lv1_1) && 
   esl_seteq<1,1,1>(ap_const_logic_0, tcp_in_V_V_TVALID.read())) || esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state18_io.read())))) {
-        i_0_reg_443 = i_9_fu_644_p2.read();
+        i_0_reg_443 = i_9_fu_643_p2.read();
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state15.read())) {
         i_0_reg_443 = ap_const_lv32_0;
     }
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state17.read())) {
-        header_buffer_V_load_15_reg_748 = header_buffer_V_q1.read();
+        header_buffer_V_load_15_reg_752 = header_buffer_V_q1.read();
+    }
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1))) {
+        instance_stat_sn_loa_reg_649 = instance_stat_sn_i.read();
     }
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state9.read())) {
-        p_Result_7_i16_i_reg_700 = instance_max_cmd_sn.read().range(15, 8);
-        trunc_ln647_3_reg_705 = trunc_ln647_3_fu_599_p1.read();
+        p_Result_7_i16_i_reg_704 = instance_max_cmd_sn.read().range(15, 8);
+        trunc_ln647_3_reg_709 = trunc_ln647_3_fu_598_p1.read();
     }
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read())) {
-        p_Result_7_i8_i_reg_690 = instance_exp_cmd_sn.read().range(15, 8);
-        trunc_ln647_2_reg_695 = trunc_ln647_2_fu_559_p1.read();
+        p_Result_7_i8_i_reg_694 = instance_exp_cmd_sn.read().range(15, 8);
+        trunc_ln647_2_reg_699 = trunc_ln647_2_fu_558_p1.read();
     }
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state5.read())) {
-        p_Result_7_i_i2_reg_680 = p_Val2_6_fu_475_p2.read().range(15, 8);
-        trunc_ln647_reg_685 = trunc_ln647_fu_519_p1.read();
+        p_Result_7_i_i2_reg_684 = p_Val2_6_fu_475_p2.read().range(15, 8);
+        trunc_ln647_reg_689 = trunc_ln647_fu_518_p1.read();
     }
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read())) {
-        p_Val2_5_reg_675 = response_buffer_V_q1.read();
-        p_Val2_s_reg_670 = response_buffer_V_q0.read();
+        p_Val2_5_reg_679 = response_buffer_V_q1.read();
+        p_Val2_s_reg_674 = response_buffer_V_q0.read();
     }
 }
 
@@ -672,20 +676,20 @@ void iscsi_nop_out::thread_ap_CS_fsm_state9() {
 }
 
 void iscsi_nop_out::thread_ap_block_state18() {
-    ap_block_state18 = (esl_seteq<1,1,1>(icmp_ln28_fu_638_p2.read(), ap_const_lv1_1) && esl_seteq<1,1,1>(ap_const_logic_0, tcp_in_V_V_TVALID.read()));
+    ap_block_state18 = (esl_seteq<1,1,1>(icmp_ln30_fu_637_p2.read(), ap_const_lv1_1) && esl_seteq<1,1,1>(ap_const_logic_0, tcp_in_V_V_TVALID.read()));
 }
 
 void iscsi_nop_out::thread_ap_block_state18_io() {
-    ap_block_state18_io = (esl_seteq<1,1,1>(icmp_ln28_fu_638_p2.read(), ap_const_lv1_1) && esl_seteq<1,1,1>(ap_const_logic_0, tcp_out_V_V_TREADY.read()));
+    ap_block_state18_io = (esl_seteq<1,1,1>(icmp_ln30_fu_637_p2.read(), ap_const_lv1_1) && esl_seteq<1,1,1>(ap_const_logic_0, tcp_out_V_V_TREADY.read()));
 }
 
 void iscsi_nop_out::thread_ap_done() {
     if (((esl_seteq<1,1,1>(ap_const_logic_0, ap_start.read()) && 
           esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read())) || 
          (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state18.read()) && 
-          !((esl_seteq<1,1,1>(icmp_ln28_fu_638_p2.read(), ap_const_lv1_1) && 
+          !((esl_seteq<1,1,1>(icmp_ln30_fu_637_p2.read(), ap_const_lv1_1) && 
   esl_seteq<1,1,1>(ap_const_logic_0, tcp_in_V_V_TVALID.read())) || esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state18_io.read())) && 
-          esl_seteq<1,1,1>(icmp_ln28_fu_638_p2.read(), ap_const_lv1_0)))) {
+          esl_seteq<1,1,1>(icmp_ln30_fu_637_p2.read(), ap_const_lv1_0)))) {
         ap_done = ap_const_logic_1;
     } else {
         ap_done = ap_const_logic_0;
@@ -703,9 +707,9 @@ void iscsi_nop_out::thread_ap_idle() {
 
 void iscsi_nop_out::thread_ap_ready() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state18.read()) && 
-         !((esl_seteq<1,1,1>(icmp_ln28_fu_638_p2.read(), ap_const_lv1_1) && 
+         !((esl_seteq<1,1,1>(icmp_ln30_fu_637_p2.read(), ap_const_lv1_1) && 
   esl_seteq<1,1,1>(ap_const_logic_0, tcp_in_V_V_TVALID.read())) || esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state18_io.read())) && 
-         esl_seteq<1,1,1>(icmp_ln28_fu_638_p2.read(), ap_const_lv1_0))) {
+         esl_seteq<1,1,1>(icmp_ln30_fu_637_p2.read(), ap_const_lv1_0))) {
         ap_ready = ap_const_logic_1;
     } else {
         ap_ready = ap_const_logic_0;
@@ -768,20 +772,20 @@ void iscsi_nop_out::thread_header_buffer_V_ce1() {
     }
 }
 
-void iscsi_nop_out::thread_i_9_fu_644_p2() {
-    i_9_fu_644_p2 = (!i_0_reg_443.read().is_01() || !ap_const_lv32_4.is_01())? sc_lv<32>(): (sc_biguint<32>(i_0_reg_443.read()) + sc_biguint<32>(ap_const_lv32_4));
+void iscsi_nop_out::thread_i_9_fu_643_p2() {
+    i_9_fu_643_p2 = (!i_0_reg_443.read().is_01() || !ap_const_lv32_4.is_01())? sc_lv<32>(): (sc_biguint<32>(i_0_reg_443.read()) + sc_biguint<32>(ap_const_lv32_4));
 }
 
-void iscsi_nop_out::thread_i_fu_460_p2() {
-    i_fu_460_p2 = (!i_0_i_i_i_reg_432.read().is_01() || !ap_const_lv6_1.is_01())? sc_lv<6>(): (sc_biguint<6>(i_0_i_i_i_reg_432.read()) + sc_biguint<6>(ap_const_lv6_1));
+void iscsi_nop_out::thread_i_fu_464_p2() {
+    i_fu_464_p2 = (!i_0_i_i_i_reg_432.read().is_01() || !ap_const_lv6_1.is_01())? sc_lv<6>(): (sc_biguint<6>(i_0_i_i_i_reg_432.read()) + sc_biguint<6>(ap_const_lv6_1));
 }
 
-void iscsi_nop_out::thread_icmp_ln28_fu_638_p2() {
-    icmp_ln28_fu_638_p2 = (!i_0_reg_443.read().is_01() || !ret_V_fu_634_p1.read().is_01())? sc_lv<1>(): (sc_bigint<32>(i_0_reg_443.read()) < sc_bigint<32>(ret_V_fu_634_p1.read()));
+void iscsi_nop_out::thread_icmp_ln30_fu_637_p2() {
+    icmp_ln30_fu_637_p2 = (!i_0_reg_443.read().is_01() || !ret_V_fu_633_p1.read().is_01())? sc_lv<1>(): (sc_bigint<32>(i_0_reg_443.read()) < sc_bigint<32>(ret_V_fu_633_p1.read()));
 }
 
-void iscsi_nop_out::thread_icmp_ln35_fu_454_p2() {
-    icmp_ln35_fu_454_p2 = (!i_0_i_i_i_reg_432.read().is_01() || !ap_const_lv6_30.is_01())? sc_lv<1>(): sc_lv<1>(i_0_i_i_i_reg_432.read() == ap_const_lv6_30);
+void iscsi_nop_out::thread_icmp_ln35_fu_458_p2() {
+    icmp_ln35_fu_458_p2 = (!i_0_i_i_i_reg_432.read().is_01() || !ap_const_lv6_30.is_01())? sc_lv<1>(): sc_lv<1>(i_0_i_i_i_reg_432.read() == ap_const_lv6_30);
 }
 
 void iscsi_nop_out::thread_instance_stat_sn_o() {
@@ -800,16 +804,16 @@ void iscsi_nop_out::thread_instance_stat_sn_o_ap_vld() {
     }
 }
 
-void iscsi_nop_out::thread_p_Result_2_fu_615_p4() {
-    p_Result_2_fu_615_p4 = esl_bitset<8,8,32,1>(p_Val2_5_reg_675.read(), ap_const_lv32_7, ap_const_lv1_1);
+void iscsi_nop_out::thread_p_Result_2_fu_614_p4() {
+    p_Result_2_fu_614_p4 = esl_bitset<8,8,32,1>(p_Val2_5_reg_679.read(), ap_const_lv32_7, ap_const_lv1_1);
 }
 
-void iscsi_nop_out::thread_p_Result_s_fu_603_p5() {
-    p_Result_s_fu_603_p5 = esl_partset<8,8,6,32,32>(p_Val2_s_reg_670.read(), ap_const_lv6_20, ap_const_lv32_0, ap_const_lv32_5);
+void iscsi_nop_out::thread_p_Result_s_fu_602_p5() {
+    p_Result_s_fu_602_p5 = esl_partset<8,8,6,32,32>(p_Val2_s_reg_674.read(), ap_const_lv6_20, ap_const_lv32_0, ap_const_lv32_5);
 }
 
 void iscsi_nop_out::thread_p_Val2_6_fu_475_p2() {
-    p_Val2_6_fu_475_p2 = (!ap_const_lv32_1.is_01() || !instance_stat_sn_i.read().is_01())? sc_lv<32>(): (sc_biguint<32>(ap_const_lv32_1) + sc_biguint<32>(instance_stat_sn_i.read()));
+    p_Val2_6_fu_475_p2 = (!ap_const_lv32_2.is_01() || !instance_stat_sn_loa_reg_649.read().is_01())? sc_lv<32>(): (sc_biguint<32>(ap_const_lv32_2) + sc_biguint<32>(instance_stat_sn_loa_reg_649.read()));
 }
 
 void iscsi_nop_out::thread_response_buffer_V_address0() {
@@ -838,11 +842,11 @@ void iscsi_nop_out::thread_response_buffer_V_address0() {
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read())) {
         response_buffer_V_address0 =  (sc_lv<6>) (ap_const_lv64_15);
     } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-                esl_seteq<1,1,1>(ap_const_lv1_1, icmp_ln35_fu_454_p2.read()))) {
+                esl_seteq<1,1,1>(ap_const_lv1_1, icmp_ln35_fu_458_p2.read()))) {
         response_buffer_V_address0 =  (sc_lv<6>) (ap_const_lv64_0);
     } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-                esl_seteq<1,1,1>(icmp_ln35_fu_454_p2.read(), ap_const_lv1_0))) {
-        response_buffer_V_address0 =  (sc_lv<6>) (zext_ln35_fu_466_p1.read());
+                esl_seteq<1,1,1>(icmp_ln35_fu_458_p2.read(), ap_const_lv1_0))) {
+        response_buffer_V_address0 =  (sc_lv<6>) (zext_ln35_fu_470_p1.read());
     } else {
         response_buffer_V_address0 = "XXXXXX";
     }
@@ -884,7 +888,7 @@ void iscsi_nop_out::thread_response_buffer_V_address1() {
 
 void iscsi_nop_out::thread_response_buffer_V_ce0() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-          esl_seteq<1,1,1>(ap_const_lv1_1, icmp_ln35_fu_454_p2.read())) || 
+          esl_seteq<1,1,1>(ap_const_lv1_1, icmp_ln35_fu_458_p2.read())) || 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read()) || 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state5.read()) || 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read()) || 
@@ -893,7 +897,7 @@ void iscsi_nop_out::thread_response_buffer_V_ce0() {
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state13.read()) || 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state14.read()) || 
          (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-          esl_seteq<1,1,1>(icmp_ln35_fu_454_p2.read(), ap_const_lv1_0)) || 
+          esl_seteq<1,1,1>(icmp_ln35_fu_458_p2.read(), ap_const_lv1_0)) || 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state15.read()) || 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()) || 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state6.read()) || 
@@ -933,22 +937,22 @@ void iscsi_nop_out::thread_response_buffer_V_d0() {
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state13.read())) {
         response_buffer_V_d0 = header_buffer_V_q0.read();
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state11.read())) {
-        response_buffer_V_d0 = p_Result_2_fu_615_p4.read();
+        response_buffer_V_d0 = p_Result_2_fu_614_p4.read();
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state10.read())) {
-        response_buffer_V_d0 = trunc_ln647_3_reg_705.read();
+        response_buffer_V_d0 = trunc_ln647_3_reg_709.read();
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state9.read())) {
         response_buffer_V_d0 = instance_max_cmd_sn.read().range(23, 16);
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state8.read())) {
-        response_buffer_V_d0 = trunc_ln647_2_reg_695.read();
+        response_buffer_V_d0 = trunc_ln647_2_reg_699.read();
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read())) {
         response_buffer_V_d0 = instance_exp_cmd_sn.read().range(23, 16);
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state6.read())) {
-        response_buffer_V_d0 = trunc_ln647_reg_685.read();
+        response_buffer_V_d0 = trunc_ln647_reg_689.read();
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state5.read())) {
         response_buffer_V_d0 = p_Val2_6_fu_475_p2.read().range(23, 16);
     } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read()) || 
                 (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-                 esl_seteq<1,1,1>(icmp_ln35_fu_454_p2.read(), ap_const_lv1_0)) || 
+                 esl_seteq<1,1,1>(icmp_ln35_fu_458_p2.read(), ap_const_lv1_0)) || 
                 esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()))) {
         response_buffer_V_d0 = ap_const_lv8_0;
     } else {
@@ -964,17 +968,17 @@ void iscsi_nop_out::thread_response_buffer_V_d1() {
                 esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state15.read()))) {
         response_buffer_V_d1 = header_buffer_V_q0.read();
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state11.read())) {
-        response_buffer_V_d1 = p_Result_s_fu_603_p5.read();
+        response_buffer_V_d1 = p_Result_s_fu_602_p5.read();
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state10.read())) {
-        response_buffer_V_d1 = p_Result_7_i16_i_reg_700.read();
+        response_buffer_V_d1 = p_Result_7_i16_i_reg_704.read();
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state9.read())) {
         response_buffer_V_d1 = instance_max_cmd_sn.read().range(31, 24);
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state8.read())) {
-        response_buffer_V_d1 = p_Result_7_i8_i_reg_690.read();
+        response_buffer_V_d1 = p_Result_7_i8_i_reg_694.read();
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read())) {
         response_buffer_V_d1 = instance_exp_cmd_sn.read().range(31, 24);
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state6.read())) {
-        response_buffer_V_d1 = p_Result_7_i_i2_reg_680.read();
+        response_buffer_V_d1 = p_Result_7_i_i2_reg_684.read();
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state5.read())) {
         response_buffer_V_d1 = p_Val2_6_fu_475_p2.read().range(31, 24);
     } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read()) || 
@@ -994,7 +998,7 @@ void iscsi_nop_out::thread_response_buffer_V_we0() {
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state13.read()) || 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state14.read()) || 
          (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-          esl_seteq<1,1,1>(icmp_ln35_fu_454_p2.read(), ap_const_lv1_0)) || 
+          esl_seteq<1,1,1>(icmp_ln35_fu_458_p2.read(), ap_const_lv1_0)) || 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state15.read()) || 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()) || 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state6.read()) || 
@@ -1026,13 +1030,13 @@ void iscsi_nop_out::thread_response_buffer_V_we1() {
     }
 }
 
-void iscsi_nop_out::thread_ret_V_fu_634_p1() {
-    ret_V_fu_634_p1 = esl_zext<32,24>(tmp_4_fu_625_p4.read());
+void iscsi_nop_out::thread_ret_V_fu_633_p1() {
+    ret_V_fu_633_p1 = esl_zext<32,24>(tmp_4_fu_624_p4.read());
 }
 
 void iscsi_nop_out::thread_tcp_in_V_V_TDATA_blk_n() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state18.read()) && 
-         esl_seteq<1,1,1>(icmp_ln28_fu_638_p2.read(), ap_const_lv1_1))) {
+         esl_seteq<1,1,1>(icmp_ln30_fu_637_p2.read(), ap_const_lv1_1))) {
         tcp_in_V_V_TDATA_blk_n = tcp_in_V_V_TVALID.read();
     } else {
         tcp_in_V_V_TDATA_blk_n = ap_const_logic_1;
@@ -1041,8 +1045,8 @@ void iscsi_nop_out::thread_tcp_in_V_V_TDATA_blk_n() {
 
 void iscsi_nop_out::thread_tcp_in_V_V_TREADY() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state18.read()) && 
-         esl_seteq<1,1,1>(icmp_ln28_fu_638_p2.read(), ap_const_lv1_1) && 
-         !((esl_seteq<1,1,1>(icmp_ln28_fu_638_p2.read(), ap_const_lv1_1) && 
+         esl_seteq<1,1,1>(icmp_ln30_fu_637_p2.read(), ap_const_lv1_1) && 
+         !((esl_seteq<1,1,1>(icmp_ln30_fu_637_p2.read(), ap_const_lv1_1) && 
   esl_seteq<1,1,1>(ap_const_logic_0, tcp_in_V_V_TVALID.read())) || esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state18_io.read())))) {
         tcp_in_V_V_TREADY = ap_const_logic_1;
     } else {
@@ -1056,7 +1060,7 @@ void iscsi_nop_out::thread_tcp_out_V_V_TDATA() {
 
 void iscsi_nop_out::thread_tcp_out_V_V_TDATA_blk_n() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state18.read()) && 
-         esl_seteq<1,1,1>(icmp_ln28_fu_638_p2.read(), ap_const_lv1_1))) {
+         esl_seteq<1,1,1>(icmp_ln30_fu_637_p2.read(), ap_const_lv1_1))) {
         tcp_out_V_V_TDATA_blk_n = tcp_out_V_V_TREADY.read();
     } else {
         tcp_out_V_V_TDATA_blk_n = ap_const_logic_1;
@@ -1065,8 +1069,8 @@ void iscsi_nop_out::thread_tcp_out_V_V_TDATA_blk_n() {
 
 void iscsi_nop_out::thread_tcp_out_V_V_TVALID() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state18.read()) && 
-         esl_seteq<1,1,1>(icmp_ln28_fu_638_p2.read(), ap_const_lv1_1) && 
-         !((esl_seteq<1,1,1>(icmp_ln28_fu_638_p2.read(), ap_const_lv1_1) && 
+         esl_seteq<1,1,1>(icmp_ln30_fu_637_p2.read(), ap_const_lv1_1) && 
+         !((esl_seteq<1,1,1>(icmp_ln30_fu_637_p2.read(), ap_const_lv1_1) && 
   esl_seteq<1,1,1>(ap_const_logic_0, tcp_in_V_V_TVALID.read())) || esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state18_io.read())))) {
         tcp_out_V_V_TVALID = ap_const_logic_1;
     } else {
@@ -1074,24 +1078,24 @@ void iscsi_nop_out::thread_tcp_out_V_V_TVALID() {
     }
 }
 
-void iscsi_nop_out::thread_tmp_4_fu_625_p4() {
-    tmp_4_fu_625_p4 = esl_concat<16,8>(esl_concat<8,8>(header_buffer_V_load_15_reg_748.read(), header_buffer_V_q0.read()), header_buffer_V_q1.read());
+void iscsi_nop_out::thread_tmp_4_fu_624_p4() {
+    tmp_4_fu_624_p4 = esl_concat<16,8>(esl_concat<8,8>(header_buffer_V_load_15_reg_752.read(), header_buffer_V_q0.read()), header_buffer_V_q1.read());
 }
 
-void iscsi_nop_out::thread_trunc_ln647_2_fu_559_p1() {
-    trunc_ln647_2_fu_559_p1 = instance_exp_cmd_sn.read().range(8-1, 0);
+void iscsi_nop_out::thread_trunc_ln647_2_fu_558_p1() {
+    trunc_ln647_2_fu_558_p1 = instance_exp_cmd_sn.read().range(8-1, 0);
 }
 
-void iscsi_nop_out::thread_trunc_ln647_3_fu_599_p1() {
-    trunc_ln647_3_fu_599_p1 = instance_max_cmd_sn.read().range(8-1, 0);
+void iscsi_nop_out::thread_trunc_ln647_3_fu_598_p1() {
+    trunc_ln647_3_fu_598_p1 = instance_max_cmd_sn.read().range(8-1, 0);
 }
 
-void iscsi_nop_out::thread_trunc_ln647_fu_519_p1() {
-    trunc_ln647_fu_519_p1 = p_Val2_6_fu_475_p2.read().range(8-1, 0);
+void iscsi_nop_out::thread_trunc_ln647_fu_518_p1() {
+    trunc_ln647_fu_518_p1 = p_Val2_6_fu_475_p2.read().range(8-1, 0);
 }
 
-void iscsi_nop_out::thread_zext_ln35_fu_466_p1() {
-    zext_ln35_fu_466_p1 = esl_zext<64,6>(i_0_i_i_i_reg_432.read());
+void iscsi_nop_out::thread_zext_ln35_fu_470_p1() {
+    zext_ln35_fu_470_p1 = esl_zext<64,6>(i_0_i_i_i_reg_432.read());
 }
 
 void iscsi_nop_out::thread_ap_NS_fsm() {
@@ -1104,7 +1108,7 @@ void iscsi_nop_out::thread_ap_NS_fsm() {
             }
             break;
         case 2 : 
-            if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && esl_seteq<1,1,1>(icmp_ln35_fu_454_p2.read(), ap_const_lv1_0))) {
+            if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && esl_seteq<1,1,1>(icmp_ln35_fu_458_p2.read(), ap_const_lv1_0))) {
                 ap_NS_fsm = ap_ST_fsm_state2;
             } else {
                 ap_NS_fsm = ap_ST_fsm_state3;
@@ -1156,10 +1160,10 @@ void iscsi_nop_out::thread_ap_NS_fsm() {
             ap_NS_fsm = ap_ST_fsm_state18;
             break;
         case 131072 : 
-            if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state18.read()) && !((esl_seteq<1,1,1>(icmp_ln28_fu_638_p2.read(), ap_const_lv1_1) && 
-  esl_seteq<1,1,1>(ap_const_logic_0, tcp_in_V_V_TVALID.read())) || esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state18_io.read())) && esl_seteq<1,1,1>(icmp_ln28_fu_638_p2.read(), ap_const_lv1_0))) {
+            if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state18.read()) && !((esl_seteq<1,1,1>(icmp_ln30_fu_637_p2.read(), ap_const_lv1_1) && 
+  esl_seteq<1,1,1>(ap_const_logic_0, tcp_in_V_V_TVALID.read())) || esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state18_io.read())) && esl_seteq<1,1,1>(icmp_ln30_fu_637_p2.read(), ap_const_lv1_0))) {
                 ap_NS_fsm = ap_ST_fsm_state1;
-            } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state18.read()) && esl_seteq<1,1,1>(icmp_ln28_fu_638_p2.read(), ap_const_lv1_1) && !((esl_seteq<1,1,1>(icmp_ln28_fu_638_p2.read(), ap_const_lv1_1) && 
+            } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state18.read()) && esl_seteq<1,1,1>(icmp_ln30_fu_637_p2.read(), ap_const_lv1_1) && !((esl_seteq<1,1,1>(icmp_ln30_fu_637_p2.read(), ap_const_lv1_1) && 
   esl_seteq<1,1,1>(ap_const_logic_0, tcp_in_V_V_TVALID.read())) || esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state18_io.read())))) {
                 ap_NS_fsm = ap_ST_fsm_state16;
             } else {

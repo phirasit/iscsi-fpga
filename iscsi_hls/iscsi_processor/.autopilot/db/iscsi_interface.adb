@@ -1546,11 +1546,11 @@
             </item>
             <item>
               <first>FF</first>
-              <second>8635</second>
+              <second>8667</second>
             </item>
             <item>
               <first>LUT</first>
-              <second>17859</second>
+              <second>17895</second>
             </item>
             <item>
               <first>URAM</first>

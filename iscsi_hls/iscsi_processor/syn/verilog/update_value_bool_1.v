@@ -95,7 +95,7 @@ wire   [31:0] add_ln123_fu_181_p2;
 wire   [31:0] zext_ln123_fu_217_p1;
 wire   [31:0] add_ln123_3_fu_221_p2;
 wire   [0:0] trunc_ln145_fu_236_p1;
-wire   [30:0] tmp_6_fu_246_p4;
+wire   [30:0] tmp_7_fu_246_p4;
 wire   [0:0] or_ln145_fu_240_p2;
 reg   [6:0] ap_NS_fsm;
 
@@ -335,7 +335,7 @@ assign icmp_ln123_fu_191_p2 = ((iscsi_connection_parameter_data_q0 == zext_ln122
 
 assign or_ln145_fu_240_p2 = (trunc_ln145_fu_236_p1 | ap_phi_mux_p_0_i12_phi_fu_148_p4);
 
-assign or_ln_fu_256_p3 = {{tmp_6_fu_246_p4}, {or_ln145_fu_240_p2}};
+assign or_ln_fu_256_p3 = {{tmp_7_fu_246_p4}, {or_ln145_fu_240_p2}};
 
 assign p_str13_address0 = zext_ln122_3_fu_196_p1;
 
@@ -345,7 +345,7 @@ assign sext_ln123_5_fu_226_p1 = $signed(add_ln123_3_fu_221_p2);
 
 assign sext_ln123_fu_186_p1 = $signed(add_ln123_fu_181_p2);
 
-assign tmp_6_fu_246_p4 = {{val_r_i[31:1]}};
+assign tmp_7_fu_246_p4 = {{val_r_i[31:1]}};
 
 assign trunc_ln145_fu_236_p1 = val_r_i[0:0];
 

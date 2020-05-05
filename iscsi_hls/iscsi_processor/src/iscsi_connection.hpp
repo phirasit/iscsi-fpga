@@ -32,7 +32,7 @@ struct iscsi_connection {
 		++this->stat_sn;
 	}
 
-	void advance_cmd_sn() {
+	void advance_exp_cmd_sn() {
 		++this->exp_cmd_sn;
 		this->max_cmd_sn = this->exp_cmd_sn;
 	}

@@ -33,7 +33,9 @@ module iscsi_text (
         instance_max_cmd_sn_ap_vld,
         instance_stat_sn_i,
         instance_stat_sn_o,
-        instance_stat_sn_o_ap_vld
+        instance_stat_sn_o_ap_vld,
+        instance_initialized,
+        instance_initialized_ap_vld
 );
 
 parameter    ap_ST_fsm_state1 = 25'd1;
@@ -88,6 +90,8 @@ output   instance_max_cmd_sn_ap_vld;
 input  [31:0] instance_stat_sn_i;
 output  [31:0] instance_stat_sn_o;
 output   instance_stat_sn_o_ap_vld;
+output  [0:0] instance_initialized;
+output   instance_initialized_ap_vld;
 
 reg ap_done;
 reg ap_idle;
@@ -101,60 +105,62 @@ reg[31:0] tcp_out_V_V_TDATA;
 reg tcp_out_V_V_TVALID;
 reg[31:0] instance_exp_cmd_sn_o;
 reg instance_exp_cmd_sn_o_ap_vld;
+reg[31:0] instance_max_cmd_sn;
 reg instance_max_cmd_sn_ap_vld;
 reg[31:0] instance_stat_sn_o;
 reg instance_stat_sn_o_ap_vld;
+reg instance_initialized_ap_vld;
 
 (* fsm_encoding = "none" *) reg   [24:0] ap_CS_fsm;
 wire    ap_CS_fsm_state1;
 wire   [3:0] p_str14_address0;
 reg    p_str14_ce0;
 wire   [6:0] p_str14_q0;
-reg   [7:0] header_buffer_V_load_reg_981;
+reg   [7:0] header_buffer_V_load_reg_1009;
 wire    ap_CS_fsm_state2;
-wire   [23:0] tmp_1_fu_694_p4;
-reg   [23:0] tmp_1_reg_996;
+wire   [23:0] tmp_1_fu_698_p4;
+reg   [23:0] tmp_1_reg_1024;
 wire    ap_CS_fsm_state3;
-wire   [23:0] grp_read_from_tcp_1_fu_581_ap_return;
-reg   [23:0] parameter_data_lengt_reg_1001;
+wire   [23:0] grp_read_from_tcp_1_fu_585_ap_return;
+reg   [23:0] parameter_data_lengt_reg_1029;
 wire    ap_CS_fsm_state4;
-wire    grp_read_from_tcp_1_fu_581_ap_ready;
-wire    grp_read_from_tcp_1_fu_581_ap_done;
-wire   [31:0] p_Val2_4_fu_708_p2;
-reg   [31:0] p_Val2_4_reg_1006;
-wire   [31:0] p_Val2_3_fu_730_p2;
-reg   [31:0] p_Val2_3_reg_1014;
-wire   [5:0] i_fu_748_p2;
+wire    grp_read_from_tcp_1_fu_585_ap_ready;
+wire    grp_read_from_tcp_1_fu_585_ap_done;
+wire   [31:0] p_Val2_4_fu_712_p2;
+reg   [31:0] p_Val2_4_reg_1034;
+wire   [31:0] p_Val2_3_fu_734_p2;
+reg   [31:0] p_Val2_3_reg_1042;
+wire   [5:0] i_fu_752_p2;
 wire    ap_CS_fsm_state5;
-wire   [0:0] icmp_ln35_fu_742_p2;
-wire   [0:0] tmp_fu_759_p3;
-reg   [0:0] tmp_reg_1035;
+wire   [0:0] icmp_ln35_fu_746_p2;
+wire   [0:0] tmp_fu_763_p3;
+reg   [0:0] tmp_reg_1063;
 wire    ap_CS_fsm_state6;
-wire   [0:0] icmp_ln112_fu_774_p2;
-reg   [0:0] icmp_ln112_reg_1039;
+wire   [0:0] icmp_ln112_fu_778_p2;
+reg   [0:0] icmp_ln112_reg_1067;
 wire    ap_CS_fsm_state7;
-wire   [30:0] i_8_fu_780_p2;
-reg   [30:0] i_8_reg_1043;
-wire   [31:0] idx_fu_812_p3;
+wire   [30:0] i_8_fu_784_p2;
+reg   [30:0] i_8_reg_1071;
+wire   [31:0] idx_fu_816_p3;
 wire    ap_CS_fsm_state8;
-wire   [0:0] icmp_ln114_fu_820_p2;
-wire   [5:0] response_buffer_V_ad_2_reg_1072;
+wire   [0:0] icmp_ln114_fu_824_p2;
+wire   [5:0] response_buffer_V_ad_2_reg_1100;
 wire   [7:0] response_buffer_V_q0;
-reg   [7:0] p_Val2_1_reg_1077;
+reg   [7:0] p_Val2_1_reg_1105;
 wire    ap_CS_fsm_state9;
 wire   [7:0] response_buffer_V_q1;
-reg   [7:0] p_Val2_2_reg_1082;
-reg   [7:0] p_Result_6_i_i1_reg_1087;
+reg   [7:0] p_Val2_2_reg_1110;
+reg   [7:0] p_Result_6_i_i1_reg_1115;
 wire    ap_CS_fsm_state12;
-reg   [7:0] p_Result_7_i_i1_reg_1092;
-wire   [7:0] trunc_ln647_fu_854_p1;
-reg   [7:0] trunc_ln647_reg_1097;
-reg   [7:0] p_Result_i4_i_reg_1102;
+reg   [7:0] p_Result_7_i_i1_reg_1120;
+wire   [7:0] trunc_ln647_fu_882_p1;
+reg   [7:0] trunc_ln647_reg_1125;
+reg   [7:0] p_Result_i4_i_reg_1130;
 wire    ap_CS_fsm_state14;
-reg   [7:0] p_Result_6_i6_i_reg_1107;
-reg   [7:0] p_Result_7_i8_i_reg_1112;
-wire   [7:0] trunc_ln647_1_fu_885_p1;
-reg   [7:0] trunc_ln647_1_reg_1117;
+reg   [7:0] p_Result_6_i6_i_reg_1135;
+reg   [7:0] p_Result_7_i8_i_reg_1140;
+wire   [7:0] trunc_ln647_1_fu_913_p1;
+reg   [7:0] trunc_ln647_1_reg_1145;
 wire    ap_CS_fsm_state19;
 wire    ap_CS_fsm_state20;
 reg   [12:0] parameter_data_address0;
@@ -171,81 +177,81 @@ reg   [5:0] response_buffer_V_address1;
 reg    response_buffer_V_ce1;
 reg    response_buffer_V_we1;
 reg   [7:0] response_buffer_V_d1;
-wire    grp_read_from_tcp_1_fu_581_ap_start;
-wire    grp_read_from_tcp_1_fu_581_ap_idle;
-wire   [31:0] grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_max_receive_data_segment_length_o;
-wire    grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_max_receive_data_segment_length_o_ap_vld;
-wire   [31:0] grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_max_connections_o;
-wire    grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_max_connections_o_ap_vld;
-wire   [31:0] grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_initial_r2t_o;
-wire    grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_initial_r2t_o_ap_vld;
-wire   [31:0] grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_immediate_data_o;
-wire    grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_immediate_data_o_ap_vld;
-wire   [31:0] grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_max_burst_length_o;
-wire    grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_max_burst_length_o_ap_vld;
-wire   [31:0] grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_first_burst_length_o;
-wire    grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_first_burst_length_o_ap_vld;
-wire   [31:0] grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_data_pdu_in_order_o;
-wire    grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_data_pdu_in_order_o_ap_vld;
-wire   [31:0] grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_data_sequence_in_order_o;
-wire    grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_data_sequence_in_order_o_ap_vld;
-wire   [31:0] grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_default_time_2_wait_o;
-wire    grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_default_time_2_wait_o_ap_vld;
-wire   [31:0] grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_default_time_2_retain_o;
-wire    grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_default_time_2_retain_o_ap_vld;
-wire   [31:0] grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_max_outstanding_r2t_o;
-wire    grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_max_outstanding_r2t_o_ap_vld;
-wire   [12:0] grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_data_address0;
-wire    grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_data_ce0;
-wire    grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_data_we0;
-wire   [7:0] grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_data_d0;
-wire   [12:0] grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_data_address1;
-wire    grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_data_ce1;
-wire    grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_data_we1;
-wire   [7:0] grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_data_d1;
-wire    grp_read_from_tcp_1_fu_581_tcp_in_V_V_TREADY;
-wire    grp_write_byte_array_fu_624_ap_start;
-wire    grp_write_byte_array_fu_624_ap_done;
-wire    grp_write_byte_array_fu_624_ap_idle;
-wire    grp_write_byte_array_fu_624_ap_ready;
-wire   [31:0] grp_write_byte_array_fu_624_stream_ap_uint_32_V_V_TDATA;
-wire    grp_write_byte_array_fu_624_stream_ap_uint_32_V_V_TVALID;
-wire    grp_write_byte_array_fu_624_stream_ap_uint_32_V_V_TREADY;
-wire    grp_write_to_tcp_fu_632_ap_start;
-wire    grp_write_to_tcp_fu_632_ap_done;
-wire    grp_write_to_tcp_fu_632_ap_idle;
-wire    grp_write_to_tcp_fu_632_ap_ready;
-wire   [5:0] grp_write_to_tcp_fu_632_iscsi_pdu_header_buffer_V_address0;
-wire    grp_write_to_tcp_fu_632_iscsi_pdu_header_buffer_V_ce0;
-wire   [5:0] grp_write_to_tcp_fu_632_iscsi_pdu_header_buffer_V_address1;
-wire    grp_write_to_tcp_fu_632_iscsi_pdu_header_buffer_V_ce1;
-wire   [31:0] grp_write_to_tcp_fu_632_out_stream_V_V_TDATA;
-wire    grp_write_to_tcp_fu_632_out_stream_V_V_TVALID;
-wire    grp_write_to_tcp_fu_632_out_stream_V_V_TREADY;
-reg   [5:0] i_0_i_i_reg_547;
-reg   [30:0] i_0_i_i6_reg_558;
-reg  signed [31:0] idx_0_i_i_reg_569;
-reg    grp_read_from_tcp_1_fu_581_ap_start_reg;
-reg   [31:0] parameter_max_receiv_1_fu_166;
-reg   [31:0] parameter_max_connec_1_fu_170;
-reg   [31:0] parameter_initial_r2_1_fu_174;
-reg   [31:0] parameter_immediate_1_fu_178;
-reg   [31:0] parameter_max_burst_1_fu_182;
-reg   [31:0] parameter_first_burs_1_fu_186;
-reg   [31:0] parameter_data_pdu_i_1_fu_190;
-reg   [31:0] parameter_data_seque_1_fu_194;
-reg   [31:0] parameter_default_ti_2_fu_198;
-reg   [31:0] parameter_default_ti_3_fu_202;
-reg   [31:0] parameter_max_outsta_1_fu_206;
-reg    grp_write_byte_array_fu_624_ap_start_reg;
+wire    grp_read_from_tcp_1_fu_585_ap_start;
+wire    grp_read_from_tcp_1_fu_585_ap_idle;
+wire   [31:0] grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_max_receive_data_segment_length_o;
+wire    grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_max_receive_data_segment_length_o_ap_vld;
+wire   [31:0] grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_max_connections_o;
+wire    grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_max_connections_o_ap_vld;
+wire   [31:0] grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_initial_r2t_o;
+wire    grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_initial_r2t_o_ap_vld;
+wire   [31:0] grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_immediate_data_o;
+wire    grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_immediate_data_o_ap_vld;
+wire   [31:0] grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_max_burst_length_o;
+wire    grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_max_burst_length_o_ap_vld;
+wire   [31:0] grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_first_burst_length_o;
+wire    grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_first_burst_length_o_ap_vld;
+wire   [31:0] grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_data_pdu_in_order_o;
+wire    grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_data_pdu_in_order_o_ap_vld;
+wire   [31:0] grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_data_sequence_in_order_o;
+wire    grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_data_sequence_in_order_o_ap_vld;
+wire   [31:0] grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_default_time_2_wait_o;
+wire    grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_default_time_2_wait_o_ap_vld;
+wire   [31:0] grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_default_time_2_retain_o;
+wire    grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_default_time_2_retain_o_ap_vld;
+wire   [31:0] grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_max_outstanding_r2t_o;
+wire    grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_max_outstanding_r2t_o_ap_vld;
+wire   [12:0] grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_data_address0;
+wire    grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_data_ce0;
+wire    grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_data_we0;
+wire   [7:0] grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_data_d0;
+wire   [12:0] grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_data_address1;
+wire    grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_data_ce1;
+wire    grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_data_we1;
+wire   [7:0] grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_data_d1;
+wire    grp_read_from_tcp_1_fu_585_tcp_in_V_V_TREADY;
+wire    grp_write_byte_array_fu_628_ap_start;
+wire    grp_write_byte_array_fu_628_ap_done;
+wire    grp_write_byte_array_fu_628_ap_idle;
+wire    grp_write_byte_array_fu_628_ap_ready;
+wire   [31:0] grp_write_byte_array_fu_628_stream_ap_uint_32_V_V_TDATA;
+wire    grp_write_byte_array_fu_628_stream_ap_uint_32_V_V_TVALID;
+wire    grp_write_byte_array_fu_628_stream_ap_uint_32_V_V_TREADY;
+wire    grp_write_to_tcp_fu_636_ap_start;
+wire    grp_write_to_tcp_fu_636_ap_done;
+wire    grp_write_to_tcp_fu_636_ap_idle;
+wire    grp_write_to_tcp_fu_636_ap_ready;
+wire   [5:0] grp_write_to_tcp_fu_636_iscsi_pdu_header_buffer_V_address0;
+wire    grp_write_to_tcp_fu_636_iscsi_pdu_header_buffer_V_ce0;
+wire   [5:0] grp_write_to_tcp_fu_636_iscsi_pdu_header_buffer_V_address1;
+wire    grp_write_to_tcp_fu_636_iscsi_pdu_header_buffer_V_ce1;
+wire   [31:0] grp_write_to_tcp_fu_636_out_stream_V_V_TDATA;
+wire    grp_write_to_tcp_fu_636_out_stream_V_V_TVALID;
+wire    grp_write_to_tcp_fu_636_out_stream_V_V_TREADY;
+reg   [5:0] i_0_i_i_reg_551;
+reg   [30:0] i_0_i_i6_reg_562;
+reg  signed [31:0] idx_0_i_i_reg_573;
+reg    grp_read_from_tcp_1_fu_585_ap_start_reg;
+reg   [31:0] parameter_max_receiv_1_fu_170;
+reg   [31:0] parameter_max_connec_1_fu_174;
+reg   [31:0] parameter_initial_r2_1_fu_178;
+reg   [31:0] parameter_immediate_1_fu_182;
+reg   [31:0] parameter_max_burst_1_fu_186;
+reg   [31:0] parameter_first_burs_1_fu_190;
+reg   [31:0] parameter_data_pdu_i_1_fu_194;
+reg   [31:0] parameter_data_seque_1_fu_198;
+reg   [31:0] parameter_default_ti_2_fu_202;
+reg   [31:0] parameter_default_ti_3_fu_206;
+reg   [31:0] parameter_max_outsta_1_fu_210;
+reg    grp_write_byte_array_fu_628_ap_start_reg;
 wire    ap_CS_fsm_state24;
 wire    ap_CS_fsm_state25;
-reg    grp_write_to_tcp_fu_632_ap_start_reg;
+reg    grp_write_to_tcp_fu_636_ap_start_reg;
 wire    ap_CS_fsm_state22;
 wire    ap_CS_fsm_state23;
-wire   [63:0] zext_ln35_fu_754_p1;
-wire   [63:0] zext_ln113_fu_786_p1;
-wire  signed [63:0] sext_ln113_fu_791_p1;
+wire   [63:0] zext_ln35_fu_758_p1;
+wire   [63:0] zext_ln113_fu_790_p1;
+wire  signed [63:0] sext_ln113_fu_795_p1;
 wire    ap_CS_fsm_state10;
 wire    ap_CS_fsm_state11;
 wire    ap_CS_fsm_state13;
@@ -254,23 +260,23 @@ wire    ap_CS_fsm_state16;
 wire    ap_CS_fsm_state17;
 wire    ap_CS_fsm_state18;
 wire    ap_CS_fsm_state21;
-wire   [7:0] p_Result_s_fu_888_p5;
-reg   [7:0] p_Result_1_fu_900_p4;
-wire   [31:0] zext_ln112_fu_767_p1;
-wire   [31:0] zext_ln112_2_fu_771_p1;
-wire   [7:0] zext_ln113_4_fu_796_p1;
-wire   [0:0] icmp_ln113_fu_800_p2;
-wire   [31:0] add_ln113_fu_806_p2;
-reg    ap_predicate_op188_call_state25;
+wire   [7:0] p_Result_s_fu_916_p5;
+reg   [7:0] p_Result_1_fu_928_p4;
+wire   [31:0] zext_ln112_fu_771_p1;
+wire   [31:0] zext_ln112_2_fu_775_p1;
+wire   [7:0] zext_ln113_4_fu_800_p1;
+wire   [0:0] icmp_ln113_fu_804_p2;
+wire   [31:0] add_ln113_fu_810_p2;
+reg    ap_predicate_op192_call_state25;
 reg    ap_block_state25_on_subcall_done;
 reg   [24:0] ap_NS_fsm;
 
 // power-on initialization
 initial begin
 #0 ap_CS_fsm = 25'd1;
-#0 grp_read_from_tcp_1_fu_581_ap_start_reg = 1'b0;
-#0 grp_write_byte_array_fu_624_ap_start_reg = 1'b0;
-#0 grp_write_to_tcp_fu_632_ap_start_reg = 1'b0;
+#0 grp_read_from_tcp_1_fu_585_ap_start_reg = 1'b0;
+#0 grp_write_byte_array_fu_628_ap_start_reg = 1'b0;
+#0 grp_write_to_tcp_fu_636_ap_start_reg = 1'b0;
 end
 
 iscsi_text_p_str14 #(
@@ -295,12 +301,12 @@ parameter_data_U(
     .address0(parameter_data_address0),
     .ce0(parameter_data_ce0),
     .we0(parameter_data_we0),
-    .d0(grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_data_d0),
+    .d0(grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_data_d0),
     .q0(parameter_data_q0),
-    .address1(grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_data_address1),
+    .address1(grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_data_address1),
     .ce1(parameter_data_ce1),
     .we1(parameter_data_we1),
-    .d1(grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_data_d1)
+    .d1(grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_data_d1)
 );
 
 iscsi_login_response_buffer_V #(
@@ -322,90 +328,90 @@ response_buffer_V_U(
     .q1(response_buffer_V_q1)
 );
 
-read_from_tcp_1 grp_read_from_tcp_1_fu_581(
+read_from_tcp_1 grp_read_from_tcp_1_fu_585(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
-    .ap_start(grp_read_from_tcp_1_fu_581_ap_start),
-    .ap_done(grp_read_from_tcp_1_fu_581_ap_done),
-    .ap_idle(grp_read_from_tcp_1_fu_581_ap_idle),
-    .ap_ready(grp_read_from_tcp_1_fu_581_ap_ready),
-    .iscsi_connection_parameter_max_receive_data_segment_length_i(parameter_max_receiv_1_fu_166),
-    .iscsi_connection_parameter_max_receive_data_segment_length_o(grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_max_receive_data_segment_length_o),
-    .iscsi_connection_parameter_max_receive_data_segment_length_o_ap_vld(grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_max_receive_data_segment_length_o_ap_vld),
-    .iscsi_connection_parameter_max_connections_i(parameter_max_connec_1_fu_170),
-    .iscsi_connection_parameter_max_connections_o(grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_max_connections_o),
-    .iscsi_connection_parameter_max_connections_o_ap_vld(grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_max_connections_o_ap_vld),
-    .iscsi_connection_parameter_initial_r2t_i(parameter_initial_r2_1_fu_174),
-    .iscsi_connection_parameter_initial_r2t_o(grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_initial_r2t_o),
-    .iscsi_connection_parameter_initial_r2t_o_ap_vld(grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_initial_r2t_o_ap_vld),
-    .iscsi_connection_parameter_immediate_data_i(parameter_immediate_1_fu_178),
-    .iscsi_connection_parameter_immediate_data_o(grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_immediate_data_o),
-    .iscsi_connection_parameter_immediate_data_o_ap_vld(grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_immediate_data_o_ap_vld),
-    .iscsi_connection_parameter_max_burst_length_i(parameter_max_burst_1_fu_182),
-    .iscsi_connection_parameter_max_burst_length_o(grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_max_burst_length_o),
-    .iscsi_connection_parameter_max_burst_length_o_ap_vld(grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_max_burst_length_o_ap_vld),
-    .iscsi_connection_parameter_first_burst_length_i(parameter_first_burs_1_fu_186),
-    .iscsi_connection_parameter_first_burst_length_o(grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_first_burst_length_o),
-    .iscsi_connection_parameter_first_burst_length_o_ap_vld(grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_first_burst_length_o_ap_vld),
-    .iscsi_connection_parameter_data_pdu_in_order_i(parameter_data_pdu_i_1_fu_190),
-    .iscsi_connection_parameter_data_pdu_in_order_o(grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_data_pdu_in_order_o),
-    .iscsi_connection_parameter_data_pdu_in_order_o_ap_vld(grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_data_pdu_in_order_o_ap_vld),
-    .iscsi_connection_parameter_data_sequence_in_order_i(parameter_data_seque_1_fu_194),
-    .iscsi_connection_parameter_data_sequence_in_order_o(grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_data_sequence_in_order_o),
-    .iscsi_connection_parameter_data_sequence_in_order_o_ap_vld(grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_data_sequence_in_order_o_ap_vld),
-    .iscsi_connection_parameter_default_time_2_wait_i(parameter_default_ti_2_fu_198),
-    .iscsi_connection_parameter_default_time_2_wait_o(grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_default_time_2_wait_o),
-    .iscsi_connection_parameter_default_time_2_wait_o_ap_vld(grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_default_time_2_wait_o_ap_vld),
-    .iscsi_connection_parameter_default_time_2_retain_i(parameter_default_ti_3_fu_202),
-    .iscsi_connection_parameter_default_time_2_retain_o(grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_default_time_2_retain_o),
-    .iscsi_connection_parameter_default_time_2_retain_o_ap_vld(grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_default_time_2_retain_o_ap_vld),
-    .iscsi_connection_parameter_max_outstanding_r2t_i(parameter_max_outsta_1_fu_206),
-    .iscsi_connection_parameter_max_outstanding_r2t_o(grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_max_outstanding_r2t_o),
-    .iscsi_connection_parameter_max_outstanding_r2t_o_ap_vld(grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_max_outstanding_r2t_o_ap_vld),
-    .iscsi_connection_parameter_data_address0(grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_data_address0),
-    .iscsi_connection_parameter_data_ce0(grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_data_ce0),
-    .iscsi_connection_parameter_data_we0(grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_data_we0),
-    .iscsi_connection_parameter_data_d0(grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_data_d0),
+    .ap_start(grp_read_from_tcp_1_fu_585_ap_start),
+    .ap_done(grp_read_from_tcp_1_fu_585_ap_done),
+    .ap_idle(grp_read_from_tcp_1_fu_585_ap_idle),
+    .ap_ready(grp_read_from_tcp_1_fu_585_ap_ready),
+    .iscsi_connection_parameter_max_receive_data_segment_length_i(parameter_max_receiv_1_fu_170),
+    .iscsi_connection_parameter_max_receive_data_segment_length_o(grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_max_receive_data_segment_length_o),
+    .iscsi_connection_parameter_max_receive_data_segment_length_o_ap_vld(grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_max_receive_data_segment_length_o_ap_vld),
+    .iscsi_connection_parameter_max_connections_i(parameter_max_connec_1_fu_174),
+    .iscsi_connection_parameter_max_connections_o(grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_max_connections_o),
+    .iscsi_connection_parameter_max_connections_o_ap_vld(grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_max_connections_o_ap_vld),
+    .iscsi_connection_parameter_initial_r2t_i(parameter_initial_r2_1_fu_178),
+    .iscsi_connection_parameter_initial_r2t_o(grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_initial_r2t_o),
+    .iscsi_connection_parameter_initial_r2t_o_ap_vld(grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_initial_r2t_o_ap_vld),
+    .iscsi_connection_parameter_immediate_data_i(parameter_immediate_1_fu_182),
+    .iscsi_connection_parameter_immediate_data_o(grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_immediate_data_o),
+    .iscsi_connection_parameter_immediate_data_o_ap_vld(grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_immediate_data_o_ap_vld),
+    .iscsi_connection_parameter_max_burst_length_i(parameter_max_burst_1_fu_186),
+    .iscsi_connection_parameter_max_burst_length_o(grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_max_burst_length_o),
+    .iscsi_connection_parameter_max_burst_length_o_ap_vld(grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_max_burst_length_o_ap_vld),
+    .iscsi_connection_parameter_first_burst_length_i(parameter_first_burs_1_fu_190),
+    .iscsi_connection_parameter_first_burst_length_o(grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_first_burst_length_o),
+    .iscsi_connection_parameter_first_burst_length_o_ap_vld(grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_first_burst_length_o_ap_vld),
+    .iscsi_connection_parameter_data_pdu_in_order_i(parameter_data_pdu_i_1_fu_194),
+    .iscsi_connection_parameter_data_pdu_in_order_o(grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_data_pdu_in_order_o),
+    .iscsi_connection_parameter_data_pdu_in_order_o_ap_vld(grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_data_pdu_in_order_o_ap_vld),
+    .iscsi_connection_parameter_data_sequence_in_order_i(parameter_data_seque_1_fu_198),
+    .iscsi_connection_parameter_data_sequence_in_order_o(grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_data_sequence_in_order_o),
+    .iscsi_connection_parameter_data_sequence_in_order_o_ap_vld(grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_data_sequence_in_order_o_ap_vld),
+    .iscsi_connection_parameter_default_time_2_wait_i(parameter_default_ti_2_fu_202),
+    .iscsi_connection_parameter_default_time_2_wait_o(grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_default_time_2_wait_o),
+    .iscsi_connection_parameter_default_time_2_wait_o_ap_vld(grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_default_time_2_wait_o_ap_vld),
+    .iscsi_connection_parameter_default_time_2_retain_i(parameter_default_ti_3_fu_206),
+    .iscsi_connection_parameter_default_time_2_retain_o(grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_default_time_2_retain_o),
+    .iscsi_connection_parameter_default_time_2_retain_o_ap_vld(grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_default_time_2_retain_o_ap_vld),
+    .iscsi_connection_parameter_max_outstanding_r2t_i(parameter_max_outsta_1_fu_210),
+    .iscsi_connection_parameter_max_outstanding_r2t_o(grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_max_outstanding_r2t_o),
+    .iscsi_connection_parameter_max_outstanding_r2t_o_ap_vld(grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_max_outstanding_r2t_o_ap_vld),
+    .iscsi_connection_parameter_data_address0(grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_data_address0),
+    .iscsi_connection_parameter_data_ce0(grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_data_ce0),
+    .iscsi_connection_parameter_data_we0(grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_data_we0),
+    .iscsi_connection_parameter_data_d0(grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_data_d0),
     .iscsi_connection_parameter_data_q0(parameter_data_q0),
-    .iscsi_connection_parameter_data_address1(grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_data_address1),
-    .iscsi_connection_parameter_data_ce1(grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_data_ce1),
-    .iscsi_connection_parameter_data_we1(grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_data_we1),
-    .iscsi_connection_parameter_data_d1(grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_data_d1),
+    .iscsi_connection_parameter_data_address1(grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_data_address1),
+    .iscsi_connection_parameter_data_ce1(grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_data_ce1),
+    .iscsi_connection_parameter_data_we1(grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_data_we1),
+    .iscsi_connection_parameter_data_d1(grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_data_d1),
     .tcp_in_V_V_TDATA(tcp_in_V_V_TDATA),
     .tcp_in_V_V_TVALID(tcp_in_V_V_TVALID),
-    .tcp_in_V_V_TREADY(grp_read_from_tcp_1_fu_581_tcp_in_V_V_TREADY),
-    .length_r(tmp_1_reg_996),
-    .ap_return(grp_read_from_tcp_1_fu_581_ap_return)
+    .tcp_in_V_V_TREADY(grp_read_from_tcp_1_fu_585_tcp_in_V_V_TREADY),
+    .length_r(tmp_1_reg_1024),
+    .ap_return(grp_read_from_tcp_1_fu_585_ap_return)
 );
 
-write_byte_array grp_write_byte_array_fu_624(
+write_byte_array grp_write_byte_array_fu_628(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
-    .ap_start(grp_write_byte_array_fu_624_ap_start),
-    .ap_done(grp_write_byte_array_fu_624_ap_done),
-    .ap_idle(grp_write_byte_array_fu_624_ap_idle),
-    .ap_ready(grp_write_byte_array_fu_624_ap_ready),
-    .stream_ap_uint_32_V_V_TDATA(grp_write_byte_array_fu_624_stream_ap_uint_32_V_V_TDATA),
-    .stream_ap_uint_32_V_V_TVALID(grp_write_byte_array_fu_624_stream_ap_uint_32_V_V_TVALID),
-    .stream_ap_uint_32_V_V_TREADY(grp_write_byte_array_fu_624_stream_ap_uint_32_V_V_TREADY)
+    .ap_start(grp_write_byte_array_fu_628_ap_start),
+    .ap_done(grp_write_byte_array_fu_628_ap_done),
+    .ap_idle(grp_write_byte_array_fu_628_ap_idle),
+    .ap_ready(grp_write_byte_array_fu_628_ap_ready),
+    .stream_ap_uint_32_V_V_TDATA(grp_write_byte_array_fu_628_stream_ap_uint_32_V_V_TDATA),
+    .stream_ap_uint_32_V_V_TVALID(grp_write_byte_array_fu_628_stream_ap_uint_32_V_V_TVALID),
+    .stream_ap_uint_32_V_V_TREADY(grp_write_byte_array_fu_628_stream_ap_uint_32_V_V_TREADY)
 );
 
-write_to_tcp grp_write_to_tcp_fu_632(
+write_to_tcp grp_write_to_tcp_fu_636(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
-    .ap_start(grp_write_to_tcp_fu_632_ap_start),
-    .ap_done(grp_write_to_tcp_fu_632_ap_done),
-    .ap_idle(grp_write_to_tcp_fu_632_ap_idle),
-    .ap_ready(grp_write_to_tcp_fu_632_ap_ready),
-    .iscsi_pdu_header_buffer_V_address0(grp_write_to_tcp_fu_632_iscsi_pdu_header_buffer_V_address0),
-    .iscsi_pdu_header_buffer_V_ce0(grp_write_to_tcp_fu_632_iscsi_pdu_header_buffer_V_ce0),
+    .ap_start(grp_write_to_tcp_fu_636_ap_start),
+    .ap_done(grp_write_to_tcp_fu_636_ap_done),
+    .ap_idle(grp_write_to_tcp_fu_636_ap_idle),
+    .ap_ready(grp_write_to_tcp_fu_636_ap_ready),
+    .iscsi_pdu_header_buffer_V_address0(grp_write_to_tcp_fu_636_iscsi_pdu_header_buffer_V_address0),
+    .iscsi_pdu_header_buffer_V_ce0(grp_write_to_tcp_fu_636_iscsi_pdu_header_buffer_V_ce0),
     .iscsi_pdu_header_buffer_V_q0(response_buffer_V_q0),
-    .iscsi_pdu_header_buffer_V_address1(grp_write_to_tcp_fu_632_iscsi_pdu_header_buffer_V_address1),
-    .iscsi_pdu_header_buffer_V_ce1(grp_write_to_tcp_fu_632_iscsi_pdu_header_buffer_V_ce1),
+    .iscsi_pdu_header_buffer_V_address1(grp_write_to_tcp_fu_636_iscsi_pdu_header_buffer_V_address1),
+    .iscsi_pdu_header_buffer_V_ce1(grp_write_to_tcp_fu_636_iscsi_pdu_header_buffer_V_ce1),
     .iscsi_pdu_header_buffer_V_q1(response_buffer_V_q1),
-    .out_stream_V_V_TDATA(grp_write_to_tcp_fu_632_out_stream_V_V_TDATA),
-    .out_stream_V_V_TVALID(grp_write_to_tcp_fu_632_out_stream_V_V_TVALID),
-    .out_stream_V_V_TREADY(grp_write_to_tcp_fu_632_out_stream_V_V_TREADY)
+    .out_stream_V_V_TDATA(grp_write_to_tcp_fu_636_out_stream_V_V_TDATA),
+    .out_stream_V_V_TVALID(grp_write_to_tcp_fu_636_out_stream_V_V_TVALID),
+    .out_stream_V_V_TREADY(grp_write_to_tcp_fu_636_out_stream_V_V_TREADY)
 );
 
 always @ (posedge ap_clk) begin
@@ -418,206 +424,206 @@ end
 
 always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
-        grp_read_from_tcp_1_fu_581_ap_start_reg <= 1'b0;
+        grp_read_from_tcp_1_fu_585_ap_start_reg <= 1'b0;
     end else begin
         if ((1'b1 == ap_CS_fsm_state3)) begin
-            grp_read_from_tcp_1_fu_581_ap_start_reg <= 1'b1;
-        end else if ((grp_read_from_tcp_1_fu_581_ap_ready == 1'b1)) begin
-            grp_read_from_tcp_1_fu_581_ap_start_reg <= 1'b0;
+            grp_read_from_tcp_1_fu_585_ap_start_reg <= 1'b1;
+        end else if ((grp_read_from_tcp_1_fu_585_ap_ready == 1'b1)) begin
+            grp_read_from_tcp_1_fu_585_ap_start_reg <= 1'b0;
         end
     end
 end
 
 always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
-        grp_write_byte_array_fu_624_ap_start_reg <= 1'b0;
+        grp_write_byte_array_fu_628_ap_start_reg <= 1'b0;
     end else begin
         if ((1'b1 == ap_CS_fsm_state24)) begin
-            grp_write_byte_array_fu_624_ap_start_reg <= 1'b1;
-        end else if ((grp_write_byte_array_fu_624_ap_ready == 1'b1)) begin
-            grp_write_byte_array_fu_624_ap_start_reg <= 1'b0;
+            grp_write_byte_array_fu_628_ap_start_reg <= 1'b1;
+        end else if ((grp_write_byte_array_fu_628_ap_ready == 1'b1)) begin
+            grp_write_byte_array_fu_628_ap_start_reg <= 1'b0;
         end
     end
 end
 
 always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
-        grp_write_to_tcp_fu_632_ap_start_reg <= 1'b0;
+        grp_write_to_tcp_fu_636_ap_start_reg <= 1'b0;
     end else begin
         if ((1'b1 == ap_CS_fsm_state22)) begin
-            grp_write_to_tcp_fu_632_ap_start_reg <= 1'b1;
-        end else if ((grp_write_to_tcp_fu_632_ap_ready == 1'b1)) begin
-            grp_write_to_tcp_fu_632_ap_start_reg <= 1'b0;
+            grp_write_to_tcp_fu_636_ap_start_reg <= 1'b1;
+        end else if ((grp_write_to_tcp_fu_636_ap_ready == 1'b1)) begin
+            grp_write_to_tcp_fu_636_ap_start_reg <= 1'b0;
         end
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((1'b1 == ap_CS_fsm_state6) & (tmp_fu_759_p3 == 1'd0))) begin
-        i_0_i_i6_reg_558 <= 31'd0;
-    end else if (((1'b1 == ap_CS_fsm_state8) & (icmp_ln114_fu_820_p2 == 1'd0))) begin
-        i_0_i_i6_reg_558 <= i_8_reg_1043;
+    if (((1'b1 == ap_CS_fsm_state6) & (tmp_fu_763_p3 == 1'd0))) begin
+        i_0_i_i6_reg_562 <= 31'd0;
+    end else if (((1'b1 == ap_CS_fsm_state8) & (icmp_ln114_fu_824_p2 == 1'd0))) begin
+        i_0_i_i6_reg_562 <= i_8_reg_1071;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((1'b1 == ap_CS_fsm_state4) & (grp_read_from_tcp_1_fu_581_ap_done == 1'b1))) begin
-        i_0_i_i_reg_547 <= 6'd0;
-    end else if (((1'b1 == ap_CS_fsm_state5) & (icmp_ln35_fu_742_p2 == 1'd0))) begin
-        i_0_i_i_reg_547 <= i_fu_748_p2;
+    if (((1'b1 == ap_CS_fsm_state4) & (grp_read_from_tcp_1_fu_585_ap_done == 1'b1))) begin
+        i_0_i_i_reg_551 <= 6'd0;
+    end else if (((1'b1 == ap_CS_fsm_state5) & (icmp_ln35_fu_746_p2 == 1'd0))) begin
+        i_0_i_i_reg_551 <= i_fu_752_p2;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((1'b1 == ap_CS_fsm_state6) & (tmp_fu_759_p3 == 1'd0))) begin
-        idx_0_i_i_reg_569 <= 32'd0;
-    end else if (((1'b1 == ap_CS_fsm_state8) & (icmp_ln114_fu_820_p2 == 1'd0))) begin
-        idx_0_i_i_reg_569 <= idx_fu_812_p3;
-    end
-end
-
-always @ (posedge ap_clk) begin
-    if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
-        parameter_data_pdu_i_1_fu_190 <= 32'd1;
-    end else if (((grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_data_pdu_in_order_o_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
-        parameter_data_pdu_i_1_fu_190 <= grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_data_pdu_in_order_o;
+    if (((1'b1 == ap_CS_fsm_state6) & (tmp_fu_763_p3 == 1'd0))) begin
+        idx_0_i_i_reg_573 <= 32'd0;
+    end else if (((1'b1 == ap_CS_fsm_state8) & (icmp_ln114_fu_824_p2 == 1'd0))) begin
+        idx_0_i_i_reg_573 <= idx_fu_816_p3;
     end
 end
 
 always @ (posedge ap_clk) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
-        parameter_data_seque_1_fu_194 <= 32'd1;
-    end else if (((grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_data_sequence_in_order_o_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
-        parameter_data_seque_1_fu_194 <= grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_data_sequence_in_order_o;
+        parameter_data_pdu_i_1_fu_194 <= 32'd1;
+    end else if (((grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_data_pdu_in_order_o_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
+        parameter_data_pdu_i_1_fu_194 <= grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_data_pdu_in_order_o;
     end
 end
 
 always @ (posedge ap_clk) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
-        parameter_default_ti_2_fu_198 <= 32'd10;
-    end else if (((grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_default_time_2_wait_o_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
-        parameter_default_ti_2_fu_198 <= grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_default_time_2_wait_o;
+        parameter_data_seque_1_fu_198 <= 32'd1;
+    end else if (((grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_data_sequence_in_order_o_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
+        parameter_data_seque_1_fu_198 <= grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_data_sequence_in_order_o;
     end
 end
 
 always @ (posedge ap_clk) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
-        parameter_default_ti_3_fu_202 <= 32'd10;
-    end else if (((grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_default_time_2_retain_o_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
-        parameter_default_ti_3_fu_202 <= grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_default_time_2_retain_o;
+        parameter_default_ti_2_fu_202 <= 32'd10;
+    end else if (((grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_default_time_2_wait_o_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
+        parameter_default_ti_2_fu_202 <= grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_default_time_2_wait_o;
     end
 end
 
 always @ (posedge ap_clk) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
-        parameter_first_burs_1_fu_186 <= 32'd8192;
-    end else if (((grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_first_burst_length_o_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
-        parameter_first_burs_1_fu_186 <= grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_first_burst_length_o;
+        parameter_default_ti_3_fu_206 <= 32'd10;
+    end else if (((grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_default_time_2_retain_o_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
+        parameter_default_ti_3_fu_206 <= grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_default_time_2_retain_o;
     end
 end
 
 always @ (posedge ap_clk) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
-        parameter_immediate_1_fu_178 <= 32'd1;
-    end else if (((grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_immediate_data_o_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
-        parameter_immediate_1_fu_178 <= grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_immediate_data_o;
+        parameter_first_burs_1_fu_190 <= 32'd8192;
+    end else if (((grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_first_burst_length_o_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
+        parameter_first_burs_1_fu_190 <= grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_first_burst_length_o;
     end
 end
 
 always @ (posedge ap_clk) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
-        parameter_initial_r2_1_fu_174 <= 32'd1;
-    end else if (((grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_initial_r2t_o_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
-        parameter_initial_r2_1_fu_174 <= grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_initial_r2t_o;
+        parameter_immediate_1_fu_182 <= 32'd1;
+    end else if (((grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_immediate_data_o_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
+        parameter_immediate_1_fu_182 <= grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_immediate_data_o;
     end
 end
 
 always @ (posedge ap_clk) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
-        parameter_max_burst_1_fu_182 <= 32'd8192;
-    end else if (((grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_max_burst_length_o_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
-        parameter_max_burst_1_fu_182 <= grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_max_burst_length_o;
+        parameter_initial_r2_1_fu_178 <= 32'd1;
+    end else if (((grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_initial_r2t_o_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
+        parameter_initial_r2_1_fu_178 <= grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_initial_r2t_o;
     end
 end
 
 always @ (posedge ap_clk) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
-        parameter_max_connec_1_fu_170 <= 32'd1;
-    end else if (((grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_max_connections_o_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
-        parameter_max_connec_1_fu_170 <= grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_max_connections_o;
+        parameter_max_burst_1_fu_186 <= 32'd8192;
+    end else if (((grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_max_burst_length_o_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
+        parameter_max_burst_1_fu_186 <= grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_max_burst_length_o;
     end
 end
 
 always @ (posedge ap_clk) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
-        parameter_max_outsta_1_fu_206 <= 32'd10;
-    end else if (((grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_max_outstanding_r2t_o_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
-        parameter_max_outsta_1_fu_206 <= grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_max_outstanding_r2t_o;
+        parameter_max_connec_1_fu_174 <= 32'd1;
+    end else if (((grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_max_connections_o_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
+        parameter_max_connec_1_fu_174 <= grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_max_connections_o;
     end
 end
 
 always @ (posedge ap_clk) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
-        parameter_max_receiv_1_fu_166 <= 32'd8192;
-    end else if (((grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_max_receive_data_segment_length_o_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
-        parameter_max_receiv_1_fu_166 <= grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_max_receive_data_segment_length_o;
+        parameter_max_outsta_1_fu_210 <= 32'd10;
+    end else if (((grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_max_outstanding_r2t_o_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
+        parameter_max_outsta_1_fu_210 <= grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_max_outstanding_r2t_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
+        parameter_max_receiv_1_fu_170 <= 32'd8192;
+    end else if (((grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_max_receive_data_segment_length_o_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
+        parameter_max_receiv_1_fu_170 <= grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_max_receive_data_segment_length_o;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state2)) begin
-        header_buffer_V_load_reg_981 <= header_buffer_V_q0;
+        header_buffer_V_load_reg_1009 <= header_buffer_V_q0;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state7)) begin
-        i_8_reg_1043 <= i_8_fu_780_p2;
-        icmp_ln112_reg_1039 <= icmp_ln112_fu_774_p2;
+        i_8_reg_1071 <= i_8_fu_784_p2;
+        icmp_ln112_reg_1067 <= icmp_ln112_fu_778_p2;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state14)) begin
-        p_Result_6_i6_i_reg_1107 <= {{p_Val2_4_reg_1006[23:16]}};
-        p_Result_7_i8_i_reg_1112 <= {{p_Val2_4_reg_1006[15:8]}};
-        p_Result_i4_i_reg_1102 <= {{p_Val2_4_reg_1006[31:24]}};
-        trunc_ln647_1_reg_1117 <= trunc_ln647_1_fu_885_p1;
+        p_Result_6_i6_i_reg_1135 <= {{p_Val2_4_reg_1034[23:16]}};
+        p_Result_7_i8_i_reg_1140 <= {{p_Val2_4_reg_1034[15:8]}};
+        p_Result_i4_i_reg_1130 <= {{p_Val2_4_reg_1034[31:24]}};
+        trunc_ln647_1_reg_1145 <= trunc_ln647_1_fu_913_p1;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state12)) begin
-        p_Result_6_i_i1_reg_1087 <= {{p_Val2_3_reg_1014[23:16]}};
-        p_Result_7_i_i1_reg_1092 <= {{p_Val2_3_reg_1014[15:8]}};
-        trunc_ln647_reg_1097 <= trunc_ln647_fu_854_p1;
+        p_Result_6_i_i1_reg_1115 <= {{p_Val2_3_reg_1042[23:16]}};
+        p_Result_7_i_i1_reg_1120 <= {{p_Val2_3_reg_1042[15:8]}};
+        trunc_ln647_reg_1125 <= trunc_ln647_fu_882_p1;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state9)) begin
-        p_Val2_1_reg_1077 <= response_buffer_V_q0;
-        p_Val2_2_reg_1082 <= response_buffer_V_q1;
+        p_Val2_1_reg_1105 <= response_buffer_V_q0;
+        p_Val2_2_reg_1110 <= response_buffer_V_q1;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((1'b1 == ap_CS_fsm_state4) & (grp_read_from_tcp_1_fu_581_ap_done == 1'b1))) begin
-        p_Val2_3_reg_1014 <= p_Val2_3_fu_730_p2;
-        p_Val2_4_reg_1006 <= p_Val2_4_fu_708_p2;
-        parameter_data_lengt_reg_1001 <= grp_read_from_tcp_1_fu_581_ap_return;
+    if (((1'b1 == ap_CS_fsm_state4) & (grp_read_from_tcp_1_fu_585_ap_done == 1'b1))) begin
+        p_Val2_3_reg_1042 <= p_Val2_3_fu_734_p2;
+        p_Val2_4_reg_1034 <= p_Val2_4_fu_712_p2;
+        parameter_data_lengt_reg_1029 <= grp_read_from_tcp_1_fu_585_ap_return;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state3)) begin
-        tmp_1_reg_996 <= tmp_1_fu_694_p4;
+        tmp_1_reg_1024 <= tmp_1_fu_698_p4;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state6)) begin
-        tmp_reg_1035 <= header_buffer_V_q1[32'd6];
+        tmp_reg_1063 <= header_buffer_V_q1[32'd6];
     end
 end
 
@@ -690,15 +696,17 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state4) & (grp_read_from_tcp_1_fu_581_ap_done == 1'b1))) begin
-        instance_exp_cmd_sn_o = p_Val2_4_fu_708_p2;
+    if (((1'b1 == ap_CS_fsm_state8) & (icmp_ln114_fu_824_p2 == 1'd1))) begin
+        instance_exp_cmd_sn_o = 32'd0;
+    end else if (((1'b1 == ap_CS_fsm_state4) & (grp_read_from_tcp_1_fu_585_ap_done == 1'b1))) begin
+        instance_exp_cmd_sn_o = p_Val2_4_fu_712_p2;
     end else begin
         instance_exp_cmd_sn_o = instance_exp_cmd_sn_i;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state4) & (grp_read_from_tcp_1_fu_581_ap_done == 1'b1))) begin
+    if ((((1'b1 == ap_CS_fsm_state8) & (icmp_ln114_fu_824_p2 == 1'd1)) | ((1'b1 == ap_CS_fsm_state4) & (grp_read_from_tcp_1_fu_585_ap_done == 1'b1)))) begin
         instance_exp_cmd_sn_o_ap_vld = 1'b1;
     end else begin
         instance_exp_cmd_sn_o_ap_vld = 1'b0;
@@ -706,7 +714,25 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state4) & (grp_read_from_tcp_1_fu_581_ap_done == 1'b1))) begin
+    if (((1'b1 == ap_CS_fsm_state8) & (icmp_ln114_fu_824_p2 == 1'd1))) begin
+        instance_initialized_ap_vld = 1'b1;
+    end else begin
+        instance_initialized_ap_vld = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (((1'b1 == ap_CS_fsm_state8) & (icmp_ln114_fu_824_p2 == 1'd1))) begin
+        instance_max_cmd_sn = 32'd0;
+    end else if (((1'b1 == ap_CS_fsm_state4) & (grp_read_from_tcp_1_fu_585_ap_done == 1'b1))) begin
+        instance_max_cmd_sn = p_Val2_4_fu_712_p2;
+    end else begin
+        instance_max_cmd_sn = 'bx;
+    end
+end
+
+always @ (*) begin
+    if ((((1'b1 == ap_CS_fsm_state8) & (icmp_ln114_fu_824_p2 == 1'd1)) | ((1'b1 == ap_CS_fsm_state4) & (grp_read_from_tcp_1_fu_585_ap_done == 1'b1)))) begin
         instance_max_cmd_sn_ap_vld = 1'b1;
     end else begin
         instance_max_cmd_sn_ap_vld = 1'b0;
@@ -714,15 +740,17 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state4) & (grp_read_from_tcp_1_fu_581_ap_done == 1'b1))) begin
-        instance_stat_sn_o = p_Val2_3_fu_730_p2;
+    if (((1'b1 == ap_CS_fsm_state8) & (icmp_ln114_fu_824_p2 == 1'd1))) begin
+        instance_stat_sn_o = 32'd0;
+    end else if (((1'b1 == ap_CS_fsm_state4) & (grp_read_from_tcp_1_fu_585_ap_done == 1'b1))) begin
+        instance_stat_sn_o = p_Val2_3_fu_734_p2;
     end else begin
         instance_stat_sn_o = instance_stat_sn_i;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state4) & (grp_read_from_tcp_1_fu_581_ap_done == 1'b1))) begin
+    if ((((1'b1 == ap_CS_fsm_state8) & (icmp_ln114_fu_824_p2 == 1'd1)) | ((1'b1 == ap_CS_fsm_state4) & (grp_read_from_tcp_1_fu_585_ap_done == 1'b1)))) begin
         instance_stat_sn_o_ap_vld = 1'b1;
     end else begin
         instance_stat_sn_o_ap_vld = 1'b0;
@@ -739,9 +767,9 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state7)) begin
-        parameter_data_address0 = zext_ln113_fu_786_p1;
+        parameter_data_address0 = zext_ln113_fu_790_p1;
     end else if ((1'b1 == ap_CS_fsm_state4)) begin
-        parameter_data_address0 = grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_data_address0;
+        parameter_data_address0 = grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_data_address0;
     end else begin
         parameter_data_address0 = 'bx;
     end
@@ -751,7 +779,7 @@ always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state7)) begin
         parameter_data_ce0 = 1'b1;
     end else if ((1'b1 == ap_CS_fsm_state4)) begin
-        parameter_data_ce0 = grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_data_ce0;
+        parameter_data_ce0 = grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_data_ce0;
     end else begin
         parameter_data_ce0 = 1'b0;
     end
@@ -759,7 +787,7 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state4)) begin
-        parameter_data_ce1 = grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_data_ce1;
+        parameter_data_ce1 = grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_data_ce1;
     end else begin
         parameter_data_ce1 = 1'b0;
     end
@@ -767,7 +795,7 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state4)) begin
-        parameter_data_we0 = grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_data_we0;
+        parameter_data_we0 = grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_data_we0;
     end else begin
         parameter_data_we0 = 1'b0;
     end
@@ -775,7 +803,7 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state4)) begin
-        parameter_data_we1 = grp_read_from_tcp_1_fu_581_iscsi_connection_parameter_data_we1;
+        parameter_data_we1 = grp_read_from_tcp_1_fu_585_iscsi_connection_parameter_data_we1;
     end else begin
         parameter_data_we1 = 1'b0;
     end
@@ -809,9 +837,9 @@ always @ (*) begin
     end else if ((1'b1 == ap_CS_fsm_state8)) begin
         response_buffer_V_address0 = 64'd0;
     end else if ((1'b1 == ap_CS_fsm_state5)) begin
-        response_buffer_V_address0 = zext_ln35_fu_754_p1;
+        response_buffer_V_address0 = zext_ln35_fu_758_p1;
     end else if ((1'b1 == ap_CS_fsm_state23)) begin
-        response_buffer_V_address0 = grp_write_to_tcp_fu_632_iscsi_pdu_header_buffer_V_address0;
+        response_buffer_V_address0 = grp_write_to_tcp_fu_636_iscsi_pdu_header_buffer_V_address0;
     end else begin
         response_buffer_V_address0 = 'bx;
     end
@@ -823,7 +851,7 @@ always @ (*) begin
     end else if ((1'b1 == ap_CS_fsm_state20)) begin
         response_buffer_V_address1 = 64'd17;
     end else if ((1'b1 == ap_CS_fsm_state19)) begin
-        response_buffer_V_address1 = response_buffer_V_ad_2_reg_1072;
+        response_buffer_V_address1 = response_buffer_V_ad_2_reg_1100;
     end else if ((1'b1 == ap_CS_fsm_state18)) begin
         response_buffer_V_address1 = 64'd0;
     end else if ((1'b1 == ap_CS_fsm_state17)) begin
@@ -847,7 +875,7 @@ always @ (*) begin
     end else if ((1'b1 == ap_CS_fsm_state8)) begin
         response_buffer_V_address1 = 64'd1;
     end else if ((1'b1 == ap_CS_fsm_state23)) begin
-        response_buffer_V_address1 = grp_write_to_tcp_fu_632_iscsi_pdu_header_buffer_V_address1;
+        response_buffer_V_address1 = grp_write_to_tcp_fu_636_iscsi_pdu_header_buffer_V_address1;
     end else begin
         response_buffer_V_address1 = 'bx;
     end
@@ -857,7 +885,7 @@ always @ (*) begin
     if (((1'b1 == ap_CS_fsm_state21) | (1'b1 == ap_CS_fsm_state18) | (1'b1 == ap_CS_fsm_state17) | (1'b1 == ap_CS_fsm_state16) | (1'b1 == ap_CS_fsm_state15) | (1'b1 == ap_CS_fsm_state13) | (1'b1 == ap_CS_fsm_state11) | (1'b1 == ap_CS_fsm_state10) | (1'b1 == ap_CS_fsm_state20) | (1'b1 == ap_CS_fsm_state14) | (1'b1 == ap_CS_fsm_state12) | (1'b1 == ap_CS_fsm_state9) | (1'b1 == ap_CS_fsm_state8) | (1'b1 == ap_CS_fsm_state5))) begin
         response_buffer_V_ce0 = 1'b1;
     end else if ((1'b1 == ap_CS_fsm_state23)) begin
-        response_buffer_V_ce0 = grp_write_to_tcp_fu_632_iscsi_pdu_header_buffer_V_ce0;
+        response_buffer_V_ce0 = grp_write_to_tcp_fu_636_iscsi_pdu_header_buffer_V_ce0;
     end else begin
         response_buffer_V_ce0 = 1'b0;
     end
@@ -867,7 +895,7 @@ always @ (*) begin
     if (((1'b1 == ap_CS_fsm_state21) | (1'b1 == ap_CS_fsm_state18) | (1'b1 == ap_CS_fsm_state17) | (1'b1 == ap_CS_fsm_state16) | (1'b1 == ap_CS_fsm_state15) | (1'b1 == ap_CS_fsm_state13) | (1'b1 == ap_CS_fsm_state11) | (1'b1 == ap_CS_fsm_state10) | (1'b1 == ap_CS_fsm_state20) | (1'b1 == ap_CS_fsm_state19) | (1'b1 == ap_CS_fsm_state14) | (1'b1 == ap_CS_fsm_state12) | (1'b1 == ap_CS_fsm_state9) | (1'b1 == ap_CS_fsm_state8))) begin
         response_buffer_V_ce1 = 1'b1;
     end else if ((1'b1 == ap_CS_fsm_state23)) begin
-        response_buffer_V_ce1 = grp_write_to_tcp_fu_632_iscsi_pdu_header_buffer_V_ce1;
+        response_buffer_V_ce1 = grp_write_to_tcp_fu_636_iscsi_pdu_header_buffer_V_ce1;
     end else begin
         response_buffer_V_ce1 = 1'b0;
     end
@@ -877,17 +905,17 @@ always @ (*) begin
     if (((1'b1 == ap_CS_fsm_state21) | (1'b1 == ap_CS_fsm_state20))) begin
         response_buffer_V_d0 = header_buffer_V_q0;
     end else if ((1'b1 == ap_CS_fsm_state18)) begin
-        response_buffer_V_d0 = trunc_ln647_1_reg_1117;
+        response_buffer_V_d0 = trunc_ln647_1_reg_1145;
     end else if ((1'b1 == ap_CS_fsm_state16)) begin
-        response_buffer_V_d0 = p_Result_i4_i_reg_1102;
+        response_buffer_V_d0 = p_Result_i4_i_reg_1130;
     end else if (((1'b1 == ap_CS_fsm_state17) | (1'b1 == ap_CS_fsm_state15))) begin
-        response_buffer_V_d0 = p_Result_7_i8_i_reg_1112;
+        response_buffer_V_d0 = p_Result_7_i8_i_reg_1140;
     end else if ((1'b1 == ap_CS_fsm_state14)) begin
-        response_buffer_V_d0 = {{p_Val2_4_reg_1006[31:24]}};
+        response_buffer_V_d0 = {{p_Val2_4_reg_1034[31:24]}};
     end else if ((1'b1 == ap_CS_fsm_state13)) begin
-        response_buffer_V_d0 = p_Result_7_i_i1_reg_1092;
+        response_buffer_V_d0 = p_Result_7_i_i1_reg_1120;
     end else if ((1'b1 == ap_CS_fsm_state12)) begin
-        response_buffer_V_d0 = {{p_Val2_3_reg_1014[31:24]}};
+        response_buffer_V_d0 = {{p_Val2_3_reg_1042[31:24]}};
     end else if (((1'b1 == ap_CS_fsm_state11) | (1'b1 == ap_CS_fsm_state10))) begin
         response_buffer_V_d0 = 8'd255;
     end else if (((1'b1 == ap_CS_fsm_state9) | (1'b1 == ap_CS_fsm_state5))) begin
@@ -901,17 +929,17 @@ always @ (*) begin
     if (((1'b1 == ap_CS_fsm_state21) | (1'b1 == ap_CS_fsm_state20))) begin
         response_buffer_V_d1 = header_buffer_V_q1;
     end else if ((1'b1 == ap_CS_fsm_state19)) begin
-        response_buffer_V_d1 = p_Result_1_fu_900_p4;
+        response_buffer_V_d1 = p_Result_1_fu_928_p4;
     end else if ((1'b1 == ap_CS_fsm_state18)) begin
-        response_buffer_V_d1 = p_Result_s_fu_888_p5;
+        response_buffer_V_d1 = p_Result_s_fu_916_p5;
     end else if ((1'b1 == ap_CS_fsm_state16)) begin
-        response_buffer_V_d1 = trunc_ln647_1_reg_1117;
+        response_buffer_V_d1 = trunc_ln647_1_reg_1145;
     end else if (((1'b1 == ap_CS_fsm_state17) | (1'b1 == ap_CS_fsm_state15))) begin
-        response_buffer_V_d1 = p_Result_6_i6_i_reg_1107;
+        response_buffer_V_d1 = p_Result_6_i6_i_reg_1135;
     end else if ((1'b1 == ap_CS_fsm_state14)) begin
-        response_buffer_V_d1 = trunc_ln647_reg_1097;
+        response_buffer_V_d1 = trunc_ln647_reg_1125;
     end else if ((1'b1 == ap_CS_fsm_state13)) begin
-        response_buffer_V_d1 = p_Result_6_i_i1_reg_1087;
+        response_buffer_V_d1 = p_Result_6_i_i1_reg_1115;
     end else if (((1'b1 == ap_CS_fsm_state11) | (1'b1 == ap_CS_fsm_state12))) begin
         response_buffer_V_d1 = 8'd255;
     end else if ((1'b1 == ap_CS_fsm_state10)) begin
@@ -924,7 +952,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state21) | (1'b1 == ap_CS_fsm_state18) | (1'b1 == ap_CS_fsm_state17) | (1'b1 == ap_CS_fsm_state16) | (1'b1 == ap_CS_fsm_state15) | (1'b1 == ap_CS_fsm_state13) | (1'b1 == ap_CS_fsm_state11) | (1'b1 == ap_CS_fsm_state10) | (1'b1 == ap_CS_fsm_state20) | (1'b1 == ap_CS_fsm_state14) | (1'b1 == ap_CS_fsm_state12) | (1'b1 == ap_CS_fsm_state9) | ((1'b1 == ap_CS_fsm_state5) & (icmp_ln35_fu_742_p2 == 1'd0)))) begin
+    if (((1'b1 == ap_CS_fsm_state21) | (1'b1 == ap_CS_fsm_state18) | (1'b1 == ap_CS_fsm_state17) | (1'b1 == ap_CS_fsm_state16) | (1'b1 == ap_CS_fsm_state15) | (1'b1 == ap_CS_fsm_state13) | (1'b1 == ap_CS_fsm_state11) | (1'b1 == ap_CS_fsm_state10) | (1'b1 == ap_CS_fsm_state20) | (1'b1 == ap_CS_fsm_state14) | (1'b1 == ap_CS_fsm_state12) | (1'b1 == ap_CS_fsm_state9) | ((1'b1 == ap_CS_fsm_state5) & (icmp_ln35_fu_746_p2 == 1'd0)))) begin
         response_buffer_V_we0 = 1'b1;
     end else begin
         response_buffer_V_we0 = 1'b0;
@@ -941,17 +969,17 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state4)) begin
-        tcp_in_V_V_TREADY = grp_read_from_tcp_1_fu_581_tcp_in_V_V_TREADY;
+        tcp_in_V_V_TREADY = grp_read_from_tcp_1_fu_585_tcp_in_V_V_TREADY;
     end else begin
         tcp_in_V_V_TREADY = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state23) & (grp_write_to_tcp_fu_632_out_stream_V_V_TVALID == 1'b1))) begin
-        tcp_out_V_V_TDATA = grp_write_to_tcp_fu_632_out_stream_V_V_TDATA;
-    end else if (((1'b1 == ap_CS_fsm_state25) & (grp_write_byte_array_fu_624_stream_ap_uint_32_V_V_TVALID == 1'b1) & (tmp_reg_1035 == 1'd0) & (icmp_ln112_reg_1039 == 1'd1))) begin
-        tcp_out_V_V_TDATA = grp_write_byte_array_fu_624_stream_ap_uint_32_V_V_TDATA;
+    if (((1'b1 == ap_CS_fsm_state23) & (grp_write_to_tcp_fu_636_out_stream_V_V_TVALID == 1'b1))) begin
+        tcp_out_V_V_TDATA = grp_write_to_tcp_fu_636_out_stream_V_V_TDATA;
+    end else if (((1'b1 == ap_CS_fsm_state25) & (grp_write_byte_array_fu_628_stream_ap_uint_32_V_V_TVALID == 1'b1) & (tmp_reg_1063 == 1'd0) & (icmp_ln112_reg_1067 == 1'd1))) begin
+        tcp_out_V_V_TDATA = grp_write_byte_array_fu_628_stream_ap_uint_32_V_V_TDATA;
     end else begin
         tcp_out_V_V_TDATA = 'bx;
     end
@@ -959,9 +987,9 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state23)) begin
-        tcp_out_V_V_TVALID = grp_write_to_tcp_fu_632_out_stream_V_V_TVALID;
-    end else if (((1'b1 == ap_CS_fsm_state25) & (tmp_reg_1035 == 1'd0) & (icmp_ln112_reg_1039 == 1'd1))) begin
-        tcp_out_V_V_TVALID = grp_write_byte_array_fu_624_stream_ap_uint_32_V_V_TVALID;
+        tcp_out_V_V_TVALID = grp_write_to_tcp_fu_636_out_stream_V_V_TVALID;
+    end else if (((1'b1 == ap_CS_fsm_state25) & (tmp_reg_1063 == 1'd0) & (icmp_ln112_reg_1067 == 1'd1))) begin
+        tcp_out_V_V_TVALID = grp_write_byte_array_fu_628_stream_ap_uint_32_V_V_TVALID;
     end else begin
         tcp_out_V_V_TVALID = 1'b0;
     end
@@ -983,35 +1011,35 @@ always @ (*) begin
             ap_NS_fsm = ap_ST_fsm_state4;
         end
         ap_ST_fsm_state4 : begin
-            if (((1'b1 == ap_CS_fsm_state4) & (grp_read_from_tcp_1_fu_581_ap_done == 1'b1))) begin
+            if (((1'b1 == ap_CS_fsm_state4) & (grp_read_from_tcp_1_fu_585_ap_done == 1'b1))) begin
                 ap_NS_fsm = ap_ST_fsm_state5;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state4;
             end
         end
         ap_ST_fsm_state5 : begin
-            if (((1'b1 == ap_CS_fsm_state5) & (icmp_ln35_fu_742_p2 == 1'd0))) begin
+            if (((1'b1 == ap_CS_fsm_state5) & (icmp_ln35_fu_746_p2 == 1'd0))) begin
                 ap_NS_fsm = ap_ST_fsm_state5;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state6;
             end
         end
         ap_ST_fsm_state6 : begin
-            if (((1'b1 == ap_CS_fsm_state6) & (tmp_fu_759_p3 == 1'd0))) begin
+            if (((1'b1 == ap_CS_fsm_state6) & (tmp_fu_763_p3 == 1'd0))) begin
                 ap_NS_fsm = ap_ST_fsm_state7;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state25;
             end
         end
         ap_ST_fsm_state7 : begin
-            if (((1'b1 == ap_CS_fsm_state7) & (icmp_ln112_fu_774_p2 == 1'd0))) begin
+            if (((1'b1 == ap_CS_fsm_state7) & (icmp_ln112_fu_778_p2 == 1'd0))) begin
                 ap_NS_fsm = ap_ST_fsm_state25;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state8;
             end
         end
         ap_ST_fsm_state8 : begin
-            if (((1'b1 == ap_CS_fsm_state8) & (icmp_ln114_fu_820_p2 == 1'd1))) begin
+            if (((1'b1 == ap_CS_fsm_state8) & (icmp_ln114_fu_824_p2 == 1'd1))) begin
                 ap_NS_fsm = ap_ST_fsm_state9;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state7;
@@ -1060,7 +1088,7 @@ always @ (*) begin
             ap_NS_fsm = ap_ST_fsm_state23;
         end
         ap_ST_fsm_state23 : begin
-            if (((grp_write_to_tcp_fu_632_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state23))) begin
+            if (((grp_write_to_tcp_fu_636_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state23))) begin
                 ap_NS_fsm = ap_ST_fsm_state24;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state23;
@@ -1082,7 +1110,7 @@ always @ (*) begin
     endcase
 end
 
-assign add_ln113_fu_806_p2 = ($signed(idx_0_i_i_reg_569) + $signed(32'd1));
+assign add_ln113_fu_810_p2 = ($signed(idx_0_i_i_reg_573) + $signed(32'd1));
 
 assign ap_CS_fsm_state1 = ap_CS_fsm[32'd0];
 
@@ -1135,72 +1163,72 @@ assign ap_CS_fsm_state8 = ap_CS_fsm[32'd7];
 assign ap_CS_fsm_state9 = ap_CS_fsm[32'd8];
 
 always @ (*) begin
-    ap_block_state25_on_subcall_done = ((ap_predicate_op188_call_state25 == 1'b1) & (grp_write_byte_array_fu_624_ap_done == 1'b0));
+    ap_block_state25_on_subcall_done = ((ap_predicate_op192_call_state25 == 1'b1) & (grp_write_byte_array_fu_628_ap_done == 1'b0));
 end
 
 always @ (*) begin
-    ap_predicate_op188_call_state25 = ((tmp_reg_1035 == 1'd0) & (icmp_ln112_reg_1039 == 1'd1));
+    ap_predicate_op192_call_state25 = ((tmp_reg_1063 == 1'd0) & (icmp_ln112_reg_1067 == 1'd1));
 end
 
-assign grp_read_from_tcp_1_fu_581_ap_start = grp_read_from_tcp_1_fu_581_ap_start_reg;
+assign grp_read_from_tcp_1_fu_585_ap_start = grp_read_from_tcp_1_fu_585_ap_start_reg;
 
-assign grp_write_byte_array_fu_624_ap_start = grp_write_byte_array_fu_624_ap_start_reg;
+assign grp_write_byte_array_fu_628_ap_start = grp_write_byte_array_fu_628_ap_start_reg;
 
-assign grp_write_byte_array_fu_624_stream_ap_uint_32_V_V_TREADY = (tcp_out_V_V_TREADY & ap_CS_fsm_state25);
+assign grp_write_byte_array_fu_628_stream_ap_uint_32_V_V_TREADY = (tcp_out_V_V_TREADY & ap_CS_fsm_state25);
 
-assign grp_write_to_tcp_fu_632_ap_start = grp_write_to_tcp_fu_632_ap_start_reg;
+assign grp_write_to_tcp_fu_636_ap_start = grp_write_to_tcp_fu_636_ap_start_reg;
 
-assign grp_write_to_tcp_fu_632_out_stream_V_V_TREADY = (tcp_out_V_V_TREADY & ap_CS_fsm_state23);
+assign grp_write_to_tcp_fu_636_out_stream_V_V_TREADY = (tcp_out_V_V_TREADY & ap_CS_fsm_state23);
 
-assign i_8_fu_780_p2 = (i_0_i_i6_reg_558 + 31'd1);
+assign i_8_fu_784_p2 = (i_0_i_i6_reg_562 + 31'd1);
 
-assign i_fu_748_p2 = (i_0_i_i_reg_547 + 6'd1);
+assign i_fu_752_p2 = (i_0_i_i_reg_551 + 6'd1);
 
-assign icmp_ln112_fu_774_p2 = ((zext_ln112_fu_767_p1 < zext_ln112_2_fu_771_p1) ? 1'b1 : 1'b0);
+assign icmp_ln112_fu_778_p2 = ((zext_ln112_fu_771_p1 < zext_ln112_2_fu_775_p1) ? 1'b1 : 1'b0);
 
-assign icmp_ln113_fu_800_p2 = ((parameter_data_q0 == zext_ln113_4_fu_796_p1) ? 1'b1 : 1'b0);
+assign icmp_ln113_fu_804_p2 = ((parameter_data_q0 == zext_ln113_4_fu_800_p1) ? 1'b1 : 1'b0);
 
-assign icmp_ln114_fu_820_p2 = ((idx_fu_812_p3 == 32'd11) ? 1'b1 : 1'b0);
+assign icmp_ln114_fu_824_p2 = ((idx_fu_816_p3 == 32'd11) ? 1'b1 : 1'b0);
 
-assign icmp_ln35_fu_742_p2 = ((i_0_i_i_reg_547 == 6'd48) ? 1'b1 : 1'b0);
+assign icmp_ln35_fu_746_p2 = ((i_0_i_i_reg_551 == 6'd48) ? 1'b1 : 1'b0);
 
-assign idx_fu_812_p3 = ((icmp_ln113_fu_800_p2[0:0] === 1'b1) ? add_ln113_fu_806_p2 : 32'd0);
+assign idx_fu_816_p3 = ((icmp_ln113_fu_804_p2[0:0] === 1'b1) ? add_ln113_fu_810_p2 : 32'd0);
 
-assign instance_max_cmd_sn = (instance_exp_cmd_sn_i + 32'd1);
+assign instance_initialized = 1'd0;
 
 always @ (*) begin
-    p_Result_1_fu_900_p4 = p_Val2_2_reg_1082;
-    p_Result_1_fu_900_p4[32'd7] = |(1'd1);
+    p_Result_1_fu_928_p4 = p_Val2_2_reg_1110;
+    p_Result_1_fu_928_p4[32'd7] = |(1'd1);
 end
 
-assign p_Result_s_fu_888_p5 = {{p_Val2_1_reg_1077[7:6]}, {6'd36}};
+assign p_Result_s_fu_916_p5 = {{p_Val2_1_reg_1105[7:6]}, {6'd36}};
 
-assign p_Val2_3_fu_730_p2 = (instance_stat_sn_i + 32'd1);
+assign p_Val2_3_fu_734_p2 = (instance_stat_sn_i + 32'd1);
 
-assign p_Val2_4_fu_708_p2 = (instance_exp_cmd_sn_i + 32'd1);
+assign p_Val2_4_fu_712_p2 = (instance_exp_cmd_sn_i + 32'd1);
 
-assign p_str14_address0 = sext_ln113_fu_791_p1;
+assign p_str14_address0 = sext_ln113_fu_795_p1;
 
-assign response_buffer_V_ad_2_reg_1072 = 64'd1;
+assign response_buffer_V_ad_2_reg_1100 = 64'd1;
 
-assign sext_ln113_fu_791_p1 = idx_0_i_i_reg_569;
+assign sext_ln113_fu_795_p1 = idx_0_i_i_reg_573;
 
-assign tmp_1_fu_694_p4 = {{{header_buffer_V_load_reg_981}, {header_buffer_V_q0}}, {header_buffer_V_q1}};
+assign tmp_1_fu_698_p4 = {{{header_buffer_V_load_reg_1009}, {header_buffer_V_q0}}, {header_buffer_V_q1}};
 
-assign tmp_fu_759_p3 = header_buffer_V_q1[32'd6];
+assign tmp_fu_763_p3 = header_buffer_V_q1[32'd6];
 
-assign trunc_ln647_1_fu_885_p1 = p_Val2_4_reg_1006[7:0];
+assign trunc_ln647_1_fu_913_p1 = p_Val2_4_reg_1034[7:0];
 
-assign trunc_ln647_fu_854_p1 = p_Val2_3_reg_1014[7:0];
+assign trunc_ln647_fu_882_p1 = p_Val2_3_reg_1042[7:0];
 
-assign zext_ln112_2_fu_771_p1 = parameter_data_lengt_reg_1001;
+assign zext_ln112_2_fu_775_p1 = parameter_data_lengt_reg_1029;
 
-assign zext_ln112_fu_767_p1 = i_0_i_i6_reg_558;
+assign zext_ln112_fu_771_p1 = i_0_i_i6_reg_562;
 
-assign zext_ln113_4_fu_796_p1 = p_str14_q0;
+assign zext_ln113_4_fu_800_p1 = p_str14_q0;
 
-assign zext_ln113_fu_786_p1 = i_0_i_i6_reg_558;
+assign zext_ln113_fu_790_p1 = i_0_i_i6_reg_562;
 
-assign zext_ln35_fu_754_p1 = i_0_i_i_reg_547;
+assign zext_ln35_fu_758_p1 = i_0_i_i_reg_551;
 
 endmodule //iscsi_text

@@ -48,7 +48,7 @@
 
 
 // IP VLNV: xilinx.com:hls:iscsi_interface:1.0
-// IP Revision: 2003152019
+// IP Revision: 2004301319
 
 `timescale 1ns/1ps
 

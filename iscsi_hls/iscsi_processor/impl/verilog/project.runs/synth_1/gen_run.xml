@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1584278381">
+<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1588227597">
   <File Type="VDS-TIMINGSUMMARY" Name="bd_0_wrapper_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="bd_0_wrapper.dcp"/>
   <File Type="RDS-UTIL-PB" Name="bd_0_wrapper_utilization_synth.pb"/>

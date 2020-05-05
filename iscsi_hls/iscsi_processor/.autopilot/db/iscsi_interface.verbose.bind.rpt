@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'iscsi_interface'
 ================================================================
-* Date:           Sun Mar 15 20:18:07 2020
+* Date:           Thu Apr 30 11:08:00 2020
 
 * Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
 * Project:        iscsi_hls
@@ -93,8 +93,8 @@ ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%x = alloca i1, align 1"   --->   Op
 ST_1 : Operation 7 [1/1] (0.00ns)   --->   "store volatile i1 false, i1* %x, align 1" [iscsi_hls/iscsi_processor/src/iscsi_top_level.cpp:27]   --->   Operation 7 'store' <Predicate = true> <Delay = 0.00>
 
 State 2 <SV = 1> <Delay = 0.00>
-ST_2 : Operation 8 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %tcp_in_V_V), !map !159"   --->   Operation 8 'specbitsmap' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 9 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %tcp_out_V_V), !map !165"   --->   Operation 9 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 8 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %tcp_in_V_V), !map !178"   --->   Operation 8 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 9 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %tcp_out_V_V), !map !184"   --->   Operation 9 'specbitsmap' <Predicate = true> <Delay = 0.00>
 ST_2 : Operation 10 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([16 x i8]* @iscsi_interface_str) nounwind"   --->   Operation 10 'spectopmodule' <Predicate = true> <Delay = 0.00>
 ST_2 : Operation 11 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %tcp_in_V_V, [5 x i8]* @p_str, i32 1, i32 1, [5 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind" [iscsi_hls/iscsi_processor/src/iscsi_top_level.cpp:13]   --->   Operation 11 'specinterface' <Predicate = true> <Delay = 0.00>
 ST_2 : Operation 12 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %tcp_out_V_V, [5 x i8]* @p_str, i32 1, i32 1, [5 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind" [iscsi_hls/iscsi_processor/src/iscsi_top_level.cpp:14]   --->   Operation 12 'specinterface' <Predicate = true> <Delay = 0.00>
@@ -1184,11 +1184,11 @@ br_ln35            (br           ) [ 000000]
 |----------|------------------------|---------|---------|---------|---------|---------|---------|
 | Operation|     Functional Unit    |   BRAM  |  DSP48E |  Delay  |    FF   |   LUT   |   URAM  |
 |----------|------------------------|---------|---------|---------|---------|---------|---------|
-|   call   | grp_process_pdu_fu_144 |    8    |    16   | 364.784 |  11214  |  12293  |    0    |
+|   call   | grp_process_pdu_fu_144 |    8    |    16   | 364.784 |  11246  |  12293  |    0    |
 |----------|------------------------|---------|---------|---------|---------|---------|---------|
 |   write  |    grp_write_fu_136    |    0    |    0    |    0    |    0    |    0    |    0    |
 |----------|------------------------|---------|---------|---------|---------|---------|---------|
-|   Total  |                        |    8    |    16   | 364.784 |  11214  |  12293  |    0    |
+|   Total  |                        |    8    |    16   | 364.784 |  11246  |  12293  |    0    |
 |----------|------------------------|---------|---------|---------|---------|---------|---------|
 
 Memories:
@@ -1253,10 +1253,10 @@ Memories:
 +-----------+--------+--------+--------+--------+--------+--------+
 |           |  BRAM  | DSP48E |  Delay |   FF   |   LUT  |  URAM  |
 +-----------+--------+--------+--------+--------+--------+--------+
-|  Function |    8   |   16   |   364  |  11214 |  12293 |    0   |
+|  Function |    8   |   16   |   364  |  11246 |  12293 |    0   |
 |   Memory  |    4   |    -   |    -   |   333  |   73   |    0   |
 |Multiplexer|    -   |    -   |    -   |    -   |    -   |    -   |
 |  Register |    -   |    -   |    -   |    2   |    -   |    -   |
 +-----------+--------+--------+--------+--------+--------+--------+
-|   Total   |   12   |   16   |   364  |  11549 |  12366 |    0   |
+|   Total   |   12   |   16   |   364  |  11581 |  12366 |    0   |
 +-----------+--------+--------+--------+--------+--------+--------+

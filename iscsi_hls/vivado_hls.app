@@ -11,9 +11,11 @@
         <file name="iscsi_hls/iscsi_processor/src/iscsi_top_level.cpp" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
         <file name="iscsi_hls/iscsi_processor/src/iscsi_pdu/iscsi_text.hpp" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
         <file name="iscsi_hls/iscsi_processor/src/iscsi_pdu/iscsi_text.cpp" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
+        <file name="iscsi_hls/iscsi_processor/src/iscsi_target.hpp" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
         <file name="iscsi_hls/iscsi_processor/src/iscsi_session.hpp" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
         <file name="iscsi_hls/iscsi_processor/src/iscsi_session.cpp" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
         <file name="iscsi_hls/iscsi_processor/src/iscsi_pdu/iscsi_scsi_cmd.hpp" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
+        <file name="iscsi_hls/iscsi_processor/src/iscsi_pdu/iscsi_scsi_cmd.cpp" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
         <file name="iscsi_hls/iscsi_processor/src/iscsi_requests.hpp" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
         <file name="iscsi_hls/iscsi_processor/src/iscsi_pdu/iscsi_request.hpp" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
         <file name="iscsi_hls/iscsi_processor/src/iscsi_pdu/iscsi_nop_out.hpp" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
@@ -21,6 +23,8 @@
         <file name="iscsi_hls/iscsi_processor/src/iscsi_pdu/iscsi_logout.hpp" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
         <file name="iscsi_hls/iscsi_processor/src/iscsi_pdu/iscsi_login.hpp" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
         <file name="iscsi_hls/iscsi_processor/src/iscsi_pdu/iscsi_login.cpp" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
+        <file name="iscsi_hls/iscsi_processor/src/iscsi_pdu/iscsi_data_in.hpp" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
+        <file name="iscsi_hls/iscsi_processor/src/iscsi_pdu/iscsi_data_in.cpp" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
         <file name="iscsi_hls/iscsi_processor/src/iscsi_connection_parameter.hpp" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
         <file name="iscsi_hls/iscsi_processor/src/iscsi_connection_parameter.cpp" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
         <file name="iscsi_hls/iscsi_processor/src/iscsi_connection.hpp" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>

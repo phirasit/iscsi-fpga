@@ -1,13 +1,15 @@
 #include "iscsi_login.hpp"
 
-static enum LOGIN_STATUS setup_session(iscsi_session& session, const iscsi_login_pdu& header) {
-	iscsi_connection_parameter& parameter = iscsi_connection_parameter::get_instance();
+static enum LOGIN_STATUS setup_session(iscsi_session& session,
+		const iscsi_login_pdu& header) {
+	iscsi_connection_parameter& parameter =
+			iscsi_connection_parameter::get_instance();
 	if (header.tsih() == 0) {
 		session.tsih = 0x01;
 		if (parameter.has_session_type_discovery()) {
 			// discovery session
 			session.discovery = 1;
-		} else if (parameter.has_target_name()){
+		} else if (parameter.has_target_name()) {
 			// normal session
 			session.discovery = 0;
 			// TODO connect to target
@@ -23,12 +25,14 @@ static enum LOGIN_STATUS setup_session(iscsi_session& session, const iscsi_login
 	return SUCCESS;
 }
 
-void iscsi_login(const iscsi_pdu_header& pdu_header, data_stream& tcp_in, data_stream& tcp_out) {
-	iscsi_connection_parameter& parameter = iscsi_connection_parameter::get_instance();
+void iscsi_login(const iscsi_pdu_header& pdu_header, data_stream& tcp_in,
+		data_stream& tcp_out) {
+	iscsi_connection_parameter& parameter =
+			iscsi_connection_parameter::get_instance();
 	enum LOGIN_STATUS status = SUCCESS;
 	int response_length = 0;
 
-	iscsi_login_pdu header (pdu_header);
+	iscsi_login_pdu header(pdu_header);
 
 	// read parameter
 	parameter.read_from_tcp(tcp_in, header.data_segment_length());
@@ -49,7 +53,7 @@ void iscsi_login(const iscsi_pdu_header& pdu_header, data_stream& tcp_in, data_s
 
 	// setup connection
 	connection.initialized = true;
-	connection.advance_cmd_sn();
+	connection.advance_exp_cmd_sn();
 
 	// response login
 	// TODO change this for more authentication options
@@ -101,7 +105,8 @@ void iscsi_login(const iscsi_pdu_header& pdu_header, data_stream& tcp_in, data_s
 	// generate data
 	switch (header.csg()) {
 	case SECURITY_NEGOTIATION:
-		tcp_out.write_byte_array(authentication_response, authentication_strlen);
+		tcp_out.write_byte_array(authentication_response,
+				authentication_strlen);
 		break;
 	case LOGIN_OPERATIONAL:
 		parameter.write_to_tcp(tcp_out);
